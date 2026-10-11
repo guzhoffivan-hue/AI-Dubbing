@@ -104,13 +104,16 @@ class AdapterTests(unittest.TestCase):
 
     def test_translation_invariant_runs_before_dialogue_and_tts(self):
         for stage in ("dialogue", "tts"):
-            make_handler(stage, self.layout).precondition(None)
+            # the empty work dir fails the invariant loudly; the run is still logged
+            with self.assertRaises(invariants.InvariantError):
+                make_handler(stage, self.layout).precondition(None)
         self.assertEqual([c[0] for c in invariants.CALLS], ["translation", "translation"])
 
     def test_mix_invariant_gets_audio_seconds(self):
         self.layout.work_dir.mkdir(parents=True)
         (self.layout.work_dir/"audio_meta.json").write_text('{"duration": 1200.0}')
-        make_handler("mix", self.layout).precondition(None)
+        with self.assertRaises(invariants.InvariantError):
+            make_handler("mix", self.layout).precondition(None)
         self.assertEqual(invariants.CALLS[-1], ("tts", self.layout.work_dir, 1200.0))
 
     def test_inputs_resolve_source_video_and_work_files(self):

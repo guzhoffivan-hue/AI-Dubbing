@@ -19,6 +19,16 @@ from pathlib import Path
 
 DURATION_TOLERANCE = 0.05
 
+# Coverage thresholds, same values as scripts/integrity.py. A speech track that stops
+# early, or leaves a multi-minute hole, is exactly the stale-translation failure mode.
+MAX_LEADING_SILENCE_SECONDS = 120.0
+MAX_TAIL_SILENCE_SECONDS = 60.0
+MAX_INTERNAL_GAP_SECONDS = 60.0
+
+# Log of invariant runs: [("translation", work_dir), ("tts", work_dir, audio_seconds)].
+# Appended before the checks, so an attempted but failed validation is still visible.
+CALLS: list[tuple] = []
+
 
 class InvariantError(RuntimeError):
     """A cross-stage consistency rule was violated."""
@@ -76,6 +86,7 @@ def validate_translation(work_dir: Path) -> None:
     """The translation must cover the current segments, one line each."""
 
     work_dir = Path(work_dir)
+    CALLS.append(("translation", work_dir))
     segments_path = work_dir / "segments.json"
     translated_path = work_dir / "translated_segments.json"
 
@@ -124,6 +135,7 @@ def validate_tts_timeline(
     """Synthesized lines must match the dialogue timeline and fit inside the audio."""
 
     work_dir = Path(work_dir)
+    CALLS.append(("tts", work_dir, audio_seconds))
     dialogue_path = work_dir / "dialogue.json"
     manifest_path = work_dir / "tts_manifest.json"
 
@@ -184,3 +196,33 @@ def validate_tts_timeline(
             )
 
         previous_start = start
+
+    # Coverage: the speech track must actually span the audio, not just be ordered.
+    if manifest:
+        leading = _start(manifest[0])
+        if leading > MAX_LEADING_SILENCE_SECONDS:
+            raise InvariantError(
+                f"first synthesized line starts at {leading:.1f}s, more than "
+                f"{MAX_LEADING_SILENCE_SECONDS:.0f}s of leading silence"
+            )
+
+        last = manifest[-1]
+        last_end = _start(last) + wav_duration(Path(last.get("path", "")))
+
+        if audio_seconds is not None:
+            tail = audio_seconds - last_end
+            if tail > MAX_TAIL_SILENCE_SECONDS:
+                raise InvariantError(
+                    f"synthesized audio ends at {last_end:.1f}s but the audio is "
+                    f"{audio_seconds:.1f}s: {tail:.1f}s of trailing silence "
+                    "(an incomplete TTS manifest?)"
+                )
+
+        for entry in manifest[1:]:
+            gap = _start(entry) - previous_start
+            if gap > MAX_INTERNAL_GAP_SECONDS:
+                raise InvariantError(
+                    f"synthesized line {_identity(entry)} leaves a {gap:.1f}s hole "
+                    f"after {previous_start:.1f}s"
+                )
+            previous_start = _start(entry)

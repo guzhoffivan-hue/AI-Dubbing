@@ -87,7 +87,8 @@ def test_translation_rejects_empty_and_stale_lines(tmp_path):
 
 def test_tts_timeline_checks_duration_file_and_bounds(tmp_path):
     make_timeline(tmp_path)
-    validate_tts_timeline(tmp_path, audio_seconds=1200.0)
+    # 1.5 s of audio: the single 1 s line covers it (tail < MAX_TAIL_SILENCE)
+    validate_tts_timeline(tmp_path, audio_seconds=1.5)
 
     make_timeline(tmp_path, declared=5.0)
     with pytest.raises(InvariantError, match="declares"):

@@ -129,8 +129,24 @@ class Pipeline:
 
     @staticmethod
     def _parameters(
+        handler: StageHandler | None,
         context: PipelineContext | None,
     ) -> dict:
+        if (
+            handler is not None
+            and handler.parameters is not None
+            and context is not None
+        ):
+            try:
+                value = handler.parameters(context)
+            except Exception:
+                # A broken locator must never make a saved completion look valid:
+                # fall through to the whole-config hash, which changes on any edit.
+                value = None
+
+            if value is not None:
+                return dict(value)
+
         config = getattr(context, "config", None)
 
         if config is None:
@@ -180,7 +196,10 @@ class Pipeline:
                         handler,
                         context,
                     ),
-                    parameters=self._parameters(context),
+                    parameters=self._parameters(
+                        handler,
+                        context,
+                    ),
                 )
 
                 return ok
@@ -366,7 +385,7 @@ class Pipeline:
                     handler,
                     run_context,
                 ),
-                parameters=self._parameters(run_context),
+                parameters=self._parameters(handler, run_context),
             )
 
             if manifest is not None:

@@ -34,6 +34,11 @@ ArtifactLocator = Callable[["PipelineContext"], Union[Path, None]]
 # together with the artifact, so a change in any input invalidates the saved completion.
 InputLocator = Callable[["PipelineContext"], list[Path]]
 
+# Optional parameter locator: the settings that shape this stage's output. Their hash
+# goes into the artifact manifest, so a model or backend change invalidates exactly the
+# stages it affects instead of every completed stage.
+ParameterLocator = Callable[["PipelineContext"], Union[dict, None]]
+
 # Optional precondition: a cross-stage rule that must hold before the stage may run.
 # It raises to refuse the run (see app.invariants.InvariantError).
 Precondition = Callable[["PipelineContext"], None]
@@ -44,6 +49,7 @@ class StageHandler:
     run: StageRunner
     artifact: ArtifactLocator | None = None
     inputs: InputLocator | None = None
+    parameters: ParameterLocator | None = None
     precondition: Precondition | None = None
 
 

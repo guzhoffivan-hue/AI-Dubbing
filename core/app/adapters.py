@@ -64,12 +64,12 @@ ENGINE_STAGES: tuple[EngineStage, ...] = (
         "dialogue", "dialogue.py", "asr", "dialogue_segments.json",
         ("segments.json", "translated_segments.json"), "dialogue",
     ),
-    EngineStage("tts", "tts.py", "tts", "tts_manifest.json", ("dialogue.json",), "tts"),
-    EngineStage("sfx", "sfx.py", "asr", "sfx_timeline.json", ("translated_segments.json",), "sfx", ("timeline",)),
-    EngineStage("ambience", "ambience.py", "asr", "ambience.json", ("translated_segments.json",), "ambience"),
+    EngineStage("tts", "tts.py", "tts", "tts_manifest.json", ("dialogue.json", "speakers.json"), "tts"),
+    EngineStage("sfx", "sfx.py", "asr", "sfx_timeline.json", ("translation.json", "@sfx_index"), "sfx", ("timeline",)),
+    EngineStage("ambience", "ambience.py", "asr", "ambience.json", ("translation.json", "@sfx_index"), "ambience"),
     EngineStage(
         "mix", "mix_audio.py", "asr", "mix.wav",
-        ("audio.wav", "dialogue.json", "tts_manifest.json", "sfx_timeline.json", "ambience.json"),
+        ("audio_meta.json", "tts_manifest.json", "sfx_timeline.json", "ambience.json"),
         "audio_mix",
     ),
     EngineStage("mux", "mux.py", "asr", None, ("@input", "mix.wav"), "video_render"),
@@ -177,10 +177,15 @@ class EngineLayout:
         return self.output_file or (directory / f"{self.input_video.stem}_ru.mp4")
 
     def path_of(self, name: str) -> Path:
-        """Resolve an input name: '@input' is the source video, anything else the work dir."""
+        """Resolve an input name: '@input' is the source video, '@sfx_index' the
+        library-wide index (sfx.py and ambience.py read it from ROOT/work),
+        anything else a file of this project's work dir."""
 
         if name == "@input":
             return self.input_video
+
+        if name == "@sfx_index":
+            return self.root / "work" / "sfx_index.json"
 
         return self.work_dir / name
 
@@ -406,6 +411,7 @@ def make_handler(
         run=run,
         artifact=lambda _context: artifact,
         inputs=lambda _context: [layout.path_of(name) for name in spec.inputs],
+        parameters=lambda _context: layout.parameters_for(stage),
         precondition=check,
     )
 

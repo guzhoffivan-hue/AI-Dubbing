@@ -7,29 +7,55 @@ STAGE_DEPENDENCIES: dict[
 ] = {
     PipelineStage.ANALYSIS: [],
 
-    PipelineStage.TRANSCRIPTION: [
+    PipelineStage.EXTRACT_AUDIO: [
         PipelineStage.ANALYSIS,
+    ],
+
+    PipelineStage.TRANSCRIPTION: [
+        PipelineStage.EXTRACT_AUDIO,
+    ],
+
+    PipelineStage.ALIGNMENT: [
+        PipelineStage.TRANSCRIPTION,
     ],
 
     PipelineStage.DIARIZATION: [
         PipelineStage.TRANSCRIPTION,
     ],
 
-    PipelineStage.TRANSLATION: [
-        PipelineStage.TRANSCRIPTION,
+    PipelineStage.SEGMENT_MERGE: [
+        PipelineStage.ALIGNMENT,
         PipelineStage.DIARIZATION,
     ],
 
-    PipelineStage.VOICE_ASSIGNMENT: [
+    PipelineStage.TRANSLATION: [
+        PipelineStage.SEGMENT_MERGE,
+    ],
+
+    PipelineStage.DIALOGUE: [
         PipelineStage.TRANSLATION,
+    ],
+
+    PipelineStage.VOICE_ASSIGNMENT: [
+        PipelineStage.DIALOGUE,
     ],
 
     PipelineStage.TTS: [
         PipelineStage.VOICE_ASSIGNMENT,
     ],
 
+    PipelineStage.SFX: [
+        PipelineStage.TRANSLATION,
+    ],
+
+    PipelineStage.AMBIENCE: [
+        PipelineStage.TRANSLATION,
+    ],
+
     PipelineStage.AUDIO_MIX: [
         PipelineStage.TTS,
+        PipelineStage.SFX,
+        PipelineStage.AMBIENCE,
     ],
 
     PipelineStage.VIDEO_RENDER: [
