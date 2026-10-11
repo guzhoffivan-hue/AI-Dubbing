@@ -1,0 +1,7436 @@
+{
+  "language": "Chinese",
+  "speakers": [
+    "SPEAKER_00",
+    "SPEAKER_01"
+  ],
+  "lines": [
+    {
+      "line_id": "LINE_0001",
+      "speaker": "SPEAKER_00",
+      "start": 0.0,
+      "end": 1.6,
+      "text": "当成为九十六岁老道士的时候，"
+    },
+    {
+      "line_id": "LINE_0002",
+      "speaker": "SPEAKER_00",
+      "start": 1.68,
+      "end": 3.52,
+      "text": "系统告诉你还剩下十一月的寿命。"
+    },
+    {
+      "line_id": "LINE_0003",
+      "speaker": "SPEAKER_00",
+      "start": 3.6,
+      "end": 5.28,
+      "text": "不仅患有骨质疏松、气血两虚，"
+    },
+    {
+      "line_id": "LINE_0004",
+      "speaker": "SPEAKER_00",
+      "start": 5.36,
+      "end": 7.2,
+      "text": "甚至走起路来三条腿全打哆嗦。"
+    },
+    {
+      "line_id": "LINE_0005",
+      "speaker": "SPEAKER_00",
+      "start": 7.28,
+      "end": 8.88,
+      "text": "但还好绑定了的养生签到系统，"
+    },
+    {
+      "line_id": "LINE_0006",
+      "speaker": "SPEAKER_00",
+      "start": 8.96,
+      "end": 10.96,
+      "text": "可以通过健康生活方式积攒养生值。"
+    },
+    {
+      "line_id": "LINE_0007",
+      "speaker": "SPEAKER_00",
+      "start": 11.12,
+      "end": 12.64,
+      "text": "于是你直接开启了退休生活。"
+    },
+    {
+      "line_id": "LINE_0008",
+      "speaker": "SPEAKER_00",
+      "start": 12.72,
+      "end": 13.44,
+      "text": "三个月下来，"
+    },
+    {
+      "line_id": "LINE_0009",
+      "speaker": "SPEAKER_00",
+      "start": 13.52,
+      "end": 15.2,
+      "text": "寿元从十一月涨到了两年多，"
+    },
+    {
+      "line_id": "LINE_0010",
+      "speaker": "SPEAKER_00",
+      "start": 15.36,
+      "end": 17.2,
+      "text": "还解锁了归西土耐法以及一堆技能。"
+    },
+    {
+      "line_id": "LINE_0011",
+      "speaker": "SPEAKER_00",
+      "start": 17.28,
+      "end": 19.04,
+      "text": "本来就打算这么安安稳稳的摆烂下去，"
+    },
+    {
+      "line_id": "LINE_0012",
+      "speaker": "SPEAKER_00",
+      "start": 19.12,
+      "end": 22.4,
+      "text": "结果今天山下来的女主播说是要来打假你这个招摇撞骗的老骗。"
+    },
+    {
+      "line_id": "LINE_0013",
+      "speaker": "SPEAKER_00",
+      "start": 22.64,
+      "end": 24.08,
+      "text": "那个女主播的名字叫苏小唐，"
+    },
+    {
+      "line_id": "LINE_0014",
+      "speaker": "SPEAKER_00",
+      "start": 24.24,
+      "end": 26.16,
+      "text": "是某短视频平台的户外打假主播，"
+    },
+    {
+      "line_id": "LINE_0015",
+      "speaker": "SPEAKER_00",
+      "start": 26.32,
+      "end": 27.12,
+      "text": "粉丝五百多万，"
+    },
+    {
+      "line_id": "LINE_0016",
+      "speaker": "SPEAKER_00",
+      "start": 27.2,
+      "end": 28.16,
+      "text": "以专司神棍著称。"
+    },
+    {
+      "line_id": "LINE_0017",
+      "speaker": "SPEAKER_00",
+      "start": 28.32,
+      "end": 30.72,
+      "text": "他最擅长的就是跑到各种神神秘秘的地方，"
+    },
+    {
+      "line_id": "LINE_0018",
+      "speaker": "SPEAKER_00",
+      "start": 30.88,
+      "end": 32.24,
+      "text": "用镜头撕开骗子的真面目。"
+    },
+    {
+      "line_id": "LINE_0019",
+      "speaker": "SPEAKER_00",
+      "start": 32.32,
+      "end": 34.08,
+      "text": "半年前他接了一个假和尚的骗局，"
+    },
+    {
+      "line_id": "LINE_0020",
+      "speaker": "SPEAKER_00",
+      "start": 34.24,
+      "end": 35.44,
+      "text": "视频播放量破了两亿，"
+    },
+    {
+      "line_id": "LINE_0021",
+      "speaker": "SPEAKER_00",
+      "start": 35.52,
+      "end": 36.32,
+      "text": "从此一战成名。"
+    },
+    {
+      "line_id": "LINE_0022",
+      "speaker": "SPEAKER_00",
+      "start": 36.48,
+      "end": 37.44,
+      "text": "今天他来到钟南山，"
+    },
+    {
+      "line_id": "LINE_0023",
+      "speaker": "SPEAKER_00",
+      "start": 37.6,
+      "end": 40.72,
+      "text": "是因为有人在网上发帖说钟南山清虚观的老道长有神通，"
+    },
+    {
+      "line_id": "LINE_0024",
+      "speaker": "SPEAKER_00",
+      "start": 40.96,
+      "end": 41.36,
+      "text": "摸骨知命，"
+    },
+    {
+      "line_id": "LINE_0025",
+      "speaker": "SPEAKER_00",
+      "start": 41.52,
+      "end": 42.08,
+      "text": "奇准无比。"
+    },
+    {
+      "line_id": "LINE_0026",
+      "speaker": "SPEAKER_00",
+      "start": 42.16,
+      "end": 43.52,
+      "text": "苏小唐看到这种帖子后，"
+    },
+    {
+      "line_id": "LINE_0027",
+      "speaker": "SPEAKER_00",
+      "start": 43.68,
+      "end": 44.32,
+      "text": "立马就来劲了，"
+    },
+    {
+      "line_id": "LINE_0028",
+      "speaker": "SPEAKER_00",
+      "start": 44.4,
+      "end": 45.68,
+      "text": "这不就是送上门的素材吗？"
+    },
+    {
+      "line_id": "LINE_0029",
+      "speaker": "SPEAKER_00",
+      "start": 45.76,
+      "end": 46.96,
+      "text": "于是他提前做了功课，"
+    },
+    {
+      "line_id": "LINE_0030",
+      "speaker": "SPEAKER_00",
+      "start": 47.12,
+      "end": 48.8,
+      "text": "搜索钟南山清虚观相关的内容，"
+    },
+    {
+      "line_id": "LINE_0031",
+      "speaker": "SPEAKER_00",
+      "start": 48.96,
+      "end": 50.48,
+      "text": "只是网上能查到的信息很少，"
+    },
+    {
+      "line_id": "LINE_0032",
+      "speaker": "SPEAKER_00",
+      "start": 50.64,
+      "end": 51.6,
+      "text": "连个官方账号都没有。"
+    },
+    {
+      "line_id": "LINE_0033",
+      "speaker": "SPEAKER_00",
+      "start": 51.84,
+      "end": 52.72,
+      "text": "老道长叫什么不知道，"
+    },
+    {
+      "line_id": "LINE_0034",
+      "speaker": "SPEAKER_00",
+      "start": 52.88,
+      "end": 53.76,
+      "text": "多大年纪也不知道，"
+    },
+    {
+      "line_id": "LINE_0035",
+      "speaker": "SPEAKER_00",
+      "start": 53.92,
+      "end": 55.52,
+      "text": "反正就是那种藏在深山里的高人，"
+    },
+    {
+      "line_id": "LINE_0036",
+      "speaker": "SPEAKER_00",
+      "start": 55.6,
+      "end": 56.48,
+      "text": "专门骗有缘人的。"
+    },
+    {
+      "line_id": "LINE_0037",
+      "speaker": "SPEAKER_00",
+      "start": 56.56,
+      "end": 58.0,
+      "text": "当时的苏小唐在心里冷笑，"
+    },
+    {
+      "line_id": "LINE_0038",
+      "speaker": "SPEAKER_00",
+      "start": 58.16,
+      "end": 58.8,
+      "text": "又是个套路，"
+    },
+    {
+      "line_id": "LINE_0039",
+      "speaker": "SPEAKER_00",
+      "start": 58.96,
+      "end": 59.44,
+      "text": "老神秘感，"
+    },
+    {
+      "line_id": "LINE_0040",
+      "speaker": "SPEAKER_00",
+      "start": 59.6,
+      "end": 60.32,
+      "text": "制造信息差，"
+    },
+    {
+      "line_id": "LINE_0041",
+      "speaker": "SPEAKER_00",
+      "start": 60.48,
+      "end": 61.44,
+      "text": "让你觉得他有真本事。"
+    },
+    {
+      "line_id": "LINE_0042",
+      "speaker": "SPEAKER_00",
+      "start": 61.6,
+      "end": 62.16,
+      "text": "出发之前，"
+    },
+    {
+      "line_id": "LINE_0043",
+      "speaker": "SPEAKER_00",
+      "start": 62.32,
+      "end": 62.88,
+      "text": "他志在必得。"
+    },
+    {
+      "line_id": "LINE_0044",
+      "speaker": "SPEAKER_00",
+      "start": 63.12,
+      "end": 65.12,
+      "text": "今天我非把那个老道长的底裤扒干净不可。"
+    },
+    {
+      "line_id": "LINE_0045",
+      "speaker": "SPEAKER_00",
+      "start": 65.28,
+      "end": 66.8,
+      "text": "带着团队爬了四十分钟的山，"
+    },
+    {
+      "line_id": "LINE_0046",
+      "speaker": "SPEAKER_00",
+      "start": 66.96,
+      "end": 68.08,
+      "text": "终于来到清虚观门口。"
+    },
+    {
+      "line_id": "LINE_0047",
+      "speaker": "SPEAKER_00",
+      "start": 68.16,
+      "end": 69.36,
+      "text": "结果他第一眼看到的是，"
+    },
+    {
+      "line_id": "LINE_0048",
+      "speaker": "SPEAKER_00",
+      "start": 69.44,
+      "end": 70.48,
+      "text": "倚卧在一把破竹椅上，"
+    },
+    {
+      "line_id": "LINE_0049",
+      "speaker": "SPEAKER_00",
+      "start": 70.64,
+      "end": 71.6,
+      "text": "怀里抱着一只橘猫，"
+    },
+    {
+      "line_id": "LINE_0050",
+      "speaker": "SPEAKER_00",
+      "start": 71.68,
+      "end": 72.64,
+      "text": "手里端着一杯热茶，"
+    },
+    {
+      "line_id": "LINE_0051",
+      "speaker": "SPEAKER_00",
+      "start": 72.8,
+      "end": 74.4,
+      "text": "脸上的皱纹深得能夹死蚊子，"
+    },
+    {
+      "line_id": "LINE_0052",
+      "speaker": "SPEAKER_00",
+      "start": 74.48,
+      "end": 75.12,
+      "text": "须发皆白，"
+    },
+    {
+      "line_id": "LINE_0053",
+      "speaker": "SPEAKER_00",
+      "start": 75.2,
+      "end": 75.92,
+      "text": "而且还挺长，"
+    },
+    {
+      "line_id": "LINE_0054",
+      "speaker": "SPEAKER_00",
+      "start": 76.0,
+      "end": 76.96,
+      "text": "看着倒是有点仙气。"
+    },
+    {
+      "line_id": "LINE_0055",
+      "speaker": "SPEAKER_00",
+      "start": 77.12,
+      "end": 77.6,
+      "text": "可问题是，"
+    },
+    {
+      "line_id": "LINE_0056",
+      "speaker": "SPEAKER_00",
+      "start": 77.68,
+      "end": 78.24,
+      "text": "你太瘦了，"
+    },
+    {
+      "line_id": "LINE_0057",
+      "speaker": "SPEAKER_00",
+      "start": 78.32,
+      "end": 79.2,
+      "text": "瘦的跟竹竿似的，"
+    },
+    {
+      "line_id": "LINE_0058",
+      "speaker": "SPEAKER_00",
+      "start": 79.36,
+      "end": 80.56,
+      "text": "道袍空荡荡的挂在身上，"
+    },
+    {
+      "line_id": "LINE_0059",
+      "speaker": "SPEAKER_00",
+      "start": 80.72,
+      "end": 81.52,
+      "text": "风一吹就鼓起来，"
+    },
+    {
+      "line_id": "LINE_0060",
+      "speaker": "SPEAKER_00",
+      "start": 81.68,
+      "end": 82.96,
+      "text": "感觉骨头架子都要被吹散。"
+    },
+    {
+      "line_id": "LINE_0061",
+      "speaker": "SPEAKER_00",
+      "start": 83.12,
+      "end": 84.0,
+      "text": "苏小唐看到后，"
+    },
+    {
+      "line_id": "LINE_0062",
+      "speaker": "SPEAKER_00",
+      "start": 84.16,
+      "end": 84.8,
+      "text": "差点破防，"
+    },
+    {
+      "line_id": "LINE_0063",
+      "speaker": "SPEAKER_00",
+      "start": 84.88,
+      "end": 85.76,
+      "text": "忍不住要笑出声来。"
+    },
+    {
+      "line_id": "LINE_0064",
+      "speaker": "SPEAKER_00",
+      "start": 85.92,
+      "end": 87.6,
+      "text": "这就是传说中的有神通的老道长。"
+    },
+    {
+      "line_id": "LINE_0065",
+      "speaker": "SPEAKER_00",
+      "start": 87.68,
+      "end": 89.12,
+      "text": "他不动声色的调整了一下麦，"
+    },
+    {
+      "line_id": "LINE_0066",
+      "speaker": "SPEAKER_00",
+      "start": 89.28,
+      "end": 90.16,
+      "text": "确保声音清晰，"
+    },
+    {
+      "line_id": "LINE_0067",
+      "speaker": "SPEAKER_00",
+      "start": 90.24,
+      "end": 91.44,
+      "text": "然后压低声音：“家人们，"
+    },
+    {
+      "line_id": "LINE_0068",
+      "speaker": "SPEAKER_00",
+      "start": 91.6,
+      "end": 92.16,
+      "text": "你们看到了吗？"
+    },
+    {
+      "line_id": "LINE_0069",
+      "speaker": "SPEAKER_00",
+      "start": 92.24,
+      "end": 93.76,
+      "text": "这就是那位神通广大的老道长。"
+    },
+    {
+      "line_id": "LINE_0070",
+      "speaker": "SPEAKER_00",
+      "start": 93.92,
+      "end": 94.64,
+      "text": "我事先声明啊，"
+    },
+    {
+      "line_id": "LINE_0071",
+      "speaker": "SPEAKER_00",
+      "start": 94.8,
+      "end": 95.84,
+      "text": "我不是不尊重老人家，"
+    },
+    {
+      "line_id": "LINE_0072",
+      "speaker": "SPEAKER_00",
+      "start": 95.92,
+      "end": 96.88,
+      "text": "但是你们看他这个状态，"
+    },
+    {
+      "line_id": "LINE_0073",
+      "speaker": "SPEAKER_00",
+      "start": 97.04,
+      "end": 97.44,
+      "text": "说实话，"
+    },
+    {
+      "line_id": "LINE_0074",
+      "speaker": "SPEAKER_00",
+      "start": 97.44,
+      "end": 98.64,
+      "text": "我觉得他比我的爷爷还要虚。”"
+    },
+    {
+      "line_id": "LINE_0075",
+      "speaker": "SPEAKER_00",
+      "start": 98.8,
+      "end": 100.48,
+      "text": "直播间在线人数已经破了十万，"
+    },
+    {
+      "line_id": "LINE_0076",
+      "speaker": "SPEAKER_00",
+      "start": 100.56,
+      "end": 101.36,
+      "text": "听到主播的话，"
+    },
+    {
+      "line_id": "LINE_0077",
+      "speaker": "SPEAKER_00",
+      "start": 101.52,
+      "end": 102.48,
+      "text": "弹幕立刻刷的飞起。"
+    },
+    {
+      "line_id": "LINE_0078",
+      "speaker": "SPEAKER_00",
+      "start": 102.56,
+      "end": 102.96,
+      "text": "我操，"
+    },
+    {
+      "line_id": "LINE_0079",
+      "speaker": "SPEAKER_00",
+      "start": 103.04,
+      "end": 104.4,
+      "text": "感觉这个老道长快要咽气了，"
+    },
+    {
+      "line_id": "LINE_0080",
+      "speaker": "SPEAKER_00",
+      "start": 104.64,
+      "end": 105.04,
+      "text": "真的假的？"
+    },
+    {
+      "line_id": "LINE_0081",
+      "speaker": "SPEAKER_00",
+      "start": 105.2,
+      "end": 106.0,
+      "text": "不会直播出病吧？"
+    },
+    {
+      "line_id": "LINE_0082",
+      "speaker": "SPEAKER_00",
+      "start": 106.16,
+      "end": 106.96,
+      "text": "小唐姐快跑啊，"
+    },
+    {
+      "line_id": "LINE_0083",
+      "speaker": "SPEAKER_00",
+      "start": 107.12,
+      "end": 107.92,
+      "text": "别被老道长讹上了，"
+    },
+    {
+      "line_id": "LINE_0084",
+      "speaker": "SPEAKER_00",
+      "start": 108.08,
+      "end": 108.72,
+      "text": "不然你赔不起。"
+    },
+    {
+      "line_id": "LINE_0085",
+      "speaker": "SPEAKER_00",
+      "start": 108.88,
+      "end": 109.36,
+      "text": "哈哈哈哈，"
+    },
+    {
+      "line_id": "LINE_0086",
+      "speaker": "SPEAKER_00",
+      "start": 109.36,
+      "end": 110.0,
+      "text": "这也太瘦了吧！"
+    },
+    {
+      "line_id": "LINE_0087",
+      "speaker": "SPEAKER_00",
+      "start": 110.16,
+      "end": 111.2,
+      "text": "感觉一阵风就能吹走。"
+    },
+    {
+      "line_id": "LINE_0088",
+      "speaker": "SPEAKER_00",
+      "start": 111.36,
+      "end": 111.76,
+      "text": "老道长，"
+    },
+    {
+      "line_id": "LINE_0089",
+      "speaker": "SPEAKER_00",
+      "start": 111.92,
+      "end": 112.32,
+      "text": "你还好吗？"
+    },
+    {
+      "line_id": "LINE_0090",
+      "speaker": "SPEAKER_00",
+      "start": 112.48,
+      "end": 113.52,
+      "text": "需要我帮你叫幺二零吗？"
+    },
+    {
+      "line_id": "LINE_0091",
+      "speaker": "SPEAKER_00",
+      "start": 113.68,
+      "end": 114.88,
+      "text": "这看着不像是有神通吗？"
+    },
+    {
+      "line_id": "LINE_0092",
+      "speaker": "SPEAKER_00",
+      "start": 114.96,
+      "end": 116.0,
+      "text": "倒像是有什么大病似的。"
+    },
+    {
+      "line_id": "LINE_0093",
+      "speaker": "SPEAKER_00",
+      "start": 116.0,
+      "end": 116.96,
+      "text": "苏姐赶紧上去问问，"
+    },
+    {
+      "line_id": "LINE_0094",
+      "speaker": "SPEAKER_00",
+      "start": 117.12,
+      "end": 117.76,
+      "text": "看他怎么忽悠你。"
+    },
+    {
+      "line_id": "LINE_0095",
+      "speaker": "SPEAKER_00",
+      "start": 117.92,
+      "end": 118.48,
+      "text": "十五毛钱，"
+    },
+    {
+      "line_id": "LINE_0096",
+      "speaker": "SPEAKER_00",
+      "start": 118.64,
+      "end": 119.12,
+      "text": "他马上要"
+    },
+    {
+      "line_id": "LINE_0097",
+      "speaker": "SPEAKER_00",
+      "start": 120.0,
+      "end": 120.0,
+      "text": "说"
+    },
+    {
+      "line_id": "LINE_0098",
+      "speaker": "SPEAKER_00",
+      "start": 120.64,
+      "end": 121.12,
+      "text": "自己今年。"
+    },
+    {
+      "line_id": "LINE_0099",
+      "speaker": "SPEAKER_00",
+      "start": 121.12,
+      "end": 121.44,
+      "text": "一百二十岁，"
+    },
+    {
+      "line_id": "LINE_0100",
+      "speaker": "SPEAKER_00",
+      "start": 121.44,
+      "end": 121.6,
+      "text": "七一百二十岁，"
+    },
+    {
+      "line_id": "LINE_0101",
+      "speaker": "SPEAKER_00",
+      "start": 121.76,
+      "end": 123.36,
+      "text": "我看他这样子能活到八十就不错。"
+    },
+    {
+      "line_id": "LINE_0102",
+      "speaker": "SPEAKER_00",
+      "start": 123.52,
+      "end": 124.72,
+      "text": "苏小唐扫了一眼弹幕，"
+    },
+    {
+      "line_id": "LINE_0103",
+      "speaker": "SPEAKER_00",
+      "start": 124.8,
+      "end": 125.6,
+      "text": "嘴角微微上扬，"
+    },
+    {
+      "line_id": "LINE_0104",
+      "speaker": "SPEAKER_00",
+      "start": 125.76,
+      "end": 127.36,
+      "text": "弹幕的反应跟他预想的一模一样。"
+    },
+    {
+      "line_id": "LINE_0105",
+      "speaker": "SPEAKER_00",
+      "start": 127.44,
+      "end": 128.96,
+      "text": "第一印象全都是这老头快不行，"
+    },
+    {
+      "line_id": "LINE_0106",
+      "speaker": "SPEAKER_00",
+      "start": 129.04,
+      "end": 129.92,
+      "text": "看就快要死了，"
+    },
+    {
+      "line_id": "LINE_0107",
+      "speaker": "SPEAKER_00",
+      "start": 130.0,
+      "end": 131.04,
+      "text": "这也是他想要的效果。"
+    },
+    {
+      "line_id": "LINE_0108",
+      "speaker": "SPEAKER_00",
+      "start": 131.2,
+      "end": 132.48,
+      "text": "于是他快步走到道观门口，"
+    },
+    {
+      "line_id": "LINE_0109",
+      "speaker": "SPEAKER_00",
+      "start": 132.64,
+      "end": 134.08,
+      "text": "在距离你大约三米的地方站定，"
+    },
+    {
+      "line_id": "LINE_0110",
+      "speaker": "SPEAKER_00",
+      "start": 134.24,
+      "end": 135.44,
+      "text": "脸上挂着职业化的微笑，"
+    },
+    {
+      "line_id": "LINE_0111",
+      "speaker": "SPEAKER_00",
+      "start": 135.6,
+      "end": 136.88,
+      "text": "语气倒是挺客气：“您好，"
+    },
+    {
+      "line_id": "LINE_0112",
+      "speaker": "SPEAKER_00",
+      "start": 136.96,
+      "end": 138.4,
+      "text": "请问您是这座道观的观主吗？"
+    },
+    {
+      "line_id": "LINE_0113",
+      "speaker": "SPEAKER_00",
+      "start": 138.48,
+      "end": 139.68,
+      "text": "我是做户外直播的主播，"
+    },
+    {
+      "line_id": "LINE_0114",
+      "speaker": "SPEAKER_00",
+      "start": 139.84,
+      "end": 140.48,
+      "text": "我叫苏小唐，"
+    },
+    {
+      "line_id": "LINE_0115",
+      "speaker": "SPEAKER_00",
+      "start": 140.64,
+      "end": 142.4,
+      "text": "路过这里能跟老道长您聊上两句吗？”"
+    },
+    {
+      "line_id": "LINE_0116",
+      "speaker": "SPEAKER_00",
+      "start": 142.48,
+      "end": 142.88,
+      "text": "说完，"
+    },
+    {
+      "line_id": "LINE_0117",
+      "speaker": "SPEAKER_00",
+      "start": 143.04,
+      "end": 144.32,
+      "text": "他把手机摄像头对准了你，"
+    },
+    {
+      "line_id": "LINE_0118",
+      "speaker": "SPEAKER_00",
+      "start": 144.4,
+      "end": 145.68,
+      "text": "镜头里你微微抬起头，"
+    },
+    {
+      "line_id": "LINE_0119",
+      "speaker": "SPEAKER_00",
+      "start": 145.76,
+      "end": 147.12,
+      "text": "露出一张满是皱纹的脸庞，"
+    },
+    {
+      "line_id": "LINE_0120",
+      "speaker": "SPEAKER_00",
+      "start": 147.28,
+      "end": 147.84,
+      "text": "眼睛不大，"
+    },
+    {
+      "line_id": "LINE_0121",
+      "speaker": "SPEAKER_00",
+      "start": 148.0,
+      "end": 148.48,
+      "text": "眼窝深陷，"
+    },
+    {
+      "line_id": "LINE_0122",
+      "speaker": "SPEAKER_00",
+      "start": 148.64,
+      "end": 149.2,
+      "text": "眼皮耷拉着，"
+    },
+    {
+      "line_id": "LINE_0123",
+      "speaker": "SPEAKER_00",
+      "start": 149.36,
+      "end": 150.96,
+      "text": "看着确实是一副老态龙钟的模样。"
+    },
+    {
+      "line_id": "LINE_0124",
+      "speaker": "SPEAKER_00",
+      "start": 151.12,
+      "end": 151.84,
+      "text": "但是你的眼神，"
+    },
+    {
+      "line_id": "LINE_0125",
+      "speaker": "SPEAKER_00",
+      "start": 152.0,
+      "end": 153.6,
+      "text": "苏小唐看到后顿时愣了一下，"
+    },
+    {
+      "line_id": "LINE_0126",
+      "speaker": "SPEAKER_00",
+      "start": 153.76,
+      "end": 155.04,
+      "text": "不是这个老家伙的眼神，"
+    },
+    {
+      "line_id": "LINE_0127",
+      "speaker": "SPEAKER_00",
+      "start": 155.28,
+      "end": 156.16,
+      "text": "怎么感觉挺清亮的？"
+    },
+    {
+      "line_id": "LINE_0128",
+      "speaker": "SPEAKER_00",
+      "start": 156.24,
+      "end": 157.92,
+      "text": "他在打假的这些年见过无数骗，"
+    },
+    {
+      "line_id": "LINE_0129",
+      "speaker": "SPEAKER_00",
+      "start": 158.16,
+      "end": 158.88,
+      "text": "那些人的眼睛，"
+    },
+    {
+      "line_id": "LINE_0130",
+      "speaker": "SPEAKER_00",
+      "start": 159.04,
+      "end": 159.92,
+      "text": "要么是精明的发亮，"
+    },
+    {
+      "line_id": "LINE_0131",
+      "speaker": "SPEAKER_00",
+      "start": 160.08,
+      "end": 161.44,
+      "text": "要么就是故作高深的半闭着，"
+    },
+    {
+      "line_id": "LINE_0132",
+      "speaker": "SPEAKER_00",
+      "start": 161.52,
+      "end": 162.48,
+      "text": "生怕被人看穿一样。"
+    },
+    {
+      "line_id": "LINE_0133",
+      "speaker": "SPEAKER_00",
+      "start": 162.56,
+      "end": 164.72,
+      "text": "但是你的眼神和他以前见过的都很不一样，"
+    },
+    {
+      "line_id": "LINE_0134",
+      "speaker": "SPEAKER_00",
+      "start": 164.8,
+      "end": 166.08,
+      "text": "平和的就像是一潭死水，"
+    },
+    {
+      "line_id": "LINE_0135",
+      "speaker": "SPEAKER_00",
+      "start": 166.16,
+      "end": 166.72,
+      "text": "没有攻击性，"
+    },
+    {
+      "line_id": "LINE_0136",
+      "speaker": "SPEAKER_00",
+      "start": 166.88,
+      "end": 167.52,
+      "text": "也没有防备心，"
+    },
+    {
+      "line_id": "LINE_0137",
+      "speaker": "SPEAKER_00",
+      "start": 167.68,
+      "end": 168.96,
+      "text": "就是像小孩子眼神那般，"
+    },
+    {
+      "line_id": "LINE_0138",
+      "speaker": "SPEAKER_00",
+      "start": 169.12,
+      "end": 169.84,
+      "text": "很单纯的看他，"
+    },
+    {
+      "line_id": "LINE_0139",
+      "speaker": "SPEAKER_00",
+      "start": 170.0,
+      "end": 171.36,
+      "text": "或者说看着他身后的某个东西。"
+    },
+    {
+      "line_id": "LINE_0140",
+      "speaker": "SPEAKER_00",
+      "start": 171.52,
+      "end": 172.56,
+      "text": "你看的是那架无人机？"
+    },
+    {
+      "line_id": "LINE_0141",
+      "speaker": "SPEAKER_00",
+      "start": 172.64,
+      "end": 173.68,
+      "text": "作为一名穿越人士，"
+    },
+    {
+      "line_id": "LINE_0142",
+      "speaker": "SPEAKER_00",
+      "start": 173.84,
+      "end": 174.8,
+      "text": "你当然见过无人机，"
+    },
+    {
+      "line_id": "LINE_0143",
+      "speaker": "SPEAKER_00",
+      "start": 174.88,
+      "end": 176.16,
+      "text": "但是原生活了九六年，"
+    },
+    {
+      "line_id": "LINE_0144",
+      "speaker": "SPEAKER_00",
+      "start": 176.32,
+      "end": 177.76,
+      "text": "记忆里还是头一回看见这东西。"
+    },
+    {
+      "line_id": "LINE_0145",
+      "speaker": "SPEAKER_00",
+      "start": 177.84,
+      "end": 179.36,
+      "text": "这小东西嗡嗡嗡在空中转悠，"
+    },
+    {
+      "line_id": "LINE_0146",
+      "speaker": "SPEAKER_00",
+      "start": 179.52,
+      "end": 180.16,
+      "text": "像只大苍蝇，"
+    },
+    {
+      "line_id": "LINE_0147",
+      "speaker": "SPEAKER_00",
+      "start": 180.32,
+      "end": 180.88,
+      "text": "还挺有意思。"
+    },
+    {
+      "line_id": "LINE_0148",
+      "speaker": "SPEAKER_00",
+      "start": 181.04,
+      "end": 181.84,
+      "text": "为了维持住人设，"
+    },
+    {
+      "line_id": "LINE_0149",
+      "speaker": "SPEAKER_00",
+      "start": 182.08,
+      "end": 182.88,
+      "text": "你指了指无人机，"
+    },
+    {
+      "line_id": "LINE_0150",
+      "speaker": "SPEAKER_00",
+      "start": 183.04,
+      "end": 183.68,
+      "text": "嗓音沙哑，"
+    },
+    {
+      "line_id": "LINE_0151",
+      "speaker": "SPEAKER_00",
+      "start": 183.84,
+      "end": 185.92,
+      "text": "带着老年人特有的气音：“你那是个什么物件？”"
+    },
+    {
+      "line_id": "LINE_0152",
+      "speaker": "SPEAKER_00",
+      "start": 186.08,
+      "end": 188.72,
+      "text": "苏小唐没想到老道长开口第一句话问的居然是这个，"
+    },
+    {
+      "line_id": "LINE_0153",
+      "speaker": "SPEAKER_00",
+      "start": 188.8,
+      "end": 190.24,
+      "text": "他微微一怔后才反应过来：“哦，"
+    },
+    {
+      "line_id": "LINE_0154",
+      "speaker": "SPEAKER_00",
+      "start": 190.4,
+      "end": 190.8,
+      "text": "老道长，"
+    },
+    {
+      "line_id": "LINE_0155",
+      "speaker": "SPEAKER_00",
+      "start": 190.96,
+      "end": 191.04,
+      "text": "这"
+    },
+    {
+      "line_id": "LINE_0156",
+      "speaker": "SPEAKER_01",
+      "start": 191.04,
+      "end": 192.32,
+      "text": "个是无人机航拍用的，"
+    },
+    {
+      "line_id": "LINE_0157",
+      "speaker": "SPEAKER_01",
+      "start": 192.48,
+      "end": 193.2,
+      "text": "您之前没有见过吗？"
+    },
+    {
+      "line_id": "LINE_0158",
+      "speaker": "SPEAKER_01",
+      "start": 193.36,
+      "end": 193.76,
+      "text": "头回见。”"
+    },
+    {
+      "line_id": "LINE_0159",
+      "speaker": "SPEAKER_01",
+      "start": 193.92,
+      "end": 194.72,
+      "text": "你随口说了一句，"
+    },
+    {
+      "line_id": "LINE_0160",
+      "speaker": "SPEAKER_01",
+      "start": 194.88,
+      "end": 195.44,
+      "text": "又看了两眼，"
+    },
+    {
+      "line_id": "LINE_0161",
+      "speaker": "SPEAKER_01",
+      "start": 195.6,
+      "end": 196.4,
+      "text": "这才收回目光，"
+    },
+    {
+      "line_id": "LINE_0162",
+      "speaker": "SPEAKER_01",
+      "start": 196.56,
+      "end": 197.44,
+      "text": "端起茶杯喝了一口，"
+    },
+    {
+      "line_id": "LINE_0163",
+      "speaker": "SPEAKER_01",
+      "start": 197.6,
+      "end": 199.04,
+      "text": "慢悠悠的：“你刚才说你是主播，"
+    },
+    {
+      "line_id": "LINE_0164",
+      "speaker": "SPEAKER_01",
+      "start": 199.2,
+      "end": 200.0,
+      "text": "播哪方面的内容？”"
+    },
+    {
+      "line_id": "LINE_0165",
+      "speaker": "SPEAKER_01",
+      "start": 200.08,
+      "end": 201.36,
+      "text": "弹幕又炸了：“哈哈哈哈，"
+    },
+    {
+      "line_id": "LINE_0166",
+      "speaker": "SPEAKER_01",
+      "start": 201.36,
+      "end": 202.08,
+      "text": "那个是什么物件？"
+    },
+    {
+      "line_id": "LINE_0167",
+      "speaker": "SPEAKER_01",
+      "start": 202.24,
+      "end": 203.04,
+      "text": "连无人机都不知道，"
+    },
+    {
+      "line_id": "LINE_0168",
+      "speaker": "SPEAKER_01",
+      "start": 203.2,
+      "end": 203.68,
+      "text": "笑了我了。”"
+    },
+    {
+      "line_id": "LINE_0169",
+      "speaker": "SPEAKER_01",
+      "start": 203.84,
+      "end": 204.96,
+      "text": "老道长实锤道网多"
+    },
+    {
+      "line_id": "LINE_0170",
+      "speaker": "SPEAKER_00",
+      "start": 204.96,
+      "end": 205.04,
+      "text": "年，"
+    },
+    {
+      "line_id": "LINE_0171",
+      "speaker": "SPEAKER_00",
+      "start": 205.2,
+      "end": 205.92,
+      "text": "看他的这个反应，"
+    },
+    {
+      "line_id": "LINE_0172",
+      "speaker": "SPEAKER_00",
+      "start": 206.08,
+      "end": 206.64,
+      "text": "不像是装的，"
+    },
+    {
+      "line_id": "LINE_0173",
+      "speaker": "SPEAKER_00",
+      "start": 206.8,
+      "end": 207.52,
+      "text": "他是真的不知道。"
+    },
+    {
+      "line_id": "LINE_0174",
+      "speaker": "SPEAKER_00",
+      "start": 207.68,
+      "end": 208.0,
+      "text": "苏姐，"
+    },
+    {
+      "line_id": "LINE_0175",
+      "speaker": "SPEAKER_00",
+      "start": 208.16,
+      "end": 208.96,
+      "text": "你快解释一下，"
+    },
+    {
+      "line_id": "LINE_0176",
+      "speaker": "SPEAKER_00",
+      "start": 209.04,
+      "end": 209.52,
+      "text": "给他开开眼，"
+    },
+    {
+      "line_id": "LINE_0177",
+      "speaker": "SPEAKER_00",
+      "start": 209.68,
+      "end": 211.12,
+      "text": "让他知道你主要播哪方面的。"
+    },
+    {
+      "line_id": "LINE_0178",
+      "speaker": "SPEAKER_00",
+      "start": 211.2,
+      "end": 211.52,
+      "text": "对对对，"
+    },
+    {
+      "line_id": "LINE_0179",
+      "speaker": "SPEAKER_00",
+      "start": 211.68,
+      "end": 212.96,
+      "text": "先让老道长有个心理准备，"
+    },
+    {
+      "line_id": "LINE_0180",
+      "speaker": "SPEAKER_00",
+      "start": 213.12,
+      "end": 214.32,
+      "text": "然后揭穿他的真面目。"
+    },
+    {
+      "line_id": "LINE_0181",
+      "speaker": "SPEAKER_00",
+      "start": 214.32,
+      "end": 214.48,
+      "text": "不是，"
+    },
+    {
+      "line_id": "LINE_0182",
+      "speaker": "SPEAKER_00",
+      "start": 214.64,
+      "end": 215.12,
+      "text": "就我一个人，"
+    },
+    {
+      "line_id": "LINE_0183",
+      "speaker": "SPEAKER_00",
+      "start": 215.28,
+      "end": 216.4,
+      "text": "感觉老道长有点可爱吗？"
+    },
+    {
+      "line_id": "LINE_0184",
+      "speaker": "SPEAKER_00",
+      "start": 216.48,
+      "end": 216.72,
+      "text": "呵呵，"
+    },
+    {
+      "line_id": "LINE_0185",
+      "speaker": "SPEAKER_00",
+      "start": 216.88,
+      "end": 218.24,
+      "text": "楼上的兄弟别被表象迷惑，"
+    },
+    {
+      "line_id": "LINE_0186",
+      "speaker": "SPEAKER_00",
+      "start": 218.32,
+      "end": 219.84,
+      "text": "这种装淳朴的骗子最可怕。"
+    },
+    {
+      "line_id": "LINE_0187",
+      "speaker": "SPEAKER_00",
+      "start": 220.0,
+      "end": 221.52,
+      "text": "苏小唐当然不会被表象迷惑，"
+    },
+    {
+      "line_id": "LINE_0188",
+      "speaker": "SPEAKER_00",
+      "start": 221.6,
+      "end": 222.08,
+      "text": "他笑了笑，"
+    },
+    {
+      "line_id": "LINE_0189",
+      "speaker": "SPEAKER_00",
+      "start": 222.08,
+      "end": 222.64,
+      "text": "上前两步，"
+    },
+    {
+      "line_id": "LINE_0190",
+      "speaker": "SPEAKER_00",
+      "start": 222.72,
+      "end": 224.16,
+      "text": "把身子凑近了一些：“老道长，"
+    },
+    {
+      "line_id": "LINE_0191",
+      "speaker": "SPEAKER_00",
+      "start": 224.32,
+      "end": 225.76,
+      "text": "我主要播的是打假这方面的内容，"
+    },
+    {
+      "line_id": "LINE_0192",
+      "speaker": "SPEAKER_00",
+      "start": 225.84,
+      "end": 226.88,
+      "text": "比如我今天来终南山，"
+    },
+    {
+      "line_id": "LINE_0193",
+      "speaker": "SPEAKER_00",
+      "start": 227.04,
+      "end": 229.2,
+      "text": "就是想带大家看看真正的道观是什么样子。"
+    },
+    {
+      "line_id": "LINE_0194",
+      "speaker": "SPEAKER_00",
+      "start": 229.2,
+      "end": 229.44,
+      "text": "对了，"
+    },
+    {
+      "line_id": "LINE_0195",
+      "speaker": "SPEAKER_00",
+      "start": 229.6,
+      "end": 230.0,
+      "text": "老道长，"
+    },
+    {
+      "line_id": "LINE_0196",
+      "speaker": "SPEAKER_00",
+      "start": 230.16,
+      "end": 231.2,
+      "text": "我听说你会摸骨算命，"
+    },
+    {
+      "line_id": "LINE_0197",
+      "speaker": "SPEAKER_00",
+      "start": 231.28,
+      "end": 231.68,
+      "text": "是真的吗？”"
+    },
+    {
+      "line_id": "LINE_0198",
+      "speaker": "SPEAKER_00",
+      "start": 231.84,
+      "end": 233.36,
+      "text": "你不禁眨了眨眼睛：“摸骨算命，"
+    },
+    {
+      "line_id": "LINE_0199",
+      "speaker": "SPEAKER_00",
+      "start": 233.52,
+      "end": 234.4,
+      "text": "这都是从哪听说的？"
+    },
+    {
+      "line_id": "LINE_0200",
+      "speaker": "SPEAKER_00",
+      "start": 234.56,
+      "end": 234.88,
+      "text": "你本人"
+    },
+    {
+      "line_id": "LINE_0201",
+      "speaker": "SPEAKER_00",
+      "start": 240.0,
+      "end": 240.88,
+      "text": "怎么不知"
+    },
+    {
+      "line_id": "LINE_0202",
+      "speaker": "SPEAKER_00",
+      "start": 241.6,
+      "end": 242.24,
+      "text": "道有这回事？"
+    },
+    {
+      "line_id": "LINE_0203",
+      "speaker": "SPEAKER_00",
+      "start": 242.24,
+      "end": 242.24,
+      "text": "原生的记忆告诉你，"
+    },
+    {
+      "line_id": "LINE_0204",
+      "speaker": "SPEAKER_00",
+      "start": 242.24,
+      "end": 242.24,
+      "text": "原生确实会偶尔给上山的人看他面相，"
+    },
+    {
+      "line_id": "LINE_0205",
+      "speaker": "SPEAKER_00",
+      "start": 242.24,
+      "end": 242.24,
+      "text": "算算卦，"
+    },
+    {
+      "line_id": "LINE_0206",
+      "speaker": "SPEAKER_00",
+      "start": 242.24,
+      "end": 242.24,
+      "text": "但都是。”"
+    },
+    {
+      "line_id": "LINE_0207",
+      "speaker": "SPEAKER_00",
+      "start": 242.24,
+      "end": 242.24,
+      "text": "乡里乡亲的不收钱不各乐呵，"
+    },
+    {
+      "line_id": "LINE_0208",
+      "speaker": "SPEAKER_00",
+      "start": 242.24,
+      "end": 243.28,
+      "text": "至于摸骨算命这种名头，"
+    },
+    {
+      "line_id": "LINE_0209",
+      "speaker": "SPEAKER_00",
+      "start": 243.44,
+      "end": 244.56,
+      "text": "原身连听都没听说过，"
+    },
+    {
+      "line_id": "LINE_0210",
+      "speaker": "SPEAKER_00",
+      "start": 244.64,
+      "end": 246.48,
+      "text": "八成是哪个无聊的人在网上瞎编的。"
+    },
+    {
+      "line_id": "LINE_0211",
+      "speaker": "SPEAKER_00",
+      "start": 246.64,
+      "end": 248.08,
+      "text": "于是你干脆利落的摇了摇头，"
+    },
+    {
+      "line_id": "LINE_0212",
+      "speaker": "SPEAKER_00",
+      "start": 248.16,
+      "end": 249.2,
+      "text": "吐出两个字：假的。"
+    },
+    {
+      "line_id": "LINE_0213",
+      "speaker": "SPEAKER_00",
+      "start": 249.36,
+      "end": 250.56,
+      "text": "苏小棠顿时愣住了。"
+    },
+    {
+      "line_id": "LINE_0214",
+      "speaker": "SPEAKER_00",
+      "start": 250.56,
+      "end": 251.04,
+      "text": "来此之前，"
+    },
+    {
+      "line_id": "LINE_0215",
+      "speaker": "SPEAKER_00",
+      "start": 251.04,
+      "end": 252.16,
+      "text": "他预想过很多种回答，"
+    },
+    {
+      "line_id": "LINE_0216",
+      "speaker": "SPEAKER_00",
+      "start": 252.32,
+      "end": 254.72,
+      "text": "比如老道士会故作高深的说一句天机不可泄露，"
+    },
+    {
+      "line_id": "LINE_0217",
+      "speaker": "SPEAKER_00",
+      "start": 254.88,
+      "end": 256.24,
+      "text": "或者来一套玄之又玄的话术，"
+    },
+    {
+      "line_id": "LINE_0218",
+      "speaker": "SPEAKER_00",
+      "start": 256.32,
+      "end": 256.96,
+      "text": "让他先坐下，"
+    },
+    {
+      "line_id": "LINE_0219",
+      "speaker": "SPEAKER_00",
+      "start": 257.12,
+      "end": 257.52,
+      "text": "扫马腹，"
+    },
+    {
+      "line_id": "LINE_0220",
+      "speaker": "SPEAKER_00",
+      "start": 257.68,
+      "end": 257.92,
+      "text": "再说。"
+    },
+    {
+      "line_id": "LINE_0221",
+      "speaker": "SPEAKER_00",
+      "start": 258.08,
+      "end": 258.96,
+      "text": "但是假的这两个字，"
+    },
+    {
+      "line_id": "LINE_0222",
+      "speaker": "SPEAKER_00",
+      "start": 259.04,
+      "end": 259.76,
+      "text": "他是真没想到。"
+    },
+    {
+      "line_id": "LINE_0223",
+      "speaker": "SPEAKER_00",
+      "start": 259.92,
+      "end": 261.44,
+      "text": "直播间里的弹幕也跟着猛了两秒。"
+    },
+    {
+      "line_id": "LINE_0224",
+      "speaker": "SPEAKER_00",
+      "start": 261.6,
+      "end": 261.76,
+      "text": "什么？"
+    },
+    {
+      "line_id": "LINE_0225",
+      "speaker": "SPEAKER_00",
+      "start": 261.92,
+      "end": 262.64,
+      "text": "老道长说假的？"
+    },
+    {
+      "line_id": "LINE_0226",
+      "speaker": "SPEAKER_00",
+      "start": 262.88,
+      "end": 263.6,
+      "text": "啊这不是吧？"
+    },
+    {
+      "line_id": "LINE_0227",
+      "speaker": "SPEAKER_00",
+      "start": 263.76,
+      "end": 264.48,
+      "text": "他直接承认了。"
+    },
+    {
+      "line_id": "LINE_0228",
+      "speaker": "SPEAKER_00",
+      "start": 264.64,
+      "end": 265.76,
+      "text": "这怎么跟剧本演的不一样？"
+    },
+    {
+      "line_id": "LINE_0229",
+      "speaker": "SPEAKER_00",
+      "start": 265.92,
+      "end": 267.68,
+      "text": "该不会老道长遇情故纵的把戏吧？"
+    },
+    {
+      "line_id": "LINE_0230",
+      "speaker": "SPEAKER_00",
+      "start": 267.84,
+      "end": 268.64,
+      "text": "也有可能是真话，"
+    },
+    {
+      "line_id": "LINE_0231",
+      "speaker": "SPEAKER_00",
+      "start": 268.8,
+      "end": 270.08,
+      "text": "是网上那些网友们瞎传的。"
+    },
+    {
+      "line_id": "LINE_0232",
+      "speaker": "SPEAKER_00",
+      "start": 270.24,
+      "end": 270.72,
+      "text": "小棠姐，"
+    },
+    {
+      "line_id": "LINE_0233",
+      "speaker": "SPEAKER_00",
+      "start": 270.88,
+      "end": 271.44,
+      "text": "你别被忽悠了。"
+    },
+    {
+      "line_id": "LINE_0234",
+      "speaker": "SPEAKER_00",
+      "start": 271.68,
+      "end": 273.36,
+      "text": "骗子的第一招就是降低你的预期。"
+    },
+    {
+      "line_id": "LINE_0235",
+      "speaker": "SPEAKER_00",
+      "start": 273.44,
+      "end": 274.8,
+      "text": "这时苏小棠已经反应过了，"
+    },
+    {
+      "line_id": "LINE_0236",
+      "speaker": "SPEAKER_00",
+      "start": 274.96,
+      "end": 276.16,
+      "text": "他做了这么久的打假视频，"
+    },
+    {
+      "line_id": "LINE_0237",
+      "speaker": "SPEAKER_00",
+      "start": 276.32,
+      "end": 277.04,
+      "text": "什么套路没见过？"
+    },
+    {
+      "line_id": "LINE_0238",
+      "speaker": "SPEAKER_00",
+      "start": 277.2,
+      "end": 278.72,
+      "text": "而这种先否定再引导的方式，"
+    },
+    {
+      "line_id": "LINE_0239",
+      "speaker": "SPEAKER_00",
+      "start": 278.88,
+      "end": 279.68,
+      "text": "反而更令人可疑。"
+    },
+    {
+      "line_id": "LINE_0240",
+      "speaker": "SPEAKER_00",
+      "start": 279.76,
+      "end": 281.12,
+      "text": "于是他决定换一个角度切入，"
+    },
+    {
+      "line_id": "LINE_0241",
+      "speaker": "SPEAKER_00",
+      "start": 281.2,
+      "end": 283.04,
+      "text": "今天说什么都要揭穿这个老道长的真面目。"
+    },
+    {
+      "line_id": "LINE_0242",
+      "speaker": "SPEAKER_00",
+      "start": 283.28,
+      "end": 284.48,
+      "text": "只见苏小棠抬起头，"
+    },
+    {
+      "line_id": "LINE_0243",
+      "speaker": "SPEAKER_00",
+      "start": 284.56,
+      "end": 285.92,
+      "text": "扫了一眼周围破败的环境，"
+    },
+    {
+      "line_id": "LINE_0244",
+      "speaker": "SPEAKER_00",
+      "start": 286.08,
+      "end": 287.52,
+      "text": "目光忽然落在道观的屋檐上，"
+    },
+    {
+      "line_id": "LINE_0245",
+      "speaker": "SPEAKER_00",
+      "start": 287.6,
+      "end": 288.72,
+      "text": "心里很快就有了决策。"
+    },
+    {
+      "line_id": "LINE_0246",
+      "speaker": "SPEAKER_00",
+      "start": 288.88,
+      "end": 290.0,
+      "text": "他再次挂上一抹笑了。"
+    },
+    {
+      "line_id": "LINE_0247",
+      "speaker": "SPEAKER_00",
+      "start": 290.08,
+      "end": 290.48,
+      "text": "老道长，"
+    },
+    {
+      "line_id": "LINE_0248",
+      "speaker": "SPEAKER_00",
+      "start": 290.64,
+      "end": 292.16,
+      "text": "这座道观里面就您一个人居住吗？"
+    },
+    {
+      "line_id": "LINE_0249",
+      "speaker": "SPEAKER_00",
+      "start": 292.24,
+      "end": 293.2,
+      "text": "我看这房子挺旧的，"
+    },
+    {
+      "line_id": "LINE_0250",
+      "speaker": "SPEAKER_00",
+      "start": 293.36,
+      "end": 294.48,
+      "text": "下雨天会不会漏雨啊？"
+    },
+    {
+      "line_id": "LINE_0251",
+      "speaker": "SPEAKER_00",
+      "start": 294.64,
+      "end": 294.72,
+      "text": "会。"
+    },
+    {
+      "line_id": "LINE_0252",
+      "speaker": "SPEAKER_00",
+      "start": 294.88,
+      "end": 296.0,
+      "text": "你又很干脆地点了点头，"
+    },
+    {
+      "line_id": "LINE_0253",
+      "speaker": "SPEAKER_00",
+      "start": 296.16,
+      "end": 297.52,
+      "text": "甚至还耐心的多解释了一句，"
+    },
+    {
+      "line_id": "LINE_0254",
+      "speaker": "SPEAKER_00",
+      "start": 297.6,
+      "end": 298.72,
+      "text": "东边的那间漏的最厉害，"
+    },
+    {
+      "line_id": "LINE_0255",
+      "speaker": "SPEAKER_00",
+      "start": 298.88,
+      "end": 300.24,
+      "text": "所以我现在住在西边的那一间。"
+    },
+    {
+      "line_id": "LINE_0256",
+      "speaker": "SPEAKER_00",
+      "start": 300.4,
+      "end": 301.28,
+      "text": "那您怎么不修一修呢？"
+    },
+    {
+      "line_id": "LINE_0257",
+      "speaker": "SPEAKER_00",
+      "start": 301.44,
+      "end": 303.76,
+      "text": "苏小棠的语气里带上了几分恰到好处的关心。"
+    },
+    {
+      "line_id": "LINE_0258",
+      "speaker": "SPEAKER_00",
+      "start": 303.84,
+      "end": 304.8,
+      "text": "是不是没有什么箱子呀？"
+    },
+    {
+      "line_id": "LINE_0259",
+      "speaker": "SPEAKER_00",
+      "start": 304.96,
+      "end": 306.08,
+      "text": "这句话问的很有技巧，"
+    },
+    {
+      "line_id": "LINE_0260",
+      "speaker": "SPEAKER_00",
+      "start": 306.16,
+      "end": 307.04,
+      "text": "表面上是关心，"
+    },
+    {
+      "line_id": "LINE_0261",
+      "speaker": "SPEAKER_00",
+      "start": 307.2,
+      "end": 310.08,
+      "text": "实际上是在暗示你这个老家伙是不是靠骗人赚钱？"
+    },
+    {
+      "line_id": "LINE_0262",
+      "speaker": "SPEAKER_00",
+      "start": 310.24,
+      "end": 311.28,
+      "text": "不料你并没有接这个茬，"
+    },
+    {
+      "line_id": "LINE_0263",
+      "speaker": "SPEAKER_00",
+      "start": 311.36,
+      "end": 312.56,
+      "text": "只是摸了摸怀里的橘猫，"
+    },
+    {
+      "line_id": "LINE_0264",
+      "speaker": "SPEAKER_00",
+      "start": 312.72,
+      "end": 313.2,
+      "text": "慢吞吞的。"
+    },
+    {
+      "line_id": "LINE_0265",
+      "speaker": "SPEAKER_00",
+      "start": 313.36,
+      "end": 313.92,
+      "text": "修他做什么？"
+    },
+    {
+      "line_id": "LINE_0266",
+      "speaker": "SPEAKER_00",
+      "start": 314.08,
+      "end": 315.28,
+      "text": "不漏雨的地方够住就行了。"
+    },
+    {
+      "line_id": "LINE_0267",
+      "speaker": "SPEAKER_00",
+      "start": 315.44,
+      "end": 316.16,
+      "text": "房子跟人一样，"
+    },
+    {
+      "line_id": "LINE_0268",
+      "speaker": "SPEAKER_00",
+      "start": 316.32,
+      "end": 316.8,
+      "text": "老了就老了。"
+    },
+    {
+      "line_id": "LINE_0269",
+      "speaker": "SPEAKER_00",
+      "start": 316.96,
+      "end": 318.08,
+      "text": "修修不补的反倒不自在。"
+    },
+    {
+      "line_id": "LINE_0270",
+      "speaker": "SPEAKER_00",
+      "start": 318.24,
+      "end": 319.2,
+      "text": "中年男子徐剑山，"
+    },
+    {
+      "line_id": "LINE_0271",
+      "speaker": "SPEAKER_00",
+      "start": 319.36,
+      "end": 320.8,
+      "text": "这话听着怎么还有点哲理？"
+    },
+    {
+      "line_id": "LINE_0272",
+      "speaker": "SPEAKER_00",
+      "start": 320.88,
+      "end": 321.84,
+      "text": "弹幕也开始摇摆了。"
+    },
+    {
+      "line_id": "LINE_0273",
+      "speaker": "SPEAKER_00",
+      "start": 321.92,
+      "end": 322.16,
+      "text": "我去，"
+    },
+    {
+      "line_id": "LINE_0274",
+      "speaker": "SPEAKER_00",
+      "start": 322.32,
+      "end": 323.68,
+      "text": "老道长这话说的好有道理啊！"
+    },
+    {
+      "line_id": "LINE_0275",
+      "speaker": "SPEAKER_00",
+      "start": 323.76,
+      "end": 325.04,
+      "text": "我一时间竟然无法反驳，"
+    },
+    {
+      "line_id": "LINE_0276",
+      "speaker": "SPEAKER_00",
+      "start": 325.12,
+      "end": 326.72,
+      "text": "突然觉得老道长活的挺通透的。"
+    },
+    {
+      "line_id": "LINE_0277",
+      "speaker": "SPEAKER_00",
+      "start": 326.8,
+      "end": 327.52,
+      "text": "大家别被忽悠了，"
+    },
+    {
+      "line_id": "LINE_0278",
+      "speaker": "SPEAKER_00",
+      "start": 327.68,
+      "end": 328.24,
+      "text": "这正是话术，"
+    },
+    {
+      "line_id": "LINE_0279",
+      "speaker": "SPEAKER_00",
+      "start": 328.32,
+      "end": 329.2,
+      "text": "假装淡泊名利。"
+    },
+    {
+      "line_id": "LINE_0280",
+      "speaker": "SPEAKER_00",
+      "start": 329.36,
+      "end": 329.84,
+      "text": "小棠姐，"
+    },
+    {
+      "line_id": "LINE_0281",
+      "speaker": "SPEAKER_00",
+      "start": 330.0,
+      "end": 330.72,
+      "text": "继续加大力度，"
+    },
+    {
+      "line_id": "LINE_0282",
+      "speaker": "SPEAKER_00",
+      "start": 330.88,
+      "end": 331.68,
+      "text": "揭穿他的真面目，"
+    },
+    {
+      "line_id": "LINE_0283",
+      "speaker": "SPEAKER_00",
+      "start": 331.84,
+      "end": 332.8,
+      "text": "维护你打假的威名。"
+    },
+    {
+      "line_id": "LINE_0284",
+      "speaker": "SPEAKER_00",
+      "start": 332.88,
+      "end": 334.32,
+      "text": "苏小棠快速扫了一眼弹幕，"
+    },
+    {
+      "line_id": "LINE_0285",
+      "speaker": "SPEAKER_00",
+      "start": 334.48,
+      "end": 335.28,
+      "text": "做了两个深呼吸，"
+    },
+    {
+      "line_id": "LINE_0286",
+      "speaker": "SPEAKER_00",
+      "start": 335.36,
+      "end": 336.16,
+      "text": "决定不再绕弯子。"
+    },
+    {
+      "line_id": "LINE_0287",
+      "speaker": "SPEAKER_00",
+      "start": 336.32,
+      "end": 337.28,
+      "text": "他往前走出两步，"
+    },
+    {
+      "line_id": "LINE_0288",
+      "speaker": "SPEAKER_00",
+      "start": 337.36,
+      "end": 338.72,
+      "text": "让徐老师把镜头拉近一点，"
+    },
+    {
+      "line_id": "LINE_0289",
+      "speaker": "SPEAKER_00",
+      "start": 338.8,
+      "end": 339.36,
+      "text": "对准你的眼。"
+    },
+    {
+      "line_id": "LINE_0290",
+      "speaker": "SPEAKER_00",
+      "start": 339.68,
+      "end": 340.0,
+      "text": "老道长，"
+    },
+    {
+      "line_id": "LINE_0291",
+      "speaker": "SPEAKER_00",
+      "start": 340.16,
+      "end": 341.04,
+      "text": "我实话跟您说吧，"
+    },
+    {
+      "line_id": "LINE_0292",
+      "speaker": "SPEAKER_00",
+      "start": 341.2,
+      "end": 342.32,
+      "text": "网上有人说你有神通，"
+    },
+    {
+      "line_id": "LINE_0293",
+      "speaker": "SPEAKER_00",
+      "start": 342.48,
+      "end": 342.88,
+      "text": "能治百病。"
+    },
+    {
+      "line_id": "LINE_0294",
+      "speaker": "SPEAKER_00",
+      "start": 343.04,
+      "end": 345.12,
+      "text": "我这次上来就是想亲眼看看是不是真的。"
+    },
+    {
+      "line_id": "LINE_0295",
+      "speaker": "SPEAKER_00",
+      "start": 345.28,
+      "end": 346.24,
+      "text": "您要是有真本事的话，"
+    },
+    {
+      "line_id": "LINE_0296",
+      "speaker": "SPEAKER_00",
+      "start": 346.4,
+      "end": 347.36,
+      "text": "能不能让我们开开眼呢？"
+    },
+    {
+      "line_id": "LINE_0297",
+      "speaker": "SPEAKER_00",
+      "start": 347.52,
+      "end": 348.24,
+      "text": "他说完这句话，"
+    },
+    {
+      "line_id": "LINE_0298",
+      "speaker": "SPEAKER_00",
+      "start": 348.32,
+      "end": 349.12,
+      "text": "故意停顿了一下，"
+    },
+    {
+      "line_id": "LINE_0299",
+      "speaker": "SPEAKER_00",
+      "start": 349.28,
+      "end": 350.4,
+      "text": "给弹幕留出反应的时间。"
+    },
+    {
+      "line_id": "LINE_0300",
+      "speaker": "SPEAKER_00",
+      "start": 350.56,
+      "end": 351.6,
+      "text": "果然弹幕瞬间汹涌，"
+    },
+    {
+      "line_id": "LINE_0301",
+      "speaker": "SPEAKER_00",
+      "start": 351.76,
+      "end": 352.0,
+      "text": "哈哈，"
+    },
+    {
+      "line_id": "LINE_0302",
+      "speaker": "SPEAKER_00",
+      "start": 360.0,
+      "end": 360.16,
+      "text": "苏姐硬"
+    },
+    {
+      "line_id": "LINE_0303",
+      "speaker": "SPEAKER_00",
+      "start": 361.44,
+      "end": 361.76,
+      "text": "气了，"
+    },
+    {
+      "line_id": "LINE_0304",
+      "speaker": "SPEAKER_00",
+      "start": 361.76,
+      "end": 361.76,
+      "text": "对，"
+    },
+    {
+      "line_id": "LINE_0305",
+      "speaker": "SPEAKER_00",
+      "start": 361.76,
+      "end": 361.84,
+      "text": "直接问，"
+    },
+    {
+      "line_id": "LINE_0306",
+      "speaker": "SPEAKER_00",
+      "start": 361.84,
+      "end": 362.88,
+      "text": "打假"
+    },
+    {
+      "line_id": "LINE_0307",
+      "speaker": "SPEAKER_00",
+      "start": 363.2,
+      "end": 363.384,
+      "text": "就要这样，"
+    },
+    {
+      "line_id": "LINE_0308",
+      "speaker": "SPEAKER_00",
+      "start": 363.396,
+      "end": 363.532,
+      "text": "看他怎么回答。"
+    },
+    {
+      "line_id": "LINE_0309",
+      "speaker": "SPEAKER_00",
+      "start": 363.544,
+      "end": 363.694,
+      "text": "这种问题总没法绕过去吧？"
+    },
+    {
+      "line_id": "LINE_0310",
+      "speaker": "SPEAKER_00",
+      "start": 363.695,
+      "end": 363.728,
+      "text": "老道长要是说什么原罪道的，"
+    },
+    {
+      "line_id": "LINE_0311",
+      "speaker": "SPEAKER_00",
+      "start": 363.729,
+      "end": 363.747,
+      "text": "那就是典型的骗。"
+    },
+    {
+      "line_id": "LINE_0312",
+      "speaker": "SPEAKER_00",
+      "start": 363.749,
+      "end": 363.753,
+      "text": "不是，"
+    },
+    {
+      "line_id": "LINE_0313",
+      "speaker": "SPEAKER_00",
+      "start": 363.755,
+      "end": 363.793,
+      "text": "我怎么感觉老道长一点都不慌啊！"
+    },
+    {
+      "line_id": "LINE_0314",
+      "speaker": "SPEAKER_00",
+      "start": 363.794,
+      "end": 363.807,
+      "text": "你确实不慌，"
+    },
+    {
+      "line_id": "LINE_0315",
+      "speaker": "SPEAKER_00",
+      "start": 363.808,
+      "end": 363.827,
+      "text": "甚至还有点想笑。"
+    },
+    {
+      "line_id": "LINE_0316",
+      "speaker": "SPEAKER_00",
+      "start": 363.828,
+      "end": 363.946,
+      "text": "神通你有啊？"
+    },
+    {
+      "line_id": "LINE_0317",
+      "speaker": "SPEAKER_00",
+      "start": 364.053,
+      "end": 365.76,
+      "text": "系统给的那些不就是神通吗？"
+    },
+    {
+      "line_id": "LINE_0318",
+      "speaker": "SPEAKER_00",
+      "start": 365.92,
+      "end": 369.04,
+      "text": "明目诀让你能看清楚对面山上那棵松树上的松果有几颗。"
+    },
+    {
+      "line_id": "LINE_0319",
+      "speaker": "SPEAKER_00",
+      "start": 369.2,
+      "end": 371.44,
+      "text": "轻身步能让你走山路比年轻人还要稳当。"
+    },
+    {
+      "line_id": "LINE_0320",
+      "speaker": "SPEAKER_00",
+      "start": 371.6,
+      "end": 374.96,
+      "text": "呼吸吐纳法则是让你呼吸之间气血流转比常人快三倍。"
+    },
+    {
+      "line_id": "LINE_0321",
+      "speaker": "SPEAKER_00",
+      "start": 375.12,
+      "end": 376.4,
+      "text": "但是这些都跟治病没关系了，"
+    },
+    {
+      "line_id": "LINE_0322",
+      "speaker": "SPEAKER_00",
+      "start": 376.56,
+      "end": 377.04,
+      "text": "我不会治病。"
+    },
+    {
+      "line_id": "LINE_0323",
+      "speaker": "SPEAKER_00",
+      "start": 377.2,
+      "end": 378.16,
+      "text": "你再次摇了摇头，"
+    },
+    {
+      "line_id": "LINE_0324",
+      "speaker": "SPEAKER_00",
+      "start": 378.24,
+      "end": 378.8,
+      "text": "也不会算命。"
+    },
+    {
+      "line_id": "LINE_0325",
+      "speaker": "SPEAKER_00",
+      "start": 378.96,
+      "end": 379.76,
+      "text": "谁跟你说的这些？"
+    },
+    {
+      "line_id": "LINE_0326",
+      "speaker": "SPEAKER_00",
+      "start": 379.92,
+      "end": 380.32,
+      "text": "你找谁去？"
+    },
+    {
+      "line_id": "LINE_0327",
+      "speaker": "SPEAKER_00",
+      "start": 380.48,
+      "end": 381.44,
+      "text": "苏小唐顿时愣住。"
+    },
+    {
+      "line_id": "LINE_0328",
+      "speaker": "SPEAKER_00",
+      "start": 381.68,
+      "end": 382.56,
+      "text": "他打了这么多年的假，"
+    },
+    {
+      "line_id": "LINE_0329",
+      "speaker": "SPEAKER_00",
+      "start": 382.8,
+      "end": 384.24,
+      "text": "遇到的骗子要么是胡搅蛮缠的，"
+    },
+    {
+      "line_id": "LINE_0330",
+      "speaker": "SPEAKER_00",
+      "start": 384.4,
+      "end": 385.28,
+      "text": "要么是装神弄鬼的，"
+    },
+    {
+      "line_id": "LINE_0331",
+      "speaker": "SPEAKER_00",
+      "start": 385.44,
+      "end": 386.48,
+      "text": "要么就是直接翻脸骂人。"
+    },
+    {
+      "line_id": "LINE_0332",
+      "speaker": "SPEAKER_00",
+      "start": 386.64,
+      "end": 387.52,
+      "text": "但是夏安贤这种，"
+    },
+    {
+      "line_id": "LINE_0333",
+      "speaker": "SPEAKER_00",
+      "start": 387.6,
+      "end": 388.24,
+      "text": "你说他是骗子，"
+    },
+    {
+      "line_id": "LINE_0334",
+      "speaker": "SPEAKER_00",
+      "start": 388.4,
+      "end": 389.76,
+      "text": "他就直接承认自己什么都不会。"
+    },
+    {
+      "line_id": "LINE_0335",
+      "speaker": "SPEAKER_00",
+      "start": 389.92,
+      "end": 390.8,
+      "text": "他还真是头一回见。"
+    },
+    {
+      "line_id": "LINE_0336",
+      "speaker": "SPEAKER_00",
+      "start": 390.88,
+      "end": 392.0,
+      "text": "九生九稀罕我。"
+    },
+    {
+      "line_id": "LINE_0337",
+      "speaker": "SPEAKER_00",
+      "start": 392.16,
+      "end": 393.6,
+      "text": "不过苏小唐很快就反应过来，"
+    },
+    {
+      "line_id": "LINE_0338",
+      "speaker": "SPEAKER_00",
+      "start": 393.68,
+      "end": 393.84,
+      "text": "不对，"
+    },
+    {
+      "line_id": "LINE_0339",
+      "speaker": "SPEAKER_00",
+      "start": 394.0,
+      "end": 395.52,
+      "text": "如果这个老道长真的什么都不会，"
+    },
+    {
+      "line_id": "LINE_0340",
+      "speaker": "SPEAKER_00",
+      "start": 395.68,
+      "end": 396.32,
+      "text": "就不算是骗子，"
+    },
+    {
+      "line_id": "LINE_0341",
+      "speaker": "SPEAKER_00",
+      "start": 396.48,
+      "end": 397.76,
+      "text": "顶多算是个普通的老人家。"
+    },
+    {
+      "line_id": "LINE_0342",
+      "speaker": "SPEAKER_00",
+      "start": 397.92,
+      "end": 398.4,
+      "text": "这样一来，"
+    },
+    {
+      "line_id": "LINE_0343",
+      "speaker": "SPEAKER_00",
+      "start": 398.56,
+      "end": 399.76,
+      "text": "他这期视频还怎么打假？"
+    },
+    {
+      "line_id": "LINE_0344",
+      "speaker": "SPEAKER_00",
+      "start": 399.84,
+      "end": 401.52,
+      "text": "直播间里的风向也开始有变化。"
+    },
+    {
+      "line_id": "LINE_0345",
+      "speaker": "SPEAKER_00",
+      "start": 401.6,
+      "end": 401.84,
+      "text": "我去，"
+    },
+    {
+      "line_id": "LINE_0346",
+      "speaker": "SPEAKER_00",
+      "start": 402.0,
+      "end": 402.72,
+      "text": "老道长说不会，"
+    },
+    {
+      "line_id": "LINE_0347",
+      "speaker": "SPEAKER_00",
+      "start": 403.04,
+      "end": 404.56,
+      "text": "那往上的那些帖子是怎么回事？"
+    },
+    {
+      "line_id": "LINE_0348",
+      "speaker": "SPEAKER_00",
+      "start": 404.64,
+      "end": 405.68,
+      "text": "可能是有人下边吧。"
+    },
+    {
+      "line_id": "LINE_0349",
+      "speaker": "SPEAKER_00",
+      "start": 405.76,
+      "end": 407.28,
+      "text": "所以小唐姐这次是不是搞错了？"
+    },
+    {
+      "line_id": "LINE_0350",
+      "speaker": "SPEAKER_00",
+      "start": 407.44,
+      "end": 408.4,
+      "text": "看苏姐怎么收场吧。"
+    },
+    {
+      "line_id": "LINE_0351",
+      "speaker": "SPEAKER_00",
+      "start": 408.48,
+      "end": 409.6,
+      "text": "苏小唐咬了咬嘴唇，"
+    },
+    {
+      "line_id": "LINE_0352",
+      "speaker": "SPEAKER_00",
+      "start": 409.76,
+      "end": 410.4,
+      "text": "他很不甘心。"
+    },
+    {
+      "line_id": "LINE_0353",
+      "speaker": "SPEAKER_00",
+      "start": 410.56,
+      "end": 411.68,
+      "text": "跑了四十多分钟的山路，"
+    },
+    {
+      "line_id": "LINE_0354",
+      "speaker": "SPEAKER_00",
+      "start": 411.84,
+      "end": 413.12,
+      "text": "还带着团队扛着设备上来。"
+    },
+    {
+      "line_id": "LINE_0355",
+      "speaker": "SPEAKER_00",
+      "start": 413.28,
+      "end": 414.4,
+      "text": "如果就这么灰溜溜的走了，"
+    },
+    {
+      "line_id": "LINE_0356",
+      "speaker": "SPEAKER_00",
+      "start": 414.48,
+      "end": 415.68,
+      "text": "这期视频不仅没有爆点，"
+    },
+    {
+      "line_id": "LINE_0357",
+      "speaker": "SPEAKER_00",
+      "start": 415.76,
+      "end": 417.12,
+      "text": "还会被粉丝说他小题大做，"
+    },
+    {
+      "line_id": "LINE_0358",
+      "speaker": "SPEAKER_00",
+      "start": 417.2,
+      "end": 418.32,
+      "text": "这实在有损他的名声。"
+    },
+    {
+      "line_id": "LINE_0359",
+      "speaker": "SPEAKER_00",
+      "start": 418.4,
+      "end": 419.28,
+      "text": "所以不能就这么算了，"
+    },
+    {
+      "line_id": "LINE_0360",
+      "speaker": "SPEAKER_00",
+      "start": 419.44,
+      "end": 420.32,
+      "text": "他必须找出点什么。"
+    },
+    {
+      "line_id": "LINE_0361",
+      "speaker": "SPEAKER_00",
+      "start": 420.48,
+      "end": 422.48,
+      "text": "苏小唐的目光开始在道观里扫视起来。"
+    },
+    {
+      "line_id": "LINE_0362",
+      "speaker": "SPEAKER_00",
+      "start": 422.64,
+      "end": 423.84,
+      "text": "那是忽然他眼睛一亮，"
+    },
+    {
+      "line_id": "LINE_0363",
+      "speaker": "SPEAKER_00",
+      "start": 424.0,
+      "end": 425.28,
+      "text": "注意到了墙角放着的东西，"
+    },
+    {
+      "line_id": "LINE_0364",
+      "speaker": "SPEAKER_00",
+      "start": 425.28,
+      "end": 426.24,
+      "text": "一个简陋的石台，"
+    },
+    {
+      "line_id": "LINE_0365",
+      "speaker": "SPEAKER_00",
+      "start": 426.4,
+      "end": 428.0,
+      "text": "上面放着几本书、一个茶杯，"
+    },
+    {
+      "line_id": "LINE_0366",
+      "speaker": "SPEAKER_00",
+      "start": 428.08,
+      "end": 429.36,
+      "text": "还有一台没有下完的围棋。"
+    },
+    {
+      "line_id": "LINE_0367",
+      "speaker": "SPEAKER_00",
+      "start": 429.44,
+      "end": 430.48,
+      "text": "这些东西都很正常，"
+    },
+    {
+      "line_id": "LINE_0368",
+      "speaker": "SPEAKER_00",
+      "start": 430.56,
+      "end": 432.64,
+      "text": "但是在石台旁边靠墙放着一样东西，"
+    },
+    {
+      "line_id": "LINE_0369",
+      "speaker": "SPEAKER_00",
+      "start": 432.8,
+      "end": 433.52,
+      "text": "引起了他的注意力。"
+    },
+    {
+      "line_id": "LINE_0370",
+      "speaker": "SPEAKER_00",
+      "start": 433.68,
+      "end": 434.72,
+      "text": "那是一个深色木架子，"
+    },
+    {
+      "line_id": "LINE_0371",
+      "speaker": "SPEAKER_00",
+      "start": 434.8,
+      "end": 435.76,
+      "text": "架子上搁着一对"
+    },
+    {
+      "line_id": "LINE_0372",
+      "speaker": "SPEAKER_00",
+      "start": 436.16,
+      "end": 436.32,
+      "text": "哑铃，"
+    },
+    {
+      "line_id": "LINE_0373",
+      "speaker": "SPEAKER_00",
+      "start": 436.32,
+      "end": 436.96,
+      "text": "哑铃是铁铸的，"
+    },
+    {
+      "line_id": "LINE_0374",
+      "speaker": "SPEAKER_00",
+      "start": 437.04,
+      "end": 437.68,
+      "text": "黑不溜秋，"
+    },
+    {
+      "line_id": "LINE_0375",
+      "speaker": "SPEAKER_00",
+      "start": 437.76,
+      "end": 438.56,
+      "text": "看着有些年头了。"
+    },
+    {
+      "line_id": "LINE_0376",
+      "speaker": "SPEAKER_00",
+      "start": 438.72,
+      "end": 440.56,
+      "text": "苏小唐目测了一下那对哑铃的大小，"
+    },
+    {
+      "line_id": "LINE_0377",
+      "speaker": "SPEAKER_00",
+      "start": 440.64,
+      "end": 442.08,
+      "text": "估摸着单个至少有五六十斤，"
+    },
+    {
+      "line_id": "LINE_0378",
+      "speaker": "SPEAKER_00",
+      "start": 442.16,
+      "end": 443.68,
+      "text": "这让他的心头顿时火热起来。"
+    },
+    {
+      "line_id": "LINE_0379",
+      "speaker": "SPEAKER_00",
+      "start": 443.84,
+      "end": 445.92,
+      "text": "一个九十六岁瘦的跟竹竿似的老道士，"
+    },
+    {
+      "line_id": "LINE_0380",
+      "speaker": "SPEAKER_00",
+      "start": 446.08,
+      "end": 447.84,
+      "text": "屋里居然放着一对五六十斤的哑铃，"
+    },
+    {
+      "line_id": "LINE_0381",
+      "speaker": "SPEAKER_00",
+      "start": 447.84,
+      "end": 448.72,
+      "text": "这里面肯定有故事。"
+    },
+    {
+      "line_id": "LINE_0382",
+      "speaker": "SPEAKER_00",
+      "start": 448.8,
+      "end": 450.32,
+      "text": "苏小唐的嘴角重新扬了起来，"
+    },
+    {
+      "line_id": "LINE_0383",
+      "speaker": "SPEAKER_00",
+      "start": 450.4,
+      "end": 451.12,
+      "text": "他快步走过去，"
+    },
+    {
+      "line_id": "LINE_0384",
+      "speaker": "SPEAKER_00",
+      "start": 451.28,
+      "end": 452.48,
+      "text": "招呼身后的徐老师跟上，"
+    },
+    {
+      "line_id": "LINE_0385",
+      "speaker": "SPEAKER_00",
+      "start": 452.64,
+      "end": 453.68,
+      "text": "然后站在那个木架前。"
+    },
+    {
+      "line_id": "LINE_0386",
+      "speaker": "SPEAKER_00",
+      "start": 453.84,
+      "end": 454.96,
+      "text": "徐老师很会来事，"
+    },
+    {
+      "line_id": "LINE_0387",
+      "speaker": "SPEAKER_00",
+      "start": 455.04,
+      "end": 456.48,
+      "text": "立即给那对哑铃来了一个特写。"
+    },
+    {
+      "line_id": "LINE_0388",
+      "speaker": "SPEAKER_00",
+      "start": 456.56,
+      "end": 457.76,
+      "text": "苏小唐回头看了一眼你，"
+    },
+    {
+      "line_id": "LINE_0389",
+      "speaker": "SPEAKER_00",
+      "start": 457.92,
+      "end": 459.04,
+      "text": "再转过头面对着镜头，"
+    },
+    {
+      "line_id": "LINE_0390",
+      "speaker": "SPEAKER_00",
+      "start": 459.12,
+      "end": 460.08,
+      "text": "面带笑：“家人们，"
+    },
+    {
+      "line_id": "LINE_0391",
+      "speaker": "SPEAKER_00",
+      "start": 460.24,
+      "end": 460.88,
+      "text": "你们都看到了吗？"
+    },
+    {
+      "line_id": "LINE_0392",
+      "speaker": "SPEAKER_00",
+      "start": 461.04,
+      "end": 462.72,
+      "text": "老道长的屋里居然一对哑铃也，"
+    },
+    {
+      "line_id": "LINE_0393",
+      "speaker": "SPEAKER_00",
+      "start": 462.72,
+      "end": 464.72,
+      "text": "一个九十六岁老人家屋里放着哑铃，"
+    },
+    {
+      "line_id": "LINE_0394",
+      "speaker": "SPEAKER_00",
+      "start": 464.88,
+      "end": 466.16,
+      "text": "你们觉得他是拿来干什么用的？”"
+    },
+    {
+      "line_id": "LINE_0395",
+      "speaker": "SPEAKER_00",
+      "start": 466.24,
+      "end": 467.6,
+      "text": "粉丝们瞬间明白他的意思，"
+    },
+    {
+      "line_id": "LINE_0396",
+      "speaker": "SPEAKER_00",
+      "start": 467.68,
+      "end": 468.56,
+      "text": "但目也开始有点炸。"
+    },
+    {
+      "line_id": "LINE_0397",
+      "speaker": "SPEAKER_00",
+      "start": 468.72,
+      "end": 469.12,
+      "text": "我懂了，"
+    },
+    {
+      "line_id": "LINE_0398",
+      "speaker": "SPEAKER_00",
+      "start": 469.2,
+      "end": 469.76,
+      "text": "这是道具。"
+    },
+    {
+      "line_id": "LINE_0399",
+      "speaker": "SPEAKER_00",
+      "start": 469.84,
+      "end": 470.08,
+      "text": "哈哈，"
+    },
+    {
+      "line_id": "LINE_0400",
+      "speaker": "SPEAKER_00",
+      "start": 470.24,
+      "end": 470.56,
+      "text": "我猜"
+    },
+    {
+      "line_id": "LINE_0401",
+      "speaker": "SPEAKER_00",
+      "start": 480.0,
+      "end": 480.0,
+      "text": "老道长是不是想说这是他的法器，"
+    },
+    {
+      "line_id": "LINE_0402",
+      "speaker": "SPEAKER_00",
+      "start": 480.0,
+      "end": 480.0,
+      "text": "或者是练功用的？"
+    },
+    {
+      "line_id": "LINE_0403",
+      "speaker": "SPEAKER_00",
+      "start": 480.0,
+      "end": 480.0,
+      "text": "练气功？"
+    },
+    {
+      "line_id": "LINE_0404",
+      "speaker": "SPEAKER_00",
+      "start": 480.0,
+      "end": 480.0,
+      "text": "九十六岁玩哑铃？"
+    },
+    {
+      "line_id": "LINE_0405",
+      "speaker": "SPEAKER_00",
+      "start": 480.0,
+      "end": 480.0,
+      "text": "别搞笑了，"
+    },
+    {
+      "line_id": "LINE_0406",
+      "speaker": "SPEAKER_00",
+      "start": 480.0,
+      "end": 480.0,
+      "text": "是啊，"
+    },
+    {
+      "line_id": "LINE_0407",
+      "speaker": "SPEAKER_00",
+      "start": 480.0,
+      "end": 480.0,
+      "text": "这太假了，"
+    },
+    {
+      "line_id": "LINE_0408",
+      "speaker": "SPEAKER_00",
+      "start": 480.0,
+      "end": 480.0,
+      "text": "谁信啊？"
+    },
+    {
+      "line_id": "LINE_0409",
+      "speaker": "SPEAKER_00",
+      "start": 480.0,
+      "end": 480.0,
+      "text": "小唐姐这多细节，"
+    },
+    {
+      "line_id": "LINE_0410",
+      "speaker": "SPEAKER_00",
+      "start": 480.0,
+      "end": 480.0,
+      "text": "很好，"
+    },
+    {
+      "line_id": "LINE_0411",
+      "speaker": "SPEAKER_00",
+      "start": 480.0,
+      "end": 480.0,
+      "text": "就是这个位打假。"
+    },
+    {
+      "line_id": "LINE_0412",
+      "speaker": "SPEAKER_00",
+      "start": 480.0,
+      "end": 480.0,
+      "text": "感觉回来了，"
+    },
+    {
+      "line_id": "LINE_0413",
+      "speaker": "SPEAKER_00",
+      "start": 480.0,
+      "end": 480.0,
+      "text": "小唐姐，"
+    },
+    {
+      "line_id": "LINE_0414",
+      "speaker": "SPEAKER_00",
+      "start": 480.0,
+      "end": 480.0,
+      "text": "请继续加大力度。"
+    },
+    {
+      "line_id": "LINE_0415",
+      "speaker": "SPEAKER_00",
+      "start": 480.0,
+      "end": 480.0,
+      "text": "不用联系我。"
+    },
+    {
+      "line_id": "LINE_0416",
+      "speaker": "SPEAKER_00",
+      "start": 480.0,
+      "end": 480.0,
+      "text": "苏小唐快速"
+    },
+    {
+      "line_id": "LINE_0417",
+      "speaker": "SPEAKER_00",
+      "start": 483.52,
+      "end": 484.24,
+      "text": "扫了一眼弹幕，"
+    },
+    {
+      "line_id": "LINE_0418",
+      "speaker": "SPEAKER_00",
+      "start": 484.32,
+      "end": 485.2,
+      "text": "心中底气更足。"
+    },
+    {
+      "line_id": "LINE_0419",
+      "speaker": "SPEAKER_00",
+      "start": 485.36,
+      "end": 486.16,
+      "text": "他转身看向你，"
+    },
+    {
+      "line_id": "LINE_0420",
+      "speaker": "SPEAKER_00",
+      "start": 486.24,
+      "end": 487.76,
+      "text": "笑容里带上了几分挑衅的意味，"
+    },
+    {
+      "line_id": "LINE_0421",
+      "speaker": "SPEAKER_00",
+      "start": 487.84,
+      "end": 488.64,
+      "text": "却仍保持着礼貌。"
+    },
+    {
+      "line_id": "LINE_0422",
+      "speaker": "SPEAKER_00",
+      "start": 488.8,
+      "end": 489.28,
+      "text": "老道长，"
+    },
+    {
+      "line_id": "LINE_0423",
+      "speaker": "SPEAKER_00",
+      "start": 489.44,
+      "end": 490.56,
+      "text": "请问这对哑铃是您的吗？"
+    },
+    {
+      "line_id": "LINE_0424",
+      "speaker": "SPEAKER_00",
+      "start": 490.64,
+      "end": 491.76,
+      "text": "您平时还用这个锻炼啊？"
+    },
+    {
+      "line_id": "LINE_0425",
+      "speaker": "SPEAKER_00",
+      "start": 491.92,
+      "end": 493.6,
+      "text": "你顺着他手指的方向看了一眼，"
+    },
+    {
+      "line_id": "LINE_0426",
+      "speaker": "SPEAKER_00",
+      "start": 493.6,
+      "end": 493.92,
+      "text": "点了点头。"
+    },
+    {
+      "line_id": "LINE_0427",
+      "speaker": "SPEAKER_00",
+      "start": 494.08,
+      "end": 494.16,
+      "text": "对，"
+    },
+    {
+      "line_id": "LINE_0428",
+      "speaker": "SPEAKER_00",
+      "start": 494.32,
+      "end": 494.72,
+      "text": "是我的。"
+    },
+    {
+      "line_id": "LINE_0429",
+      "speaker": "SPEAKER_00",
+      "start": 494.88,
+      "end": 495.76,
+      "text": "我有事后会练练。"
+    },
+    {
+      "line_id": "LINE_0430",
+      "speaker": "SPEAKER_00",
+      "start": 495.84,
+      "end": 497.04,
+      "text": "苏小唐差点笑出声来，"
+    },
+    {
+      "line_id": "LINE_0431",
+      "speaker": "SPEAKER_00",
+      "start": 497.2,
+      "end": 498.56,
+      "text": "练一练就您这个身子骨，"
+    },
+    {
+      "line_id": "LINE_0432",
+      "speaker": "SPEAKER_00",
+      "start": 498.72,
+      "end": 499.04,
+      "text": "练哑铃，"
+    },
+    {
+      "line_id": "LINE_0433",
+      "speaker": "SPEAKER_00",
+      "start": 499.2,
+      "end": 500.8,
+      "text": "只是一个哑铃都比您大腿还粗，"
+    },
+    {
+      "line_id": "LINE_0434",
+      "speaker": "SPEAKER_00",
+      "start": 500.96,
+      "end": 501.76,
+      "text": "您确定不是在逗我？"
+    },
+    {
+      "line_id": "LINE_0435",
+      "speaker": "SPEAKER_00",
+      "start": 502.08,
+      "end": 504.56,
+      "text": "他身后的徐老师扛着摄影机的手都开始颤抖，"
+    },
+    {
+      "line_id": "LINE_0436",
+      "speaker": "SPEAKER_00",
+      "start": 504.8,
+      "end": 505.84,
+      "text": "嘴角也快要憋不出笑。"
+    },
+    {
+      "line_id": "LINE_0437",
+      "speaker": "SPEAKER_00",
+      "start": 506.0,
+      "end": 508.16,
+      "text": "苏小唐回头对镜头做了个夸张的表情，"
+    },
+    {
+      "line_id": "LINE_0438",
+      "speaker": "SPEAKER_00",
+      "start": 508.32,
+      "end": 509.12,
+      "text": "声调拔高了一些。"
+    },
+    {
+      "line_id": "LINE_0439",
+      "speaker": "SPEAKER_00",
+      "start": 509.2,
+      "end": 509.52,
+      "text": "家人们，"
+    },
+    {
+      "line_id": "LINE_0440",
+      "speaker": "SPEAKER_00",
+      "start": 509.76,
+      "end": 511.2,
+      "text": "老道长说他用这对哑铃锻炼，"
+    },
+    {
+      "line_id": "LINE_0441",
+      "speaker": "SPEAKER_00",
+      "start": 511.28,
+      "end": 513.12,
+      "text": "那我们今天就请老道长给我们展示一下，"
+    },
+    {
+      "line_id": "LINE_0442",
+      "speaker": "SPEAKER_00",
+      "start": 513.28,
+      "end": 513.6,
+      "text": "好不好？"
+    },
+    {
+      "line_id": "LINE_0443",
+      "speaker": "SPEAKER_00",
+      "start": 513.68,
+      "end": 514.72,
+      "text": "弹幕立即开始起哄，"
+    },
+    {
+      "line_id": "LINE_0444",
+      "speaker": "SPEAKER_00",
+      "start": 514.8,
+      "end": 515.92,
+      "text": "展示必须展示，"
+    },
+    {
+      "line_id": "LINE_0445",
+      "speaker": "SPEAKER_00",
+      "start": 516.0,
+      "end": 517.12,
+      "text": "看老道长怎么圆这个谎。"
+    },
+    {
+      "line_id": "LINE_0446",
+      "speaker": "SPEAKER_00",
+      "start": 517.28,
+      "end": 518.0,
+      "text": "我赌他拿不起来，"
+    },
+    {
+      "line_id": "LINE_0447",
+      "speaker": "SPEAKER_00",
+      "start": 518.16,
+      "end": 519.12,
+      "text": "他要是能拿起来的话，"
+    },
+    {
+      "line_id": "LINE_0448",
+      "speaker": "SPEAKER_00",
+      "start": 519.28,
+      "end": 519.92,
+      "text": "我当众耻笑，"
+    },
+    {
+      "line_id": "LINE_0449",
+      "speaker": "SPEAKER_00",
+      "start": 520.0,
+      "end": 520.8,
+      "text": "别欺负老人家了，"
+    },
+    {
+      "line_id": "LINE_0450",
+      "speaker": "SPEAKER_00",
+      "start": 520.96,
+      "end": 521.6,
+      "text": "这样不太好吧？"
+    },
+    {
+      "line_id": "LINE_0451",
+      "speaker": "SPEAKER_00",
+      "start": 521.68,
+      "end": 522.4,
+      "text": "打假就要这样，"
+    },
+    {
+      "line_id": "LINE_0452",
+      "speaker": "SPEAKER_00",
+      "start": 522.56,
+      "end": 523.36,
+      "text": "真金不怕火炼。"
+    },
+    {
+      "line_id": "LINE_0453",
+      "speaker": "SPEAKER_00",
+      "start": 523.52,
+      "end": 524.8,
+      "text": "看到粉丝们都在支持自己，"
+    },
+    {
+      "line_id": "LINE_0454",
+      "speaker": "SPEAKER_00",
+      "start": 524.96,
+      "end": 526.24,
+      "text": "苏小唐立即转头看向，"
+    },
+    {
+      "line_id": "LINE_0455",
+      "speaker": "SPEAKER_00",
+      "start": 526.4,
+      "end": 526.96,
+      "text": "笑容灿烂。"
+    },
+    {
+      "line_id": "LINE_0456",
+      "speaker": "SPEAKER_00",
+      "start": 527.12,
+      "end": 527.52,
+      "text": "老道长，"
+    },
+    {
+      "line_id": "LINE_0457",
+      "speaker": "SPEAKER_00",
+      "start": 527.68,
+      "end": 528.8,
+      "text": "您能不能给我们展示一下，"
+    },
+    {
+      "line_id": "LINE_0458",
+      "speaker": "SPEAKER_00",
+      "start": 528.96,
+      "end": 530.08,
+      "text": "用这个哑铃做几个动作，"
+    },
+    {
+      "line_id": "LINE_0459",
+      "speaker": "SPEAKER_00",
+      "start": 530.16,
+      "end": 531.52,
+      "text": "也让直播间的家人们开开眼？"
+    },
+    {
+      "line_id": "LINE_0460",
+      "speaker": "SPEAKER_00",
+      "start": 531.6,
+      "end": 532.0,
+      "text": "您放心，"
+    },
+    {
+      "line_id": "LINE_0461",
+      "speaker": "SPEAKER_00",
+      "start": 532.16,
+      "end": 532.96,
+      "text": "我会在边上看的，"
+    },
+    {
+      "line_id": "LINE_0462",
+      "speaker": "SPEAKER_00",
+      "start": 533.04,
+      "end": 533.76,
+      "text": "不会让您受伤的。"
+    },
+    {
+      "line_id": "LINE_0463",
+      "speaker": "SPEAKER_00",
+      "start": 533.84,
+      "end": 534.72,
+      "text": "你先是看了他一眼，"
+    },
+    {
+      "line_id": "LINE_0464",
+      "speaker": "SPEAKER_00",
+      "start": 534.88,
+      "end": 536.4,
+      "text": "又扫了下墙角放着的那对哑铃，"
+    },
+    {
+      "line_id": "LINE_0465",
+      "speaker": "SPEAKER_00",
+      "start": 536.56,
+      "end": 537.28,
+      "text": "沉默了两秒钟，"
+    },
+    {
+      "line_id": "LINE_0466",
+      "speaker": "SPEAKER_00",
+      "start": 537.44,
+      "end": 538.16,
+      "text": "然后叹了一口气，"
+    },
+    {
+      "line_id": "LINE_0467",
+      "speaker": "SPEAKER_00",
+      "start": 538.32,
+      "end": 539.2,
+      "text": "心里也忍不住在想，"
+    },
+    {
+      "line_id": "LINE_0468",
+      "speaker": "SPEAKER_00",
+      "start": 539.36,
+      "end": 540.64,
+      "text": "我就想过个清净的日子而已，"
+    },
+    {
+      "line_id": "LINE_0469",
+      "speaker": "SPEAKER_00",
+      "start": 540.72,
+      "end": 541.28,
+      "text": "怎么就这么难？"
+    },
+    {
+      "line_id": "LINE_0470",
+      "speaker": "SPEAKER_00",
+      "start": 541.36,
+      "end": 541.84,
+      "text": "你也知道，"
+    },
+    {
+      "line_id": "LINE_0471",
+      "speaker": "SPEAKER_00",
+      "start": 542.0,
+      "end": 543.6,
+      "text": "如果不让这个女主播知难而退的话，"
+    },
+    {
+      "line_id": "LINE_0472",
+      "speaker": "SPEAKER_00",
+      "start": 543.68,
+      "end": 544.88,
+      "text": "他是今天都没完没了了。"
+    },
+    {
+      "line_id": "LINE_0473",
+      "speaker": "SPEAKER_00",
+      "start": 544.96,
+      "end": 546.64,
+      "text": "于是你把茶杯放在桌椅的扶手上，"
+    },
+    {
+      "line_id": "LINE_0474",
+      "speaker": "SPEAKER_00",
+      "start": 546.72,
+      "end": 547.76,
+      "text": "接着你慢慢的站起身，"
+    },
+    {
+      "line_id": "LINE_0475",
+      "speaker": "SPEAKER_00",
+      "start": 547.92,
+      "end": 548.96,
+      "text": "站起来的过程也很慢，"
+    },
+    {
+      "line_id": "LINE_0476",
+      "speaker": "SPEAKER_00",
+      "start": 549.12,
+      "end": 550.64,
+      "text": "慢到苏小唐都替你捏了把汗。"
+    },
+    {
+      "line_id": "LINE_0477",
+      "speaker": "SPEAKER_00",
+      "start": 550.72,
+      "end": 552.48,
+      "text": "只见你先是用两只手撑着扶手，"
+    },
+    {
+      "line_id": "LINE_0478",
+      "speaker": "SPEAKER_00",
+      "start": 552.56,
+      "end": 553.92,
+      "text": "然后膝盖一点一点的伸直，"
+    },
+    {
+      "line_id": "LINE_0479",
+      "speaker": "SPEAKER_00",
+      "start": 554.08,
+      "end": 555.28,
+      "text": "最后扶着椅背站定身体，"
+    },
+    {
+      "line_id": "LINE_0480",
+      "speaker": "SPEAKER_00",
+      "start": 555.36,
+      "end": 557.04,
+      "text": "整个人的重心也不由得晃了两下，"
+    },
+    {
+      "line_id": "LINE_0481",
+      "speaker": "SPEAKER_00",
+      "start": 557.12,
+      "end": 557.84,
+      "text": "这才彻底站稳。"
+    },
+    {
+      "line_id": "LINE_0482",
+      "speaker": "SPEAKER_00",
+      "start": 558.08,
+      "end": 559.2,
+      "text": "此时弹幕已经傻眼了，"
+    },
+    {
+      "line_id": "LINE_0483",
+      "speaker": "SPEAKER_00",
+      "start": 559.36,
+      "end": 560.4,
+      "text": "老道长这起身的动作，"
+    },
+    {
+      "line_id": "LINE_0484",
+      "speaker": "SPEAKER_00",
+      "start": 560.56,
+      "end": 561.36,
+      "text": "我看着都觉得累啊，"
+    },
+    {
+      "line_id": "LINE_0485",
+      "speaker": "SPEAKER_00",
+      "start": 561.52,
+      "end": 561.84,
+      "text": "不是吧？"
+    },
+    {
+      "line_id": "LINE_0486",
+      "speaker": "SPEAKER_00",
+      "start": 562.0,
+      "end": 562.8,
+      "text": "他站起来都费劲，"
+    },
+    {
+      "line_id": "LINE_0487",
+      "speaker": "SPEAKER_00",
+      "start": 562.88,
+      "end": 563.6,
+      "text": "还想要举哑铃，"
+    },
+    {
+      "line_id": "LINE_0488",
+      "speaker": "SPEAKER_00",
+      "start": 563.76,
+      "end": 564.56,
+      "text": "确定不是在逗我？"
+    },
+    {
+      "line_id": "LINE_0489",
+      "speaker": "SPEAKER_00",
+      "start": 564.8,
+      "end": 565.28,
+      "text": "小唐姐，"
+    },
+    {
+      "line_id": "LINE_0490",
+      "speaker": "SPEAKER_00",
+      "start": 565.52,
+      "end": 566.16,
+      "text": "要不还是算了吧，"
+    },
+    {
+      "line_id": "LINE_0491",
+      "speaker": "SPEAKER_00",
+      "start": 566.32,
+      "end": 567.12,
+      "text": "别搞出人命来啊！"
+    },
+    {
+      "line_id": "LINE_0492",
+      "speaker": "SPEAKER_00",
+      "start": 567.28,
+      "end": 567.76,
+      "text": "是啊是啊，"
+    },
+    {
+      "line_id": "LINE_0493",
+      "speaker": "SPEAKER_00",
+      "start": 568.0,
+      "end": 569.52,
+      "text": "万一这个老道长有什么三长两短，"
+    },
+    {
+      "line_id": "LINE_0494",
+      "speaker": "SPEAKER_00",
+      "start": 569.68,
+      "end": 570.72,
+      "text": "小唐姐你可就遭罪了。"
+    },
+    {
+      "line_id": "LINE_0495",
+      "speaker": "SPEAKER_00",
+      "start": 570.8,
+      "end": 572.0,
+      "text": "苏小唐扫了一眼弹幕，"
+    },
+    {
+      "line_id": "LINE_0496",
+      "speaker": "SPEAKER_00",
+      "start": 572.08,
+      "end": 573.2,
+      "text": "紧紧抿着嘴没说话，"
+    },
+    {
+      "line_id": "LINE_0497",
+      "speaker": "SPEAKER_00",
+      "start": 573.28,
+      "end": 574.08,
+      "text": "心里也开始祈祷，"
+    },
+    {
+      "line_id": "LINE_0498",
+      "speaker": "SPEAKER_00",
+      "start": 574.24,
+      "end": 575.52,
+      "text": "希望这位老道长别出事，"
+    },
+    {
+      "line_id": "LINE_0499",
+      "speaker": "SPEAKER_00",
+      "start": 575.6,
+      "end": 576.32,
+      "text": "不然他会很愧疚。"
+    },
+    {
+      "line_id": "LINE_0500",
+      "speaker": "SPEAKER_00",
+      "start": 576.48,
+      "end": 577.04,
+      "text": "你站稳之后，"
+    },
+    {
+      "line_id": "LINE_0501",
+      "speaker": "SPEAKER_00",
+      "start": 577.2,
+      "end": 578.16,
+      "text": "先活动一下脖子，"
+    },
+    {
+      "line_id": "LINE_0502",
+      "speaker": "SPEAKER_00",
+      "start": 578.24,
+      "end": 579.2,
+      "text": "发出轻轻的咔咔声，"
+    },
+    {
+      "line_id": "LINE_0503",
+      "speaker": "SPEAKER_00",
+      "start": 579.28,
+      "end": 580.48,
+      "text": "随即慢慢走向墙角，"
+    },
+    {
+      "line_id": "LINE_0504",
+      "speaker": "SPEAKER_00",
+      "start": 580.56,
+      "end": 581.2,
+      "text": "不快不慢，"
+    },
+    {
+      "line_id": "LINE_0505",
+      "speaker": "SPEAKER_00",
+      "start": 581.36,
+      "end": 582.32,
+      "text": "每一步都踩得很稳。"
+    },
+    {
+      "line_id": "LINE_0506",
+      "speaker": "SPEAKER_00",
+      "start": 582.4,
+      "end": 583.12,
+      "text": "走到木架前，"
+    },
+    {
+      "line_id": "LINE_0507",
+      "speaker": "SPEAKER_00",
+      "start": 583.28,
+      "end": 583.68,
+      "text": "弯下腰，"
+    },
+    {
+      "line_id": "LINE_0508",
+      "speaker": "SPEAKER_00",
+      "start": 583.92,
+      "end": 585.6,
+      "text": "一只手抓住了其中一只哑铃的握把。"
+    },
+    {
+      "line_id": "LINE_0509",
+      "speaker": "SPEAKER_00",
+      "start": 585.68,
+      "end": 587.12,
+      "text": "苏小唐顿时屏住呼吸，"
+    },
+    {
+      "line_id": "LINE_0510",
+      "speaker": "SPEAKER_00",
+      "start": 587.28,
+      "end": 588.4,
+      "text": "手机镜头牢牢对准你，"
+    },
+    {
+      "line_id": "LINE_0511",
+      "speaker": "SPEAKER_00",
+      "start": 588.48,
+      "end": 589.28,
+      "text": "他已经做好准备，"
+    },
+    {
+      "line_id": "LINE_0512",
+      "speaker": "SPEAKER_00",
+      "start": 589.44,
+      "end": 589.52,
+      "text": "要"
+    },
+    {
+      "line_id": "LINE_0513",
+      "speaker": "SPEAKER_00",
+      "start": 600.0,
+      "end": 600.0,
+      "text": "是你举不起来，"
+    },
+    {
+      "line_id": "LINE_0514",
+      "speaker": "SPEAKER_00",
+      "start": 600.0,
+      "end": 600.0,
+      "text": "就立刻用家人们都看到了吧的语气，"
+    },
+    {
+      "line_id": "LINE_0515",
+      "speaker": "SPEAKER_00",
+      "start": 600.0,
+      "end": 600.0,
+      "text": "原厂手光速结束直播，"
+    },
+    {
+      "line_id": "LINE_0516",
+      "speaker": "SPEAKER_00",
+      "start": 600.0,
+      "end": 600.0,
+      "text": "这样对他的名声百利而无一害。"
+    },
+    {
+      "line_id": "LINE_0517",
+      "speaker": "SPEAKER_00",
+      "start": 600.0,
+      "end": 600.0,
+      "text": "他身后的徐老师也第一时间把摄影机和无人机的镜头都切了过来，"
+    },
+    {
+      "line_id": "LINE_0518",
+      "speaker": "SPEAKER_00",
+      "start": 600.0,
+      "end": 600.0,
+      "text": "以握住哑铃。"
+    },
+    {
+      "line_id": "LINE_0519",
+      "speaker": "SPEAKER_00",
+      "start": 600.0,
+      "end": 600.0,
+      "text": "受了一下重量，"
+    },
+    {
+      "line_id": "LINE_0520",
+      "speaker": "SPEAKER_00",
+      "start": 600.0,
+      "end": 600.0,
+      "text": "单个哑铃净重三十公斤，"
+    },
+    {
+      "line_id": "LINE_0521",
+      "speaker": "SPEAKER_00",
+      "start": 600.0,
+      "end": 600.0,
+      "text": "也就是六十斤，"
+    },
+    {
+      "line_id": "LINE_0522",
+      "speaker": "SPEAKER_00",
+      "start": 600.0,
+      "end": 600.0,
+      "text": "是原身年轻时留下的东西，"
+    },
+    {
+      "line_id": "LINE_0523",
+      "speaker": "SPEAKER_00",
+      "start": 600.0,
+      "end": 600.0,
+      "text": "用最古"
+    },
+    {
+      "line_id": "LINE_0524",
+      "speaker": "SPEAKER_00",
+      "start": 605.12,
+      "end": 606.08,
+      "text": "老的铸铁工艺铸成，"
+    },
+    {
+      "line_id": "LINE_0525",
+      "speaker": "SPEAKER_00",
+      "start": 606.24,
+      "end": 606.64,
+      "text": "实心的，"
+    },
+    {
+      "line_id": "LINE_0526",
+      "speaker": "SPEAKER_00",
+      "start": 606.8,
+      "end": 607.44,
+      "text": "沉的不像话。"
+    },
+    {
+      "line_id": "LINE_0527",
+      "speaker": "SPEAKER_00",
+      "start": 607.6,
+      "end": 608.4,
+      "text": "刚穿越过来那会儿，"
+    },
+    {
+      "line_id": "LINE_0528",
+      "speaker": "SPEAKER_00",
+      "start": 608.56,
+      "end": 609.12,
+      "text": "别说举起来，"
+    },
+    {
+      "line_id": "LINE_0529",
+      "speaker": "SPEAKER_00",
+      "start": 609.28,
+      "end": 610.0,
+      "text": "连推都推不动。"
+    },
+    {
+      "line_id": "LINE_0530",
+      "speaker": "SPEAKER_00",
+      "start": 610.16,
+      "end": 611.52,
+      "text": "可这三个月的养生没白费，"
+    },
+    {
+      "line_id": "LINE_0531",
+      "speaker": "SPEAKER_00",
+      "start": 611.6,
+      "end": 612.4,
+      "text": "气血养上来了，"
+    },
+    {
+      "line_id": "LINE_0532",
+      "speaker": "SPEAKER_00",
+      "start": 612.56,
+      "end": 613.44,
+      "text": "肌肉也恢复了几分，"
+    },
+    {
+      "line_id": "LINE_0533",
+      "speaker": "SPEAKER_00",
+      "start": 613.6,
+      "end": 614.64,
+      "text": "外表看着依旧瘦削，"
+    },
+    {
+      "line_id": "LINE_0534",
+      "speaker": "SPEAKER_00",
+      "start": 614.8,
+      "end": 616.64,
+      "text": "体内脏腑的生机却早已天翻地覆。"
+    },
+    {
+      "line_id": "LINE_0535",
+      "speaker": "SPEAKER_00",
+      "start": 616.72,
+      "end": 617.6,
+      "text": "你深吸一口气，"
+    },
+    {
+      "line_id": "LINE_0536",
+      "speaker": "SPEAKER_00",
+      "start": 617.68,
+      "end": 618.72,
+      "text": "单手将哑铃提起，"
+    },
+    {
+      "line_id": "LINE_0537",
+      "speaker": "SPEAKER_00",
+      "start": 618.8,
+      "end": 619.68,
+      "text": "从腰部慢慢上推，"
+    },
+    {
+      "line_id": "LINE_0538",
+      "speaker": "SPEAKER_00",
+      "start": 619.84,
+      "end": 620.88,
+      "text": "干净利落的举过头顶，"
+    },
+    {
+      "line_id": "LINE_0539",
+      "speaker": "SPEAKER_00",
+      "start": 621.04,
+      "end": 621.84,
+      "text": "动作一气呵成，"
+    },
+    {
+      "line_id": "LINE_0540",
+      "speaker": "SPEAKER_00",
+      "start": 622.0,
+      "end": 622.96,
+      "text": "没有半分拖泥带水。"
+    },
+    {
+      "line_id": "LINE_0541",
+      "speaker": "SPEAKER_00",
+      "start": 623.04,
+      "end": 624.48,
+      "text": "哑铃停在头顶最高点时，"
+    },
+    {
+      "line_id": "LINE_0542",
+      "speaker": "SPEAKER_00",
+      "start": 624.64,
+      "end": 625.84,
+      "text": "你的胳膊连抖都没抖一下。"
+    },
+    {
+      "line_id": "LINE_0543",
+      "speaker": "SPEAKER_00",
+      "start": 625.92,
+      "end": 627.2,
+      "text": "道馆里足足安静了三秒，"
+    },
+    {
+      "line_id": "LINE_0544",
+      "speaker": "SPEAKER_00",
+      "start": 627.36,
+      "end": 628.4,
+      "text": "苏小棠嘴巴微张，"
+    },
+    {
+      "line_id": "LINE_0545",
+      "speaker": "SPEAKER_00",
+      "start": 628.56,
+      "end": 629.36,
+      "text": "眼睛瞪得滚圆，"
+    },
+    {
+      "line_id": "LINE_0546",
+      "speaker": "SPEAKER_00",
+      "start": 629.52,
+      "end": 630.8,
+      "text": "整个人像被按下了暂停键，"
+    },
+    {
+      "line_id": "LINE_0547",
+      "speaker": "SPEAKER_00",
+      "start": 630.96,
+      "end": 631.6,
+      "text": "彻底呆住了。"
+    },
+    {
+      "line_id": "LINE_0548",
+      "speaker": "SPEAKER_00",
+      "start": 631.68,
+      "end": 633.28,
+      "text": "他看着你瘦的像竹竿似的身形，"
+    },
+    {
+      "line_id": "LINE_0549",
+      "speaker": "SPEAKER_00",
+      "start": 633.44,
+      "end": 634.0,
+      "text": "举着眼操，"
+    },
+    {
+      "line_id": "LINE_0550",
+      "speaker": "SPEAKER_00",
+      "start": 634.0,
+      "end": 635.44,
+      "text": "他想象重量的哑铃稳稳站着，"
+    },
+    {
+      "line_id": "LINE_0551",
+      "speaker": "SPEAKER_00",
+      "start": 635.6,
+      "end": 637.04,
+      "text": "咬金平淡的像只是端了杯茶。"
+    },
+    {
+      "line_id": "LINE_0552",
+      "speaker": "SPEAKER_00",
+      "start": 637.12,
+      "end": 638.24,
+      "text": "他下意识咽了咽口水，"
+    },
+    {
+      "line_id": "LINE_0553",
+      "speaker": "SPEAKER_00",
+      "start": 638.4,
+      "end": 639.36,
+      "text": "低头看向手机屏幕，"
+    },
+    {
+      "line_id": "LINE_0554",
+      "speaker": "SPEAKER_00",
+      "start": 639.52,
+      "end": 640.16,
+      "text": "弹幕已经疯了，"
+    },
+    {
+      "line_id": "LINE_0555",
+      "speaker": "SPEAKER_00",
+      "start": 640.32,
+      "end": 641.2,
+      "text": "我的眼睛没有花吧？"
+    },
+    {
+      "line_id": "LINE_0556",
+      "speaker": "SPEAKER_00",
+      "start": 641.36,
+      "end": 641.68,
+      "text": "六十斤，"
+    },
+    {
+      "line_id": "LINE_0557",
+      "speaker": "SPEAKER_00",
+      "start": 641.84,
+      "end": 642.48,
+      "text": "单手举起来，"
+    },
+    {
+      "line_id": "LINE_0558",
+      "speaker": "SPEAKER_00",
+      "start": 642.64,
+      "end": 643.76,
+      "text": "这天地是九十六岁。"
+    },
+    {
+      "line_id": "LINE_0559",
+      "speaker": "SPEAKER_00",
+      "start": 644.0,
+      "end": 644.16,
+      "text": "好，"
+    },
+    {
+      "line_id": "LINE_0560",
+      "speaker": "SPEAKER_00",
+      "start": 644.32,
+      "end": 645.92,
+      "text": "我三十岁都举不动六十斤的哑铃，"
+    },
+    {
+      "line_id": "LINE_0561",
+      "speaker": "SPEAKER_00",
+      "start": 646.08,
+      "end": 646.32,
+      "text": "不对，"
+    },
+    {
+      "line_id": "LINE_0562",
+      "speaker": "SPEAKER_00",
+      "start": 646.48,
+      "end": 647.92,
+      "text": "重点是他刚才站起来都费劲，"
+    },
+    {
+      "line_id": "LINE_0563",
+      "speaker": "SPEAKER_00",
+      "start": 648.08,
+      "end": 648.88,
+      "text": "有没有一种可能，"
+    },
+    {
+      "line_id": "LINE_0564",
+      "speaker": "SPEAKER_00",
+      "start": 648.96,
+      "end": 650.0,
+      "text": "他刚才站起来是装的？"
+    },
+    {
+      "line_id": "LINE_0565",
+      "speaker": "SPEAKER_00",
+      "start": 650.16,
+      "end": 650.56,
+      "text": "老道长，"
+    },
+    {
+      "line_id": "LINE_0566",
+      "speaker": "SPEAKER_00",
+      "start": 650.72,
+      "end": 651.6,
+      "text": "请问你是认真的吗？"
+    },
+    {
+      "line_id": "LINE_0567",
+      "speaker": "SPEAKER_00",
+      "start": 651.68,
+      "end": 652.0,
+      "text": "妈呀，"
+    },
+    {
+      "line_id": "LINE_0568",
+      "speaker": "SPEAKER_00",
+      "start": 652.16,
+      "end": 653.76,
+      "text": "我的下巴和小唐姐一样都掉了，"
+    },
+    {
+      "line_id": "LINE_0569",
+      "speaker": "SPEAKER_00",
+      "start": 653.84,
+      "end": 654.32,
+      "text": "哈哈哈哈！"
+    },
+    {
+      "line_id": "LINE_0570",
+      "speaker": "SPEAKER_00",
+      "start": 654.32,
+      "end": 655.36,
+      "text": "你们看小唐姐的表情，"
+    },
+    {
+      "line_id": "LINE_0571",
+      "speaker": "SPEAKER_00",
+      "start": 655.52,
+      "end": 656.0,
+      "text": "笑死我了。"
+    },
+    {
+      "line_id": "LINE_0572",
+      "speaker": "SPEAKER_00",
+      "start": 656.08,
+      "end": 656.8,
+      "text": "你举着哑铃，"
+    },
+    {
+      "line_id": "LINE_0573",
+      "speaker": "SPEAKER_00",
+      "start": 656.96,
+      "end": 658.32,
+      "text": "低头扫了眼苏小棠的表情，"
+    },
+    {
+      "line_id": "LINE_0574",
+      "speaker": "SPEAKER_00",
+      "start": 658.56,
+      "end": 659.92,
+      "text": "又瞥了瞥他手里的手机屏幕，"
+    },
+    {
+      "line_id": "LINE_0575",
+      "speaker": "SPEAKER_00",
+      "start": 660.08,
+      "end": 660.56,
+      "text": "略一思忖，"
+    },
+    {
+      "line_id": "LINE_0576",
+      "speaker": "SPEAKER_00",
+      "start": 660.72,
+      "end": 661.6,
+      "text": "决定好人做到底。"
+    },
+    {
+      "line_id": "LINE_0577",
+      "speaker": "SPEAKER_00",
+      "start": 661.68,
+      "end": 663.04,
+      "text": "你开始做标准的哑铃推举，"
+    },
+    {
+      "line_id": "LINE_0578",
+      "speaker": "SPEAKER_00",
+      "start": 663.12,
+      "end": 665.12,
+      "text": "上推、下放、再上推、再下放，"
+    },
+    {
+      "line_id": "LINE_0579",
+      "speaker": "SPEAKER_00",
+      "start": 665.28,
+      "end": 666.0,
+      "text": "动作不快不慢，"
+    },
+    {
+      "line_id": "LINE_0580",
+      "speaker": "SPEAKER_00",
+      "start": 666.24,
+      "end": 667.12,
+      "text": "节奏稳的像机器，"
+    },
+    {
+      "line_id": "LINE_0581",
+      "speaker": "SPEAKER_00",
+      "start": 667.2,
+      "end": 668.8,
+      "text": "每一次都推到手臂完全伸直，"
+    },
+    {
+      "line_id": "LINE_0582",
+      "speaker": "SPEAKER_00",
+      "start": 668.88,
+      "end": 669.84,
+      "text": "下放至耳朵高度，"
+    },
+    {
+      "line_id": "LINE_0583",
+      "speaker": "SPEAKER_00",
+      "start": 669.92,
+      "end": 670.64,
+      "text": "一组十个做完，"
+    },
+    {
+      "line_id": "LINE_0584",
+      "speaker": "SPEAKER_00",
+      "start": 670.88,
+      "end": 671.44,
+      "text": "你呼了口气，"
+    },
+    {
+      "line_id": "LINE_0585",
+      "speaker": "SPEAKER_00",
+      "start": 671.6,
+      "end": 672.16,
+      "text": "开始第二组，"
+    },
+    {
+      "line_id": "LINE_0586",
+      "speaker": "SPEAKER_00",
+      "start": 672.24,
+      "end": 673.68,
+      "text": "二十个、四十个、六十个，"
+    },
+    {
+      "line_id": "LINE_0587",
+      "speaker": "SPEAKER_00",
+      "start": 673.92,
+      "end": 674.8,
+      "text": "做到第三组时，"
+    },
+    {
+      "line_id": "LINE_0588",
+      "speaker": "SPEAKER_00",
+      "start": 674.96,
+      "end": 676.16,
+      "text": "苏小棠终于缓过神来，"
+    },
+    {
+      "line_id": "LINE_0589",
+      "speaker": "SPEAKER_00",
+      "start": 676.32,
+      "end": 677.28,
+      "text": "语气都是了平日的，"
+    },
+    {
+      "line_id": "LINE_0590",
+      "speaker": "SPEAKER_00",
+      "start": 677.6,
+      "end": 678.0,
+      "text": "老道长，"
+    },
+    {
+      "line_id": "LINE_0591",
+      "speaker": "SPEAKER_00",
+      "start": 678.16,
+      "end": 678.64,
+      "text": "您不累吗？"
+    },
+    {
+      "line_id": "LINE_0592",
+      "speaker": "SPEAKER_00",
+      "start": 678.72,
+      "end": 678.8,
+      "text": "嗯，"
+    },
+    {
+      "line_id": "LINE_0593",
+      "speaker": "SPEAKER_00",
+      "start": 679.04,
+      "end": 679.44,
+      "text": "是有点热，"
+    },
+    {
+      "line_id": "LINE_0594",
+      "speaker": "SPEAKER_00",
+      "start": 679.68,
+      "end": 680.24,
+      "text": "你动作不停，"
+    },
+    {
+      "line_id": "LINE_0595",
+      "speaker": "SPEAKER_00",
+      "start": 680.4,
+      "end": 681.28,
+      "text": "弹幕直接笑疯了，"
+    },
+    {
+      "line_id": "LINE_0596",
+      "speaker": "SPEAKER_00",
+      "start": 681.44,
+      "end": 682.08,
+      "text": "哈哈哈哈哈哈，"
+    },
+    {
+      "line_id": "LINE_0597",
+      "speaker": "SPEAKER_00",
+      "start": 682.08,
+      "end": 682.4,
+      "text": "有点热，"
+    },
+    {
+      "line_id": "LINE_0598",
+      "speaker": "SPEAKER_00",
+      "start": 682.56,
+      "end": 683.12,
+      "text": "不是有点累，"
+    },
+    {
+      "line_id": "LINE_0599",
+      "speaker": "SPEAKER_00",
+      "start": 683.28,
+      "end": 683.84,
+      "text": "而是有点热，"
+    },
+    {
+      "line_id": "LINE_0600",
+      "speaker": "SPEAKER_00",
+      "start": 684.0,
+      "end": 684.96,
+      "text": "这是什么神仙回答？"
+    },
+    {
+      "line_id": "LINE_0601",
+      "speaker": "SPEAKER_00",
+      "start": 685.04,
+      "end": 685.52,
+      "text": "哈哈哈哈！"
+    },
+    {
+      "line_id": "LINE_0602",
+      "speaker": "SPEAKER_00",
+      "start": 685.68,
+      "end": 686.08,
+      "text": "老道长，"
+    },
+    {
+      "line_id": "LINE_0603",
+      "speaker": "SPEAKER_00",
+      "start": 686.24,
+      "end": 687.04,
+      "text": "请问你是魔鬼吗？"
+    },
+    {
+      "line_id": "LINE_0604",
+      "speaker": "SPEAKER_00",
+      "start": 687.2,
+      "end": 687.52,
+      "text": "马德，"
+    },
+    {
+      "line_id": "LINE_0605",
+      "speaker": "SPEAKER_00",
+      "start": 687.68,
+      "end": 688.8,
+      "text": "我都已经开始怀疑人生了，"
+    },
+    {
+      "line_id": "LINE_0606",
+      "speaker": "SPEAKER_00",
+      "start": 688.96,
+      "end": 690.08,
+      "text": "这是平日是没减肌过，"
+    },
+    {
+      "line_id": "LINE_0607",
+      "speaker": "SPEAKER_00",
+      "start": 690.24,
+      "end": 691.04,
+      "text": "我直接原地出家。"
+    },
+    {
+      "line_id": "LINE_0608",
+      "speaker": "SPEAKER_00",
+      "start": 691.2,
+      "end": 692.24,
+      "text": "小唐姐这波翻车了吧？"
+    },
+    {
+      "line_id": "LINE_0609",
+      "speaker": "SPEAKER_00",
+      "start": 692.4,
+      "end": 693.44,
+      "text": "大家主播反被打假，"
+    },
+    {
+      "line_id": "LINE_0610",
+      "speaker": "SPEAKER_00",
+      "start": 693.68,
+      "end": 694.0,
+      "text": "老道长，"
+    },
+    {
+      "line_id": "LINE_0611",
+      "speaker": "SPEAKER_00",
+      "start": 694.16,
+      "end": 695.44,
+      "text": "我只是一个普通的健身老人，"
+    },
+    {
+      "line_id": "LINE_0612",
+      "speaker": "SPEAKER_00",
+      "start": 695.68,
+      "end": 696.4,
+      "text": "何苦为难我呢？"
+    },
+    {
+      "line_id": "LINE_0613",
+      "speaker": "SPEAKER_00",
+      "start": 696.48,
+      "end": 696.72,
+      "text": "什么？"
+    },
+    {
+      "line_id": "LINE_0614",
+      "speaker": "SPEAKER_00",
+      "start": 696.88,
+      "end": 699.52,
+      "text": "你管九十多岁举起六十斤重的哑铃叫普通？"
+    },
+    {
+      "line_id": "LINE_0615",
+      "speaker": "SPEAKER_00",
+      "start": 699.68,
+      "end": 700.64,
+      "text": "第四组推举做完，"
+    },
+    {
+      "line_id": "LINE_0616",
+      "speaker": "SPEAKER_00",
+      "start": 700.8,
+      "end": 701.52,
+      "text": "你终于停了下来，"
+    },
+    {
+      "line_id": "LINE_0617",
+      "speaker": "SPEAKER_00",
+      "start": 701.68,
+      "end": 702.96,
+      "text": "将哑铃轻轻放回木架，"
+    },
+    {
+      "line_id": "LINE_0618",
+      "speaker": "SPEAKER_00",
+      "start": 703.04,
+      "end": 703.84,
+      "text": "活动了一下肩膀，"
+    },
+    {
+      "line_id": "LINE_0619",
+      "speaker": "SPEAKER_00",
+      "start": 704.0,
+      "end": 705.12,
+      "text": "骨节发出舒展的轻响。"
+    },
+    {
+      "line_id": "LINE_0620",
+      "speaker": "SPEAKER_00",
+      "start": 705.2,
+      "end": 706.4,
+      "text": "你转身看向苏小棠，"
+    },
+    {
+      "line_id": "LINE_0621",
+      "speaker": "SPEAKER_00",
+      "start": 706.56,
+      "end": 708.24,
+      "text": "脸上带着长辈看晚辈的慈祥笑，"
+    },
+    {
+      "line_id": "LINE_0622",
+      "speaker": "SPEAKER_00",
+      "start": 708.4,
+      "end": 710.16,
+      "text": "问出一句让他终生难忘的话：姑娘，"
+    },
+    {
+      "line_id": "LINE_0623",
+      "speaker": "SPEAKER_00",
+      "start": 710.32,
+      "end": 711.2,
+      "text": "你刚说我是骗子。"
+    },
+    {
+      "line_id": "LINE_0624",
+      "speaker": "SPEAKER_00",
+      "start": 711.28,
+      "end": 712.24,
+      "text": "苏小棠张了张嘴，"
+    },
+    {
+      "line_id": "LINE_0625",
+      "speaker": "SPEAKER_00",
+      "start": 720.0,
+      "end": 720.0,
+      "text": "一个字都没挤出来，"
+    },
+    {
+      "line_id": "LINE_0626",
+      "speaker": "SPEAKER_00",
+      "start": 720.0,
+      "end": 720.0,
+      "text": "他的手机屏幕还在疯狂刷新，"
+    },
+    {
+      "line_id": "LINE_0627",
+      "speaker": "SPEAKER_00",
+      "start": 720.0,
+      "end": 720.0,
+      "text": "弹幕像瀑布似的往下，"
+    },
+    {
+      "line_id": "LINE_0628",
+      "speaker": "SPEAKER_00",
+      "start": 720.0,
+      "end": 720.0,
+      "text": "在线人数已经从十万飙升到三十万，"
+    },
+    {
+      "line_id": "LINE_0629",
+      "speaker": "SPEAKER_00",
+      "start": 720.0,
+      "end": 720.0,
+      "text": "还在肉眼可见的疯涨。"
+    },
+    {
+      "line_id": "LINE_0630",
+      "speaker": "SPEAKER_00",
+      "start": 720.0,
+      "end": 723.52,
+      "text": "大家主播苏小唐职业生涯头一回被人当众打了个结结实实的反甲，"
+    },
+    {
+      "line_id": "LINE_0631",
+      "speaker": "SPEAKER_00",
+      "start": 723.68,
+      "end": 726.56,
+      "text": "而粉丝口中快死了的老道长正慢悠悠走回座椅坐下，"
+    },
+    {
+      "line_id": "LINE_0632",
+      "speaker": "SPEAKER_00",
+      "start": 726.64,
+      "end": 727.68,
+      "text": "端起那杯微凉的茶，"
+    },
+    {
+      "line_id": "LINE_0633",
+      "speaker": "SPEAKER_00",
+      "start": 727.76,
+      "end": 728.64,
+      "text": "轻轻吹开浮沫，"
+    },
+    {
+      "line_id": "LINE_0634",
+      "speaker": "SPEAKER_00",
+      "start": 728.88,
+      "end": 729.28,
+      "text": "抿了一口。"
+    },
+    {
+      "line_id": "LINE_0635",
+      "speaker": "SPEAKER_00",
+      "start": 729.36,
+      "end": 729.76,
+      "text": "这时，"
+    },
+    {
+      "line_id": "LINE_0636",
+      "speaker": "SPEAKER_00",
+      "start": 729.92,
+      "end": 731.28,
+      "text": "橘猫原老从墙头上跳下，"
+    },
+    {
+      "line_id": "LINE_0637",
+      "speaker": "SPEAKER_00",
+      "start": 731.44,
+      "end": 732.32,
+      "text": "精准落在你膝盖上，"
+    },
+    {
+      "line_id": "LINE_0638",
+      "speaker": "SPEAKER_00",
+      "start": 732.48,
+      "end": 733.6,
+      "text": "呼噜声比刚才更响了。"
+    },
+    {
+      "line_id": "LINE_0639",
+      "speaker": "SPEAKER_00",
+      "start": 733.76,
+      "end": 735.12,
+      "text": "钟南山上空的云雾散了些，"
+    },
+    {
+      "line_id": "LINE_0640",
+      "speaker": "SPEAKER_00",
+      "start": 735.28,
+      "end": 736.16,
+      "text": "阳光穿过树梢，"
+    },
+    {
+      "line_id": "LINE_0641",
+      "speaker": "SPEAKER_00",
+      "start": 736.32,
+      "end": 737.44,
+      "text": "落在你灰扑扑的道袍上，"
+    },
+    {
+      "line_id": "LINE_0642",
+      "speaker": "SPEAKER_00",
+      "start": 737.52,
+      "end": 738.72,
+      "text": "镀上一层淡金色的光。"
+    },
+    {
+      "line_id": "LINE_0643",
+      "speaker": "SPEAKER_00",
+      "start": 738.88,
+      "end": 740.16,
+      "text": "你眯起眼抬头看了看天，"
+    },
+    {
+      "line_id": "LINE_0644",
+      "speaker": "SPEAKER_00",
+      "start": 740.32,
+      "end": 741.28,
+      "text": "自语道：“该叫话了。”"
+    },
+    {
+      "line_id": "LINE_0645",
+      "speaker": "SPEAKER_00",
+      "start": 741.44,
+      "end": 742.16,
+      "text": "苏小唐没走，"
+    },
+    {
+      "line_id": "LINE_0646",
+      "speaker": "SPEAKER_00",
+      "start": 742.24,
+      "end": 742.88,
+      "text": "他当然不会走。"
+    },
+    {
+      "line_id": "LINE_0647",
+      "speaker": "SPEAKER_00",
+      "start": 743.12,
+      "end": 745.2,
+      "text": "作为全网拥有五百万粉丝的打假一姐，"
+    },
+    {
+      "line_id": "LINE_0648",
+      "speaker": "SPEAKER_00",
+      "start": 745.28,
+      "end": 747.76,
+      "text": "要是被一个九十六岁老人单手举哑铃的场面吓跑，"
+    },
+    {
+      "line_id": "LINE_0649",
+      "speaker": "SPEAKER_00",
+      "start": 747.84,
+      "end": 748.48,
+      "text": "以后还怎么混？"
+    },
+    {
+      "line_id": "LINE_0650",
+      "speaker": "SPEAKER_00",
+      "start": 748.56,
+      "end": 749.36,
+      "text": "可他不得不承认，"
+    },
+    {
+      "line_id": "LINE_0651",
+      "speaker": "SPEAKER_00",
+      "start": 749.52,
+      "end": 750.24,
+      "text": "刚才那几十秒，"
+    },
+    {
+      "line_id": "LINE_0652",
+      "speaker": "SPEAKER_00",
+      "start": 750.4,
+      "end": 751.28,
+      "text": "老子确实上机了。"
+    },
+    {
+      "line_id": "LINE_0653",
+      "speaker": "SPEAKER_00",
+      "start": 751.44,
+      "end": 752.16,
+      "text": "六十斤的哑铃，"
+    },
+    {
+      "line_id": "LINE_0654",
+      "speaker": "SPEAKER_00",
+      "start": 752.16,
+      "end": 753.44,
+      "text": "他在健身房也见人举过，"
+    },
+    {
+      "line_id": "LINE_0655",
+      "speaker": "SPEAKER_00",
+      "start": 753.52,
+      "end": 755.36,
+      "text": "但换做一个站都站不稳的九十六岁老，"
+    },
+    {
+      "line_id": "LINE_0656",
+      "speaker": "SPEAKER_00",
+      "start": 755.6,
+      "end": 756.8,
+      "text": "瘦的道袍像挂在衣架上，"
+    },
+    {
+      "line_id": "LINE_0657",
+      "speaker": "SPEAKER_00",
+      "start": 756.96,
+      "end": 758.88,
+      "text": "胳膊比他认识的某线男主播还细一圈，"
+    },
+    {
+      "line_id": "LINE_0658",
+      "speaker": "SPEAKER_00",
+      "start": 759.04,
+      "end": 759.76,
+      "text": "这就太不科学了。"
+    },
+    {
+      "line_id": "LINE_0659",
+      "speaker": "SPEAKER_00",
+      "start": 759.92,
+      "end": 761.12,
+      "text": "苏小唐深吸一口气，"
+    },
+    {
+      "line_id": "LINE_0660",
+      "speaker": "SPEAKER_00",
+      "start": 761.28,
+      "end": 762.8,
+      "text": "把散落一地的职业素养捡回来，"
+    },
+    {
+      "line_id": "LINE_0661",
+      "speaker": "SPEAKER_00",
+      "start": 762.96,
+      "end": 765.68,
+      "text": "对着手机镜头露出练了许久的一切尽在掌握的微笑。"
+    },
+    {
+      "line_id": "LINE_0662",
+      "speaker": "SPEAKER_00",
+      "start": 765.76,
+      "end": 766.16,
+      "text": "家人们，"
+    },
+    {
+      "line_id": "LINE_0663",
+      "speaker": "SPEAKER_00",
+      "start": 766.32,
+      "end": 767.28,
+      "text": "刚才大家都看到了，"
+    },
+    {
+      "line_id": "LINE_0664",
+      "speaker": "SPEAKER_00",
+      "start": 767.36,
+      "end": 768.48,
+      "text": "老道长力气确实不小。"
+    },
+    {
+      "line_id": "LINE_0665",
+      "speaker": "SPEAKER_00",
+      "start": 768.56,
+      "end": 769.44,
+      "text": "他先肯定事实，"
+    },
+    {
+      "line_id": "LINE_0666",
+      "speaker": "SPEAKER_00",
+      "start": 769.6,
+      "end": 770.8,
+      "text": "免得被弹幕说死不认账。"
+    },
+    {
+      "line_id": "LINE_0667",
+      "speaker": "SPEAKER_00",
+      "start": 770.88,
+      "end": 772.16,
+      "text": "随即话锋一转：“但是嘛，"
+    },
+    {
+      "line_id": "LINE_0668",
+      "speaker": "SPEAKER_00",
+      "start": 772.32,
+      "end": 773.36,
+      "text": "力气大不代表有神通，"
+    },
+    {
+      "line_id": "LINE_0669",
+      "speaker": "SPEAKER_00",
+      "start": 773.52,
+      "end": 775.04,
+      "text": "更不代表网上说的那些都是真的。"
+    },
+    {
+      "line_id": "LINE_0670",
+      "speaker": "SPEAKER_00",
+      "start": 775.12,
+      "end": 776.24,
+      "text": "我苏小唐打假两年，"
+    },
+    {
+      "line_id": "LINE_0671",
+      "speaker": "SPEAKER_00",
+      "start": 776.4,
+      "end": 777.84,
+      "text": "从来不会凭一个动作就下结论。"
+    },
+    {
+      "line_id": "LINE_0672",
+      "speaker": "SPEAKER_00",
+      "start": 777.92,
+      "end": 778.64,
+      "text": "既然来都来了，"
+    },
+    {
+      "line_id": "LINE_0673",
+      "speaker": "SPEAKER_00",
+      "start": 778.8,
+      "end": 779.36,
+      "text": "我就多待一会儿，"
+    },
+    {
+      "line_id": "LINE_0674",
+      "speaker": "SPEAKER_00",
+      "start": 779.52,
+      "end": 780.16,
+      "text": "再观察观察，"
+    },
+    {
+      "line_id": "LINE_0675",
+      "speaker": "SPEAKER_00",
+      "start": 780.24,
+      "end": 782.16,
+      "text": "说不定这位老道长还有不为人知的一面。”"
+    },
+    {
+      "line_id": "LINE_0676",
+      "speaker": "SPEAKER_00",
+      "start": 782.32,
+      "end": 782.64,
+      "text": "说完，"
+    },
+    {
+      "line_id": "LINE_0677",
+      "speaker": "SPEAKER_00",
+      "start": 782.64,
+      "end": 783.84,
+      "text": "他忍不住偷偷瞟了你一眼。"
+    },
+    {
+      "line_id": "LINE_0678",
+      "speaker": "SPEAKER_00",
+      "start": 784.0,
+      "end": 784.8,
+      "text": "你怀里窝着橘猫，"
+    },
+    {
+      "line_id": "LINE_0679",
+      "speaker": "SPEAKER_00",
+      "start": 784.96,
+      "end": 785.6,
+      "text": "抬头看天，"
+    },
+    {
+      "line_id": "LINE_0680",
+      "speaker": "SPEAKER_00",
+      "start": 785.76,
+      "end": 787.12,
+      "text": "表情平淡的像什么都没发生过，"
+    },
+    {
+      "line_id": "LINE_0681",
+      "speaker": "SPEAKER_00",
+      "start": 787.28,
+      "end": 788.32,
+      "text": "对他的去留毫无兴趣，"
+    },
+    {
+      "line_id": "LINE_0682",
+      "speaker": "SPEAKER_00",
+      "start": 788.48,
+      "end": 789.52,
+      "text": "甚至巴不得他赶紧走。"
+    },
+    {
+      "line_id": "LINE_0683",
+      "speaker": "SPEAKER_00",
+      "start": 789.6,
+      "end": 791.52,
+      "text": "弹幕的反应比苏小唐预想的还要复杂。"
+    },
+    {
+      "line_id": "LINE_0684",
+      "speaker": "SPEAKER_00",
+      "start": 791.68,
+      "end": 792.08,
+      "text": "小唐姐，"
+    },
+    {
+      "line_id": "LINE_0685",
+      "speaker": "SPEAKER_00",
+      "start": 792.08,
+      "end": 792.64,
+      "text": "这话说的对，"
+    },
+    {
+      "line_id": "LINE_0686",
+      "speaker": "SPEAKER_00",
+      "start": 792.8,
+      "end": 794.08,
+      "text": "一次举哑铃不能说明什么，"
+    },
+    {
+      "line_id": "LINE_0687",
+      "speaker": "SPEAKER_00",
+      "start": 794.16,
+      "end": 796.08,
+      "text": "但是九十六岁举起六十斤重的哑铃，"
+    },
+    {
+      "line_id": "LINE_0688",
+      "speaker": "SPEAKER_00",
+      "start": 796.24,
+      "end": 797.28,
+      "text": "这画面还是很离谱啊！"
+    },
+    {
+      "line_id": "LINE_0689",
+      "speaker": "SPEAKER_00",
+      "start": 797.44,
+      "end": 797.68,
+      "text": "呵呵，"
+    },
+    {
+      "line_id": "LINE_0690",
+      "speaker": "SPEAKER_00",
+      "start": 797.84,
+      "end": 799.28,
+      "text": "有没有可能那个哑铃是假的，"
+    },
+    {
+      "line_id": "LINE_0691",
+      "speaker": "SPEAKER_00",
+      "start": 799.44,
+      "end": 800.0,
+      "text": "空心道具？"
+    },
+    {
+      "line_id": "LINE_0692",
+      "speaker": "SPEAKER_00",
+      "start": 800.16,
+      "end": 800.24,
+      "text": "对，"
+    },
+    {
+      "line_id": "LINE_0693",
+      "speaker": "SPEAKER_00",
+      "start": 800.4,
+      "end": 801.12,
+      "text": "有可能是道具。"
+    },
+    {
+      "line_id": "LINE_0694",
+      "speaker": "SPEAKER_00",
+      "start": 801.2,
+      "end": 801.68,
+      "text": "小唐姐，"
+    },
+    {
+      "line_id": "LINE_0695",
+      "speaker": "SPEAKER_00",
+      "start": 801.84,
+      "end": 802.88,
+      "text": "你快去检查一下哑铃，"
+    },
+    {
+      "line_id": "LINE_0696",
+      "speaker": "SPEAKER_00",
+      "start": 803.04,
+      "end": 804.08,
+      "text": "我刚才仔细观察过了，"
+    },
+    {
+      "line_id": "LINE_0697",
+      "speaker": "SPEAKER_00",
+      "start": 804.24,
+      "end": 805.36,
+      "text": "老道士举起哑铃的时候，"
+    },
+    {
+      "line_id": "LINE_0698",
+      "speaker": "SPEAKER_00",
+      "start": 805.52,
+      "end": 806.64,
+      "text": "手臂肌肉线条很明显，"
+    },
+    {
+      "line_id": "LINE_0699",
+      "speaker": "SPEAKER_00",
+      "start": 806.8,
+      "end": 807.92,
+      "text": "如果是空心道具的话，"
+    },
+    {
+      "line_id": "LINE_0700",
+      "speaker": "SPEAKER_00",
+      "start": 808.0,
+      "end": 809.2,
+      "text": "根本不会有那种受力感的。"
+    },
+    {
+      "line_id": "LINE_0701",
+      "speaker": "SPEAKER_00",
+      "start": 809.36,
+      "end": 810.64,
+      "text": "请问楼上是健身大佬吗？"
+    },
+    {
+      "line_id": "LINE_0702",
+      "speaker": "SPEAKER_00",
+      "start": 810.8,
+      "end": 811.92,
+      "text": "我觉得小唐姐别纠结了，"
+    },
+    {
+      "line_id": "LINE_0703",
+      "speaker": "SPEAKER_00",
+      "start": 812.08,
+      "end": 814.16,
+      "text": "这个老道士可能就是个身体好的普通老人。"
+    },
+    {
+      "line_id": "LINE_0704",
+      "speaker": "SPEAKER_00",
+      "start": 814.32,
+      "end": 814.88,
+      "text": "那身体好，"
+    },
+    {
+      "line_id": "LINE_0705",
+      "speaker": "SPEAKER_00",
+      "start": 814.96,
+      "end": 815.68,
+      "text": "为什么要装不会？"
+    },
+    {
+      "line_id": "LINE_0706",
+      "speaker": "SPEAKER_00",
+      "start": 815.84,
+      "end": 816.96,
+      "text": "他一开始就说什么都不会啊。"
+    },
+    {
+      "line_id": "LINE_0707",
+      "speaker": "SPEAKER_00",
+      "start": 817.12,
+      "end": 818.72,
+      "text": "所以小唐姐这次到底要打什么假？"
+    },
+    {
+      "line_id": "LINE_0708",
+      "speaker": "SPEAKER_00",
+      "start": 818.88,
+      "end": 820.08,
+      "text": "扫到最后一条弹幕时，"
+    },
+    {
+      "line_id": "LINE_0709",
+      "speaker": "SPEAKER_00",
+      "start": 820.24,
+      "end": 821.36,
+      "text": "苏小唐心里咯噔一下。"
+    },
+    {
+      "line_id": "LINE_0710",
+      "speaker": "SPEAKER_00",
+      "start": 821.44,
+      "end": 821.84,
+      "text": "是啊，"
+    },
+    {
+      "line_id": "LINE_0711",
+      "speaker": "SPEAKER_00",
+      "start": 821.92,
+      "end": 822.56,
+      "text": "他要打什么假？"
+    },
+    {
+      "line_id": "LINE_0712",
+      "speaker": "SPEAKER_00",
+      "start": 822.72,
+      "end": 824.0,
+      "text": "老道士一没说自己会算命，"
+    },
+    {
+      "line_id": "LINE_0713",
+      "speaker": "SPEAKER_00",
+      "start": 824.08,
+      "end": 824.8,
+      "text": "二没说能治病，"
+    },
+    {
+      "line_id": "LINE_0714",
+      "speaker": "SPEAKER_00",
+      "start": 824.96,
+      "end": 825.76,
+      "text": "三没主动要钱。"
+    },
+    {
+      "line_id": "LINE_0715",
+      "speaker": "SPEAKER_00",
+      "start": 825.92,
+      "end": 826.88,
+      "text": "他大老远跑上山，"
+    },
+    {
+      "line_id": "LINE_0716",
+      "speaker": "SPEAKER_00",
+      "start": 827.04,
+      "end": 828.64,
+      "text": "最后结论要是这就是个普通老人，"
+    },
+    {
+      "line_id": "LINE_0717",
+      "speaker": "SPEAKER_00",
+      "start": 828.8,
+      "end": 830.0,
+      "text": "这七十平标题该怎么写？"
+    },
+    {
+      "line_id": "LINE_0718",
+      "speaker": "SPEAKER_00",
+      "start": 830.0,
+      "end": 830.56,
+      "text": "打假失败？"
+    },
+    {
+      "line_id": "LINE_0719",
+      "speaker": "SPEAKER_00",
+      "start": 830.72,
+      "end": 830.88,
+      "text": "钟"
+    },
+    {
+      "line_id": "LINE_0720",
+      "speaker": "SPEAKER_00",
+      "start": 840.16,
+      "end": 840.4,
+      "text": "南山老道士"
+    },
+    {
+      "line_id": "LINE_0721",
+      "speaker": "SPEAKER_00",
+      "start": 840.96,
+      "end": 841.36,
+      "text": "竟是一位"
+    },
+    {
+      "line_id": "LINE_0722",
+      "speaker": "SPEAKER_00",
+      "start": 841.76,
+      "end": 841.76,
+      "text": "真"
+    },
+    {
+      "line_id": "LINE_0723",
+      "speaker": "SPEAKER_00",
+      "start": 842.32,
+      "end": 842.4,
+      "text": "道士？"
+    },
+    {
+      "line_id": "LINE_0724",
+      "speaker": "SPEAKER_00",
+      "start": 842.4,
+      "end": 842.426,
+      "text": "想到这，"
+    },
+    {
+      "line_id": "LINE_0725",
+      "speaker": "SPEAKER_00",
+      "start": 842.453,
+      "end": 842.56,
+      "text": "他猛的"
+    },
+    {
+      "line_id": "LINE_0726",
+      "speaker": "SPEAKER_00",
+      "start": 843.12,
+      "end": 843.68,
+      "text": "甩了甩头，"
+    },
+    {
+      "line_id": "LINE_0727",
+      "speaker": "SPEAKER_00",
+      "start": 843.68,
+      "end": 843.92,
+      "text": "不行，"
+    },
+    {
+      "line_id": "LINE_0728",
+      "speaker": "SPEAKER_00",
+      "start": 843.92,
+      "end": 844.08,
+      "text": "非得找出点什么不可，"
+    },
+    {
+      "line_id": "LINE_0729",
+      "speaker": "SPEAKER_00",
+      "start": 844.08,
+      "end": 844.08,
+      "text": "不然有损他打假一姐的名声。"
+    },
+    {
+      "line_id": "LINE_0730",
+      "speaker": "SPEAKER_00",
+      "start": 844.08,
+      "end": 844.08,
+      "text": "苏小唐重新换上笑脸，"
+    },
+    {
+      "line_id": "LINE_0731",
+      "speaker": "SPEAKER_00",
+      "start": 844.08,
+      "end": 844.08,
+      "text": "凑到你面前，"
+    },
+    {
+      "line_id": "LINE_0732",
+      "speaker": "SPEAKER_00",
+      "start": 844.08,
+      "end": 844.08,
+      "text": "语气软了几分。"
+    },
+    {
+      "line_id": "LINE_0733",
+      "speaker": "SPEAKER_00",
+      "start": 844.08,
+      "end": 844.08,
+      "text": "老道长，"
+    },
+    {
+      "line_id": "LINE_0734",
+      "speaker": "SPEAKER_00",
+      "start": 844.08,
+      "end": 844.08,
+      "text": "我能在您这儿待一会儿吗？"
+    },
+    {
+      "line_id": "LINE_0735",
+      "speaker": "SPEAKER_00",
+      "start": 844.08,
+      "end": 844.08,
+      "text": "想拍一拍道观的日长，"
+    },
+    {
+      "line_id": "LINE_0736",
+      "speaker": "SPEAKER_00",
+      "start": 844.08,
+      "end": 844.16,
+      "text": "山上的生活挺有意思。"
+    },
+    {
+      "line_id": "LINE_0737",
+      "speaker": "SPEAKER_00",
+      "start": 844.24,
+      "end": 844.76,
+      "text": "您放心，"
+    },
+    {
+      "line_id": "LINE_0738",
+      "speaker": "SPEAKER_00",
+      "start": 844.88,
+      "end": 845.68,
+      "text": "我们绝对不打扰您。"
+    },
+    {
+      "line_id": "LINE_0739",
+      "speaker": "SPEAKER_00",
+      "start": 845.84,
+      "end": 846.56,
+      "text": "你抬了抬眼皮，"
+    },
+    {
+      "line_id": "LINE_0740",
+      "speaker": "SPEAKER_00",
+      "start": 846.72,
+      "end": 847.2,
+      "text": "扫了他一眼，"
+    },
+    {
+      "line_id": "LINE_0741",
+      "speaker": "SPEAKER_00",
+      "start": 847.36,
+      "end": 847.92,
+      "text": "活了两辈子，"
+    },
+    {
+      "line_id": "LINE_0742",
+      "speaker": "SPEAKER_00",
+      "start": 848.08,
+      "end": 849.84,
+      "text": "这姑娘藏的那点小心思还能看不出来？"
+    },
+    {
+      "line_id": "LINE_0743",
+      "speaker": "SPEAKER_00",
+      "start": 850.0,
+      "end": 850.88,
+      "text": "嘴上说拍日常，"
+    },
+    {
+      "line_id": "LINE_0744",
+      "speaker": "SPEAKER_00",
+      "start": 851.04,
+      "end": 852.16,
+      "text": "眼里不服气都快溢出来了，"
+    },
+    {
+      "line_id": "LINE_0745",
+      "speaker": "SPEAKER_00",
+      "start": 852.32,
+      "end": 853.76,
+      "text": "跟元宝盯着鱼缸里的锦鲤似的，"
+    },
+    {
+      "line_id": "LINE_0746",
+      "speaker": "SPEAKER_00",
+      "start": 853.84,
+      "end": 854.56,
+      "text": "表面蹲着不动，"
+    },
+    {
+      "line_id": "LINE_0747",
+      "speaker": "SPEAKER_00",
+      "start": 854.72,
+      "end": 855.68,
+      "text": "尾巴尖却一直在抖。"
+    },
+    {
+      "line_id": "LINE_0748",
+      "speaker": "SPEAKER_00",
+      "start": 855.84,
+      "end": 856.32,
+      "text": "你也无所谓，"
+    },
+    {
+      "line_id": "LINE_0749",
+      "speaker": "SPEAKER_00",
+      "start": 856.48,
+      "end": 857.2,
+      "text": "想待就待吧。"
+    },
+    {
+      "line_id": "LINE_0750",
+      "speaker": "SPEAKER_00",
+      "start": 857.36,
+      "end": 858.4,
+      "text": "你慢悠悠喝了口茶，"
+    },
+    {
+      "line_id": "LINE_0751",
+      "speaker": "SPEAKER_00",
+      "start": 858.56,
+      "end": 859.68,
+      "text": "下巴朝院子方向点了点，"
+    },
+    {
+      "line_id": "LINE_0752",
+      "speaker": "SPEAKER_00",
+      "start": 859.76,
+      "end": 860.88,
+      "text": "只要别拆我的兰花就行。"
+    },
+    {
+      "line_id": "LINE_0753",
+      "speaker": "SPEAKER_00",
+      "start": 860.96,
+      "end": 861.2,
+      "text": "好的，"
+    },
+    {
+      "line_id": "LINE_0754",
+      "speaker": "SPEAKER_00",
+      "start": 861.2,
+      "end": 861.84,
+      "text": "谢谢您老道长，"
+    },
+    {
+      "line_id": "LINE_0755",
+      "speaker": "SPEAKER_00",
+      "start": 862.0,
+      "end": 863.2,
+      "text": "我们一定不破坏任何东西。"
+    },
+    {
+      "line_id": "LINE_0756",
+      "speaker": "SPEAKER_00",
+      "start": 863.28,
+      "end": 864.08,
+      "text": "苏小棠大喜，"
+    },
+    {
+      "line_id": "LINE_0757",
+      "speaker": "SPEAKER_00",
+      "start": 864.16,
+      "end": 864.8,
+      "text": "连忙点头，"
+    },
+    {
+      "line_id": "LINE_0758",
+      "speaker": "SPEAKER_00",
+      "start": 864.88,
+      "end": 866.32,
+      "text": "转身给摄像师使了眼色。"
+    },
+    {
+      "line_id": "LINE_0759",
+      "speaker": "SPEAKER_00",
+      "start": 866.4,
+      "end": 868.0,
+      "text": "摄像师徐建山跟了他一年多，"
+    },
+    {
+      "line_id": "LINE_0760",
+      "speaker": "SPEAKER_00",
+      "start": 868.24,
+      "end": 869.04,
+      "text": "两人早有默契。"
+    },
+    {
+      "line_id": "LINE_0761",
+      "speaker": "SPEAKER_00",
+      "start": 869.12,
+      "end": 870.88,
+      "text": "徐建山扛着机器退到道观门口，"
+    },
+    {
+      "line_id": "LINE_0762",
+      "speaker": "SPEAKER_00",
+      "start": 870.96,
+      "end": 872.24,
+      "text": "找了能拍到整个院子的角，"
+    },
+    {
+      "line_id": "LINE_0763",
+      "speaker": "SPEAKER_00",
+      "start": 872.48,
+      "end": 873.44,
+      "text": "无人机嗡嗡升空，"
+    },
+    {
+      "line_id": "LINE_0764",
+      "speaker": "SPEAKER_00",
+      "start": 873.6,
+      "end": 874.4,
+      "text": "准备高空俯拍。"
+    },
+    {
+      "line_id": "LINE_0765",
+      "speaker": "SPEAKER_00",
+      "start": 874.56,
+      "end": 876.08,
+      "text": "苏小棠对着镜头压低声音，"
+    },
+    {
+      "line_id": "LINE_0766",
+      "speaker": "SPEAKER_00",
+      "start": 876.16,
+      "end": 876.56,
+      "text": "家人们，"
+    },
+    {
+      "line_id": "LINE_0767",
+      "speaker": "SPEAKER_00",
+      "start": 876.72,
+      "end": 877.92,
+      "text": "我们正式进入观察阶段。"
+    },
+    {
+      "line_id": "LINE_0768",
+      "speaker": "SPEAKER_00",
+      "start": 878.0,
+      "end": 879.36,
+      "text": "接下来我会一直跟着老道长，"
+    },
+    {
+      "line_id": "LINE_0769",
+      "speaker": "SPEAKER_00",
+      "start": 879.52,
+      "end": 880.64,
+      "text": "看他到底有没有藏着掖着。"
+    },
+    {
+      "line_id": "LINE_0770",
+      "speaker": "SPEAKER_00",
+      "start": 880.8,
+      "end": 881.52,
+      "text": "身势片子的滑，"
+    },
+    {
+      "line_id": "LINE_0771",
+      "speaker": "SPEAKER_00",
+      "start": 881.68,
+      "end": 882.56,
+      "text": "迟早会露出马脚。"
+    },
+    {
+      "line_id": "LINE_0772",
+      "speaker": "SPEAKER_00",
+      "start": 882.72,
+      "end": 884.72,
+      "text": "弹幕立刻涌入一波支持苏姐的后续。"
+    },
+    {
+      "line_id": "LINE_0773",
+      "speaker": "SPEAKER_00",
+      "start": 884.88,
+      "end": 886.48,
+      "text": "在线人数稳定在三十五万左右，"
+    },
+    {
+      "line_id": "LINE_0774",
+      "speaker": "SPEAKER_00",
+      "start": 886.64,
+      "end": 887.36,
+      "text": "还在缓慢上升。"
+    },
+    {
+      "line_id": "LINE_0775",
+      "speaker": "SPEAKER_00",
+      "start": 887.52,
+      "end": 888.8,
+      "text": "苏小棠满意地点点头，"
+    },
+    {
+      "line_id": "LINE_0776",
+      "speaker": "SPEAKER_00",
+      "start": 888.96,
+      "end": 890.0,
+      "text": "正准备再去找你聊聊，"
+    },
+    {
+      "line_id": "LINE_0777",
+      "speaker": "SPEAKER_00",
+      "start": 890.16,
+      "end": 891.2,
+      "text": "一转头却发现人不见，"
+    },
+    {
+      "line_id": "LINE_0778",
+      "speaker": "SPEAKER_00",
+      "start": 891.36,
+      "end": 891.84,
+      "text": "主意还在，"
+    },
+    {
+      "line_id": "LINE_0779",
+      "speaker": "SPEAKER_00",
+      "start": 892.08,
+      "end": 892.64,
+      "text": "茶杯还在，"
+    },
+    {
+      "line_id": "LINE_0780",
+      "speaker": "SPEAKER_00",
+      "start": 892.8,
+      "end": 893.84,
+      "text": "杯里甚至还冒着热气，"
+    },
+    {
+      "line_id": "LINE_0781",
+      "speaker": "SPEAKER_00",
+      "start": 893.92,
+      "end": 894.8,
+      "text": "可人已经没了踪影，"
+    },
+    {
+      "line_id": "LINE_0782",
+      "speaker": "SPEAKER_00",
+      "start": 894.96,
+      "end": 895.44,
+      "text": "猫也不见了。"
+    },
+    {
+      "line_id": "LINE_0783",
+      "speaker": "SPEAKER_00",
+      "start": 895.6,
+      "end": 896.48,
+      "text": "苏小棠心里一紧，"
+    },
+    {
+      "line_id": "LINE_0784",
+      "speaker": "SPEAKER_00",
+      "start": 896.56,
+      "end": 897.28,
+      "text": "快步走进院子。"
+    },
+    {
+      "line_id": "LINE_0785",
+      "speaker": "SPEAKER_00",
+      "start": 897.36,
+      "end": 897.92,
+      "text": "院子不大，"
+    },
+    {
+      "line_id": "LINE_0786",
+      "speaker": "SPEAKER_00",
+      "start": 898.0,
+      "end": 899.44,
+      "text": "夯土地面踩上去软乎乎的。"
+    },
+    {
+      "line_id": "LINE_0787",
+      "speaker": "SPEAKER_00",
+      "start": 899.52,
+      "end": 900.72,
+      "text": "东边是一排半塌的厢房，"
+    },
+    {
+      "line_id": "LINE_0788",
+      "speaker": "SPEAKER_00",
+      "start": 900.88,
+      "end": 902.16,
+      "text": "西边有间烧完整的房子，"
+    },
+    {
+      "line_id": "LINE_0789",
+      "speaker": "SPEAKER_00",
+      "start": 902.32,
+      "end": 902.8,
+      "text": "门半开着，"
+    },
+    {
+      "line_id": "LINE_0790",
+      "speaker": "SPEAKER_00",
+      "start": 902.8,
+      "end": 903.68,
+      "text": "里面隐约有道人影。"
+    },
+    {
+      "line_id": "LINE_0791",
+      "speaker": "SPEAKER_00",
+      "start": 903.76,
+      "end": 904.56,
+      "text": "他刚走到门口，"
+    },
+    {
+      "line_id": "LINE_0792",
+      "speaker": "SPEAKER_00",
+      "start": 904.64,
+      "end": 906.0,
+      "text": "就听见里面传来自语声：“嗯，"
+    },
+    {
+      "line_id": "LINE_0793",
+      "speaker": "SPEAKER_00",
+      "start": 906.16,
+      "end": 907.12,
+      "text": "这株墨兰该换盆了，"
+    },
+    {
+      "line_id": "LINE_0794",
+      "speaker": "SPEAKER_00",
+      "start": 907.28,
+      "end": 907.84,
+      "text": "根都长满了。"
+    },
+    {
+      "line_id": "LINE_0795",
+      "speaker": "SPEAKER_00",
+      "start": 908.0,
+      "end": 908.24,
+      "text": "元宝，"
+    },
+    {
+      "line_id": "LINE_0796",
+      "speaker": "SPEAKER_00",
+      "start": 908.48,
+      "end": 908.8,
+      "text": "别扒了，"
+    },
+    {
+      "line_id": "LINE_0797",
+      "speaker": "SPEAKER_00",
+      "start": 908.96,
+      "end": 909.52,
+      "text": "那不是猫草，"
+    },
+    {
+      "line_id": "LINE_0798",
+      "speaker": "SPEAKER_00",
+      "start": 909.52,
+      "end": 910.0,
+      "text": "也不是猫粮，"
+    },
+    {
+      "line_id": "LINE_0799",
+      "speaker": "SPEAKER_00",
+      "start": 910.16,
+      "end": 910.56,
+      "text": "不能吃。”"
+    },
+    {
+      "line_id": "LINE_0800",
+      "speaker": "SPEAKER_00",
+      "start": 910.72,
+      "end": 912.16,
+      "text": "苏小棠连忙探头往里看，"
+    },
+    {
+      "line_id": "LINE_0801",
+      "speaker": "SPEAKER_00",
+      "start": 912.32,
+      "end": 913.44,
+      "text": "你蹲在一排花架前，"
+    },
+    {
+      "line_id": "LINE_0802",
+      "speaker": "SPEAKER_00",
+      "start": 913.6,
+      "end": 915.52,
+      "text": "面前摆着十几盆品种各异的兰花，"
+    },
+    {
+      "line_id": "LINE_0803",
+      "speaker": "SPEAKER_00",
+      "start": 915.6,
+      "end": 917.44,
+      "text": "正给一株叶色深绿带紫的兰花松土，"
+    },
+    {
+      "line_id": "LINE_0804",
+      "speaker": "SPEAKER_00",
+      "start": 917.52,
+      "end": 918.88,
+      "text": "动作轻柔的像在抚摸婴儿。"
+    },
+    {
+      "line_id": "LINE_0805",
+      "speaker": "SPEAKER_00",
+      "start": 919.04,
+      "end": 919.84,
+      "text": "橘猫蹲在旁边，"
+    },
+    {
+      "line_id": "LINE_0806",
+      "speaker": "SPEAKER_00",
+      "start": 920.08,
+      "end": 921.2,
+      "text": "尾巴悠闲的扫来扫去，"
+    },
+    {
+      "line_id": "LINE_0807",
+      "speaker": "SPEAKER_00",
+      "start": 921.28,
+      "end": 922.4,
+      "text": "时不时伸爪去勾兰叶，"
+    },
+    {
+      "line_id": "LINE_0808",
+      "speaker": "SPEAKER_00",
+      "start": 922.56,
+      "end": 923.44,
+      "text": "都被你轻轻拨开了。"
+    },
+    {
+      "line_id": "LINE_0809",
+      "speaker": "SPEAKER_00",
+      "start": 923.6,
+      "end": 924.0,
+      "text": "老道长，"
+    },
+    {
+      "line_id": "LINE_0810",
+      "speaker": "SPEAKER_00",
+      "start": 924.16,
+      "end": 924.8,
+      "text": "您还养兰花呢？"
+    },
+    {
+      "line_id": "LINE_0811",
+      "speaker": "SPEAKER_00",
+      "start": 924.96,
+      "end": 925.76,
+      "text": "苏小棠蹲下来，"
+    },
+    {
+      "line_id": "LINE_0812",
+      "speaker": "SPEAKER_00",
+      "start": 925.92,
+      "end": 926.8,
+      "text": "把手机凑近了些，"
+    },
+    {
+      "line_id": "LINE_0813",
+      "speaker": "SPEAKER_00",
+      "start": 926.96,
+      "end": 927.68,
+      "text": "养了几十年了，"
+    },
+    {
+      "line_id": "LINE_0814",
+      "speaker": "SPEAKER_00",
+      "start": 927.84,
+      "end": 928.48,
+      "text": "你头也没抬，"
+    },
+    {
+      "line_id": "LINE_0815",
+      "speaker": "SPEAKER_00",
+      "start": 928.64,
+      "end": 929.76,
+      "text": "手指在土里慢慢拨弄。"
+    },
+    {
+      "line_id": "LINE_0816",
+      "speaker": "SPEAKER_00",
+      "start": 929.92,
+      "end": 930.8,
+      "text": "这盆墨兰跟我最久，"
+    },
+    {
+      "line_id": "LINE_0817",
+      "speaker": "SPEAKER_00",
+      "start": 930.88,
+      "end": 931.6,
+      "text": "有四十多年了。"
+    },
+    {
+      "line_id": "LINE_0818",
+      "speaker": "SPEAKER_00",
+      "start": 931.76,
+      "end": 933.2,
+      "text": "苏小棠仔细打量那盆墨兰，"
+    },
+    {
+      "line_id": "LINE_0819",
+      "speaker": "SPEAKER_00",
+      "start": 933.36,
+      "end": 934.32,
+      "text": "说实话他不懂花，"
+    },
+    {
+      "line_id": "LINE_0820",
+      "speaker": "SPEAKER_00",
+      "start": 934.48,
+      "end": 935.68,
+      "text": "但这兰花的叶子油亮油亮，"
+    },
+    {
+      "line_id": "LINE_0821",
+      "speaker": "SPEAKER_00",
+      "start": 935.92,
+      "end": 936.8,
+      "text": "每一片都精神抖擞，"
+    },
+    {
+      "line_id": "LINE_0822",
+      "speaker": "SPEAKER_00",
+      "start": 936.96,
+      "end": 938.64,
+      "text": "不像是普通老人随手养的绿植。"
+    },
+    {
+      "line_id": "LINE_0823",
+      "speaker": "SPEAKER_00",
+      "start": 938.72,
+      "end": 939.36,
+      "text": "最奇怪的是，"
+    },
+    {
+      "line_id": "LINE_0824",
+      "speaker": "SPEAKER_00",
+      "start": 939.6,
+      "end": 941.28,
+      "text": "盆土表面浮着一层薄薄的雾气，"
+    },
+    {
+      "line_id": "LINE_0825",
+      "speaker": "SPEAKER_00",
+      "start": 941.36,
+      "end": 942.64,
+      "text": "像刚从冰箱里拿出来似的。"
+    },
+    {
+      "line_id": "LINE_0826",
+      "speaker": "SPEAKER_00",
+      "start": 942.8,
+      "end": 943.76,
+      "text": "他只当是镜头反光，"
+    },
+    {
+      "line_id": "LINE_0827",
+      "speaker": "SPEAKER_00",
+      "start": 943.92,
+      "end": 944.56,
+      "text": "没往心里去。"
+    },
+    {
+      "line_id": "LINE_0828",
+      "speaker": "SPEAKER_00",
+      "start": 944.88,
+      "end": 946.24,
+      "text": "检测到宿主照料兰花，"
+    },
+    {
+      "line_id": "LINE_0829",
+      "speaker": "SPEAKER_00",
+      "start": 946.4,
+      "end": 947.12,
+      "text": "养生值加三，"
+    },
+    {
+      "line_id": "LINE_0830",
+      "speaker": "SPEAKER_00",
+      "start": 947.28,
+      "end": 949.04,
+      "text": "当前养生值一千二百四十三。"
+    },
+    {
+      "line_id": "LINE_0831",
+      "speaker": "SPEAKER_00",
+      "start": 949.12,
+      "end": 950.4,
+      "text": "支线任务兰香静心，"
+    },
+    {
+      "line_id": "LINE_0832",
+      "speaker": "SPEAKER_00",
+      "start": 950.56,
+      "end": 951.76,
+      "text": "连续照料兰花三十日，"
+    },
+    {
+      "line_id": "LINE_0833",
+      "speaker": "SPEAKER_00",
+      "start": 951.92,
+      "end": 952.16,
+      "text": "可获"
+    },
+    {
+      "line_id": "LINE_0834",
+      "speaker": "SPEAKER_00",
+      "start": 960.0,
+      "end": 961.12,
+      "text": "得兰台青玉神通，"
+    },
+    {
+      "line_id": "LINE_0835",
+      "speaker": "SPEAKER_00",
+      "start": 961.2,
+      "end": 961.6,
+      "text": "周身自带淡"
+    },
+    {
+      "line_id": "LINE_0836",
+      "speaker": "SPEAKER_00",
+      "start": 962.0,
+      "end": 962.08,
+      "text": "雅兰香，"
+    },
+    {
+      "line_id": "LINE_0837",
+      "speaker": "SPEAKER_00",
+      "start": 962.08,
+      "end": 962.08,
+      "text": "可安神静心，"
+    },
+    {
+      "line_id": "LINE_0838",
+      "speaker": "SPEAKER_00",
+      "start": 962.08,
+      "end": 962.08,
+      "text": "驱虫避秽。"
+    },
+    {
+      "line_id": "LINE_0839",
+      "speaker": "SPEAKER_00",
+      "start": 962.08,
+      "end": 962.08,
+      "text": "当前进度三十分之二十三。"
+    },
+    {
+      "line_id": "LINE_0840",
+      "speaker": "SPEAKER_00",
+      "start": 962.08,
+      "end": 962.08,
+      "text": "听完系统提示，"
+    },
+    {
+      "line_id": "LINE_0841",
+      "speaker": "SPEAKER_00",
+      "start": 962.08,
+      "end": 962.08,
+      "text": "嘴角微微上扬。"
+    },
+    {
+      "line_id": "LINE_0842",
+      "speaker": "SPEAKER_00",
+      "start": 962.08,
+      "end": 962.08,
+      "text": "错，"
+    },
+    {
+      "line_id": "LINE_0843",
+      "speaker": "SPEAKER_00",
+      "start": 962.08,
+      "end": 962.08,
+      "text": "在养一个星期就能多出个被动技能。"
+    },
+    {
+      "line_id": "LINE_0844",
+      "speaker": "SPEAKER_00",
+      "start": 962.08,
+      "end": 963.6,
+      "text": "九十六岁老猴子带体香，"
+    },
+    {
+      "line_id": "LINE_0845",
+      "speaker": "SPEAKER_00",
+      "start": 963.68,
+      "end": 964.64,
+      "text": "想想还挺有意思。"
+    },
+    {
+      "line_id": "LINE_0846",
+      "speaker": "SPEAKER_00",
+      "start": 964.72,
+      "end": 965.52,
+      "text": "给墨兰换完土，"
+    },
+    {
+      "line_id": "LINE_0847",
+      "speaker": "SPEAKER_00",
+      "start": 965.6,
+      "end": 966.32,
+      "text": "你拿起喷壶，"
+    },
+    {
+      "line_id": "LINE_0848",
+      "speaker": "SPEAKER_00",
+      "start": 966.48,
+      "end": 968.8,
+      "text": "仔仔细细给每一盆兰花的叶子都喷了水，"
+    },
+    {
+      "line_id": "LINE_0849",
+      "speaker": "SPEAKER_00",
+      "start": 968.8,
+      "end": 969.76,
+      "text": "水雾在晨光里散开，"
+    },
+    {
+      "line_id": "LINE_0850",
+      "speaker": "SPEAKER_00",
+      "start": 969.92,
+      "end": 971.12,
+      "text": "凝成一道极淡的彩虹。"
+    },
+    {
+      "line_id": "LINE_0851",
+      "speaker": "SPEAKER_00",
+      "start": 971.28,
+      "end": 972.8,
+      "text": "落在叶片上的水珠细腻晶莹，"
+    },
+    {
+      "line_id": "LINE_0852",
+      "speaker": "SPEAKER_00",
+      "start": 972.88,
+      "end": 973.92,
+      "text": "像碎钻石的闪着光。"
+    },
+    {
+      "line_id": "LINE_0853",
+      "speaker": "SPEAKER_00",
+      "start": 974.08,
+      "end": 975.36,
+      "text": "苏小棠本来还想找茬，"
+    },
+    {
+      "line_id": "LINE_0854",
+      "speaker": "SPEAKER_00",
+      "start": 975.44,
+      "end": 976.08,
+      "text": "看见这一幕，"
+    },
+    {
+      "line_id": "LINE_0855",
+      "speaker": "SPEAKER_00",
+      "start": 976.16,
+      "end": 977.04,
+      "text": "忽然不知道该说什么。"
+    },
+    {
+      "line_id": "LINE_0856",
+      "speaker": "SPEAKER_00",
+      "start": 977.28,
+      "end": 978.24,
+      "text": "弹幕道毫不客气，"
+    },
+    {
+      "line_id": "LINE_0857",
+      "speaker": "SPEAKER_00",
+      "start": 978.32,
+      "end": 979.84,
+      "text": "老道长的兰花养得真好啊！"
+    },
+    {
+      "line_id": "LINE_0858",
+      "speaker": "SPEAKER_00",
+      "start": 980.0,
+      "end": 981.04,
+      "text": "我看这盆墨兰的品相，"
+    },
+    {
+      "line_id": "LINE_0859",
+      "speaker": "SPEAKER_00",
+      "start": 981.2,
+      "end": 982.72,
+      "text": "拿出去卖至少能卖个几千块，"
+    },
+    {
+      "line_id": "LINE_0860",
+      "speaker": "SPEAKER_00",
+      "start": 982.88,
+      "end": 983.36,
+      "text": "真的假的？"
+    },
+    {
+      "line_id": "LINE_0861",
+      "speaker": "SPEAKER_00",
+      "start": 983.52,
+      "end": 984.4,
+      "text": "一盆花能卖几千？"
+    },
+    {
+      "line_id": "LINE_0862",
+      "speaker": "SPEAKER_00",
+      "start": 984.56,
+      "end": 985.44,
+      "text": "懂兰花的来说说，"
+    },
+    {
+      "line_id": "LINE_0863",
+      "speaker": "SPEAKER_00",
+      "start": 985.6,
+      "end": 987.84,
+      "text": "这盆墨兰的叶形和颜色是那个什么大荷素吗？"
+    },
+    {
+      "line_id": "LINE_0864",
+      "speaker": "SPEAKER_00",
+      "start": 988.0,
+      "end": 988.72,
+      "text": "好像又不太像。"
+    },
+    {
+      "line_id": "LINE_0865",
+      "speaker": "SPEAKER_00",
+      "start": 988.96,
+      "end": 989.6,
+      "text": "不管什么品种，"
+    },
+    {
+      "line_id": "LINE_0866",
+      "speaker": "SPEAKER_00",
+      "start": 989.76,
+      "end": 990.56,
+      "text": "养的是真的好看。"
+    },
+    {
+      "line_id": "LINE_0867",
+      "speaker": "SPEAKER_00",
+      "start": 990.72,
+      "end": 991.44,
+      "text": "挺赏心悦目的。"
+    },
+    {
+      "line_id": "LINE_0868",
+      "speaker": "SPEAKER_00",
+      "start": 991.6,
+      "end": 992.96,
+      "text": "话说小唐姐不是来打假吗？"
+    },
+    {
+      "line_id": "LINE_0869",
+      "speaker": "SPEAKER_00",
+      "start": 993.12,
+      "end": 994.08,
+      "text": "怎么变成看花直播了？"
+    },
+    {
+      "line_id": "LINE_0870",
+      "speaker": "SPEAKER_00",
+      "start": 994.24,
+      "end": 994.56,
+      "text": "别急，"
+    },
+    {
+      "line_id": "LINE_0871",
+      "speaker": "SPEAKER_00",
+      "start": 994.72,
+      "end": 995.84,
+      "text": "小唐姐肯定有后招，"
+    },
+    {
+      "line_id": "LINE_0872",
+      "speaker": "SPEAKER_00",
+      "start": 996.0,
+      "end": 996.88,
+      "text": "继续看下去就知道。"
+    },
+    {
+      "line_id": "LINE_0873",
+      "speaker": "SPEAKER_00",
+      "start": 997.04,
+      "end": 998.24,
+      "text": "苏小棠确实有后招，"
+    },
+    {
+      "line_id": "LINE_0874",
+      "speaker": "SPEAKER_00",
+      "start": 998.4,
+      "end": 998.88,
+      "text": "她站起身，"
+    },
+    {
+      "line_id": "LINE_0875",
+      "speaker": "SPEAKER_00",
+      "start": 999.12,
+      "end": 1000.72,
+      "text": "假装不经意的在院子里转了一圈。"
+    },
+    {
+      "line_id": "LINE_0876",
+      "speaker": "SPEAKER_00",
+      "start": 1000.88,
+      "end": 1001.68,
+      "text": "院子里东西不多，"
+    },
+    {
+      "line_id": "LINE_0877",
+      "speaker": "SPEAKER_00",
+      "start": 1001.92,
+      "end": 1002.48,
+      "text": "一张石桌，"
+    },
+    {
+      "line_id": "LINE_0878",
+      "speaker": "SPEAKER_00",
+      "start": 1002.64,
+      "end": 1003.12,
+      "text": "几个石凳，"
+    },
+    {
+      "line_id": "LINE_0879",
+      "speaker": "SPEAKER_00",
+      "start": 1003.2,
+      "end": 1003.92,
+      "text": "一口大水缸，"
+    },
+    {
+      "line_id": "LINE_0880",
+      "speaker": "SPEAKER_00",
+      "start": 1004.08,
+      "end": 1005.12,
+      "text": "墙边种着一丛竹子，"
+    },
+    {
+      "line_id": "LINE_0881",
+      "speaker": "SPEAKER_00",
+      "start": 1005.2,
+      "end": 1006.72,
+      "text": "水缸里养着几尾红白锦鲤，"
+    },
+    {
+      "line_id": "LINE_0882",
+      "speaker": "SPEAKER_00",
+      "start": 1006.8,
+      "end": 1008.32,
+      "text": "在睡莲叶子下慢悠悠的游着，"
+    },
+    {
+      "line_id": "LINE_0883",
+      "speaker": "SPEAKER_00",
+      "start": 1008.4,
+      "end": 1009.2,
+      "text": "一切都很正常。"
+    },
+    {
+      "line_id": "LINE_0884",
+      "speaker": "SPEAKER_00",
+      "start": 1009.36,
+      "end": 1011.2,
+      "text": "直到他的目光落在院子角落的木架上，"
+    },
+    {
+      "line_id": "LINE_0885",
+      "speaker": "SPEAKER_00",
+      "start": 1011.36,
+      "end": 1012.56,
+      "text": "那木架和放哑铃的很像，"
+    },
+    {
+      "line_id": "LINE_0886",
+      "speaker": "SPEAKER_00",
+      "start": 1012.72,
+      "end": 1013.84,
+      "text": "上面摆的却不是哑铃，"
+    },
+    {
+      "line_id": "LINE_0887",
+      "speaker": "SPEAKER_00",
+      "start": 1014.0,
+      "end": 1014.64,
+      "text": "而是一把长剑。"
+    },
+    {
+      "line_id": "LINE_0888",
+      "speaker": "SPEAKER_00",
+      "start": 1014.8,
+      "end": 1016.32,
+      "text": "木质剑鞘的七面早已斑驳，"
+    },
+    {
+      "line_id": "LINE_0889",
+      "speaker": "SPEAKER_00",
+      "start": 1016.48,
+      "end": 1017.36,
+      "text": "看不出原本的颜色，"
+    },
+    {
+      "line_id": "LINE_0890",
+      "speaker": "SPEAKER_00",
+      "start": 1017.52,
+      "end": 1018.8,
+      "text": "剑柄缠的绳子也磨得发白，"
+    },
+    {
+      "line_id": "LINE_0891",
+      "speaker": "SPEAKER_00",
+      "start": 1018.96,
+      "end": 1019.92,
+      "text": "整体却保存完好，"
+    },
+    {
+      "line_id": "LINE_0892",
+      "speaker": "SPEAKER_00",
+      "start": 1020.08,
+      "end": 1020.72,
+      "text": "不像是装饰品。"
+    },
+    {
+      "line_id": "LINE_0893",
+      "speaker": "SPEAKER_00",
+      "start": 1020.8,
+      "end": 1022.08,
+      "text": "苏小棠眼睛顿时亮了，"
+    },
+    {
+      "line_id": "LINE_0894",
+      "speaker": "SPEAKER_00",
+      "start": 1022.24,
+      "end": 1023.36,
+      "text": "语气里带着明显的兴奋。"
+    },
+    {
+      "line_id": "LINE_0895",
+      "speaker": "SPEAKER_00",
+      "start": 1023.52,
+      "end": 1023.92,
+      "text": "老道长，"
+    },
+    {
+      "line_id": "LINE_0896",
+      "speaker": "SPEAKER_00",
+      "start": 1024.08,
+      "end": 1024.64,
+      "text": "您还练剑呢？"
+    },
+    {
+      "line_id": "LINE_0897",
+      "speaker": "SPEAKER_00",
+      "start": 1024.8,
+      "end": 1025.84,
+      "text": "你刚从花架前站起来，"
+    },
+    {
+      "line_id": "LINE_0898",
+      "speaker": "SPEAKER_00",
+      "start": 1026.24,
+      "end": 1026.8,
+      "text": "拍了拍手上的土，"
+    },
+    {
+      "line_id": "LINE_0899",
+      "speaker": "SPEAKER_00",
+      "start": 1026.88,
+      "end": 1027.52,
+      "text": "看了眼那把剑，"
+    },
+    {
+      "line_id": "LINE_0900",
+      "speaker": "SPEAKER_00",
+      "start": 1027.68,
+      "end": 1028.24,
+      "text": "略一沉吟，"
+    },
+    {
+      "line_id": "LINE_0901",
+      "speaker": "SPEAKER_00",
+      "start": 1028.4,
+      "end": 1028.48,
+      "text": "嗯，"
+    },
+    {
+      "line_id": "LINE_0902",
+      "speaker": "SPEAKER_00",
+      "start": 1028.72,
+      "end": 1029.6,
+      "text": "年轻时候练过几年，"
+    },
+    {
+      "line_id": "LINE_0903",
+      "speaker": "SPEAKER_00",
+      "start": 1029.76,
+      "end": 1030.24,
+      "text": "现在老了，"
+    },
+    {
+      "line_id": "LINE_0904",
+      "speaker": "SPEAKER_00",
+      "start": 1030.4,
+      "end": 1030.88,
+      "text": "耍不动了。"
+    },
+    {
+      "line_id": "LINE_0905",
+      "speaker": "SPEAKER_00",
+      "start": 1031.04,
+      "end": 1031.84,
+      "text": "弹幕立刻沸腾了，"
+    },
+    {
+      "line_id": "LINE_0906",
+      "speaker": "SPEAKER_00",
+      "start": 1032.0,
+      "end": 1032.48,
+      "text": "练过几年？"
+    },
+    {
+      "line_id": "LINE_0907",
+      "speaker": "SPEAKER_00",
+      "start": 1032.64,
+      "end": 1033.68,
+      "text": "那把剑看起来是真的，"
+    },
+    {
+      "line_id": "LINE_0908",
+      "speaker": "SPEAKER_00",
+      "start": 1033.84,
+      "end": 1034.64,
+      "text": "不像是表演道具。"
+    },
+    {
+      "line_id": "LINE_0909",
+      "speaker": "SPEAKER_00",
+      "start": 1034.88,
+      "end": 1035.92,
+      "text": "老道长说年轻的时候，"
+    },
+    {
+      "line_id": "LINE_0910",
+      "speaker": "SPEAKER_00",
+      "start": 1036.08,
+      "end": 1036.64,
+      "text": "那问题来了，"
+    },
+    {
+      "line_id": "LINE_0911",
+      "speaker": "SPEAKER_00",
+      "start": 1036.8,
+      "end": 1038.4,
+      "text": "这个年轻的时候是几十年前？"
+    },
+    {
+      "line_id": "LINE_0912",
+      "speaker": "SPEAKER_00",
+      "start": 1038.56,
+      "end": 1039.36,
+      "text": "这把剑要是真的，"
+    },
+    {
+      "line_id": "LINE_0913",
+      "speaker": "SPEAKER_00",
+      "start": 1039.52,
+      "end": 1041.6,
+      "text": "那老道士年轻的时候可能真的有两下子。"
+    },
+    {
+      "line_id": "LINE_0914",
+      "speaker": "SPEAKER_00",
+      "start": 1041.76,
+      "end": 1043.04,
+      "text": "小唐姐还愣着干嘛？"
+    },
+    {
+      "line_id": "LINE_0915",
+      "speaker": "SPEAKER_00",
+      "start": 1043.12,
+      "end": 1044.24,
+      "text": "你快让老道长表演一下！"
+    },
+    {
+      "line_id": "LINE_0916",
+      "speaker": "SPEAKER_00",
+      "start": 1044.4,
+      "end": 1045.36,
+      "text": "苏小棠看着弹幕，"
+    },
+    {
+      "line_id": "LINE_0917",
+      "speaker": "SPEAKER_00",
+      "start": 1045.52,
+      "end": 1046.56,
+      "text": "心想这倒是个好机会。"
+    },
+    {
+      "line_id": "LINE_0918",
+      "speaker": "SPEAKER_00",
+      "start": 1046.72,
+      "end": 1047.76,
+      "text": "老道士真耍剑的话，"
+    },
+    {
+      "line_id": "LINE_0919",
+      "speaker": "SPEAKER_00",
+      "start": 1047.84,
+      "end": 1049.28,
+      "text": "他就能分析动作是不是花架，"
+    },
+    {
+      "line_id": "LINE_0920",
+      "speaker": "SPEAKER_00",
+      "start": 1049.44,
+      "end": 1049.84,
+      "text": "不肯耍，"
+    },
+    {
+      "line_id": "LINE_0921",
+      "speaker": "SPEAKER_00",
+      "start": 1049.92,
+      "end": 1050.72,
+      "text": "那就说明心虚。"
+    },
+    {
+      "line_id": "LINE_0922",
+      "speaker": "SPEAKER_00",
+      "start": 1050.8,
+      "end": 1051.28,
+      "text": "老道长，"
+    },
+    {
+      "line_id": "LINE_0923",
+      "speaker": "SPEAKER_00",
+      "start": 1051.44,
+      "end": 1052.64,
+      "text": "那您能不能给我们展示一下？"
+    },
+    {
+      "line_id": "LINE_0924",
+      "speaker": "SPEAKER_00",
+      "start": 1052.8,
+      "end": 1053.44,
+      "text": "他语气诚恳，"
+    },
+    {
+      "line_id": "LINE_0925",
+      "speaker": "SPEAKER_00",
+      "start": 1053.6,
+      "end": 1054.48,
+      "text": "也不用耍一套剑法，"
+    },
+    {
+      "line_id": "LINE_0926",
+      "speaker": "SPEAKER_00",
+      "start": 1054.64,
+      "end": 1055.44,
+      "text": "随便挥舞两下，"
+    },
+    {
+      "line_id": "LINE_0927",
+      "speaker": "SPEAKER_00",
+      "start": 1055.6,
+      "end": 1056.56,
+      "text": "让我开开眼界就行，"
+    },
+    {
+      "line_id": "LINE_0928",
+      "speaker": "SPEAKER_00",
+      "start": 1056.72,
+      "end": 1057.04,
+      "text": "可以吗？"
+    },
+    {
+      "line_id": "LINE_0929",
+      "speaker": "SPEAKER_00",
+      "start": 1057.12,
+      "end": 1058.0,
+      "text": "弹幕瞬间刷满，"
+    },
+    {
+      "line_id": "LINE_0930",
+      "speaker": "SPEAKER_00",
+      "start": 1058.0,
+      "end": 1059.28,
+      "text": "直播间青一色没错，"
+    },
+    {
+      "line_id": "LINE_0931",
+      "speaker": "SPEAKER_00",
+      "start": 1059.28,
+      "end": 1059.84,
+      "text": "继续展示，"
+    },
+    {
+      "line_id": "LINE_0932",
+      "speaker": "SPEAKER_00",
+      "start": 1059.84,
+      "end": 1060.88,
+      "text": "跪求老道长开开眼！"
+    },
+    {
+      "line_id": "LINE_0933",
+      "speaker": "SPEAKER_00",
+      "start": 1061.04,
+      "end": 1061.6,
+      "text": "你看了看剑，"
+    },
+    {
+      "line_id": "LINE_0934",
+      "speaker": "SPEAKER_00",
+      "start": 1061.76,
+      "end": 1063.6,
+      "text": "又看了看苏小棠满怀期待的眼神，"
+    },
+    {
+      "line_id": "LINE_0935",
+      "speaker": "SPEAKER_00",
+      "start": 1063.76,
+      "end": 1064.56,
+      "text": "轻轻摇了摇头，"
+    },
+    {
+      "line_id": "LINE_0936",
+      "speaker": "SPEAKER_00",
+      "start": 1064.72,
+      "end": 1065.36,
+      "text": "语气很坚定，"
+    },
+    {
+      "line_id": "LINE_0937",
+      "speaker": "SPEAKER_00",
+      "start": 1065.52,
+      "end": 1066.24,
+      "text": "我真的耍不动了，"
+    },
+    {
+      "line_id": "LINE_0938",
+      "speaker": "SPEAKER_00",
+      "start": 1066.4,
+      "end": 1066.96,
+      "text": "现在腰不行，"
+    },
+    {
+      "line_id": "LINE_0939",
+      "speaker": "SPEAKER_00",
+      "start": 1067.12,
+      "end": 1067.44,
+      "text": "转不了。"
+    },
+    {
+      "line_id": "LINE_0940",
+      "speaker": "SPEAKER_00",
+      "start": 1067.6,
+      "end": 1068.64,
+      "text": "苏小棠心中一喜，"
+    },
+    {
+      "line_id": "LINE_0941",
+      "speaker": "SPEAKER_00",
+      "start": 1068.72,
+      "end": 1068.96,
+      "text": "来了，"
+    },
+    {
+      "line_id": "LINE_0942",
+      "speaker": "SPEAKER_00",
+      "start": 1069.12,
+      "end": 1070.48,
+      "text": "这才是正常老人该说的话。"
+    },
+    {
+      "line_id": "LINE_0943",
+      "speaker": "SPEAKER_00",
+      "start": 1070.56,
+      "end": 1072.24,
+      "text": "刚才举哑铃肯定是用了巧劲，"
+    },
+    {
+      "line_id": "LINE_0944",
+      "speaker": "SPEAKER_00",
+      "start": 1072.32,
+      "end": 1073.36,
+      "text": "一涉及腰腹和心力，"
+    },
+    {
+      "line_id": "LINE_0945",
+      "speaker": "SPEAKER_00",
+      "start": 1073.36,
+      "end": 1073.84,
+      "text": "两就不行了。"
+    },
+    {
+      "line_id": "LINE_0946",
+      "speaker": "SPEAKER_00",
+      "start": 1074.0,
+      "end": 1075.28,
+      "text": "他正想顺着这话往下说，"
+    },
+    {
+      "line_id": "LINE_0947",
+      "speaker": "SPEAKER_00",
+      "start": 1075.44,
+      "end": 1075.68,
+      "text": "却见"
+    },
+    {
+      "line_id": "LINE_0948",
+      "speaker": "SPEAKER_00",
+      "start": 1080.0,
+      "end": 1080.24,
+      "text": "你已经"
+    },
+    {
+      "line_id": "LINE_0949",
+      "speaker": "SPEAKER_00",
+      "start": 1080.56,
+      "end": 1081.28,
+      "text": "转身走向水缸，"
+    },
+    {
+      "line_id": "LINE_0950",
+      "speaker": "SPEAKER_00",
+      "start": 1081.28,
+      "end": 1081.92,
+      "text": "丢下一句，"
+    },
+    {
+      "line_id": "LINE_0951",
+      "speaker": "SPEAKER_00",
+      "start": 1081.92,
+      "end": 1082.101,
+      "text": "不过看看鱼还是可以的。"
+    },
+    {
+      "line_id": "LINE_0952",
+      "speaker": "SPEAKER_00",
+      "start": 1082.102,
+      "end": 1082.109,
+      "text": "看看鱼，"
+    },
+    {
+      "line_id": "LINE_0953",
+      "speaker": "SPEAKER_00",
+      "start": 1082.11,
+      "end": 1082.117,
+      "text": "苏小棠。"
+    },
+    {
+      "line_id": "LINE_0954",
+      "speaker": "SPEAKER_00",
+      "start": 1082.118,
+      "end": 1082.128,
+      "text": "愣了一下，"
+    },
+    {
+      "line_id": "LINE_0955",
+      "speaker": "SPEAKER_00",
+      "start": 1082.129,
+      "end": 1082.154,
+      "text": "转头和徐老师对视一眼，"
+    },
+    {
+      "line_id": "LINE_0956",
+      "speaker": "SPEAKER_00",
+      "start": 1082.156,
+      "end": 1083.2,
+      "text": "都从对方眼里看出了疑惑。"
+    },
+    {
+      "line_id": "LINE_0957",
+      "speaker": "SPEAKER_00",
+      "start": 1083.36,
+      "end": 1084.0,
+      "text": "鱼有什么好看呢？"
+    },
+    {
+      "line_id": "LINE_0958",
+      "speaker": "SPEAKER_00",
+      "start": 1084.16,
+      "end": 1084.72,
+      "text": "不都一个样？"
+    },
+    {
+      "line_id": "LINE_0959",
+      "speaker": "SPEAKER_00",
+      "start": 1084.8,
+      "end": 1085.92,
+      "text": "可姬安老道长开了口，"
+    },
+    {
+      "line_id": "LINE_0960",
+      "speaker": "SPEAKER_00",
+      "start": 1086.0,
+      "end": 1086.72,
+      "text": "他有些好奇，"
+    },
+    {
+      "line_id": "LINE_0961",
+      "speaker": "SPEAKER_00",
+      "start": 1086.88,
+      "end": 1087.44,
+      "text": "便走了过去。"
+    },
+    {
+      "line_id": "LINE_0962",
+      "speaker": "SPEAKER_00",
+      "start": 1087.52,
+      "end": 1088.4,
+      "text": "你蹲在大水缸边，"
+    },
+    {
+      "line_id": "LINE_0963",
+      "speaker": "SPEAKER_00",
+      "start": 1088.56,
+      "end": 1089.36,
+      "text": "把手伸进水里，"
+    },
+    {
+      "line_id": "LINE_0964",
+      "speaker": "SPEAKER_00",
+      "start": 1089.36,
+      "end": 1090.16,
+      "text": "轻轻搅了两下。"
+    },
+    {
+      "line_id": "LINE_0965",
+      "speaker": "SPEAKER_00",
+      "start": 1090.32,
+      "end": 1091.44,
+      "text": "缸里原本懒洋洋的锦"
+    },
+    {
+      "line_id": "LINE_0966",
+      "speaker": "SPEAKER_00",
+      "start": 1091.76,
+      "end": 1092.56,
+      "text": "鲤像收到了信号，"
+    },
+    {
+      "line_id": "LINE_0967",
+      "speaker": "SPEAKER_00",
+      "start": 1092.64,
+      "end": 1093.52,
+      "text": "瞬间活跃起来，"
+    },
+    {
+      "line_id": "LINE_0968",
+      "speaker": "SPEAKER_00",
+      "start": 1093.68,
+      "end": 1094.56,
+      "text": "纷纷游到你手边，"
+    },
+    {
+      "line_id": "LINE_0969",
+      "speaker": "SPEAKER_00",
+      "start": 1094.64,
+      "end": 1095.52,
+      "text": "用嘴啄你的手指，"
+    },
+    {
+      "line_id": "LINE_0970",
+      "speaker": "SPEAKER_00",
+      "start": 1095.6,
+      "end": 1096.16,
+      "text": "像在讨食。"
+    },
+    {
+      "line_id": "LINE_0971",
+      "speaker": "SPEAKER_00",
+      "start": 1096.32,
+      "end": 1097.2,
+      "text": "这鱼跟挺亲的。"
+    },
+    {
+      "line_id": "LINE_0972",
+      "speaker": "SPEAKER_00",
+      "start": 1097.44,
+      "end": 1098.48,
+      "text": "苏小棠凑过去一看，"
+    },
+    {
+      "line_id": "LINE_0973",
+      "speaker": "SPEAKER_00",
+      "start": 1098.72,
+      "end": 1099.44,
+      "text": "微微瞪大眼睛，"
+    },
+    {
+      "line_id": "LINE_0974",
+      "speaker": "SPEAKER_00",
+      "start": 1099.6,
+      "end": 1100.16,
+      "text": "有些新奇。"
+    },
+    {
+      "line_id": "LINE_0975",
+      "speaker": "SPEAKER_00",
+      "start": 1100.24,
+      "end": 1100.8,
+      "text": "你没说话，"
+    },
+    {
+      "line_id": "LINE_0976",
+      "speaker": "SPEAKER_00",
+      "start": 1100.96,
+      "end": 1102.72,
+      "text": "从旁边陶罐里捏了一小撮鱼食，"
+    },
+    {
+      "line_id": "LINE_0977",
+      "speaker": "SPEAKER_00",
+      "start": 1102.8,
+      "end": 1103.76,
+      "text": "均匀撒在水面上，"
+    },
+    {
+      "line_id": "LINE_0978",
+      "speaker": "SPEAKER_00",
+      "start": 1103.84,
+      "end": 1104.96,
+      "text": "锦鲤立刻争抢起来，"
+    },
+    {
+      "line_id": "LINE_0979",
+      "speaker": "SPEAKER_00",
+      "start": 1105.12,
+      "end": 1105.76,
+      "text": "水花溅起，"
+    },
+    {
+      "line_id": "LINE_0980",
+      "speaker": "SPEAKER_00",
+      "start": 1105.84,
+      "end": 1107.12,
+      "text": "在阳光下闪着细碎的光。"
+    },
+    {
+      "line_id": "LINE_0981",
+      "speaker": "SPEAKER_00",
+      "start": 1107.52,
+      "end": 1108.72,
+      "text": "检测到宿主喂养锦鲤，"
+    },
+    {
+      "line_id": "LINE_0982",
+      "speaker": "SPEAKER_00",
+      "start": 1108.88,
+      "end": 1109.52,
+      "text": "养生值加二，"
+    },
+    {
+      "line_id": "LINE_0983",
+      "speaker": "SPEAKER_00",
+      "start": 1109.68,
+      "end": 1111.36,
+      "text": "当前养生值一千二百四十五，"
+    },
+    {
+      "line_id": "LINE_0984",
+      "speaker": "SPEAKER_00",
+      "start": 1111.52,
+      "end": 1112.64,
+      "text": "支线任务：鱼跃在渊，"
+    },
+    {
+      "line_id": "LINE_0985",
+      "speaker": "SPEAKER_00",
+      "start": 1112.8,
+      "end": 1115.12,
+      "text": "连续喂养锦鲤三十日可获得鱼龙变神通。"
+    },
+    {
+      "line_id": "LINE_0986",
+      "speaker": "SPEAKER_00",
+      "start": 1115.28,
+      "end": 1116.96,
+      "text": "水下呼吸时间延长至半个时辰，"
+    },
+    {
+      "line_id": "LINE_0987",
+      "speaker": "SPEAKER_00",
+      "start": 1117.12,
+      "end": 1118.64,
+      "text": "当前进度三十分之十八，"
+    },
+    {
+      "line_id": "LINE_0988",
+      "speaker": "SPEAKER_00",
+      "start": 1118.72,
+      "end": 1119.84,
+      "text": "半个时辰水下呼吸。"
+    },
+    {
+      "line_id": "LINE_0989",
+      "speaker": "SPEAKER_00",
+      "start": 1119.92,
+      "end": 1120.56,
+      "text": "你听到提示，"
+    },
+    {
+      "line_id": "LINE_0990",
+      "speaker": "SPEAKER_00",
+      "start": 1120.72,
+      "end": 1121.52,
+      "text": "心里忍不住琢磨，"
+    },
+    {
+      "line_id": "LINE_0991",
+      "speaker": "SPEAKER_00",
+      "start": 1121.6,
+      "end": 1122.72,
+      "text": "虽说现在住在山上，"
+    },
+    {
+      "line_id": "LINE_0992",
+      "speaker": "SPEAKER_00",
+      "start": 1122.8,
+      "end": 1123.76,
+      "text": "这技能暂时用不上，"
+    },
+    {
+      "line_id": "LINE_0993",
+      "speaker": "SPEAKER_00",
+      "start": 1123.92,
+      "end": 1125.12,
+      "text": "可万一哪天掉进水里了？"
+    },
+    {
+      "line_id": "LINE_0994",
+      "speaker": "SPEAKER_00",
+      "start": 1125.28,
+      "end": 1126.88,
+      "text": "钟南山附近虽没有大江大河，"
+    },
+    {
+      "line_id": "LINE_0995",
+      "speaker": "SPEAKER_00",
+      "start": 1127.04,
+      "end": 1128.32,
+      "text": "山洪却爆发过好多次。"
+    },
+    {
+      "line_id": "LINE_0996",
+      "speaker": "SPEAKER_00",
+      "start": 1128.4,
+      "end": 1129.04,
+      "text": "有了这个技能，"
+    },
+    {
+      "line_id": "LINE_0997",
+      "speaker": "SPEAKER_00",
+      "start": 1129.2,
+      "end": 1130.0,
+      "text": "你便能安心许多。"
+    },
+    {
+      "line_id": "LINE_0998",
+      "speaker": "SPEAKER_00",
+      "start": 1130.16,
+      "end": 1130.64,
+      "text": "喂完鱼，"
+    },
+    {
+      "line_id": "LINE_0999",
+      "speaker": "SPEAKER_00",
+      "start": 1130.8,
+      "end": 1131.36,
+      "text": "你站起身，"
+    },
+    {
+      "line_id": "LINE_1000",
+      "speaker": "SPEAKER_00",
+      "start": 1131.52,
+      "end": 1132.72,
+      "text": "走到院中的石凳前坐下。"
+    },
+    {
+      "line_id": "LINE_1001",
+      "speaker": "SPEAKER_00",
+      "start": 1132.88,
+      "end": 1134.08,
+      "text": "朝阳从东边斜照过来，"
+    },
+    {
+      "line_id": "LINE_1002",
+      "speaker": "SPEAKER_00",
+      "start": 1134.24,
+      "end": 1134.8,
+      "text": "落在你背上，"
+    },
+    {
+      "line_id": "LINE_1003",
+      "speaker": "SPEAKER_00",
+      "start": 1134.96,
+      "end": 1135.44,
+      "text": "暖洋洋的。"
+    },
+    {
+      "line_id": "LINE_1004",
+      "speaker": "SPEAKER_00",
+      "start": 1135.6,
+      "end": 1136.16,
+      "text": "你闭上眼睛，"
+    },
+    {
+      "line_id": "LINE_1005",
+      "speaker": "SPEAKER_00",
+      "start": 1136.32,
+      "end": 1137.28,
+      "text": "行起归息吐纳法，"
+    },
+    {
+      "line_id": "LINE_1006",
+      "speaker": "SPEAKER_00",
+      "start": 1137.44,
+      "end": 1138.72,
+      "text": "看上去不过是闭目养神，"
+    },
+    {
+      "line_id": "LINE_1007",
+      "speaker": "SPEAKER_00",
+      "start": 1138.88,
+      "end": 1141.36,
+      "text": "实则气息在体内循着特定路径缓缓流转，"
+    },
+    {
+      "line_id": "LINE_1008",
+      "speaker": "SPEAKER_00",
+      "start": 1141.52,
+      "end": 1142.16,
+      "text": "每一次呼吸，"
+    },
+    {
+      "line_id": "LINE_1009",
+      "speaker": "SPEAKER_00",
+      "start": 1142.24,
+      "end": 1144.08,
+      "text": "气血便顺着经脉运转一个小周天。"
+    },
+    {
+      "line_id": "LINE_1010",
+      "speaker": "SPEAKER_00",
+      "start": 1144.24,
+      "end": 1145.76,
+      "text": "苏小棠站在堂边看了五分钟，"
+    },
+    {
+      "line_id": "LINE_1011",
+      "speaker": "SPEAKER_00",
+      "start": 1145.92,
+      "end": 1146.72,
+      "text": "渐渐觉得无聊，"
+    },
+    {
+      "line_id": "LINE_1012",
+      "speaker": "SPEAKER_00",
+      "start": 1146.88,
+      "end": 1148.0,
+      "text": "老道长就这么端坐不动，"
+    },
+    {
+      "line_id": "LINE_1013",
+      "speaker": "SPEAKER_00",
+      "start": 1148.16,
+      "end": 1149.2,
+      "text": "呼吸慢的像睡着了一样。"
+    },
+    {
+      "line_id": "LINE_1014",
+      "speaker": "SPEAKER_00",
+      "start": 1149.36,
+      "end": 1150.48,
+      "text": "他忍不住挪步凑上前，"
+    },
+    {
+      "line_id": "LINE_1015",
+      "speaker": "SPEAKER_00",
+      "start": 1150.64,
+      "end": 1151.44,
+      "text": "瞅了瞅你的胸口，"
+    },
+    {
+      "line_id": "LINE_1016",
+      "speaker": "SPEAKER_00",
+      "start": 1151.6,
+      "end": 1152.96,
+      "text": "细肤浮凸小的几乎看不出来。"
+    },
+    {
+      "line_id": "LINE_1017",
+      "speaker": "SPEAKER_00",
+      "start": 1153.12,
+      "end": 1153.92,
+      "text": "他回头撇了眼睛，"
+    },
+    {
+      "line_id": "LINE_1018",
+      "speaker": "SPEAKER_00",
+      "start": 1153.92,
+      "end": 1154.8,
+      "text": "头压着嗓子，"
+    },
+    {
+      "line_id": "LINE_1019",
+      "speaker": "SPEAKER_00",
+      "start": 1154.88,
+      "end": 1155.2,
+      "text": "家人们，"
+    },
+    {
+      "line_id": "LINE_1020",
+      "speaker": "SPEAKER_00",
+      "start": 1155.44,
+      "end": 1156.32,
+      "text": "老道长好像睡着了，"
+    },
+    {
+      "line_id": "LINE_1021",
+      "speaker": "SPEAKER_00",
+      "start": 1156.48,
+      "end": 1157.2,
+      "text": "我要不要叫醒他？"
+    },
+    {
+      "line_id": "LINE_1022",
+      "speaker": "SPEAKER_00",
+      "start": 1157.28,
+      "end": 1158.24,
+      "text": "半木再次乐翻天，"
+    },
+    {
+      "line_id": "LINE_1023",
+      "speaker": "SPEAKER_00",
+      "start": 1158.4,
+      "end": 1158.64,
+      "text": "哈哈，"
+    },
+    {
+      "line_id": "LINE_1024",
+      "speaker": "SPEAKER_00",
+      "start": 1158.8,
+      "end": 1159.92,
+      "text": "这个老道长也太佛系了吧？"
+    },
+    {
+      "line_id": "LINE_1025",
+      "speaker": "SPEAKER_00",
+      "start": 1160.08,
+      "end": 1160.72,
+      "text": "这能睡着？"
+    },
+    {
+      "line_id": "LINE_1026",
+      "speaker": "SPEAKER_00",
+      "start": 1160.88,
+      "end": 1161.36,
+      "text": "有一说一，"
+    },
+    {
+      "line_id": "LINE_1027",
+      "speaker": "SPEAKER_00",
+      "start": 1161.52,
+      "end": 1163.12,
+      "text": "我奶奶晒太阳的时候也是这样，"
+    },
+    {
+      "line_id": "LINE_1028",
+      "speaker": "SPEAKER_00",
+      "start": 1163.2,
+      "end": 1164.0,
+      "text": "一坐就是一个下午。"
+    },
+    {
+      "line_id": "LINE_1029",
+      "speaker": "SPEAKER_00",
+      "start": 1164.08,
+      "end": 1164.96,
+      "text": "上了年纪的老人，"
+    },
+    {
+      "line_id": "LINE_1030",
+      "speaker": "SPEAKER_00",
+      "start": 1165.12,
+      "end": 1165.68,
+      "text": "都容易犯困，"
+    },
+    {
+      "line_id": "LINE_1031",
+      "speaker": "SPEAKER_00",
+      "start": 1165.84,
+      "end": 1166.32,
+      "text": "而且还怕冷。"
+    },
+    {
+      "line_id": "LINE_1032",
+      "speaker": "SPEAKER_00",
+      "start": 1166.48,
+      "end": 1167.76,
+      "text": "我们还是别去打扰老人休息。"
+    },
+    {
+      "line_id": "LINE_1033",
+      "speaker": "SPEAKER_00",
+      "start": 1167.92,
+      "end": 1168.4,
+      "text": "小棠姐，"
+    },
+    {
+      "line_id": "LINE_1034",
+      "speaker": "SPEAKER_00",
+      "start": 1168.56,
+      "end": 1169.6,
+      "text": "要不你去别的地方转转？"
+    },
+    {
+      "line_id": "LINE_1035",
+      "speaker": "SPEAKER_00",
+      "start": 1169.68,
+      "end": 1170.24,
+      "text": "这个可以有。"
+    },
+    {
+      "line_id": "LINE_1036",
+      "speaker": "SPEAKER_00",
+      "start": 1170.4,
+      "end": 1171.2,
+      "text": "苏小棠想了想，"
+    },
+    {
+      "line_id": "LINE_1037",
+      "speaker": "SPEAKER_00",
+      "start": 1171.36,
+      "end": 1171.84,
+      "text": "觉得有理，"
+    },
+    {
+      "line_id": "LINE_1038",
+      "speaker": "SPEAKER_00",
+      "start": 1171.92,
+      "end": 1173.12,
+      "text": "便打算去院里别处转转。"
+    },
+    {
+      "line_id": "LINE_1039",
+      "speaker": "SPEAKER_00",
+      "start": 1173.2,
+      "end": 1173.92,
+      "text": "他悄悄转身，"
+    },
+    {
+      "line_id": "LINE_1040",
+      "speaker": "SPEAKER_00",
+      "start": 1174.08,
+      "end": 1175.36,
+      "text": "示意身后的徐老师跟上，"
+    },
+    {
+      "line_id": "LINE_1041",
+      "speaker": "SPEAKER_00",
+      "start": 1175.52,
+      "end": 1176.24,
+      "text": "两人一前一后，"
+    },
+    {
+      "line_id": "LINE_1042",
+      "speaker": "SPEAKER_00",
+      "start": 1176.4,
+      "end": 1178.4,
+      "text": "轻手轻脚走向西边那间完好的厢房，"
+    },
+    {
+      "line_id": "LINE_1043",
+      "speaker": "SPEAKER_00",
+      "start": 1178.56,
+      "end": 1179.2,
+      "text": "那是你的卧室。"
+    },
+    {
+      "line_id": "LINE_1044",
+      "speaker": "SPEAKER_00",
+      "start": 1179.36,
+      "end": 1179.76,
+      "text": "门没锁，"
+    },
+    {
+      "line_id": "LINE_1045",
+      "speaker": "SPEAKER_00",
+      "start": 1179.92,
+      "end": 1180.32,
+      "text": "一推开，"
+    },
+    {
+      "line_id": "LINE_1046",
+      "speaker": "SPEAKER_00",
+      "start": 1180.48,
+      "end": 1182.0,
+      "text": "淡淡的草木清香便扑面而来。"
+    },
+    {
+      "line_id": "LINE_1047",
+      "speaker": "SPEAKER_00",
+      "start": 1182.16,
+      "end": 1182.96,
+      "text": "屋里陈设简单，"
+    },
+    {
+      "line_id": "LINE_1048",
+      "speaker": "SPEAKER_00",
+      "start": 1183.12,
+      "end": 1183.76,
+      "text": "一张木床，"
+    },
+    {
+      "line_id": "LINE_1049",
+      "speaker": "SPEAKER_00",
+      "start": 1183.84,
+      "end": 1184.64,
+      "text": "被子叠得齐整，"
+    },
+    {
+      "line_id": "LINE_1050",
+      "speaker": "SPEAKER_00",
+      "start": 1184.72,
+      "end": 1186.8,
+      "text": "一张书桌摆着几本书和一副老花镜，"
+    },
+    {
+      "line_id": "LINE_1051",
+      "speaker": "SPEAKER_00",
+      "start": 1186.96,
+      "end": 1187.76,
+      "text": "墙角立着书架，"
+    },
+    {
+      "line_id": "LINE_1052",
+      "speaker": "SPEAKER_00",
+      "start": 1187.92,
+      "end": 1188.72,
+      "text": "码着几十本书，"
+    },
+    {
+      "line_id": "LINE_1053",
+      "speaker": "SPEAKER_00",
+      "start": 1188.88,
+      "end": 1189.6,
+      "text": "多是道家经典，"
+    },
+    {
+      "line_id": "LINE_1054",
+      "speaker": "SPEAKER_00",
+      "start": 1189.68,
+      "end": 1191.44,
+      "text": "也有书法字帖和几本泛黄的易经。"
+    },
+    {
+      "line_id": "LINE_1055",
+      "speaker": "SPEAKER_00",
+      "start": 1191.6,
+      "end": 1192.56,
+      "text": "苏小棠扫了一圈，"
+    },
+    {
+      "line_id": "LINE_1056",
+      "speaker": "SPEAKER_00",
+      "start": 1192.72,
+      "end": 1193.28,
+      "text": "没发现异样，"
+    },
+    {
+      "line_id": "LINE_1057",
+      "speaker": "SPEAKER_00",
+      "start": 1193.44,
+      "end": 1195.44,
+      "text": "目光随即落在书桌上一本翻开的书上，"
+    },
+    {
+      "line_id": "LINE_1058",
+      "speaker": "SPEAKER_00",
+      "start": 1195.6,
+      "end": 1196.64,
+      "text": "像是你今早刚看过的。"
+    },
+    {
+      "line_id": "LINE_1059",
+      "speaker": "SPEAKER_00",
+      "start": 1196.72,
+      "end": 1198.48,
+      "text": "书页上密密麻麻写满毛笔批注，"
+    },
+    {
+      "line_id": "LINE_1060",
+      "speaker": "SPEAKER_00",
+      "start": 1198.56,
+      "end": 1199.36,
+      "text": "字迹清瘦有力。"
+    },
+    {
+      "line_id": "LINE_1061",
+      "speaker": "SPEAKER_00",
+      "start": 1199.44,
+      "end": 1199.92,
+      "text": "他凑近去。"
+    }
+  ]
+}

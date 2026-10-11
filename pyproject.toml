@@ -1,0 +1,18 @@
+[project]
+name = "ai-dubbing"
+version = "0.1.0"
+description = "Offline video dubbing pipeline optimized for Apple Silicon"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+core = ["PyYAML>=6.0", "numpy>=1.26", "soundfile>=0.12"]
+asr = ["qwen-asr"]
+diari = ["pyannote.audio>=3.1"]
+tts-qwen = ["qwen-tts"]
+tts-chatterbox = ["chatterbox-tts"]
+tts-cosyvoice = ["cosyvoice"]
+tts-mlx = ["mlx-audio>=0.5.8"]
+
+[tool.uv]
+dev-dependencies = []

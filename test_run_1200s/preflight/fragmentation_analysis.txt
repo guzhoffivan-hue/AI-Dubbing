@@ -1,0 +1,33 @@
+Segmentation quality analysis — 1200s test fragment
+====================================================================
+lines=1061  mean=0.93s  median=0.88s  min=0.00s  max=3.52s
+zero-length lines: 54  (<0.5s: 221  <1s: 612)
+old SEG_ algorithm: 43 lines / 210s -> mean 4.76s
+new algorithm     : 1061 lines / 1200s -> mean 0.93s   (5.1x more fragmented)
+
+simulated speech budgets (dialogue.py rule): mean 1.14s, min 0.15s
+minimum feasible dubbed audio per line = 0.36s (8-char floor at atempo 1.7)
+  slot < min feasible     89 ( 8.4%)
+  slot < 0.5s            131 (12.3%)
+  slot < 1.0s            487 (45.9%)
+character budget floored at the 8-char minimum: 131 lines
+
+Examples of fragmentation (consecutive lines):
+  LINE_0301  351.76- 352.00 (0.24s) 哈哈，
+  LINE_0302  360.00- 360.16 (0.16s) 苏姐硬
+  LINE_0303  361.44- 361.76 (0.32s) 气了，
+  LINE_0304  361.76- 361.76 (0.00s) 对，
+  LINE_0305  361.76- 361.84 (0.08s) 直接问，
+  LINE_0306  361.84- 362.88 (1.04s) 打假
+  LINE_0307  363.20- 363.38 (0.18s) 就要这样，
+  LINE_0308  363.40- 363.53 (0.14s) 看他怎么回答。
+  LINE_0309  363.54- 363.69 (0.15s) 这种问题总没法绕过去吧？
+  LINE_0310  363.69- 363.73 (0.03s) 老道长要是说什么原罪道的，
+  LINE_0311  363.73- 363.75 (0.02s) 那就是典型的骗。
+  LINE_0312  363.75- 363.75 (0.00s) 不是，
+
+Root cause: merge_segments.py:6 SENTENCE_END includes the Chinese comma '，' and ';' '；',
+and merge_segments.py:54 breaks a line whenever the previous word's punctuation contains
+any SENTENCE_END character. In Chinese ASR text commas are frequent, so most lines are
+single short phrases. MAX_SEGMENT_DURATION=6.5s is an upper bound that is almost never
+reached because punctuation breaks first.

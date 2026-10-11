@@ -1,0 +1,24 @@
+2026-10-10 02:15:32  start: /Volumes/develop/AI-Dubbing/test_run_1200s/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/test_run_1200s/scripts/cli.py dub --test --duration 1200   (stop after stage: segment_merge)
+2026-10-10 02:15:32  cli.py pid=72301 (new session/process group)
+2026-10-10 02:15:34  stage extract_audio -> done
+2026-10-10 02:15:34  stage asr -> running
+2026-10-10 02:15:34  stage alignment -> pending
+2026-10-10 02:15:34  stage diarization -> pending
+2026-10-10 02:15:34  stage segment_merge -> pending
+2026-10-10 02:15:34  stage translation -> pending
+2026-10-10 02:15:34  stage dialogue -> pending
+2026-10-10 02:15:34  stage tts -> pending
+2026-10-10 02:15:34  stage sfx -> pending
+2026-10-10 02:15:34  stage ambience -> pending
+2026-10-10 02:15:34  stage mix -> pending
+2026-10-10 02:15:34  stage mux -> pending
+2026-10-10 02:31:37  stage asr -> done
+2026-10-10 02:31:37  stage alignment -> running
+2026-10-10 02:32:46  stage alignment -> done
+2026-10-10 02:32:46  stage diarization -> running
+2026-10-10 02:43:12  stage diarization -> done
+2026-10-10 02:43:12  stage segment_merge -> done
+2026-10-10 02:43:12  stage translation -> running
+2026-10-10 02:43:12  target stage segment_merge is done; terminating process group 72301
+2026-10-10 02:43:12  watchdog finished after 27.7 min
+2026-10-10 02:43:12  normalised ['translation'] back to pending in /Volumes/develop/AI-Dubbing/test_run_1200s/work/42503442096_first1200s/status.json

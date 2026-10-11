@@ -1,0 +1,16 @@
+
+
+$ /Volumes/develop/AI-Dubbing/test_run_1200s/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/test_run_1200s/scripts/diarize.py
+/Users/mac/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/h2/l32j4k8s2hd4xbf1wfvdxpsc0000gn/T/matplotlib-pc_7p2b0 because there was an issue with the default path (/Users/mac/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+
+Fontconfig error: No writable cache directories
+	/opt/homebrew/var/cache/fontconfig
+	/Users/mac/.cache/fontconfig
+	/Users/mac/.fontconfig
+Matplotlib is building the font cache; this may take a moment.
+/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/models/blocks/pooling.py:104: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/ReduceOps.cpp:1839.)
+  std = sequences.std(dim=-1, correction=1)
+Diarization model=pyannote/speaker-diarization-3.1; bounds=2..8; detected=2; turns=3; confirmed_overlap_intervals=0
+SPEAKER_00: voice_type=female confidence=high
+SPEAKER_01: voice_type=unknown confidence=low

@@ -1,0 +1,45 @@
+# Proof: which tts.py version corresponds to the LAST WORKING TTS RUN
+# last working run = 2026-10-08 13:11:50 (tts_manifest.json + logs/..._tts.log mtime)
+
+scripts/tts.py: resume-digest expression -> line['translated_text']+'\0'+voice_id+'\0'+profile_hash[voice_id]+'\0'+str(line.get('available_duration'))+'\0'+backend+'_fixed_profile_v2'
+   file contains TTS_CACHE_DIR: True
+scripts/tts.py.bak_vl: resume-digest expression -> line['translated_text']+'\0'+voice_id+'\0'+profile_hash[voice_id]+'\0'+str(line.get('available_duration'))+'\0'+backend+'_fixed_profile_v2'
+   file contains TTS_CACHE_DIR: False
+
+Recomputation of tts_resume.json text_sha256 with the bak_vl formula: 43/43 matched
+manifest backend: qwen3_mlx | top-level keys: ['backend', 'lines', 'references', 'voice_mapping', 'voice_mode']
+
+Disqualification of the broken file:
+  scripts/tts.py parses: NO -> SyntaxError line 94: invalid syntax
+  => a file that cannot be parsed cannot have executed; it postdates the run (mtime 13:19:05 vs run 13:11:50)
+
+# diff scripts/tts.py.bak_vl -> scripts/tts.py  (only the never-run cache patch)
+--- scripts/tts.py.bak_vl	2026-10-08 13:19:05
++++ scripts/tts.py	2026-10-08 13:19:05
+@@ -1,3 +1,9 @@
++
++import hashlib
++from pathlib import Path
++TTS_CACHE_DIR = Path('work/.tts_cache')
++TTS_CACHE_DIR.mkdir(parents=True, exist_ok=True)
++
+ #!/usr/bin/env python3
+ """Generate dialogue with one persistent Russian voice profile per speaker."""
+ import gc, hashlib, json, subprocess
+@@ -84,7 +90,15 @@
+             profile=profiles[line['voice_id']]
+             refs[speaker_id]={'path':profile['reference_audio'],'text':profile['reference_text']}
+         # Keep the explicit map in every dialogue segment for inspection and resume.
+-        write_json(WORK/'dialogue.json',{'lines':lines})
++        write_json(WORK/'dialogue.json',{'lines':
++        cache_key = hashlib.sha256(f"{voice_id}_{line.get('translated_text', '')}".encode('utf-8')).hexdigest()
++        cached_file = TTS_CACHE_DIR / f"{cache_key}.wav"
++        if cached_file.exists() and cached_file.stat().st_size > 1000:
++            import shutil
++            shutil.copyfile(cached_file, path)
++            manifest.append({'i': i, 'segment_id': line.get('segment_id', f'LINE_{i}'), 'speaker_id': voice_id, 'path': str(path)})
++            continue
++lines})
+         write_json(WORK/'dialogue_segments.json',{'lines':lines,'timing_policy':'source start preserved; non-overlapping TTS is fitted before the next line'})
+         write_json(WORK/'voice_mapping.json',{'speaker_to_voice':speaker_to_voice,'voice_types':{s:voice_types.get(s,{'voice_type':'unknown','confidence':'low'}) for s in speaker_ids},'profiles':profiles,'created_once_for_video':True})
+         from mlx_audio.tts.utils import load_model

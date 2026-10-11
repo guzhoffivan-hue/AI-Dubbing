@@ -1,0 +1,59 @@
+{
+  "profile_version": 1,
+  "backend": "qwen3_mlx",
+  "model": "mlx-community/Qwen3-TTS-12Hz-1.7B-VoiceDesign-bf16",
+  "clone_model": "mlx-community/Qwen3-TTS-12Hz-0.6B-Base-bf16",
+  "speaker_to_voice": {
+    "SPEAKER_00": "VOICE_00",
+    "SPEAKER_01": "VOICE_01"
+  },
+  "profiles": {
+    "VOICE_00": {
+      "speaker_id": "SPEAKER_00",
+      "voice_type": "female",
+      "voice_confidence": "medium",
+      "instruction": "An adult female native Russian speaker with a naturally feminine mid-to-high register, warm, clear, steady timbre. Standard contemporary Russian pronunciation, clear Moscow standard accent, no Chinese accent. Natural narration with measured, expressive intonation.",
+      "reference_text": "Сегодня тихо светает. Я расскажу эту историю спокойно, ясно и выразительно.",
+      "reference_audio": "/Volumes/develop/AI-Dubbing/work/42503442096-1-192/voice_profiles/voice_00.wav",
+      "reference_sample_rate": 24000,
+      "source": "one-time native Russian VoiceDesign sample; source audio is not used as a TTS clone reference"
+    },
+    "VOICE_01": {
+      "speaker_id": "SPEAKER_01",
+      "voice_type": "unknown",
+      "voice_confidence": "low",
+      "instruction": "An adult native Russian speaker with a natural, neutral middle register; do not force a strongly masculine or feminine sound, light, bright, articulate timbre. Standard contemporary Russian pronunciation, clear Moscow standard accent, no Chinese accent. Natural narration with measured, expressive intonation.",
+      "reference_text": "Сегодня тихо светает. Я расскажу эту историю спокойно, ясно и выразительно.",
+      "reference_audio": "/Volumes/develop/AI-Dubbing/work/42503442096-1-192/voice_profiles/voice_01.wav",
+      "reference_sample_rate": 24000,
+      "source": "one-time native Russian VoiceDesign sample; source audio is not used as a TTS clone reference"
+    }
+  },
+  "voice_types": {
+    "SPEAKER_00": {
+      "voice_type": "female",
+      "confidence": "high",
+      "f0_median_hz": 206.5,
+      "f0_q25_hz": 192.7,
+      "f0_q75_hz": 226.5,
+      "voiced_seconds": 24.69,
+      "method": "conservative pYIN acoustic heuristic; ambiguous or short samples are unknown"
+    },
+    "SPEAKER_01": {
+      "voice_type": "unknown",
+      "confidence": "low",
+      "f0_median_hz": 211.4,
+      "f0_q25_hz": 179.5,
+      "f0_q75_hz": 221.4,
+      "voiced_seconds": 0.9,
+      "method": "conservative pYIN acoustic heuristic; ambiguous or short samples are unknown"
+    }
+  },
+  "segment_counts": {
+    "SPEAKER_00": 39,
+    "SPEAKER_01": 4
+  },
+  "fallbacks": {
+    "SPEAKER_01": "neutral unknown voice design"
+  }
+}

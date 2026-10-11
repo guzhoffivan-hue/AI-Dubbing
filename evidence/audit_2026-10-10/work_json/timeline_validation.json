@@ -1,0 +1,39 @@
+{
+  "incorrect_overlaps": [
+    {
+      "segments": [
+        "SEG_0000",
+        "SEG_0001"
+      ],
+      "speaker_ids": [
+        "SPEAKER_00",
+        "SPEAKER_00"
+      ],
+      "overlap_seconds": 0.026
+    },
+    {
+      "segments": [
+        "SEG_0006",
+        "SEG_0007"
+      ],
+      "speaker_ids": [
+        "SPEAKER_00",
+        "SPEAKER_00"
+      ],
+      "overlap_seconds": 0.273
+    },
+    {
+      "segments": [
+        "SEG_0035",
+        "SEG_0036"
+      ],
+      "speaker_ids": [
+        "SPEAKER_00",
+        "SPEAKER_00"
+      ],
+      "overlap_seconds": 0.272
+    }
+  ],
+  "diarization_confirmed_overlaps": [],
+  "tts_segment_count": 43
+}

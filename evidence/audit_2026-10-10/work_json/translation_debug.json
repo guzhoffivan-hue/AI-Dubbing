@@ -1,0 +1,1958 @@
+{
+  "model": "mlx-community/Qwen3-8B-4bit",
+  "segments": [
+    {
+      "segment_id": "SEG_0000",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "当成为九十六岁老道士的时候，系统告诉你还剩下十一个月的寿命。",
+      "context": {
+        "previous": [],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "不仅患有骨质疏松、气血两虚、甚至走起路来三条腿全打哆嗦，但还好绑定的养生签到系统被通过健康生活方式积攒养生值。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "于是你直接开启了退休生活。三个月下来，寿元从十一个月涨到了两年多，还解锁了归西土耐法以及一堆技能。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "本来打算这么安安稳稳的摆烂下去，结果今天山下的女主播说是要来打假你这个招摇撞骗的老骗。"
+          }
+        ]
+      },
+      "target_duration": 3.6,
+      "translation": "Когда исполнилось девяносто шесть, система сказала, что осталось одиннадцать месяцев.",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0001",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "不仅患有骨质疏松、气血两虚、甚至走起路来三条腿全打哆嗦，但还好绑定的养生签到系统被通过健康生活方式积攒养生值。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "当成为九十六岁老道士的时候，系统告诉你还剩下十一个月的寿命。",
+            "russian_translation": "Когда исполнилось девяносто шесть, система сказала, что осталось одиннадцать месяцев."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "于是你直接开启了退休生活。三个月下来，寿元从十一个月涨到了两年多，还解锁了归西土耐法以及一堆技能。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "本来打算这么安安稳稳的摆烂下去，结果今天山下的女主播说是要来打假你这个招摇撞骗的老骗。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "那个女主播的名字叫苏小唐，是某短视频平台的户外打假主播，粉丝五百多万，以专丝神棍著称。"
+          }
+        ]
+      },
+      "target_duration": 7.52,
+      "translation": "Не имеет костей, слабая кровь, ходить трудно, но система накопила баллы.",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0002",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "于是你直接开启了退休生活。三个月下来，寿元从十一个月涨到了两年多，还解锁了归西土耐法以及一堆技能。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "当成为九十六岁老道士的时候，系统告诉你还剩下十一个月的寿命。",
+            "russian_translation": "Когда исполнилось девяносто шесть, система сказала, что осталось одиннадцать месяцев."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "不仅患有骨质疏松、气血两虚、甚至走起路来三条腿全打哆嗦，但还好绑定的养生签到系统被通过健康生活方式积攒养生值。",
+            "russian_translation": "Не имеет костей, слабая кровь, ходить трудно, но система накопила баллы."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "本来打算这么安安稳稳的摆烂下去，结果今天山下的女主播说是要来打假你这个招摇撞骗的老骗。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "那个女主播的名字叫苏小唐，是某短视频平台的户外打假主播，粉丝五百多万，以专丝神棍著称。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "他最擅长的就是跑到各种神神秘秘的地方，用镜头撕开骗子的真面目。"
+          }
+        ]
+      },
+      "target_duration": 6.16,
+      "translation": "Ты сразу ушел в отставку. Через три месяца срок жизни вырос до двух лет.",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0003",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "本来打算这么安安稳稳的摆烂下去，结果今天山下的女主播说是要来打假你这个招摇撞骗的老骗。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "当成为九十六岁老道士的时候，系统告诉你还剩下十一个月的寿命。",
+            "russian_translation": "Когда исполнилось девяносто шесть, система сказала, что осталось одиннадцать месяцев."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "不仅患有骨质疏松、气血两虚、甚至走起路来三条腿全打哆嗦，但还好绑定的养生签到系统被通过健康生活方式积攒养生值。",
+            "russian_translation": "Не имеет костей, слабая кровь, ходить трудно, но система накопила баллы."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "于是你直接开启了退休生活。三个月下来，寿元从十一个月涨到了两年多，还解锁了归西土耐法以及一堆技能。",
+            "russian_translation": "Ты сразу ушел в отставку. Через три месяца срок жизни вырос до двух лет."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "那个女主播的名字叫苏小唐，是某短视频平台的户外打假主播，粉丝五百多万，以专丝神棍著称。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "他最擅长的就是跑到各种神神秘秘的地方，用镜头撕开骗子的真面目。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "半年前他接了一个假和尚的骗局，视频播放量破了两亿，从此一战成名。"
+          }
+        ]
+      },
+      "target_duration": 5.36,
+      "translation": "Сегодня девушка снизу сказала, что приедет разоблачить тебя — лжеца, который обманывает.",
+      "attempts": 1
+    },
+    {
+      "segment_id": "SEG_0004",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "那个女主播的名字叫苏小唐，是某短视频平台的户外打假主播，粉丝五百多万，以专丝神棍著称。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "不仅患有骨质疏松、气血两虚、甚至走起路来三条腿全打哆嗦，但还好绑定的养生签到系统被通过健康生活方式积攒养生值。",
+            "russian_translation": "Не имеет костей, слабая кровь, ходить трудно, но система накопила баллы."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "于是你直接开启了退休生活。三个月下来，寿元从十一个月涨到了两年多，还解锁了归西土耐法以及一堆技能。",
+            "russian_translation": "Ты сразу ушел в отставку. Через три месяца срок жизни вырос до двух лет."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "本来打算这么安安稳稳的摆烂下去，结果今天山下的女主播说是要来打假你这个招摇撞骗的老骗。",
+            "russian_translation": "Сегодня девушка снизу сказала, что приедет разоблачить тебя — лжеца, который обманывает."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "他最擅长的就是跑到各种神神秘秘的地方，用镜头撕开骗子的真面目。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "半年前他接了一个假和尚的骗局，视频播放量破了两亿，从此一战成名。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "今天他来到钟南山，是因为有人在网上发帖说钟南山清虚观的老道长有神通，摸骨知命，奇准无比。"
+          }
+        ]
+      },
+      "target_duration": 5.68,
+      "translation": "Су Сяотань — ведущая на короткометражке, которая разоблачает мистиков.",
+      "attempts": 1
+    },
+    {
+      "segment_id": "SEG_0005",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "他最擅长的就是跑到各种神神秘秘的地方，用镜头撕开骗子的真面目。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "于是你直接开启了退休生活。三个月下来，寿元从十一个月涨到了两年多，还解锁了归西土耐法以及一堆技能。",
+            "russian_translation": "Ты сразу ушел в отставку. Через три месяца срок жизни вырос до двух лет."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "本来打算这么安安稳稳的摆烂下去，结果今天山下的女主播说是要来打假你这个招摇撞骗的老骗。",
+            "russian_translation": "Сегодня девушка снизу сказала, что приедет разоблачить тебя — лжеца, который обманывает."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "那个女主播的名字叫苏小唐，是某短视频平台的户外打假主播，粉丝五百多万，以专丝神棍著称。",
+            "russian_translation": "Су Сяотань — ведущая на короткометражке, которая разоблачает мистиков."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "半年前他接了一个假和尚的骗局，视频播放量破了两亿，从此一战成名。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "今天他来到钟南山，是因为有人在网上发帖说钟南山清虚观的老道长有神通，摸骨知命，奇准无比。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "苏小唐看到这种帖子后，立马就来了。这不就是送上门的素材吗？"
+          }
+        ]
+      },
+      "target_duration": 4.0,
+      "translation": "Он лучше всего бегает в таинственные места и снимает обманщиков.",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0006",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "半年前他接了一个假和尚的骗局，视频播放量破了两亿，从此一战成名。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "本来打算这么安安稳稳的摆烂下去，结果今天山下的女主播说是要来打假你这个招摇撞骗的老骗。",
+            "russian_translation": "Сегодня девушка снизу сказала, что приедет разоблачить тебя — лжеца, который обманывает."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "那个女主播的名字叫苏小唐，是某短视频平台的户外打假主播，粉丝五百多万，以专丝神棍著称。",
+            "russian_translation": "Су Сяотань — ведущая на короткометражке, которая разоблачает мистиков."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "他最擅长的就是跑到各种神神秘秘的地方，用镜头撕开骗子的真面目。",
+            "russian_translation": "Он лучше всего бегает в таинственные места и снимает обманщиков."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "今天他来到钟南山，是因为有人在网上发帖说钟南山清虚观的老道长有神通，摸骨知命，奇准无比。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "苏小唐看到这种帖子后，立马就来了。这不就是送上门的素材吗？"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "于是他提前做了功课，搜索钟南山清虚观相关的内容，只是网上能查到的信息很少，连个官方账号都没有。"
+          }
+        ]
+      },
+      "target_duration": 4.16,
+      "translation": "Он попал в схему с поддельным монахом, видео собрало два миллиарда просмотров, и с тех пор стал знаменит.",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0007",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "今天他来到钟南山，是因为有人在网上发帖说钟南山清虚观的老道长有神通，摸骨知命，奇准无比。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "那个女主播的名字叫苏小唐，是某短视频平台的户外打假主播，粉丝五百多万，以专丝神棍著称。",
+            "russian_translation": "Су Сяотань — ведущая на короткометражке, которая разоблачает мистиков."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "他最擅长的就是跑到各种神神秘秘的地方，用镜头撕开骗子的真面目。",
+            "russian_translation": "Он лучше всего бегает в таинственные места и снимает обманщиков."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "半年前他接了一个假和尚的骗局，视频播放量破了两亿，从此一战成名。",
+            "russian_translation": "Он попал в схему с поддельным монахом, видео собрало два миллиарда просмотров, и с тех пор стал знаменит."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "苏小唐看到这种帖子后，立马就来了。这不就是送上门的素材吗？"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "于是他提前做了功课，搜索钟南山清虚观相关的内容，只是网上能查到的信息很少，连个官方账号都没有。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "老道长叫什么不知道，多大年纪不知道，反正就是那种藏在深山里的高人，专门骗有缘人。"
+          }
+        ]
+      },
+      "target_duration": 5.68,
+      "translation": "Сегодня он приехал в Чжун Наньшань, потому что в интернете появился пост о его способности предсказывать будущее по костям.",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0008",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "苏小唐看到这种帖子后，立马就来了。这不就是送上门的素材吗？",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "他最擅长的就是跑到各种神神秘秘的地方，用镜头撕开骗子的真面目。",
+            "russian_translation": "Он лучше всего бегает в таинственные места и снимает обманщиков."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "半年前他接了一个假和尚的骗局，视频播放量破了两亿，从此一战成名。",
+            "russian_translation": "Он попал в схему с поддельным монахом, видео собрало два миллиарда просмотров, и с тех пор стал знаменит."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "今天他来到钟南山，是因为有人在网上发帖说钟南山清虚观的老道长有神通，摸骨知命，奇准无比。",
+            "russian_translation": "Сегодня он приехал в Чжун Наньшань, потому что в интернете появился пост о его способности предсказывать будущее по костям."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "于是他提前做了功课，搜索钟南山清虚观相关的内容，只是网上能查到的信息很少，连个官方账号都没有。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "老道长叫什么不知道，多大年纪不知道，反正就是那种藏在深山里的高人，专门骗有缘人。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "当时的苏小唐在心里冷笑，又是的套路，老神棍，制造信息差，让你觉得他有真本事。"
+          }
+        ]
+      },
+      "target_duration": 3.6,
+      "translation": "Су Сяотань приехал, увидев пост. Это подача на блюдце!",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0009",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "于是他提前做了功课，搜索钟南山清虚观相关的内容，只是网上能查到的信息很少，连个官方账号都没有。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "半年前他接了一个假和尚的骗局，视频播放量破了两亿，从此一战成名。",
+            "russian_translation": "Он попал в схему с поддельным монахом, видео собрало два миллиарда просмотров, и с тех пор стал знаменит."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "今天他来到钟南山，是因为有人在网上发帖说钟南山清虚观的老道长有神通，摸骨知命，奇准无比。",
+            "russian_translation": "Сегодня он приехал в Чжун Наньшань, потому что в интернете появился пост о его способности предсказывать будущее по костям."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "苏小唐看到这种帖子后，立马就来了。这不就是送上门的素材吗？",
+            "russian_translation": "Су Сяотань приехал, увидев пост. Это подача на блюдце!"
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "老道长叫什么不知道，多大年纪不知道，反正就是那种藏在深山里的高人，专门骗有缘人。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "当时的苏小唐在心里冷笑，又是的套路，老神棍，制造信息差，让你觉得他有真本事。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "出发之前，他志在必得。今天我非把那个老道长的底裤扒干净不可。"
+          }
+        ]
+      },
+      "target_duration": 6.08,
+      "translation": "Он искал информацию о Чжун Наньшане, но в интернете почти ничего не нашёл.",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0010",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "老道长叫什么不知道，多大年纪不知道，反正就是那种藏在深山里的高人，专门骗有缘人。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "今天他来到钟南山，是因为有人在网上发帖说钟南山清虚观的老道长有神通，摸骨知命，奇准无比。",
+            "russian_translation": "Сегодня он приехал в Чжун Наньшань, потому что в интернете появился пост о его способности предсказывать будущее по костям."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "苏小唐看到这种帖子后，立马就来了。这不就是送上门的素材吗？",
+            "russian_translation": "Су Сяотань приехал, увидев пост. Это подача на блюдце!"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "于是他提前做了功课，搜索钟南山清虚观相关的内容，只是网上能查到的信息很少，连个官方账号都没有。",
+            "russian_translation": "Он искал информацию о Чжун Наньшане, но в интернете почти ничего не нашёл."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "当时的苏小唐在心里冷笑，又是的套路，老神棍，制造信息差，让你觉得他有真本事。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "出发之前，他志在必得。今天我非把那个老道长的底裤扒干净不可。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "带着团队爬了四十分钟的山，终于来到清虚观门口。"
+          }
+        ]
+      },
+      "target_duration": 4.72,
+      "translation": "Он не знает, как его зовут, сколько ему лет, просто старик из горы, который обманывает тех, кто приходит к нему.",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0011",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "当时的苏小唐在心里冷笑，又是的套路，老神棍，制造信息差，让你觉得他有真本事。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "苏小唐看到这种帖子后，立马就来了。这不就是送上门的素材吗？",
+            "russian_translation": "Су Сяотань приехал, увидев пост. Это подача на блюдце!"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "于是他提前做了功课，搜索钟南山清虚观相关的内容，只是网上能查到的信息很少，连个官方账号都没有。",
+            "russian_translation": "Он искал информацию о Чжун Наньшане, но в интернете почти ничего не нашёл."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "老道长叫什么不知道，多大年纪不知道，反正就是那种藏在深山里的高人，专门骗有缘人。",
+            "russian_translation": "Он не знает, как его зовут, сколько ему лет, просто старик из горы, который обманывает тех, кто приходит к нему."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "出发之前，他志在必得。今天我非把那个老道长的底裤扒干净不可。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "带着团队爬了四十分钟的山，终于来到清虚观门口。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "结果他第一眼看到的是，你窝在一把破竹椅上，怀里抱着一只橘猫，手里端着一杯热茶，脸上的皱纹深得能掐死蚊子，须发皆白，而且还挺长，"
+          }
+        ]
+      },
+      "target_duration": 5.04,
+      "translation": "Она презирала его, снова схема, шулер, создаёт разницу, чтобы казалось, он настоящий.",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0012",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "出发之前，他志在必得。今天我非把那个老道长的底裤扒干净不可。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "于是他提前做了功课，搜索钟南山清虚观相关的内容，只是网上能查到的信息很少，连个官方账号都没有。",
+            "russian_translation": "Он искал информацию о Чжун Наньшане, но в интернете почти ничего не нашёл."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "老道长叫什么不知道，多大年纪不知道，反正就是那种藏在深山里的高人，专门骗有缘人。",
+            "russian_translation": "Он не знает, как его зовут, сколько ему лет, просто старик из горы, который обманывает тех, кто приходит к нему."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "当时的苏小唐在心里冷笑，又是的套路，老神棍，制造信息差，让你觉得他有真本事。",
+            "russian_translation": "Она презирала его, снова схема, шулер, создаёт разницу, чтобы казалось, он настоящий."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "带着团队爬了四十分钟的山，终于来到清虚观门口。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "结果他第一眼看到的是，你窝在一把破竹椅上，怀里抱着一只橘猫，手里端着一杯热茶，脸上的皱纹深得能掐死蚊子，须发皆白，而且还挺长，"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "看着倒有点仙气。可问题是，你太瘦了，瘦的跟竹竿似的，道袍空荡荡的挂在身上，风一吹就鼓起来，感觉骨头架子都要被吹散。"
+          }
+        ]
+      },
+      "target_duration": 3.68,
+      "translation": "Он был уверен, что всё получится, сегодня разоблачу старика-мистика.",
+      "attempts": 1
+    },
+    {
+      "segment_id": "SEG_0013",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "带着团队爬了四十分钟的山，终于来到清虚观门口。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "老道长叫什么不知道，多大年纪不知道，反正就是那种藏在深山里的高人，专门骗有缘人。",
+            "russian_translation": "Он не знает, как его зовут, сколько ему лет, просто старик из горы, который обманывает тех, кто приходит к нему."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "当时的苏小唐在心里冷笑，又是的套路，老神棍，制造信息差，让你觉得他有真本事。",
+            "russian_translation": "Она презирала его, снова схема, шулер, создаёт разницу, чтобы казалось, он настоящий."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "出发之前，他志在必得。今天我非把那个老道长的底裤扒干净不可。",
+            "russian_translation": "Он был уверен, что всё получится, сегодня разоблачу старика-мистика."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "结果他第一眼看到的是，你窝在一把破竹椅上，怀里抱着一只橘猫，手里端着一杯热茶，脸上的皱纹深得能掐死蚊子，须发皆白，而且还挺长，"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "看着倒有点仙气。可问题是，你太瘦了，瘦的跟竹竿似的，道袍空荡荡的挂在身上，风一吹就鼓起来，感觉骨头架子都要被吹散。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "苏小唐看到后差点破防，忍不住要笑出声来。"
+          }
+        ]
+      },
+      "target_duration": 2.88,
+      "translation": "Проплыли сорок минут по горе, наконец добрались до ворот Чиньшухуана.",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0014",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "结果他第一眼看到的是，你窝在一把破竹椅上，怀里抱着一只橘猫，手里端着一杯热茶，脸上的皱纹深得能掐死蚊子，须发皆白，而且还挺长，",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "当时的苏小唐在心里冷笑，又是的套路，老神棍，制造信息差，让你觉得他有真本事。",
+            "russian_translation": "Она презирала его, снова схема, шулер, создаёт разницу, чтобы казалось, он настоящий."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "出发之前，他志在必得。今天我非把那个老道长的底裤扒干净不可。",
+            "russian_translation": "Он был уверен, что всё получится, сегодня разоблачу старика-мистика."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "带着团队爬了四十分钟的山，终于来到清虚观门口。",
+            "russian_translation": "Проплыли сорок минут по горе, наконец добрались до ворот Чиньшухуана."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "看着倒有点仙气。可问题是，你太瘦了，瘦的跟竹竿似的，道袍空荡荡的挂在身上，风一吹就鼓起来，感觉骨头架子都要被吹散。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "苏小唐看到后差点破防，忍不住要笑出声来。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "这就是传说中的有神通的老道长。他不动声色的调整了一下麦，确保声音清晰，然后压低声音：“家人们，你们看到了吗？"
+          }
+        ]
+      },
+      "target_duration": 7.84,
+      "translation": "Он увидел, как ты сидишь на потрёпанной скамье, обнимаешь кота, держишь кружку чая, с глубокими морщинами и седыми волосами.",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0015",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "看着倒有点仙气。可问题是，你太瘦了，瘦的跟竹竿似的，道袍空荡荡的挂在身上，风一吹就鼓起来，感觉骨头架子都要被吹散。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "出发之前，他志在必得。今天我非把那个老道长的底裤扒干净不可。",
+            "russian_translation": "Он был уверен, что всё получится, сегодня разоблачу старика-мистика."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "带着团队爬了四十分钟的山，终于来到清虚观门口。",
+            "russian_translation": "Проплыли сорок минут по горе, наконец добрались до ворот Чиньшухуана."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "结果他第一眼看到的是，你窝在一把破竹椅上，怀里抱着一只橘猫，手里端着一杯热茶，脸上的皱纹深得能掐死蚊子，须发皆白，而且还挺长，",
+            "russian_translation": "Он увидел, как ты сидишь на потрёпанной скамье, обнимаешь кота, держишь кружку чая, с глубокими морщинами и седыми волосами."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "苏小唐看到后差点破防，忍不住要笑出声来。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "这就是传说中的有神通的老道长。他不动声色的调整了一下麦，确保声音清晰，然后压低声音：“家人们，你们看到了吗？"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "这就是那位神通广大的老道长。我是先生命啊，我不是不尊重老人家，但是你们看他这个状态，说是夸我，他比我的爷爷还要虚。"
+          }
+        ]
+      },
+      "target_duration": 7.12,
+      "translation": "Он увидел, как ты сидишь на потрёпанной скамье, обнимаешь кота, держишь кружку чая, с глубокими морщинами и седыми волосами.",
+      "attempts": 1
+    },
+    {
+      "segment_id": "SEG_0016",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "苏小唐看到后差点破防，忍不住要笑出声来。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "带着团队爬了四十分钟的山，终于来到清虚观门口。",
+            "russian_translation": "Проплыли сорок минут по горе, наконец добрались до ворот Чиньшухуана."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "结果他第一眼看到的是，你窝在一把破竹椅上，怀里抱着一只橘猫，手里端着一杯热茶，脸上的皱纹深得能掐死蚊子，须发皆白，而且还挺长，",
+            "russian_translation": "Он увидел, как ты сидишь на потрёпанной скамье, обнимаешь кота, держишь кружку чая, с глубокими морщинами и седыми волосами."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "看着倒有点仙气。可问题是，你太瘦了，瘦的跟竹竿似的，道袍空荡荡的挂在身上，风一吹就鼓起来，感觉骨头架子都要被吹散。",
+            "russian_translation": "Он увидел, как ты сидишь на потрёпанной скамье, обнимаешь кота, держишь кружку чая, с глубокими морщинами и седыми волосами."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "这就是传说中的有神通的老道长。他不动声色的调整了一下麦，确保声音清晰，然后压低声音：“家人们，你们看到了吗？"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "这就是那位神通广大的老道长。我是先生命啊，我不是不尊重老人家，但是你们看他这个状态，说是夸我，他比我的爷爷还要虚。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "直播间在线人数已经破了十万，听到主播的话，弹幕立刻刷的飞起。"
+          }
+        ]
+      },
+      "target_duration": 2.8,
+      "translation": "Су Сяотань чуть не расплакалась.",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0017",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "这就是传说中的有神通的老道长。他不动声色的调整了一下麦，确保声音清晰，然后压低声音：“家人们，你们看到了吗？",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "结果他第一眼看到的是，你窝在一把破竹椅上，怀里抱着一只橘猫，手里端着一杯热茶，脸上的皱纹深得能掐死蚊子，须发皆白，而且还挺长，",
+            "russian_translation": "Он увидел, как ты сидишь на потрёпанной скамье, обнимаешь кота, держишь кружку чая, с глубокими морщинами и седыми волосами."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "看着倒有点仙气。可问题是，你太瘦了，瘦的跟竹竿似的，道袍空荡荡的挂在身上，风一吹就鼓起来，感觉骨头架子都要被吹散。",
+            "russian_translation": "Он увидел, как ты сидишь на потрёпанной скамье, обнимаешь кота, держишь кружку чая, с глубокими морщинами и седыми волосами."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "苏小唐看到后差点破防，忍不住要笑出声来。",
+            "russian_translation": "Су Сяотань чуть не расплакалась."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "这就是那位神通广大的老道长。我是先生命啊，我不是不尊重老人家，但是你们看他这个状态，说是夸我，他比我的爷爷还要虚。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "直播间在线人数已经破了十万，听到主播的话，弹幕立刻刷的飞起。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "我操，感觉这个老道长快要咽气了，真的假的？不会直播出病吧？"
+          }
+        ]
+      },
+      "target_duration": 6.32,
+      "translation": "Да, это тот самый волшебный старец. Он настроил микрофон, затем низким голосом сказал: «Друзья, вы заметили?",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0018",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "这就是那位神通广大的老道长。我是先生命啊，我不是不尊重老人家，但是你们看他这个状态，说是夸我，他比我的爷爷还要虚。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "看着倒有点仙气。可问题是，你太瘦了，瘦的跟竹竿似的，道袍空荡荡的挂在身上，风一吹就鼓起来，感觉骨头架子都要被吹散。",
+            "russian_translation": "Он увидел, как ты сидишь на потрёпанной скамье, обнимаешь кота, держишь кружку чая, с глубокими морщинами и седыми волосами."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "苏小唐看到后差点破防，忍不住要笑出声来。",
+            "russian_translation": "Су Сяотань чуть не расплакалась."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "这就是传说中的有神通的老道长。他不动声色的调整了一下麦，确保声音清晰，然后压低声音：“家人们，你们看到了吗？",
+            "russian_translation": "Да, это тот самый волшебный старец. Он настроил микрофон, затем низким голосом сказал: «Друзья, вы заметили?"
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "直播间在线人数已经破了十万，听到主播的话，弹幕立刻刷的飞起。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "我操，感觉这个老道长快要咽气了，真的假的？不会直播出病吧？"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "小唐姐快跑啊，别被老道长讹上了，不然你赔不起。"
+          }
+        ]
+      },
+      "target_duration": 6.56,
+      "translation": "Я — Су Сяотань, не уважаю старика, но он даже не знает, что такое дрон.",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0019",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "直播间在线人数已经破了十万，听到主播的话，弹幕立刻刷的飞起。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "苏小唐看到后差点破防，忍不住要笑出声来。",
+            "russian_translation": "Су Сяотань чуть не расплакалась."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "这就是传说中的有神通的老道长。他不动声色的调整了一下麦，确保声音清晰，然后压低声音：“家人们，你们看到了吗？",
+            "russian_translation": "Да, это тот самый волшебный старец. Он настроил микрофон, затем низким голосом сказал: «Друзья, вы заметили?"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "这就是那位神通广大的老道长。我是先生命啊，我不是不尊重老人家，但是你们看他这个状态，说是夸我，他比我的爷爷还要虚。",
+            "russian_translation": "Я — Су Сяотань, не уважаю старика, но он даже не знает, что такое дрон."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "我操，感觉这个老道长快要咽气了，真的假的？不会直播出病吧？"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "小唐姐快跑啊，别被老道长讹上了，不然你赔不起。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "哈哈哈哈，这太瘦了吧？感觉一阵风就能吹走。老道长你还好吗？"
+          }
+        ]
+      },
+      "target_duration": 3.76,
+      "translation": "В лайф-стриме онлайн больше десяти тысяч, стрим-сообщения взорвались.",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0020",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "我操，感觉这个老道长快要咽气了，真的假的？不会直播出病吧？",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "这就是传说中的有神通的老道长。他不动声色的调整了一下麦，确保声音清晰，然后压低声音：“家人们，你们看到了吗？",
+            "russian_translation": "Да, это тот самый волшебный старец. Он настроил микрофон, затем низким голосом сказал: «Друзья, вы заметили?"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "这就是那位神通广大的老道长。我是先生命啊，我不是不尊重老人家，但是你们看他这个状态，说是夸我，他比我的爷爷还要虚。",
+            "russian_translation": "Я — Су Сяотань, не уважаю старика, но он даже не знает, что такое дрон."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "直播间在线人数已经破了十万，听到主播的话，弹幕立刻刷的飞起。",
+            "russian_translation": "В лайф-стриме онлайн больше десяти тысяч, стрим-сообщения взорвались."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "小唐姐快跑啊，别被老道长讹上了，不然你赔不起。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "哈哈哈哈，这太瘦了吧？感觉一阵风就能吹走。老道长你还好吗？"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "需要我帮你叫幺二零吗？这看着不像是有神通吗？倒像是有什么大病似的。"
+          }
+        ]
+      },
+      "target_duration": 3.6,
+      "translation": "Он вот-вот умрет, правда? Не заболел ли он на стриме?",
+      "attempts": 1
+    },
+    {
+      "segment_id": "SEG_0021",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "小唐姐快跑啊，别被老道长讹上了，不然你赔不起。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "这就是那位神通广大的老道长。我是先生命啊，我不是不尊重老人家，但是你们看他这个状态，说是夸我，他比我的爷爷还要虚。",
+            "russian_translation": "Я — Су Сяотань, не уважаю старика, но он даже не знает, что такое дрон."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "直播间在线人数已经破了十万，听到主播的话，弹幕立刻刷的飞起。",
+            "russian_translation": "В лайф-стриме онлайн больше десяти тысяч, стрим-сообщения взорвались."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "我操，感觉这个老道长快要咽气了，真的假的？不会直播出病吧？",
+            "russian_translation": "Он вот-вот умрет, правда? Не заболел ли он на стриме?"
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "哈哈哈哈，这太瘦了吧？感觉一阵风就能吹走。老道长你还好吗？"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "需要我帮你叫幺二零吗？这看着不像是有神通吗？倒像是有什么大病似的。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "苏姐赶紧上去问，看他怎么忽悠我。我五毛钱，他马上要说自己今年一百二十岁，七一百二十岁。"
+          }
+        ]
+      },
+      "target_duration": 2.72,
+      "translation": "Су Сяотань беги, не попадись на уловки старика.",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0022",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "哈哈哈哈，这太瘦了吧？感觉一阵风就能吹走。老道长你还好吗？",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "直播间在线人数已经破了十万，听到主播的话，弹幕立刻刷的飞起。",
+            "russian_translation": "В лайф-стриме онлайн больше десяти тысяч, стрим-сообщения взорвались."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "我操，感觉这个老道长快要咽气了，真的假的？不会直播出病吧？",
+            "russian_translation": "Он вот-вот умрет, правда? Не заболел ли он на стриме?"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "小唐姐快跑啊，别被老道长讹上了，不然你赔不起。",
+            "russian_translation": "Су Сяотань беги, не попадись на уловки старика."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "需要我帮你叫幺二零吗？这看着不像是有神通吗？倒像是有什么大病似的。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "苏姐赶紧上去问，看他怎么忽悠我。我五毛钱，他马上要说自己今年一百二十岁，七一百二十岁。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "我看他这样子能活到八十就不错。苏小唐扫了一眼弹幕，嘴角微微上扬，弹幕的反应跟他预想的一模一样。"
+          }
+        ]
+      },
+      "target_duration": 3.6,
+      "translation": "Он совсем худой, как будто ветер его унести. Как ты, старик?",
+      "attempts": 1
+    },
+    {
+      "segment_id": "SEG_0023",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "需要我帮你叫幺二零吗？这看着不像是有神通吗？倒像是有什么大病似的。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "我操，感觉这个老道长快要咽气了，真的假的？不会直播出病吧？",
+            "russian_translation": "Он вот-вот умрет, правда? Не заболел ли он на стриме?"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "小唐姐快跑啊，别被老道长讹上了，不然你赔不起。",
+            "russian_translation": "Су Сяотань беги, не попадись на уловки старика."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "哈哈哈哈，这太瘦了吧？感觉一阵风就能吹走。老道长你还好吗？",
+            "russian_translation": "Он совсем худой, как будто ветер его унести. Как ты, старик?"
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "苏姐赶紧上去问，看他怎么忽悠我。我五毛钱，他马上要说自己今年一百二十岁，七一百二十岁。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "我看他这样子能活到八十就不错。苏小唐扫了一眼弹幕，嘴角微微上扬，弹幕的反应跟他预想的一模一样。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "第一印象全都是这老头快不行，看就快要死了。这也是他想要的效果。"
+          }
+        ]
+      },
+      "target_duration": 3.52,
+      "translation": "Нужно вызвать «120»? Он не маг, а больной.",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0024",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "苏姐赶紧上去问，看他怎么忽悠我。我五毛钱，他马上要说自己今年一百二十岁，七一百二十岁。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "小唐姐快跑啊，别被老道长讹上了，不然你赔不起。",
+            "russian_translation": "Су Сяотань беги, не попадись на уловки старика."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "哈哈哈哈，这太瘦了吧？感觉一阵风就能吹走。老道长你还好吗？",
+            "russian_translation": "Он совсем худой, как будто ветер его унести. Как ты, старик?"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "需要我帮你叫幺二零吗？这看着不像是有神通吗？倒像是有什么大病似的。",
+            "russian_translation": "Нужно вызвать «120»? Он не маг, а больной."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "我看他这样子能活到八十就不错。苏小唐扫了一眼弹幕，嘴角微微上扬，弹幕的反应跟他预想的一模一样。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "第一印象全都是这老头快不行，看就快要死了。这也是他想要的效果。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "于是他快步走到道观门口，在距离大约三米的地方站定，脸上挂着直话的微笑，语气倒是挺客气：“您好，请问您是这座道观的观主吗？"
+          }
+        ]
+      },
+      "target_duration": 5.76,
+      "translation": "Су Сяотань, срочно спроси, как он обманывает. Я 50 коп., он скажет 120.",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0025",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "我看他这样子能活到八十就不错。苏小唐扫了一眼弹幕，嘴角微微上扬，弹幕的反应跟他预想的一模一样。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "哈哈哈哈，这太瘦了吧？感觉一阵风就能吹走。老道长你还好吗？",
+            "russian_translation": "Он совсем худой, как будто ветер его унести. Как ты, старик?"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "需要我帮你叫幺二零吗？这看着不像是有神通吗？倒像是有什么大病似的。",
+            "russian_translation": "Нужно вызвать «120»? Он не маг, а больной."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "苏姐赶紧上去问，看他怎么忽悠我。我五毛钱，他马上要说自己今年一百二十岁，七一百二十岁。",
+            "russian_translation": "Су Сяотань, срочно спроси, как он обманывает. Я 50 коп., он скажет 120."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "第一印象全都是这老头快不行，看就快要死了。这也是他想要的效果。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "于是他快步走到道观门口，在距离大约三米的地方站定，脸上挂着直话的微笑，语气倒是挺客气：“您好，请问您是这座道观的观主吗？"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "我是做户外直播的主播，我叫苏小唐，路过这里能跟老道长您聊上句吗？”"
+          }
+        ]
+      },
+      "target_duration": 5.68,
+      "translation": "Он даже доживет до восьмидесяти. Су Сяотань улыбнулся, реакция совпала с ожиданиями.",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0026",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "第一印象全都是这老头快不行，看就快要死了。这也是他想要的效果。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "需要我帮你叫幺二零吗？这看着不像是有神通吗？倒像是有什么大病似的。",
+            "russian_translation": "Нужно вызвать «120»? Он не маг, а больной."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "苏姐赶紧上去问，看他怎么忽悠我。我五毛钱，他马上要说自己今年一百二十岁，七一百二十岁。",
+            "russian_translation": "Су Сяотань, срочно спроси, как он обманывает. Я 50 коп., он скажет 120."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "我看他这样子能活到八十就不错。苏小唐扫了一眼弹幕，嘴角微微上扬，弹幕的反应跟他预想的一模一样。",
+            "russian_translation": "Он даже доживет до восьмидесяти. Су Сяотань улыбнулся, реакция совпала с ожиданиями."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "于是他快步走到道观门口，在距离大约三米的地方站定，脸上挂着直话的微笑，语气倒是挺客气：“您好，请问您是这座道观的观主吗？"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "我是做户外直播的主播，我叫苏小唐，路过这里能跟老道长您聊上句吗？”"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "说完，他把手机摄像头对准你，镜头里你微微抬起头，露出一张满是皱纹的脸庞，眼睛不大，眼窝深陷，眼皮耷拉着，看着确实是一副老态龙钟的模样。"
+          }
+        ]
+      },
+      "target_duration": 3.76,
+      "translation": "Он даже доживет до восьмидесяти.",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0027",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "于是他快步走到道观门口，在距离大约三米的地方站定，脸上挂着直话的微笑，语气倒是挺客气：“您好，请问您是这座道观的观主吗？",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "苏姐赶紧上去问，看他怎么忽悠我。我五毛钱，他马上要说自己今年一百二十岁，七一百二十岁。",
+            "russian_translation": "Су Сяотань, срочно спроси, как он обманывает. Я 50 коп., он скажет 120."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "我看他这样子能活到八十就不错。苏小唐扫了一眼弹幕，嘴角微微上扬，弹幕的反应跟他预想的一模一样。",
+            "russian_translation": "Он даже доживет до восьмидесяти. Су Сяотань улыбнулся, реакция совпала с ожиданиями."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "第一印象全都是这老头快不行，看就快要死了。这也是他想要的效果。",
+            "russian_translation": "Он даже доживет до восьмидесяти."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "我是做户外直播的主播，我叫苏小唐，路过这里能跟老道长您聊上句吗？”"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "说完，他把手机摄像头对准你，镜头里你微微抬起头，露出一张满是皱纹的脸庞，眼睛不大，眼窝深陷，眼皮耷拉着，看着确实是一副老态龙钟的模样。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "但是你的眼神，苏小唐看到后顿时愣了一下，不是这个老家伙的眼神，怎么感觉挺清亮？"
+          }
+        ]
+      },
+      "target_duration": 7.28,
+      "translation": "Он подошёл к воротам, остановился на три метра, улыбнулся прямо, но говорил вежливо: «Здравствуйте, вы, наверное, настоятель?",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0028",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "我是做户外直播的主播，我叫苏小唐，路过这里能跟老道长您聊上句吗？”",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "我看他这样子能活到八十就不错。苏小唐扫了一眼弹幕，嘴角微微上扬，弹幕的反应跟他预想的一模一样。",
+            "russian_translation": "Он даже доживет до восьмидесяти. Су Сяотань улыбнулся, реакция совпала с ожиданиями."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "第一印象全都是这老头快不行，看就快要死了。这也是他想要的效果。",
+            "russian_translation": "Он даже доживет до восьмидесяти."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "于是他快步走到道观门口，在距离大约三米的地方站定，脸上挂着直话的微笑，语气倒是挺客气：“您好，请问您是这座道观的观主吗？",
+            "russian_translation": "Он подошёл к воротам, остановился на три метра, улыбнулся прямо, но говорил вежливо: «Здравствуйте, вы, наверное, настоятель?"
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "说完，他把手机摄像头对准你，镜头里你微微抬起头，露出一张满是皱纹的脸庞，眼睛不大，眼窝深陷，眼皮耷拉着，看着确实是一副老态龙钟的模样。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "但是你的眼神，苏小唐看到后顿时愣了一下，不是这个老家伙的眼神，怎么感觉挺清亮？"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "他在打假的这些年见过无数骗子，那些人的眼睛要么是精明的发亮，要么就是故作高深的半闭着，生怕被人看穿一样。"
+          }
+        ]
+      },
+      "target_duration": 4.0,
+      "translation": "Вы — Су Сяотань, ведущая, проверяющая мистиков.",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0029",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "说完，他把手机摄像头对准你，镜头里你微微抬起头，露出一张满是皱纹的脸庞，眼睛不大，眼窝深陷，眼皮耷拉着，看着确实是一副老态龙钟的模样。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "第一印象全都是这老头快不行，看就快要死了。这也是他想要的效果。",
+            "russian_translation": "Он даже доживет до восьмидесяти."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "于是他快步走到道观门口，在距离大约三米的地方站定，脸上挂着直话的微笑，语气倒是挺客气：“您好，请问您是这座道观的观主吗？",
+            "russian_translation": "Он подошёл к воротам, остановился на три метра, улыбнулся прямо, но говорил вежливо: «Здравствуйте, вы, наверное, настоятель?"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "我是做户外直播的主播，我叫苏小唐，路过这里能跟老道长您聊上句吗？”",
+            "russian_translation": "Вы — Су Сяотань, ведущая, проверяющая мистиков."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "但是你的眼神，苏小唐看到后顿时愣了一下，不是这个老家伙的眼神，怎么感觉挺清亮？"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "他在打假的这些年见过无数骗子，那些人的眼睛要么是精明的发亮，要么就是故作高深的半闭着，生怕被人看穿一样。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "但是你的眼神和他以前见过的都很不一样，平和的就像是一潭死水，没有攻击性，也没有防备心，就是像小孩子眼神那般，很单纯的坦荡。"
+          }
+        ]
+      },
+      "target_duration": 8.64,
+      "translation": "Он даже доживет до восьмидесяти.",
+      "attempts": 1
+    },
+    {
+      "segment_id": "SEG_0030",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "但是你的眼神，苏小唐看到后顿时愣了一下，不是这个老家伙的眼神，怎么感觉挺清亮？",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "于是他快步走到道观门口，在距离大约三米的地方站定，脸上挂着直话的微笑，语气倒是挺客气：“您好，请问您是这座道观的观主吗？",
+            "russian_translation": "Он подошёл к воротам, остановился на три метра, улыбнулся прямо, но говорил вежливо: «Здравствуйте, вы, наверное, настоятель?"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "我是做户外直播的主播，我叫苏小唐，路过这里能跟老道长您聊上句吗？”",
+            "russian_translation": "Вы — Су Сяотань, ведущая, проверяющая мистиков."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "说完，他把手机摄像头对准你，镜头里你微微抬起头，露出一张满是皱纹的脸庞，眼睛不大，眼窝深陷，眼皮耷拉着，看着确实是一副老态龙钟的模样。",
+            "russian_translation": "Он даже доживет до восьмидесяти."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "他在打假的这些年见过无数骗子，那些人的眼睛要么是精明的发亮，要么就是故作高深的半闭着，生怕被人看穿一样。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "但是你的眼神和他以前见过的都很不一样，平和的就像是一潭死水，没有攻击性，也没有防备心，就是像小孩子眼神那般，很单纯的坦荡。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "或者说，看着他身后某个东西，你看的是那架无人机，作为一名穿越人士，你当然见过无人机。"
+          }
+        ]
+      },
+      "target_duration": 5.12,
+      "translation": "Но твой взгляд — Су Сяотань увидела и замерла, не такой, как у этого старика, почему-то казался чистым.",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0031",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "他在打假的这些年见过无数骗子，那些人的眼睛要么是精明的发亮，要么就是故作高深的半闭着，生怕被人看穿一样。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "我是做户外直播的主播，我叫苏小唐，路过这里能跟老道长您聊上句吗？”",
+            "russian_translation": "Вы — Су Сяотань, ведущая, проверяющая мистиков."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "说完，他把手机摄像头对准你，镜头里你微微抬起头，露出一张满是皱纹的脸庞，眼睛不大，眼窝深陷，眼皮耷拉着，看着确实是一副老态龙钟的模样。",
+            "russian_translation": "Он даже доживет до восьмидесяти."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "但是你的眼神，苏小唐看到后顿时愣了一下，不是这个老家伙的眼神，怎么感觉挺清亮？",
+            "russian_translation": "Но твой взгляд — Су Сяотань увидела и замерла, не такой, как у этого старика, почему-то казался чистым."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "但是你的眼神和他以前见过的都很不一样，平和的就像是一潭死水，没有攻击性，也没有防备心，就是像小孩子眼神那般，很单纯的坦荡。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "或者说，看着他身后某个东西，你看的是那架无人机，作为一名穿越人士，你当然见过无人机。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "但是原生活了九六年，记忆里还是头一回看见东西。"
+          }
+        ]
+      },
+      "target_duration": 6.32,
+      "translation": "Но его глаза — как у всех обманщиков, либо ясные, либо сухие, будто боятся быть разоблачёнными.",
+      "attempts": 1
+    },
+    {
+      "segment_id": "SEG_0032",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "但是你的眼神和他以前见过的都很不一样，平和的就像是一潭死水，没有攻击性，也没有防备心，就是像小孩子眼神那般，很单纯的坦荡。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "说完，他把手机摄像头对准你，镜头里你微微抬起头，露出一张满是皱纹的脸庞，眼睛不大，眼窝深陷，眼皮耷拉着，看着确实是一副老态龙钟的模样。",
+            "russian_translation": "Он даже доживет до восьмидесяти."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "但是你的眼神，苏小唐看到后顿时愣了一下，不是这个老家伙的眼神，怎么感觉挺清亮？",
+            "russian_translation": "Но твой взгляд — Су Сяотань увидела и замерла, не такой, как у этого старика, почему-то казался чистым."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "他在打假的这些年见过无数骗子，那些人的眼睛要么是精明的发亮，要么就是故作高深的半闭着，生怕被人看穿一样。",
+            "russian_translation": "Но его глаза — как у всех обманщиков, либо ясные, либо сухие, будто боятся быть разоблачёнными."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "或者说，看着他身后某个东西，你看的是那架无人机，作为一名穿越人士，你当然见过无人机。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "但是原生活了九六年，记忆里还是头一回看见东西。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "这小东西嗡嗡嗡在空中转，像只大苍蝇，还挺有意思。"
+          }
+        ]
+      },
+      "target_duration": 7.44,
+      "translation": "Но твой взгляд — как тихое озеро, без агрессии, без подозрительности, просто чистый, как у ребёнка.",
+      "attempts": 1
+    },
+    {
+      "segment_id": "SEG_0033",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "或者说，看着他身后某个东西，你看的是那架无人机，作为一名穿越人士，你当然见过无人机。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "但是你的眼神，苏小唐看到后顿时愣了一下，不是这个老家伙的眼神，怎么感觉挺清亮？",
+            "russian_translation": "Но твой взгляд — Су Сяотань увидела и замерла, не такой, как у этого старика, почему-то казался чистым."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "他在打假的这些年见过无数骗子，那些人的眼睛要么是精明的发亮，要么就是故作高深的半闭着，生怕被人看穿一样。",
+            "russian_translation": "Но его глаза — как у всех обманщиков, либо ясные, либо сухие, будто боятся быть разоблачёнными."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "但是你的眼神和他以前见过的都很不一样，平和的就像是一潭死水，没有攻击性，也没有防备心，就是像小孩子眼神那般，很单纯的坦荡。",
+            "russian_translation": "Но твой взгляд — как тихое озеро, без агрессии, без подозрительности, просто чистый, как у ребёнка."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "但是原生活了九六年，记忆里还是头一回看见东西。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "这小东西嗡嗡嗡在空中转，像只大苍蝇，还挺有意思。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "为了维持住人设，你指了指无人机，嗓音沙哑，带着老年人特有的气音：“你们是个什么物件？”"
+          }
+        ]
+      },
+      "target_duration": 4.88,
+      "translation": "Ты смотришь на что-то за его спиной, это дрон, как и все, кто приезжает сюда, видел такие.",
+      "attempts": 1
+    },
+    {
+      "segment_id": "SEG_0034",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "但是原生活了九六年，记忆里还是头一回看见东西。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "他在打假的这些年见过无数骗子，那些人的眼睛要么是精明的发亮，要么就是故作高深的半闭着，生怕被人看穿一样。",
+            "russian_translation": "Но его глаза — как у всех обманщиков, либо ясные, либо сухие, будто боятся быть разоблачёнными."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "但是你的眼神和他以前见过的都很不一样，平和的就像是一潭死水，没有攻击性，也没有防备心，就是像小孩子眼神那般，很单纯的坦荡。",
+            "russian_translation": "Но твой взгляд — как тихое озеро, без агрессии, без подозрительности, просто чистый, как у ребёнка."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "或者说，看着他身后某个东西，你看的是那架无人机，作为一名穿越人士，你当然见过无人机。",
+            "russian_translation": "Ты смотришь на что-то за его спиной, это дрон, как и все, кто приезжает сюда, видел такие."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "这小东西嗡嗡嗡在空中转，像只大苍蝇，还挺有意思。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "为了维持住人设，你指了指无人机，嗓音沙哑，带着老年人特有的气音：“你们是个什么物件？”"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "苏小唐没想到老道长开口第一句话问的居然是这个。"
+          }
+        ]
+      },
+      "target_duration": 2.96,
+      "translation": "Но он жил 96 лет, а в памяти впервые видел такое.",
+      "attempts": 1
+    },
+    {
+      "segment_id": "SEG_0035",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "这小东西嗡嗡嗡在空中转，像只大苍蝇，还挺有意思。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "但是你的眼神和他以前见过的都很不一样，平和的就像是一潭死水，没有攻击性，也没有防备心，就是像小孩子眼神那般，很单纯的坦荡。",
+            "russian_translation": "Но твой взгляд — как тихое озеро, без агрессии, без подозрительности, просто чистый, как у ребёнка."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "或者说，看着他身后某个东西，你看的是那架无人机，作为一名穿越人士，你当然见过无人机。",
+            "russian_translation": "Ты смотришь на что-то за его спиной, это дрон, как и все, кто приезжает сюда, видел такие."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "但是原生活了九六年，记忆里还是头一回看见东西。",
+            "russian_translation": "Но он жил 96 лет, а в памяти впервые видел такое."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "为了维持住人设，你指了指无人机，嗓音沙哑，带着老年人特有的气音：“你们是个什么物件？”"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "苏小唐没想到老道长开口第一句话问的居然是这个。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "他微微一怔后才反应过来：“老道长，这个是无人机航"
+          }
+        ]
+      },
+      "target_duration": 3.2,
+      "translation": "Это маленькое устройство вращается в воздухе, как большой комар, довольно забавно.",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0036",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "为了维持住人设，你指了指无人机，嗓音沙哑，带着老年人特有的气音：“你们是个什么物件？”",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "或者说，看着他身后某个东西，你看的是那架无人机，作为一名穿越人士，你当然见过无人机。",
+            "russian_translation": "Ты смотришь на что-то за его спиной, это дрон, как и все, кто приезжает сюда, видел такие."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "但是原生活了九六年，记忆里还是头一回看见东西。",
+            "russian_translation": "Но он жил 96 лет, а в памяти впервые видел такое."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "这小东西嗡嗡嗡在空中转，像只大苍蝇，还挺有意思。",
+            "russian_translation": "Это маленькое устройство вращается в воздухе, как большой комар, довольно забавно."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "苏小唐没想到老道长开口第一句话问的居然是这个。"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "他微微一怔后才反应过来：“老道长，这个是无人机航"
+          },
+          {
+            "speaker_id": "SPEAKER_01",
+            "voice_type": "unknown",
+            "source_chinese": "拍用的，您之前没有见过吗？头回见。”你随口说了一句，又看了两眼，这才收回目光，端起茶杯喝了一口，慢悠悠的：“你刚才说你是主播，播哪方面的内容？"
+          }
+        ]
+      },
+      "target_duration": 5.04,
+      "translation": "Ты указал на дрон, голос хриплый: «Что это?",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0037",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "苏小唐没想到老道长开口第一句话问的居然是这个。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "但是原生活了九六年，记忆里还是头一回看见东西。",
+            "russian_translation": "Но он жил 96 лет, а в памяти впервые видел такое."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "这小东西嗡嗡嗡在空中转，像只大苍蝇，还挺有意思。",
+            "russian_translation": "Это маленькое устройство вращается в воздухе, как большой комар, довольно забавно."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "为了维持住人设，你指了指无人机，嗓音沙哑，带着老年人特有的气音：“你们是个什么物件？”",
+            "russian_translation": "Ты указал на дрон, голос хриплый: «Что это?"
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "他微微一怔后才反应过来：“老道长，这个是无人机航"
+          },
+          {
+            "speaker_id": "SPEAKER_01",
+            "voice_type": "unknown",
+            "source_chinese": "拍用的，您之前没有见过吗？头回见。”你随口说了一句，又看了两眼，这才收回目光，端起茶杯喝了一口，慢悠悠的：“你刚才说你是主播，播哪方面的内容？"
+          },
+          {
+            "speaker_id": "SPEAKER_01",
+            "voice_type": "unknown",
+            "source_chinese": "弹幕又炸了！哈哈哈哈，那个是什么物件？连无人机都不知道，笑我了。"
+          }
+        ]
+      },
+      "target_duration": 2.88,
+      "translation": "Су Сяотань не ожидал вопроса.",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0038",
+      "speaker_id": "SPEAKER_00",
+      "source_text": "他微微一怔后才反应过来：“老道长，这个是无人机航",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "这小东西嗡嗡嗡在空中转，像只大苍蝇，还挺有意思。",
+            "russian_translation": "Это маленькое устройство вращается в воздухе, как большой комар, довольно забавно."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "为了维持住人设，你指了指无人机，嗓音沙哑，带着老年人特有的气音：“你们是个什么物件？”",
+            "russian_translation": "Ты указал на дрон, голос хриплый: «Что это?"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "苏小唐没想到老道长开口第一句话问的居然是这个。",
+            "russian_translation": "Су Сяотань не ожидал вопроса."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_01",
+            "voice_type": "unknown",
+            "source_chinese": "拍用的，您之前没有见过吗？头回见。”你随口说了一句，又看了两眼，这才收回目光，端起茶杯喝了一口，慢悠悠的：“你刚才说你是主播，播哪方面的内容？"
+          },
+          {
+            "speaker_id": "SPEAKER_01",
+            "voice_type": "unknown",
+            "source_chinese": "弹幕又炸了！哈哈哈哈，那个是什么物件？连无人机都不知道，笑我了。"
+          },
+          {
+            "speaker_id": "SPEAKER_01",
+            "voice_type": "unknown",
+            "source_chinese": "老道长十锤道王多年，看他的这个反应，不像是装的，他是真的不知道。"
+          }
+        ]
+      },
+      "target_duration": 2.96,
+      "translation": "Старец вздрогнул, потом сообразил: «Старец, это дрон».",
+      "attempts": 1
+    },
+    {
+      "segment_id": "SEG_0039",
+      "speaker_id": "SPEAKER_01",
+      "source_text": "拍用的，您之前没有见过吗？头回见。”你随口说了一句，又看了两眼，这才收回目光，端起茶杯喝了一口，慢悠悠的：“你刚才说你是主播，播哪方面的内容？",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "为了维持住人设，你指了指无人机，嗓音沙哑，带着老年人特有的气音：“你们是个什么物件？”",
+            "russian_translation": "Ты указал на дрон, голос хриплый: «Что это?"
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "苏小唐没想到老道长开口第一句话问的居然是这个。",
+            "russian_translation": "Су Сяотань не ожидал вопроса."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "他微微一怔后才反应过来：“老道长，这个是无人机航",
+            "russian_translation": "Старец вздрогнул, потом сообразил: «Старец, это дрон»."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_01",
+            "voice_type": "unknown",
+            "source_chinese": "弹幕又炸了！哈哈哈哈，那个是什么物件？连无人机都不知道，笑我了。"
+          },
+          {
+            "speaker_id": "SPEAKER_01",
+            "voice_type": "unknown",
+            "source_chinese": "老道长十锤道王多年，看他的这个反应，不像是装的，他是真的不知道。"
+          },
+          {
+            "speaker_id": "SPEAKER_01",
+            "voice_type": "unknown",
+            "source_chinese": "苏姐，你快解释一下，给他开开眼，让他知。”"
+          }
+        ]
+      },
+      "target_duration": 8.16,
+      "translation": "Ты сказал, что ты ведущий, в какую тему?",
+      "attempts": 1
+    },
+    {
+      "segment_id": "SEG_0040",
+      "speaker_id": "SPEAKER_01",
+      "source_text": "弹幕又炸了！哈哈哈哈，那个是什么物件？连无人机都不知道，笑我了。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "苏小唐没想到老道长开口第一句话问的居然是这个。",
+            "russian_translation": "Су Сяотань не ожидал вопроса."
+          },
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "他微微一怔后才反应过来：“老道长，这个是无人机航",
+            "russian_translation": "Старец вздрогнул, потом сообразил: «Старец, это дрон»."
+          },
+          {
+            "speaker_id": "SPEAKER_01",
+            "voice_type": "unknown",
+            "source_chinese": "拍用的，您之前没有见过吗？头回见。”你随口说了一句，又看了两眼，这才收回目光，端起茶杯喝了一口，慢悠悠的：“你刚才说你是主播，播哪方面的内容？",
+            "russian_translation": "Ты сказал, что ты ведущий, в какую тему?"
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_01",
+            "voice_type": "unknown",
+            "source_chinese": "老道长十锤道王多年，看他的这个反应，不像是装的，他是真的不知道。"
+          },
+          {
+            "speaker_id": "SPEAKER_01",
+            "voice_type": "unknown",
+            "source_chinese": "苏姐，你快解释一下，给他开开眼，让他知。”"
+          }
+        ]
+      },
+      "target_duration": 3.76,
+      "translation": "Флеш-флеш! Ха-ха-ха, что это за штука? Дрон не знает, смеюсь над ним.",
+      "attempts": 2
+    },
+    {
+      "segment_id": "SEG_0041",
+      "speaker_id": "SPEAKER_01",
+      "source_text": "老道长十锤道王多年，看他的这个反应，不像是装的，他是真的不知道。",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_00",
+            "voice_type": "female",
+            "source_chinese": "他微微一怔后才反应过来：“老道长，这个是无人机航",
+            "russian_translation": "Старец вздрогнул, потом сообразил: «Старец, это дрон»."
+          },
+          {
+            "speaker_id": "SPEAKER_01",
+            "voice_type": "unknown",
+            "source_chinese": "拍用的，您之前没有见过吗？头回见。”你随口说了一句，又看了两眼，这才收回目光，端起茶杯喝了一口，慢悠悠的：“你刚才说你是主播，播哪方面的内容？",
+            "russian_translation": "Ты сказал, что ты ведущий, в какую тему?"
+          },
+          {
+            "speaker_id": "SPEAKER_01",
+            "voice_type": "unknown",
+            "source_chinese": "弹幕又炸了！哈哈哈哈，那个是什么物件？连无人机都不知道，笑我了。",
+            "russian_translation": "Флеш-флеш! Ха-ха-ха, что это за штука? Дрон не знает, смеюсь над ним."
+          }
+        ],
+        "following": [
+          {
+            "speaker_id": "SPEAKER_01",
+            "voice_type": "unknown",
+            "source_chinese": "苏姐，你快解释一下，给他开开眼，让他知。”"
+          }
+        ]
+      },
+      "target_duration": 3.84,
+      "translation": "Он действительно не знал, что такое дрон.",
+      "attempts": 1
+    },
+    {
+      "segment_id": "SEG_0042",
+      "speaker_id": "SPEAKER_01",
+      "source_text": "苏姐，你快解释一下，给他开开眼，让他知。”",
+      "context": {
+        "previous": [
+          {
+            "speaker_id": "SPEAKER_01",
+            "voice_type": "unknown",
+            "source_chinese": "拍用的，您之前没有见过吗？头回见。”你随口说了一句，又看了两眼，这才收回目光，端起茶杯喝了一口，慢悠悠的：“你刚才说你是主播，播哪方面的内容？",
+            "russian_translation": "Ты сказал, что ты ведущий, в какую тему?"
+          },
+          {
+            "speaker_id": "SPEAKER_01",
+            "voice_type": "unknown",
+            "source_chinese": "弹幕又炸了！哈哈哈哈，那个是什么物件？连无人机都不知道，笑我了。",
+            "russian_translation": "Флеш-флеш! Ха-ха-ха, что это за штука? Дрон не знает, смеюсь над ним."
+          },
+          {
+            "speaker_id": "SPEAKER_01",
+            "voice_type": "unknown",
+            "source_chinese": "老道长十锤道王多年，看他的这个反应，不像是装的，他是真的不知道。",
+            "russian_translation": "Он действительно не знал, что такое дрон."
+          }
+        ],
+        "following": []
+      },
+      "target_duration": 2.32,
+      "translation": "Су Сяотань, объясни ему.",
+      "attempts": 2
+    }
+  ]
+}

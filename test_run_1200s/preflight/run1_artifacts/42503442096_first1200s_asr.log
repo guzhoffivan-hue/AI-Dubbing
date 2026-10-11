@@ -1,0 +1,53 @@
+
+
+$ /Volumes/develop/AI-Dubbing/test_run_1200s/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/test_run_1200s/scripts/extract_audio.py --duration 1200.0 --start 0 --output /Volumes/develop/AI-Dubbing/test_run_1200s/work/42503442096_first1200s/audio.wav
+Extracted 1200.0s source audio to /Volumes/develop/AI-Dubbing/test_run_1200s/work/42503442096_first1200s/audio.wav
+
+
+$ /Volumes/develop/AI-Dubbing/test_run_1200s/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/test_run_1200s/scripts/asr.py
+Splitting into 10 safe chunks (120s each)...
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:07<00:07,  7.54s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  3.71s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  4.29s/it]
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ASR-1.7B/.no_exist/7278e1e70fe206f11671096ffdd38061171dd6e5/custom_generate/generate.py'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ASR-1.7B/.no_exist/7278e1e70fe206f11671096ffdd38061171dd6e5/custom_generate/generate.py'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ASR-1.7B/.no_exist/7278e1e70fe206f11671096ffdd38061171dd6e5/processor_config.json'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ASR-1.7B/.no_exist/7278e1e70fe206f11671096ffdd38061171dd6e5/processor_config.json'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ASR-1.7B/.no_exist/7278e1e70fe206f11671096ffdd38061171dd6e5/processor_config.json'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ASR-1.7B/.no_exist/7278e1e70fe206f11671096ffdd38061171dd6e5/processor_config.json'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ASR-1.7B/.no_exist/7278e1e70fe206f11671096ffdd38061171dd6e5/processor_config.json'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ASR-1.7B/.no_exist/7278e1e70fe206f11671096ffdd38061171dd6e5/processor_config.json'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ASR-1.7B/.no_exist/7278e1e70fe206f11671096ffdd38061171dd6e5/processor_config.json'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ASR-1.7B/.no_exist/7278e1e70fe206f11671096ffdd38061171dd6e5/processor_config.json'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ASR-1.7B/.no_exist/7278e1e70fe206f11671096ffdd38061171dd6e5/chat_template.jinja'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ASR-1.7B/.no_exist/7278e1e70fe206f11671096ffdd38061171dd6e5/chat_template.jinja'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ASR-1.7B/.no_exist/7278e1e70fe206f11671096ffdd38061171dd6e5/audio_tokenizer_config.json'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ASR-1.7B/.no_exist/7278e1e70fe206f11671096ffdd38061171dd6e5/audio_tokenizer_config.json'
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+ASR Chunk 1/10 completed (975 chars)
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+ASR Chunk 2/10 completed (1008 chars)
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+ASR Chunk 3/10 completed (989 chars)
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+ASR Chunk 4/10 completed (975 chars)
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+ASR Chunk 5/10 completed (981 chars)
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+ASR Chunk 6/10 completed (948 chars)
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+ASR Chunk 7/10 completed (982 chars)
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+ASR Chunk 8/10 completed (949 chars)
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+ASR Chunk 9/10 completed (949 chars)
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+ASR Chunk 10/10 completed (935 chars)
+ASR Complete: 9691 characters saved to /Volumes/develop/AI-Dubbing/test_run_1200s/work/42503442096_first1200s/asr.json
+
+
+$ /Volumes/develop/AI-Dubbing/test_run_1200s/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/test_run_1200s/scripts/merge_segments.py
+Created 1061 speaker-labelled lines; saved /Volumes/develop/AI-Dubbing/test_run_1200s/work/42503442096_first1200s/segments.json

@@ -1,0 +1,36 @@
+{
+  "enabled": true,
+  "candidate": {
+    "path": "sfx_library/Sonic Bat - Bars & Restaurants Ambience/SBbra_Shopping Mall Food Court B 001.wav",
+    "filename": "SBbra_Shopping Mall Food Court B 001.wav",
+    "category": [
+      "crowd",
+      "ambience"
+    ],
+    "tags": [
+      "001",
+      "ambience",
+      "b",
+      "bars",
+      "bat",
+      "court",
+      "food",
+      "mall",
+      "restaurants",
+      "sbbra",
+      "shopping",
+      "sonic"
+    ],
+    "loudness_lufs": null,
+    "duration": 679.873854,
+    "sample_rate": 96000,
+    "channels": 2,
+    "channel_layout": null,
+    "codec": "pcm_s24le",
+    "bits_per_sample": 24,
+    "size_bytes": 391608828
+  },
+  "category": "crowd",
+  "volume": 0.08,
+  "note": "Selected only on explicit environment cues; no original ambience is used."
+}

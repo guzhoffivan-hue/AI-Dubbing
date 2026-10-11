@@ -1,0 +1,165 @@
+
+==============================================================================
+10. ARTIFACT PROVENANCE (reported first because everything else depends on it)
+==============================================================================
+  work dir                    : /Volumes/develop/AI-Dubbing/test_run_1200s/work/42503442096_first1200s
+  input video (signature)     : /Volumes/develop/AI-Dubbing/test_run_1200s/input/42503442096_first1200s.mp4
+  signature size / mtime_ns   : 289357509 / 1791587393852142962
+  fragment on disk now        : size 289357509 / mtime_ns 1791587393852142962  -> MATCH
+  fragment md5                : 09e3c4a237294d0e5aae50da12b266ea
+  signature mode/start/dur    : test / 0 / 1200.0
+  asr.json "audio" field      : /Volumes/develop/AI-Dubbing/test_run_1200s/work/42503442096_first1200s/audio.wav
+  asr.json model              : Qwen/Qwen3-ASR-1.7B
+  artifact mtimes (all must fall inside the run window):
+    audio.wav          2026-10-10 02:45:10
+    audio_meta.json    2026-10-10 02:45:09
+    asr.json           2026-10-10 03:00:58
+    alignment.json     2026-10-10 03:17:32
+    diarization.json   2026-10-10 04:33:54
+    speakers.json      2026-10-10 04:33:54
+    segments.json      2026-10-10 04:33:54
+    status.json        2026-10-10 04:33:56
+  stage status:
+    extract_audio   done
+    asr             done
+    alignment       done
+    diarization     done
+    segment_merge   done
+    translation     pending
+    dialogue        pending
+    tts             pending
+    sfx             pending
+    ambience        pending
+    mix             pending
+    mux             pending
+
+==============================================================================
+1. ACTUAL AUDIO DURATION
+==============================================================================
+  path      : /Volumes/develop/AI-Dubbing/test_run_1200s/work/42503442096_first1200s/audio.wav
+  duration  : 1200.000 s   (extraction request: 1200.0 s)
+  size      : 38400078 bytes
+  stream    : pcm_s16le 16000 Hz 1 ch
+
+==============================================================================
+2. ASR CHUNKS AND THEIR REAL TIME BOUNDARIES
+==============================================================================
+  chunk count : 10   (asr.py splits at 120 s)
+    #     start       end    length      bytes
+    0     0.000   120.000   120.000    3840044
+    1   120.000   240.000   120.000    3840044
+    2   240.000   360.000   120.000    3840044
+    3   360.000   480.000   120.000    3840044
+    4   480.000   600.000   120.000    3840044
+    5   600.000   720.000   120.000    3840044
+    6   720.000   840.000   120.000    3840044
+    7   840.000   960.000   120.000    3840044
+    8   960.000  1080.000   120.000    3840044
+    9  1080.000  1200.000   120.000    3840044
+  sum of chunk durations : 1200.000 s  (audio 1200.000 s, delta +0.000 s)
+
+==============================================================================
+3. RECOGNISED SEGMENTS
+==============================================================================
+  asr.json language      : Chinese
+  asr.json text length   : 9691 characters
+  asr.json segments[]    : 0  <- asr.py:69 always writes an empty list: ASR returns continuous text, not segments
+  alignment tokens       : 8607  (first machine segmentation available)
+  NOTE: the first *dialogue* segmentation appears only after merge_segments.
+
+==============================================================================
+4. MAXIMUM end IN alignment.json
+==============================================================================
+  words        : 8607
+  min start    : 0.000 s
+  max end      : 1199.920 s
+  audio        : 1200.000 s
+  delta        : -0.080 s
+  first token  : '当' 0.0..0.16
+  last token   : '去' 1199.84..1199.92
+
+==============================================================================
+5. TIMESTAMPS BEYOND THE SOURCE AUDIO
+==============================================================================
+  timestamps beyond 1200.0s + 0.5s tolerance: 0
+  -> none: no artifact claims content outside the extracted audio
+
+==============================================================================
+6. UNEXPLAINED GAPS AND OVERLAPS
+==============================================================================
+  alignment (word level):
+    gaps > 30s : 0   total 0.0 s
+    overlapping consecutive tokens : 0
+  merged segments (line level):
+    gaps > 60s : 0   total 0.0 s
+    overlapping consecutive lines : 0
+  diarization turns:
+    turns total : 3   overlapping consecutive turns : 0
+
+==============================================================================
+7. SEGMENTS AFTER MERGING
+==============================================================================
+  merged lines   : 1061
+  span           : 0.000 .. 1199.920 s
+  line duration  : min 0.00  mean 0.93  max 3.52 s
+  zero-length    : 54
+  raw ASR chars covered : 9691 (asr.json text: 9691)
+  first line     : LINE_0001 0.0..1.6 '当成为九十六岁老道士的时候，'
+  last line      : LINE_1061 1199.44..1199.92 '他凑近去。'
+  schema keys    : ['end', 'line_id', 'speaker', 'start', 'text']
+
+==============================================================================
+8. SPEAKERS FOUND / POSSIBLE MERGING OF DIFFERENT CHARACTERS
+==============================================================================
+  model         : pyannote/speaker-diarization-3.1
+  bounds        : {'min_speakers': 2, 'max_speakers': 8, 'exact_count_forced': False}
+  speakers      : ['SPEAKER_00', 'SPEAKER_01']   count=2
+  turns         : 3
+    SPEAKER_00: 1186.0 s of 1200.0 s (98.8%)
+    SPEAKER_01: 13.9 s of 1200.0 s (1.2%)
+  merged lines per speaker : {'SPEAKER_00': 1047, 'SPEAKER_01': 14}
+  SUSPICION: 98.7% of lines carry one speaker label. For material with several
+             speaking characters this indicates under-segmentation (different
+             characters merged into one speaker), not a single-voice source.
+  uncertain turns (<0.75s) : 0
+  overlap intervals        : 0
+    SPEAKER_00: voice_type=female confidence=high f0_median=205.3 voiced=15.73s
+    SPEAKER_01: voice_type=unknown confidence=low f0_median=181.4 voiced=0.22s
+
+==============================================================================
+9. ERRORS AND WARNINGS PER STAGE
+==============================================================================
+  42503442096_first1200s_align.log: 56 lines, 28 error/warning lines
+      Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/mo
+      Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/mo
+      Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/mo
+      Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/mo
+      Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/mo
+      Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/mo
+      Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/mo
+      Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/mo
+      Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/mo
+      Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/mo
+      Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/mo
+      Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/mo
+  42503442096_first1200s_asr.log: 106 lines, 28 error/warning lines
+      Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/mo
+      Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/mo
+      Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/mo
+      Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/mo
+      Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/mo
+      Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/mo
+      Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/mo
+      Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/mo
+      Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/mo
+      Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/mo
+      Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/mo
+      Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/mo
+  42503442096_first1200s_diarize.log: 32 lines, 4 error/warning lines
+      Fontconfig error: No writable cache directories
+      /Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/models/blocks/pooling.py:104: UserWarning: std(): degrees of freedo
+      Fontconfig error: No writable cache directories
+      /Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/models/blocks/pooling.py:104: UserWarning: std(): degrees of freedo
+  42503442096_first1200s_translate.log: 6 lines, 0 error/warning lines
+  cli_stdout.log: 16 lines, 0 error/warning lines
+  staged_run_wrapper.log: 38 lines, 0 error/warning lines

@@ -1,0 +1,20 @@
+{
+  "constraint": "num_speakers=2 diagnostic only",
+  "turns": [
+    {
+      "speaker_id": "SPEAKER_01",
+      "start": 0.03096875,
+      "end": 62.02971875
+    },
+    {
+      "speaker_id": "SPEAKER_00",
+      "start": 62.02971875,
+      "end": 77.97659375
+    },
+    {
+      "speaker_id": "SPEAKER_01",
+      "start": 77.97659375,
+      "end": 149.96534375000002
+    }
+  ]
+}

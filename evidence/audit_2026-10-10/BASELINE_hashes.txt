@@ -1,0 +1,133 @@
+# AI-Dubbing baseline snapshot, taken BEFORE any Stage-1 edit
+# scope: AI-Dubbing scripts (live + backups), logs, key artifacts
+
+## scripts/ (live)
+fab69d94fe6eb74aa6ff120bb5d8f239          6148  2026-10-09 03:36:05  scripts/.DS_Store
+2336c200928914fa7dfdb7611e926eaa          3660  2026-10-07 17:16:20  scripts/align.py
+d7fc097175c79a4bbbd9b5993a97e2d4          1556  2026-10-07 04:37:06  scripts/ambience.py
+775d83a9cc3d3225c01f054f9badb145          2784  2026-10-07 19:35:59  scripts/asr.py
+6a2b8d7ae669eeab57312c8a822012ca         14126  2026-10-07 05:41:10  scripts/cli.py
+b68ae3a62a3b450ec542a33270c25932          1448  2026-10-07 13:43:05  scripts/common.py
+fe0b66a91034a257bfb583756067716b          1997  2026-10-07 13:40:39  scripts/diag.py
+15522e3e0a2a2e41473877d07eca8292          1703  2026-10-07 13:43:05  scripts/dialogue.py
+269e0c67395aed4b90bf5e2e65b12800          7070  2026-10-07 14:48:20  scripts/diarize.py
+4b233617b1c85dbb82e81684bfc8f13e          7074  2026-10-07 14:48:20  scripts/diarize.py.bak4
+c95c9f2a9a324b808c15026f4eeaf574          1072  2026-10-07 03:13:37  scripts/extract_audio.py
+d1ac87a48bd65e4a885d06205706b5a3          1860  2026-10-08 13:18:57  scripts/fit_tts.py
+6ef3e58403933de1e99a0db51e8c710c          1630  2026-10-08 13:18:57  scripts/fit_tts.py.bak_vl
+e0feb0daf8e2a685ef0656ea805bf1a1          3660  2026-10-08 13:00:58  scripts/merge_segments.py
+0edbe8a26f88c69370757d38c557d00d          3443  2026-10-08 13:19:18  scripts/mix_audio.py
+6885ebd26c43a1aa8c17f4a07b430147          3381  2026-10-08 13:19:18  scripts/mix_audio.py.bak_vl
+2b6ebc74ad40c9f62845873cda16b652           810  2026-10-07 03:14:21  scripts/mux.py
+a79fd72c8f10e636bc39e531506c94d1          2860  2026-10-08 13:23:11  scripts/pipeline.py
+7870ebf28cdda4933c95ea1748b41918          7336  2026-10-07 04:35:09  scripts/sfx.py
+fbc670c17948f25e64056137a63f0c97         10281  2026-10-08 18:36:01  scripts/translate.py
+4e0d92d01108b9bb5254be9bef0cc197          5999  2026-10-07 13:34:13  scripts/translate.py.bak3
+dba0b4780970f86bbcd1b2889b9087aa          7498  2026-10-07 14:48:18  scripts/translate.py.bak4
+d99fa3174f68ba4180ac276aff23d9d5          8834  2026-10-08 13:18:32  scripts/translate.py.bak_vl
+89e6d607b40e904837f6af918a8abf90         14948  2026-10-08 13:19:05  scripts/tts.py
+c070418c16096728920417b8750c2273         13846  2026-10-07 13:16:45  scripts/tts.py.bak
+b28a7f9f03a05919f264785865ef3564         13840  2026-10-07 13:18:49  scripts/tts.py.bak2
+d3bca40413a1f85f5307b8a43a6ab444         14350  2026-10-08 13:19:05  scripts/tts.py.bak_vl
+
+## scripts/ (backups inside scripts/)
+4b233617b1c85dbb82e81684bfc8f13e          7074  2026-10-07 14:48:20  scripts/diarize.py.bak4
+6ef3e58403933de1e99a0db51e8c710c          1630  2026-10-08 13:18:57  scripts/fit_tts.py.bak_vl
+6885ebd26c43a1aa8c17f4a07b430147          3381  2026-10-08 13:19:18  scripts/mix_audio.py.bak_vl
+4e0d92d01108b9bb5254be9bef0cc197          5999  2026-10-07 13:34:13  scripts/translate.py.bak3
+dba0b4780970f86bbcd1b2889b9087aa          7498  2026-10-07 14:48:18  scripts/translate.py.bak4
+d99fa3174f68ba4180ac276aff23d9d5          8834  2026-10-08 13:18:32  scripts/translate.py.bak_vl
+c070418c16096728920417b8750c2273         13846  2026-10-07 13:16:45  scripts/tts.py.bak
+b28a7f9f03a05919f264785865ef3564         13840  2026-10-07 13:18:49  scripts/tts.py.bak2
+d3bca40413a1f85f5307b8a43a6ab444         14350  2026-10-08 13:19:05  scripts/tts.py.bak_vl
+
+## scripts.bak_1254 / scripts.bak_arch
+44c34520c99f9a567b55196ab57004a8          6148  2026-10-09 03:34:08  scripts.bak_1254/.DS_Store
+1889eb37575be41d2331d3d64e049047          1219  2026-10-07 12:54:30  scripts.bak_1254/align.py
+d7fc097175c79a4bbbd9b5993a97e2d4          1556  2026-10-07 12:54:30  scripts.bak_1254/ambience.py
+a709ef31c5b467c0063a41faf12f3f82          1133  2026-10-07 12:54:30  scripts.bak_1254/asr.py
+6a2b8d7ae669eeab57312c8a822012ca         14126  2026-10-07 12:54:30  scripts.bak_1254/cli.py
+756a18791e27d3c81a84375a21ace8d0          1221  2026-10-07 12:54:30  scripts.bak_1254/common.py
+08b94c07d3516baf49ace326875c9687          1681  2026-10-07 12:54:30  scripts.bak_1254/dialogue.py
+26101e02cd780f2010fdc3b5e77e0688          5957  2026-10-07 12:54:30  scripts.bak_1254/diarize.py
+c95c9f2a9a324b808c15026f4eeaf574          1072  2026-10-07 12:54:30  scripts.bak_1254/extract_audio.py
+576a4b845e18b2f656da1ed191dfc148          4961  2026-10-07 12:54:30  scripts.bak_1254/merge_segments.py
+8e1096189db00359a7d32db2c1397e5c          3353  2026-10-07 12:54:30  scripts.bak_1254/mix_audio.py
+2b6ebc74ad40c9f62845873cda16b652           810  2026-10-07 12:54:30  scripts.bak_1254/mux.py
+e86ba933999e54cfabef077ba767fefa          2856  2026-10-07 12:54:30  scripts.bak_1254/pipeline.py
+7870ebf28cdda4933c95ea1748b41918          7336  2026-10-07 12:54:30  scripts.bak_1254/sfx.py
+4ecba3b38a2a4b921df862ece50b2b1f          6055  2026-10-07 12:54:30  scripts.bak_1254/translate.py
+c070418c16096728920417b8750c2273         13846  2026-10-07 12:54:30  scripts.bak_1254/tts.py
+1889eb37575be41d2331d3d64e049047          1219  2026-10-07 13:43:05  scripts.bak_arch/align.py
+d7fc097175c79a4bbbd9b5993a97e2d4          1556  2026-10-07 13:43:05  scripts.bak_arch/ambience.py
+a709ef31c5b467c0063a41faf12f3f82          1133  2026-10-07 13:43:05  scripts.bak_arch/asr.py
+6a2b8d7ae669eeab57312c8a822012ca         14126  2026-10-07 13:43:05  scripts.bak_arch/cli.py
+756a18791e27d3c81a84375a21ace8d0          1221  2026-10-07 13:43:05  scripts.bak_arch/common.py
+fe0b66a91034a257bfb583756067716b          1997  2026-10-07 13:43:05  scripts.bak_arch/diag.py
+08b94c07d3516baf49ace326875c9687          1681  2026-10-07 13:43:05  scripts.bak_arch/dialogue.py
+26101e02cd780f2010fdc3b5e77e0688          5957  2026-10-07 13:43:05  scripts.bak_arch/diarize.py
+c95c9f2a9a324b808c15026f4eeaf574          1072  2026-10-07 13:43:05  scripts.bak_arch/extract_audio.py
+493777bf23eacd9efcb5878c47a5ac8b          1631  2026-10-07 13:43:05  scripts.bak_arch/fit_tts.py
+576a4b845e18b2f656da1ed191dfc148          4961  2026-10-07 13:43:05  scripts.bak_arch/merge_segments.py
+0ebe73bcc81ded6290e25c7fac4f344f          3388  2026-10-07 13:43:05  scripts.bak_arch/mix_audio.py
+2b6ebc74ad40c9f62845873cda16b652           810  2026-10-07 13:43:05  scripts.bak_arch/mux.py
+e86ba933999e54cfabef077ba767fefa          2856  2026-10-07 13:43:05  scripts.bak_arch/pipeline.py
+7870ebf28cdda4933c95ea1748b41918          7336  2026-10-07 13:43:05  scripts.bak_arch/sfx.py
+60be288ae24116dafee58d6308f4c03b          6058  2026-10-07 13:43:05  scripts.bak_arch/translate.py
+6c18445aa66a7b829e2ba2191758e630         13913  2026-10-07 13:43:05  scripts.bak_arch/tts.py
+
+## top-level tooling / config
+5ed493ce3070e6f00fc289a1e4e83993          2736  2026-10-08 12:55:27  check_pipeline.py
+6f6bfd64e5ba5c4fa687d5c5c1322e14           978  2026-10-08 13:03:02  prepare_run.py
+ff3972fc8f32592ae0a0077f1561d79c           449  2026-10-07 12:54:30  config.yaml
+75879f422ff7df5d2c387f2910d193cf           450  2026-10-07 12:54:30  config.yaml.bak
+1aa0c90781554f0a810ad7a75a9e9223           463  2026-10-07 04:15:57  pyproject.toml
+85d90b76e6fbae337a1a29a4aa75e46b            97  2026-10-07 03:15:59  dub
+46095537d76a3a31a054defd492804d0           714  2026-10-07 04:41:03  setup
+5935ee189b5140c2166b71eb1b5eabd6          2347  2026-10-07 04:40:07  README.md
+11507867524a2443efbca6e470bacbd6         79779  2026-10-07 15:53:11  codebase_dump.txt
+
+## logs
+c0dca2a1ddad541f0630dbebf9a512eb          6957  2026-10-08 11:19:06  logs/42503442096-1-192_align.log
+e65caa7b44d59312c83c43707c16deca         84815  2026-10-08 13:23:18  logs/42503442096-1-192_asr.log
+6877f3d1fbbe789d74277c7c0bf14cfb         20651  2026-10-08 11:34:09  logs/42503442096-1-192_diarize.log
+aada81f110e9b0c9f480a802b0dfdca3         41394  2026-10-08 18:42:02  logs/42503442096-1-192_translate.log
+c5a79353523c6336a9d354c73055ffdb         71132  2026-10-08 13:11:50  logs/42503442096-1-192_tts.log
+90deeb28f48a0138b0a67649f81c50bd          2115  2026-10-07 04:40:28  logs/test_report.md
+4d3d185672fc407cfc1a014f29455f1d          2197  2026-10-07 05:13:53  logs/test_report_v3.md
+f0a1cbc2419a599998d093a601f22259          8346  2026-10-07 15:03:40  logs/v4_run.log
+
+## key artifacts (small)
+4bbaf1d6fe60803d9ef75f4d42d374c8            43  2026-10-08 13:11:50  work/_tts_rate.json
+59f7df0854bf856ff5c315cf756cbde7         85562  2026-10-07 03:15:17  work/alignment.json
+3ce585a55de4da4dc1f9fe1e4ac8ff30          3802  2026-10-07 03:12:22  work/asr.json
+cd8550b2275c356ca1f5dedcd1a11ea9           111  2026-10-07 03:03:23  work/audio_meta.json
+186d95625d266083206cb0735575a4cc           375  2026-10-07 05:22:51  work/diarization_diagnostic_2sp.json
+d7ae98fd3ad6f555950f9fcbe585b957           316  2026-10-07 05:32:37  work/diarization_diagnostic_min2.json
+3187ce040704922e655b8f9b1dea9cd0           124  2026-10-07 05:34:31  work/diarization_diagnostic_threshold040.json
+641a2a6f90e0d73c3b7086d17b4862c6           127  2026-10-07 05:25:01  work/diarization_diagnostic_threshold060.json
+7148d339a3d577b795c24d494a0b4c51           166  2026-10-08 18:41:11  work/glossary.json
+389a27928181cda768a48ab59a273d95        268357  2026-10-07 02:45:04  work/sfx_index.json
+d62ee6f13f9975818e855e616528c8a5          1000  2026-10-08 18:41:39  work/summary.json
+35adb883178aaf12476062f79889f50b        364836  2026-10-08 20:10:23  work/translated_segments.json
+0d6a87390481ac613ff340223229f03b       1036316  2026-10-08 11:19:05  work/42503442096-1-192/alignment.json
+290eb0f2fa48ffda0ec11b0f24921614           807  2026-10-08 13:11:50  work/42503442096-1-192/ambience.json
+427b788014d24ae39cc3c0123c9fbdc5         43449  2026-10-07 20:11:07  work/42503442096-1-192/asr.json
+e128379be3f839208187f961234e165d           110  2026-10-08 18:42:02  work/42503442096-1-192/audio_meta.json
+648e36f39a13e0b53c3f300926eb6e30        166070  2026-10-07 14:50:23  work/42503442096-1-192/dialogue_segments_raw.json
+c3e000e932a01d728e6ba17dea72ef52          5564  2026-10-08 11:34:09  work/42503442096-1-192/diarization.json
+7148d339a3d577b795c24d494a0b4c51           166  2026-10-08 17:35:48  work/42503442096-1-192/glossary.json
+4bbaf1d6fe60803d9ef75f4d42d374c8            43  2026-10-08 13:11:50  work/42503442096-1-192/rate.json
+08e44905ba64bf46d1c4ac335ae31c4e        231903  2026-10-08 13:23:18  work/42503442096-1-192/segments.json
+a4cd479c9f28e0f0e790e5c9d8029901            94  2026-10-08 13:11:50  work/42503442096-1-192/sfx_timeline.json
+c3e000e932a01d728e6ba17dea72ef52          5564  2026-10-08 11:34:09  work/42503442096-1-192/speakers.json
+f69fa9ea39312d824275bad591ea0d93           801  2026-10-08 18:42:02  work/42503442096-1-192/status.json
+d62ee6f13f9975818e855e616528c8a5          1000  2026-10-08 17:36:16  work/42503442096-1-192/summary.json
+b2337f914ef5ca040c990c42eb5783d4           661  2026-10-08 13:11:50  work/42503442096-1-192/timeline_validation.json
+be9b0e19e940857d3369a400cd586d30        273354  2026-10-08 18:28:56  work/42503442096-1-192/translated_segments.json
+1b65d928f4d5e733f6ff10e9b489e43a        176112  2026-10-08 13:09:31  work/42503442096-1-192/translation.json
+506ca78665b1d336423d726dedecd9a2        105753  2026-10-08 13:09:31  work/42503442096-1-192/translation_debug.json
+7fac009f5b6f3505117cac3b52e3aa29         35106  2026-10-08 13:11:50  work/42503442096-1-192/tts_manifest.json
+0e92f06fe8f986317cc1909f8dc5d296          9433  2026-10-08 13:11:50  work/42503442096-1-192/tts_resume.json
+411c19f5d9ec8be100f15793110b050e          2465  2026-10-08 13:09:31  work/42503442096-1-192/voice_mapping.json
+5189a169d44d91d3abc130bcc1367eb0          2750  2026-10-08 13:09:31  work/42503442096-1-192/voice_profiles.json

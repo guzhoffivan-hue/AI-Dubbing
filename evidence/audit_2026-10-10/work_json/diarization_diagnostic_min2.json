@@ -1,0 +1,21 @@
+{
+  "min_speakers": 2,
+  "max_speakers": 6,
+  "turns": [
+    {
+      "speaker": "SPEAKER_01",
+      "start": 0.03,
+      "end": 62.03
+    },
+    {
+      "speaker": "SPEAKER_00",
+      "start": 62.03,
+      "end": 77.98
+    },
+    {
+      "speaker": "SPEAKER_01",
+      "start": 77.98,
+      "end": 149.97
+    }
+  ]
+}

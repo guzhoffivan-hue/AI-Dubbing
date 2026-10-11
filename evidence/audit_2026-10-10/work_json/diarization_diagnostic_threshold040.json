@@ -1,0 +1,10 @@
+{
+  "threshold": 0.4,
+  "turns": [
+    {
+      "speaker": "SPEAKER_00",
+      "start": 0.03,
+      "end": 149.97
+    }
+  ]
+}

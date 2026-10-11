@@ -1,0 +1,1095 @@
+# AI-Dubbing Codebase Dump
+
+============================================================
+# FILE: config.yaml
+============================================================
+input_language: auto
+output_language: ru
+asr_model: Qwen/Qwen3-ASR-1.7B
+align_model: Qwen/Qwen3-ForcedAligner-0.6B
+translation_model: mlx-community/Qwen3-8B-4bit
+diarization_model: pyannote/speaker-diarization-3.1
+diarization_min_speakers: 2
+diarization_max_speakers: 8
+tts_backend: qwen3_mlx
+enable_diarization: true
+enable_sfx: true
+enable_ambience: true
+enable_music: false
+use_original_audio: false
+sample_rate: 48000
+test_duration_seconds: 150
+
+============================================================
+# FILE: dub
+============================================================
+#!/bin/sh
+exec "$(dirname "$0")/.venvs/asr/bin/python" "$(dirname "$0")/scripts/cli.py" dub "$@"
+
+============================================================
+# FILE: scripts/align.py
+============================================================
+#!/usr/bin/env python3
+"""Run Qwen3 ForcedAligner separately from ASR to keep memory bounded."""
+import argparse, gc, torch
+from common import ROOT, WORK, config, read_json, write_json, load_env
+
+def main():
+    p=argparse.ArgumentParser(); p.add_argument('--audio',default=str(WORK/'audio.wav')); p.add_argument('--asr',default=str(WORK/'asr.json')); p.add_argument('--output',default=str(WORK/'alignment.json')); a=p.parse_args()
+    load_env(); cfg=config(); source=read_json(a.asr); text=source['text'];
+    if not text: raise SystemExit('ASR transcript is empty')
+    from qwen_asr import Qwen3ForcedAligner
+    model=Qwen3ForcedAligner.from_pretrained(cfg.get('align_model','Qwen3-ForcedAligner-0.6B'),dtype=torch.float16,device_map='mps')
+    items=model.align(audio=a.audio,text=text,language=source['language'])[0]
+    words=[{'text':x.text,'start':float(x.start_time),'end':float(x.end_time)} for x in items]
+    del model; gc.collect()
+    if torch.backends.mps.is_available(): torch.mps.empty_cache()
+    write_json(a.output,{'model':cfg.get('align_model'),'language':source['language'],'text':text,'words':words})
+    print(f'Aligned {len(words)} tokens; saved {a.output}')
+if __name__=='__main__': main()
+
+============================================================
+# FILE: scripts/ambience.py
+============================================================
+#!/usr/bin/env python3
+"""Select restrained ambience bed candidates from the indexed local library."""
+import re
+from common import ROOT, WORK, read_json, write_json
+
+def main():
+    index=read_json(ROOT/'work'/'sfx_index.json'); files=index['files']
+    lines=read_json(WORK/'translation.json')['lines']; context=' '.join((x.get('translated_text','')+' '+x.get('source_text','')).lower() for x in lines)
+    rules={'street':['улиц','город','дорог','street','city','traffic'],'office':['офис','рабоч','office'],'restaurant':['ресторан','кафе','ужин','restaurant','bar'],'rain':['дожд','rain'],'wind':['ветер','wind'],'night':['ноч','night'],'crowd':['толп','зрител','crowd','audience'],'nature':['лес','птиц','природ','forest','birds','nature']}
+    chosen=None; matched=None
+    for category,terms in rules.items():
+        if not any(term in context for term in terms): continue
+        pool=[x for x in files if category in x['category'] and x.get('duration') and x['duration']>=30]
+        if pool: chosen=max(pool,key=lambda x:x['duration']); matched=category; break
+    # Do not guess an environment while scene analysis is unavailable.
+    write_json(WORK/'ambience.json',{'enabled':bool(chosen),'candidate':chosen,'category':matched,'volume':0.08 if chosen else 0.0,'note':'Selected only on explicit environment cues; no original ambience is used.'})
+    print('Selected ambience candidate' if chosen else 'No long ambience candidate found')
+if __name__=='__main__': main()
+
+============================================================
+# FILE: scripts/asr.py
+============================================================
+#!/usr/bin/env python3
+"""Local multilingual ASR using Qwen3-ASR-1.7B on Apple MPS."""
+import argparse, gc, torch
+from common import ROOT, WORK, config, write_json, load_env
+
+def main():
+    p=argparse.ArgumentParser(); p.add_argument('--audio',default=str(WORK/'audio.wav')); p.add_argument('--output',default=str(WORK/'asr.json')); a=p.parse_args()
+    load_env(); cfg=config(); model_id=cfg.get('asr_model','Qwen3-ASR-1.7B')
+    from qwen_asr import Qwen3ASRModel
+    model=Qwen3ASRModel.from_pretrained(model_id,dtype=torch.float16,device_map='mps',max_inference_batch_size=1,max_new_tokens=4096)
+    language=cfg.get('input_language','auto'); language=None if language.lower()=='auto' else language
+    result=model.transcribe(audio=a.audio,language=language)
+    item=result[0]; text=item.text.strip(); lang=item.language
+    del model; gc.collect();
+    if torch.backends.mps.is_available(): torch.mps.empty_cache()
+    write_json(a.output,{'model':model_id,'audio':a.audio,'language':lang,'text':text,'segments':[]})
+    print(f'ASR language={lang}; characters={len(text)}; saved {a.output}')
+if __name__=='__main__': main()
+
+============================================================
+# FILE: scripts/cli.py
+============================================================
+#!/usr/bin/env python3
+"""User-facing setup and resumable local dubbing command."""
+from __future__ import annotations
+import argparse, json, os, shutil, subprocess, sys, time, traceback
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+LOGS = ROOT / 'logs'
+
+def config():
+    try:
+        import yaml
+    except ImportError as exc:
+        raise RuntimeError('PyYAML is missing. Run ./setup to prepare the local Python environment.') from exc
+    return yaml.safe_load((ROOT/'config.yaml').read_text()) or {}
+
+def python_for(stage: str) -> Path:
+    backend=config().get('tts_backend','qwen3') if stage=='tts' else ''
+    env = 'translate' if stage=='tts' and backend=='qwen3_mlx' else {'asr':'asr','align':'asr','diarize':'asr','translate':'translate','tts':'tts'}.get(stage,'asr')
+    p=ROOT/'.venvs'/env/'bin/python'
+    if not p.exists():
+        raise RuntimeError(f'Python environment for {stage} is missing ({p}). Run ./setup.')
+    return p
+
+def run_script(script: str, stage: str, work: Path, video: Path, output_file: Path|None=None, extra=()):
+    env=os.environ.copy(); env.update(AI_DUB_WORKDIR=str(work),AI_DUB_INPUT_VIDEO=str(video),AI_DUB_OUTPUT_DIR=str(ROOT/'output'))
+    if output_file: env['AI_DUB_OUTPUT_FILE']=str(output_file)
+    cmd=[str(python_for(stage)),str(ROOT/'scripts'/script),*extra]
+    logfile=LOGS/f'{work.name}_{stage}.log'; LOGS.mkdir(exist_ok=True)
+    with logfile.open('a') as log:
+        log.write('\n\n$ '+' '.join(cmd)+'\n'); log.flush()
+        proc=subprocess.run(cmd,cwd=ROOT,env=env,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True)
+        log.write(proc.stdout or ''); log.flush()
+    if proc.returncode:
+        detail=(proc.stdout or '').strip().splitlines()
+        tail='\n'.join(detail[-12:])
+        raise RuntimeError(f'{stage} failed. Details are in {logfile}.\n{tail}')
+
+def probe_duration(video: Path) -> float:
+    try:
+        raw=subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','default=nw=1:nk=1',str(video)],text=True)
+        return float(raw.strip())
+    except Exception as exc: raise RuntimeError(f'Cannot read video metadata for {video.name}; check that FFmpeg supports this file.') from exc
+
+def check_config(cfg):
+    if cfg.get('use_original_audio', True) is not False:
+        raise RuntimeError('Safety check blocked the run: use_original_audio must be exactly false in config.yaml.')
+
+def step(work, status, key, description, action, total, done, started, durations):
+    now=time.monotonic(); elapsed=now-started
+    avg=sum(durations)/len(durations) if durations else 0
+    remaining=max(0,avg*(total-done-1)) if avg else 0
+    print(f'[{done+1}/{total}] {description} — elapsed {elapsed/60:.1f} min, estimated remaining {remaining/60:.1f} min',flush=True)
+    status[key]='running'; write_status(work,status)
+    t=time.monotonic()
+    action()
+    durations.append(time.monotonic()-t); status[key]='done'; write_status(work,status)
+
+def write_status(work,status):
+    p=work/'status.json'; p.parent.mkdir(parents=True,exist_ok=True)
+    tmp=p.with_suffix('.tmp'); tmp.write_text(json.dumps(status,ensure_ascii=False,indent=2)+'\n'); tmp.replace(p)
+
+def process(video: Path, mode='full', test_duration=150, test_start=0, test_out=None):
+    cfg=config(); check_config(cfg)
+    dur=probe_duration(video); length=min(test_duration,max(0,dur-test_start)) if mode=='test' else dur
+    if length<=0: raise RuntimeError('The selected test start is past the end of the video.')
+    import re
+    slug=re.sub(r'[^A-Za-z0-9._-]+','_',video.stem).strip('._') or 'video'
+    work=ROOT/'work'/slug; work.mkdir(parents=True,exist_ok=True)
+    outputs={'extract_audio':'audio.wav','asr':'asr.json','alignment':'alignment.json','diarization':'diarization.json','segment_merge':'dialogue_segments_raw.json','translation':'translated_segments.json','dialogue':'dialogue_segments.json','tts':'tts_manifest.json','sfx':'sfx_timeline.json','ambience':'ambience.json','mix':'mix.wav','mux':None}
+    source_stat=video.stat(); signature={'pipeline_version':5,'tts_backend':cfg.get('tts_backend'),'tts_voice_mode':'one_profile_per_diarized_speaker_v2','diarization_model':cfg.get('diarization_model'),'diarization_min_speakers':cfg.get('diarization_min_speakers',1),'diarization_max_speakers':cfg.get('diarization_max_speakers',8),'translation_model':cfg.get('translation_model'),'path':str(video.resolve()),'size':source_stat.st_size,'mtime_ns':source_stat.st_mtime_ns,'mode':mode,'start':test_start if mode=='test' else 0,'duration':length}
+    status_path=work/'status.json'; prior=json.loads(status_path.read_text()) if status_path.exists() else {}
+    if prior.get('_signature') != signature: prior={}
+    status={**{key:prior.get(key,'pending') for key in outputs},'_signature':signature}
+    write_json_file(work/'audio_meta.json',{'duration':length,'start':test_start if mode=='test' else 0,'source':str(video.resolve())})
+    write_status(work,status)
+    phases=[('extract_audio','Extracting audio',lambda:run_script('extract_audio.py','asr',work,video,extra=('--duration',str(length),'--start',str(test_start if mode=='test' else 0),'--output',str(work/'audio.wav')))),
+            ('asr','Transcribing',lambda:run_script('asr.py','asr',work,video)),
+            ('alignment','Aligning',lambda:run_script('align.py','align',work,video)),
+            ('diarization','Detecting speakers',lambda:run_script('diarize.py','diarize',work,video)),
+            ('segment_merge','Building speaker-labelled segments',lambda:run_script('merge_segments.py','asr',work,video)),
+            ('translation','Translating',lambda:run_script('translate.py','translate',work,video)),
+            ('dialogue','Adapting dialogue timing',lambda:run_script('dialogue.py','asr',work,video)),
+            ('tts','Generating Russian voices',lambda:run_script('tts.py','tts',work,video))]
+    if cfg.get('enable_sfx',True): phases.append(('sfx','Building SFX',lambda:run_script('sfx.py','asr',work,video,extra=('timeline',))))
+    else: phases.append(('sfx','Building SFX',lambda:write_json_file(work/'sfx_timeline.json',{'events':[]})))
+    if cfg.get('enable_ambience',True): phases.append(('ambience','Selecting ambience',lambda:run_script('ambience.py','asr',work,video)))
+    else: phases.append(('ambience','Selecting ambience',lambda:write_json_file(work/'ambience.json',{'enabled':False})))
+    phases.extend([('mix','Mixing audio',lambda:run_script('mix_audio.py','asr',work,video)),
+                   ('mux','Encoding output',lambda:run_script('mux.py','asr',work,video,test_out or ROOT/'output'/f'{video.stem}_ru.mp4'))])
+    total=len(phases); started=time.monotonic(); durations=[]
+    for key,label,action in phases:
+        artifact=work/outputs[key] if outputs[key] else (test_out or ROOT/'output'/f'{video.stem}_ru.mp4')
+        if status.get(key)=='done' and artifact and artifact.exists():
+            print(f'[{sum(status.get(k)=="done" for k,_,_ in phases)}/{total}] {label} — already complete, resuming',flush=True); continue
+        try: step(work,status,key,label,action,total,sum(status.get(k)=='done' for k,_,_ in phases),started,durations)
+        except Exception as exc:
+            status[key]='failed'; status['_error']=str(exc); write_status(work,status)
+            friendly=str(exc)
+            if key=='diarization' and ('HF_TOKEN' in friendly or 'token' in friendly.lower()):
+                friendly += '\nAdd a Hugging Face token with access to pyannote/speaker-diarization-3.1 to .env (HF_TOKEN=...).'
+            raise RuntimeError(f'Video: {video.name}\nStage: {label}\n{friendly}') from exc
+    status['_elapsed_seconds']=round(time.monotonic()-started,1); write_status(work,status)
+    print(f'Completed: {test_out or ROOT/"output"/f"{video.stem}_ru.mp4"}')
+
+def write_json_file(path,value):
+    path.parent.mkdir(parents=True,exist_ok=True); path.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n')
+
+def setup():
+    print('Checking local dubbing prerequisites…')
+    if sys.platform!='darwin' or not __import__('platform').machine().startswith('arm'):
+        raise RuntimeError('This setup targets Apple Silicon macOS.')
+    for tool in ('ffmpeg','ffprobe'):
+        if not shutil.which(tool):
+            brew=shutil.which('brew')
+            if not brew: raise RuntimeError(f'{tool} is missing. Install Homebrew, then rerun ./setup.')
+            print('Installing FFmpeg with Homebrew…',flush=True); subprocess.run([brew,'install','ffmpeg'],check=True)
+    cfg=config(); check_config(cfg)
+    py311=shutil.which('python3.11')
+    if not py311: raise RuntimeError('Python 3.11 is missing. Install it with `brew install python@3.11`, then rerun ./setup.')
+    ensure_env('asr',py311,('torch','qwen_asr','pyannote'),('qwen-asr','pyannote.audio>=3.1,<4','soundfile','PyYAML'))
+    ensure_env('translate',py311,('mlx_lm','mlx_audio','soundfile'),('mlx-lm','mlx-audio>=0.5.8','soundfile','PyYAML'))
+    if cfg.get('tts_backend')=='qwen3': ensure_env('tts',py311,('torch','qwen_tts','soundfile'),('qwen-tts','soundfile','PyYAML'))
+    sfx=ROOT/'work/sfx_index.json'
+    if not sfx.exists():
+        if not any((ROOT/'sfx_library').rglob('*.wav')): raise RuntimeError('Sonniss SFX library is missing or empty: sfx_library/.')
+        print('Indexing local SFX library…',flush=True)
+        run_script('sfx.py','asr',ROOT/'work'/'_setup',ROOT/'input'/'_placeholder.mp4',extra=('index','--output',str(sfx)))
+    videos=sorted(p for p in (ROOT/'input').iterdir() if p.is_file() and p.suffix.lower() in {'.mp4','.mov','.mkv','.m4v','.avi'})
+    if not videos:
+        print('SETUP COMPLETE\nNo test video found in input/. Add a short video and run ./dub --test to validate the pipeline.'); return
+    if not (os.environ.get('HF_TOKEN') or os.environ.get('HUGGINGFACE_HUB_TOKEN') or token_in_env()):
+        raise RuntimeError('Packages and local SFX index are ready, but the bounded end-to-end test cannot run: pyannote requires a Hugging Face access token. Add HF_TOKEN=… to .env after accepting the model conditions, then run ./setup again. The 8 h 58 min video was not processed.')
+    print('Running bounded 150-second setup test…',flush=True)
+    process(videos[0],mode='test',test_duration=150,test_out=ROOT/'output'/'test_dub.mp4')
+    test_output=ROOT/'output'/'test_dub.mp4'; start=(ROOT/'work'/slugify(videos[0].stem)/'audio.wav').stat().st_mtime; end=test_output.stat().st_mtime
+    test_minutes=max(0,end-start)/60; ratio=probe_duration(videos[0])/150; estimate_hours=test_minutes*ratio/60
+    print('SETUP COMPLETE\nTest output: '+str(test_output)+f'\nTest duration: 150 seconds (pipeline elapsed about {test_minutes:.1f} minutes)\nSFX indexed: '+str(json.loads(sfx.read_text()).get('audio_files','unknown'))+' files\nSelected TTS: '+cfg.get('tts_backend','not benchmarked')+' (MLX Qwen3-TTS 0.6B; runtime checked, comparison benchmark not run)'+f'\nEstimated full-video processing time: about {estimate_hours:.0f} hours by linear extrapolation\nRAM: per-process RSS observed up to about 4.4 GiB; total system peak was not measured\nProblems: no confident SFX/ambience was selected; scene-frame analysis and comparative TTS benchmark are not implemented.')
+
+def ensure_env(name,py311,modules,packages):
+    env=ROOT/'.venvs'/name; py=env/'bin'/'python'
+    if not py.exists():
+        print(f'Creating isolated Python environment: {name}',flush=True); subprocess.run([py311,'-m','venv',str(env)],check=True)
+    check='import importlib.util,sys; sys.exit(any(importlib.util.find_spec(x) is None for x in '+repr(tuple(modules))+'))'
+    if subprocess.run([str(py),'-c',check],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL).returncode:
+        print(f'Installing local dependencies for {name}…',flush=True)
+        subprocess.run([str(py),'-m','pip','install','--upgrade','pip'],check=True)
+        subprocess.run([str(py),'-m','pip','install',*packages],check=True)
+    check_result=subprocess.run([str(py),'-c',check],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+    if check_result.returncode: raise RuntimeError(f'Could not prepare Python dependencies in .venvs/{name}. See pip output and rerun ./setup.')
+
+def token_in_env():
+    p=ROOT/'.env'
+    if not p.exists(): return False
+    return any(line.strip().startswith(('HF_TOKEN=','HUGGINGFACE_HUB_TOKEN=')) and line.partition('=')[2].strip().strip('"\'') for line in p.read_text().splitlines())
+
+def slugify(name):
+    import re
+    return re.sub(r'[^A-Za-z0-9._-]+','_',name).strip('._') or 'video'
+
+def main():
+    ap=argparse.ArgumentParser(prog='dub',description='Local Russian video dubbing')
+    sub=ap.add_subparsers(dest='command',required=True)
+    sub.add_parser('setup')
+    d=sub.add_parser('dub'); d.add_argument('--test',action='store_true',help='process only a 150-second sample'); d.add_argument('--start',type=float,default=0); d.add_argument('--duration',type=float,default=150)
+    a=ap.parse_args()
+    try:
+        if a.command=='setup': setup(); return 0
+        cfg=config(); check_config(cfg)
+        videos=sorted(p for p in (ROOT/'input').iterdir() if p.is_file() and p.suffix.lower() in {'.mp4','.mov','.mkv','.m4v','.avi'})
+        if not videos: raise RuntimeError('No supported video files found in input/. Put a video there and run ./dub again.')
+        if not shutil.which('ffmpeg') or not shutil.which('ffprobe'): raise RuntimeError('FFmpeg is missing. Run ./setup or install it with `brew install ffmpeg`.')
+        for i,video in enumerate(videos,1):
+            print(f'\nVideo {i}/{len(videos)}: {video.name}',flush=True)
+            test_out=ROOT/'output'/'test_dub.mp4' if a.test and len(videos)==1 else None
+            process(video,mode='test' if a.test else 'full',test_duration=a.duration,test_start=a.start,test_out=test_out)
+        return 0
+    except KeyboardInterrupt:
+        print('\nStopped by user. Completed stages are saved and ./dub can resume.',file=sys.stderr); return 130
+    except Exception as exc:
+        print(f'\nERROR: {exc}',file=sys.stderr); return 1
+if __name__=='__main__': raise SystemExit(main())
+
+============================================================
+# FILE: scripts/common.py
+============================================================
+"""Shared project paths, configuration, and safe JSON helpers."""
+from __future__ import annotations
+import json, os
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+WORK = Path(os.environ.get('AI_DUB_WORKDIR', ROOT / 'work')).resolve()
+INPUT_VIDEO = Path(os.environ.get('AI_DUB_INPUT_VIDEO', '')).resolve() if os.environ.get('AI_DUB_INPUT_VIDEO') else None
+OUTPUT_DIR = Path(os.environ.get('AI_DUB_OUTPUT_DIR', ROOT / 'output')).resolve()
+
+def load_env():
+    path = ROOT / '.env'
+    if not path.exists():
+        return
+    for line in path.read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith('#') or '=' not in line:
+            continue
+        key, value = line.split('=', 1)
+        os.environ.setdefault(key.strip(), value.strip().strip('"\''))
+
+def config():
+    import yaml
+    return yaml.safe_load((ROOT / 'config.yaml').read_text())
+
+def read_json(path):
+    return json.loads(Path(path).read_text())
+
+def write_json(path, value):
+    path = Path(path); path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(path.suffix + '.tmp')
+    tmp.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n')
+    tmp.replace(path)
+
+def speech_rate(default=14.0):
+    import json
+    for p in (WORK/'rate.json', WORK.parent/'_tts_rate.json'):
+        try: return float(json.load(open(p))['chars_per_second'])
+        except Exception: pass
+    return default
+
+============================================================
+# FILE: scripts/diag.py
+============================================================
+#!/usr/bin/env python3
+"""Универсальная диагностика: спикеры, голоса, пол по репликам, реальная скорость TTS. Берёт самую свежую work-папку."""
+import json, sys, collections, pathlib, numpy as np
+import soundfile as sf, librosa
+root=pathlib.Path(__file__).resolve().parent.parent
+W=pathlib.Path(sys.argv[1]) if len(sys.argv)>1 else max([p for p in (root/'work').iterdir() if p.is_dir() and (p/'translated_segments.json').exists()],key=lambda p:p.stat().st_mtime)
+print('work:',W.name)
+L=json.load(open(W/'translated_segments.json'))['lines']; dur=collections.defaultdict(float); cnt=collections.Counter()
+y,sr=librosa.load(str(W/'audio.wav'),sr=16000); f0s=collections.defaultdict(list)
+for l in L:
+    s=l['speaker_id']; cnt[s]+=1; dur[s]+=l['end']-l['start']
+    seg=y[int(l['start']*sr):int(l['end']*sr)]
+    if len(seg)>=sr*0.8:
+        f,_,_=librosa.pyin(seg,fmin=70,fmax=400,sr=sr); v=f[~np.isnan(f)]
+        if len(v)>10: f0s[s].append(float(np.median(v)))
+tot=sum(dur.values())
+for s in sorted(cnt):
+    a=np.array(f0s[s]) if f0s[s] else np.array([np.nan])
+    print(f"{s}: {cnt[s]} реплик, {dur[s]:.0f}s ({100*dur[s]/tot:.0f}% речи), f0 по репликам: медиана={np.nanmedian(a):.0f}Hz IQR={np.nanpercentile(a,25):.0f}-{np.nanpercentile(a,75):.0f} n={len(f0s[s])}")
+vp=json.load(open(W/'voice_profiles.json')); print('voice mapping:',vp['speaker_to_voice'],{k:v['voice_type'] for k,v in vp['profiles'].items()})
+try:
+    M=json.load(open(W/'tts_manifest.json'))['lines']; by={l['segment_id']:l for l in L}; r=[]
+    for m in M:
+        t=by[m['segment_id']]['translated_text']; d=sf.info(m['path']).duration
+        if d>0.8: r.append(len(t)/d)
+    print(f"реальная скорость TTS: медиана={np.median(r):.1f} симв/с, p10={np.percentile(r,10):.1f}, p90={np.percentile(r,90):.1f} (n={len(r)})")
+except Exception as e: print('tts calibration skipped:',e)
+
+============================================================
+# FILE: scripts/dialogue.py
+============================================================
+#!/usr/bin/env python3
+"""Apply per-segment speech budgets before TTS, preserving source start times."""
+from common import WORK, read_json, write_json, speech_rate
+
+def main():
+    data=read_json(WORK/'translated_segments.json'); lines=sorted(data['lines'],key=lambda x:(float(x['start']),float(x['end']))); out=[]
+    for i,line in enumerate(lines):
+        start=float(line['start']); end=float(line['end']); allow=bool(line.get('overlap_confirmed'))
+        if i+1<len(lines) and not allow:
+            # Reserve the interval up to the next non-overlapping source line.
+            available_end=max(start+.15,float(lines[i+1]['start']))
+        else: available_end=max(start+.15,end)
+        available=max(.15,available_end-start)
+        text=line['translated_text'].strip(); estimated=len(text)/speech_rate()
+        speed=round(max(1.0,estimated/available),2)
+        out.append({**line,'start':start,'end':end,'speaker_id':line.get('speaker_id',line.get('speaker','UNKNOWN')),'voice_id':None,'available_end':round(available_end,3),'available_duration':round(available,3),'tts_speed':speed,'overlap_confirmed':allow})
+    result={'lines':out,'timing_policy':'source start preserved; available duration ends at next line start unless diarization confirms simultaneous speakers'}
+    write_json(WORK/'dialogue.json',result); write_json(WORK/'dialogue_segments.json',result)
+    print(f'Prepared {len(out)} dialogue segments with non-overlap speech budgets',flush=True)
+    for x in out: print(f"{x['segment_id']} {x['start']:.2f}-{x['available_end']:.2f} speaker={x['speaker_id']} overlap={x['overlap_confirmed']} budget={x['available_duration']:.2f}s",flush=True)
+if __name__=='__main__': main()
+
+============================================================
+# FILE: scripts/diarize.py
+============================================================
+#!/usr/bin/env python3
+"""Run audio-only pyannote diarization independently of ASR and alignment."""
+import argparse, gc, json, os, torch
+from pathlib import Path
+from common import ROOT, WORK, config, write_json, load_env
+
+def main():
+    cfg=config(); p=argparse.ArgumentParser()
+    p.add_argument('--audio',default=str(WORK/'audio.wav'))
+    p.add_argument('--output',default=str(WORK/'diarization.json'))
+    a=p.parse_args(); load_env(); token=os.environ.get('HF_TOKEN') or os.environ.get('HUGGINGFACE_HUB_TOKEN')
+    if not token: raise SystemExit('HF_TOKEN is required for the accepted gated pyannote model')
+    model_id=cfg.get('diarization_model','pyannote/speaker-diarization-3.1')
+    from pyannote.audio import Pipeline
+    from pyannote.audio.core.task import Problem, Resolution, Specifications
+    if hasattr(torch.serialization,'add_safe_globals'):
+        torch.serialization.add_safe_globals([torch.torch_version.TorchVersion, Specifications, Problem, Resolution])
+    try: pipeline=Pipeline.from_pretrained(model_id,token=token)
+    except TypeError as exc:
+        if 'unexpected keyword argument' not in str(exc): raise
+        pipeline=Pipeline.from_pretrained(model_id,use_auth_token=token)
+    min_speakers=int(cfg.get('diarization_min_speakers',1)); max_speakers=int(cfg.get('diarization_max_speakers',8))
+    # Pass a justified lower bound instead of forcing an exact speaker count.
+    try: raw=pipeline(a.audio,min_speakers=min_speakers,max_speakers=max_speakers,return_embeddings=True)
+    except TypeError: raw=pipeline(a.audio,min_speakers=min_speakers,max_speakers=max_speakers)
+    if isinstance(raw,tuple): raw,emb=raw
+    else: emb=getattr(raw,'speaker_embeddings',None)
+    annotation=getattr(raw,'speaker_diarization',raw)
+    raw_turns=[]
+    for turn,_,speaker in annotation.itertracks(yield_label=True):
+        raw_turns.append({'raw_speaker':str(speaker),'start':float(turn.start),'end':float(turn.end)})
+    first_seen={}
+    for turn in raw_turns: first_seen[turn['raw_speaker']]=min(first_seen.get(turn['raw_speaker'],turn['start']),turn['start'])
+    ordered=sorted(first_seen,key=first_seen.get)
+    speaker_map={raw_id:f'SPEAKER_{i:02d}' for i,raw_id in enumerate(ordered)}
+    turns=sorted([{'speaker_id':speaker_map[t['raw_speaker']],'start':t['start'],'end':t['end'],'confidence':'not_calibrated_by_pyannote_3_1'} for t in raw_turns],key=lambda x:(x['start'],x['end']))
+    speakers=[speaker_map[s] for s in ordered]
+    sim=None; merged={}
+    try:
+        import numpy as np
+        labels=[speaker_map[l] for l in annotation.labels()]; E=np.asarray(emb,dtype=float)
+        E=E/np.linalg.norm(E,axis=1,keepdims=True); S=E@E.T
+        sim={'labels':labels,'cosine':np.round(S,3).tolist()}
+        thr=cfg.get('diarization_merge_cosine')
+        if thr is not None:
+            for i,la in enumerate(sorted(labels)):
+                for lb in sorted(labels)[:i]:
+                    if lb not in merged and S[labels.index(la),labels.index(lb)]>=float(thr): merged[la]=lb; break
+    except Exception as exc: sim={'unavailable':f'{type(exc).__name__}: {exc}'}
+    if merged:
+        for t in turns: t['speaker_id']=merged.get(t['speaker_id'],t['speaker_id'])
+        speakers=[s for s in speakers if s not in merged]; print('MERGED speakers:',merged,flush=True)
+    overlap_intervals=[]
+    for i,left in enumerate(turns):
+        for right in turns[i+1:]:
+            start=max(left['start'],right['start']); end=min(left['end'],right['end'])
+            if end-start>=.05 and left['speaker_id']!=right['speaker_id']:
+                overlap_intervals.append({'start':start,'end':end,'speaker_ids':[left['speaker_id'],right['speaker_id']]})
+    voice_types={}
+    try:
+        import librosa, numpy as np
+        audio,sr=librosa.load(a.audio,sr=16000,mono=True)
+        for speaker_id in speakers:
+            f0_parts=[]; voiced_seconds=0.0
+            for turn in [t for t in turns if t['speaker_id']==speaker_id]:
+                clip=audio[max(0,int(turn['start']*sr)):min(len(audio),int(turn['end']*sr))]
+                if len(clip)<int(.8*sr): continue
+                f0,_,prob=librosa.pyin(clip,fmin=60,fmax=400,sr=sr,frame_length=1024,hop_length=256,fill_na=np.nan)
+                good=f0[np.isfinite(f0)&(prob>=.55)]
+                if len(good): f0_parts.extend(good.tolist()); voiced_seconds+=len(good)*256/sr
+            if f0_parts:
+                values=np.asarray(f0_parts); median=float(np.median(values)); q25=float(np.percentile(values,25)); q75=float(np.percentile(values,75))
+                female_share=float(np.mean(values>=165)); male_share=float(np.mean(values<=165))
+            else: median=q25=q75=0.0; female_share=male_share=0.0
+            if voiced_seconds>=1.5 and median>=185 and q25>=165 and female_share>=.7: label='female'; confidence='high' if voiced_seconds>=3 else 'medium'
+            elif voiced_seconds>=1.5 and median<=150 and q75<=175 and male_share>=.7: label='male'; confidence='high' if voiced_seconds>=3 else 'medium'
+            else: label='unknown'; confidence='low'
+            voice_types[speaker_id]={'voice_type':label,'confidence':confidence,'f0_median_hz':round(median,1) if median else None,'f0_q25_hz':round(q25,1) if q25 else None,'f0_q75_hz':round(q75,1) if q75 else None,'voiced_seconds':round(voiced_seconds,2),'method':'conservative pYIN acoustic heuristic; ambiguous or short samples are unknown'}
+    except Exception as exc:
+        voice_types={s:{'voice_type':'unknown','confidence':'low','method':f'acoustic F0 estimate unavailable: {type(exc).__name__}'} for s in speakers}
+    uncertain=[t for t in turns if t['end']-t['start']<.75]
+    result={'model':model_id,'speaker_count_bounds':{'min_speakers':min_speakers,'max_speakers':max_speakers,'exact_count_forced':False},'speaker_map':speaker_map,'speaker_ids':speakers,'speaker_count':len(speakers),'turns':turns,'overlap_intervals':overlap_intervals,'uncertain_turns':[{'speaker_id':t['speaker_id'],'start':t['start'],'end':t['end'],'reason':'shorter_than_0.75_seconds'} for t in uncertain],'voice_types':voice_types,'speaker_similarity':sim,'merged_speakers':merged}
+    del pipeline, raw, annotation; gc.collect()
+    if torch.backends.mps.is_available(): torch.mps.empty_cache()
+    write_json(a.output,result); write_json(WORK/'speakers.json',result)
+    if len(speakers)<min_speakers: print(f'WARNING: diarization returned only {len(speakers)} speakers (minimum requested {min_speakers}); count constraint could not be met.',flush=True)
+    if uncertain: print(f'WARNING: {len(uncertain)} diarization turns are shorter than 0.75 seconds.',flush=True)
+    print(f'Diarization model={model_id}; bounds={min_speakers}..{max_speakers}; detected={len(speakers)}; turns={len(turns)}; confirmed_overlap_intervals={len(overlap_intervals)}',flush=True)
+    for speaker_id in speakers: print(f'{speaker_id}: voice_type={voice_types.get(speaker_id,{}).get("voice_type","unknown")} confidence={voice_types.get(speaker_id,{}).get("confidence","low")}',flush=True)
+if __name__=='__main__': main()
+
+============================================================
+# FILE: scripts/extract_audio.py
+============================================================
+#!/usr/bin/env python3
+"""Extract a short mono 16 kHz work segment; never used as final audio."""
+import argparse, subprocess
+from pathlib import Path
+from common import ROOT, WORK, INPUT_VIDEO, config
+
+def main():
+    ap=argparse.ArgumentParser(); ap.add_argument('--input',type=Path); ap.add_argument('--duration',type=float); ap.add_argument('--start',type=float,default=0); ap.add_argument('--output',type=Path,default=WORK/'audio.wav'); a=ap.parse_args()
+    cfg=config(); source=a.input or INPUT_VIDEO or next((ROOT/'input').glob('*.mp4'),None)
+    if source is None or not source.exists(): raise SystemExit('No MP4 found under input/')
+    duration=a.duration or cfg.get('test_duration_seconds',150)
+    a.output.parent.mkdir(parents=True,exist_ok=True)
+    cmd=['ffmpeg','-hide_banner','-loglevel','error','-y','-ss',str(a.start),'-i',str(source),'-t',str(duration),'-vn','-ac','1','-ar','16000','-c:a','pcm_s16le',str(a.output)]
+    subprocess.run(cmd,check=True)
+    print(f'Extracted {duration:.1f}s source audio to {a.output}')
+if __name__=='__main__': main()
+
+============================================================
+# FILE: scripts/fit_tts.py
+============================================================
+#!/usr/bin/env python3
+"""Fit TTS lines into their slots: atempo up to 1.2x, then trim+fade. Idempotent (reads tts_manifest.orig.json)."""
+import shutil, subprocess
+import soundfile as sf
+from common import WORK, read_json, write_json
+MAXT=1.7; GAP=0.05
+def main():
+    mf=WORK/'tts_manifest.json'; bak=WORK/'tts_manifest.orig.json'
+    if not bak.exists() or not any('fit_tempo' in l for l in read_json(mf)['lines']): shutil.copy(mf,bak)
+    data=read_json(bak); lines=data['lines']; out=WORK/'tts_fit'; out.mkdir(exist_ok=True)
+    order=sorted(range(len(lines)),key=lambda i:float(lines[i]['start'])); sped=trimmed=0
+    for k,i in enumerate(order):
+        l=lines[i]; s=float(l['start'])
+        e=float(l['end']) if 'end' in l else s+float(l.get('target_duration_seconds',0) or 0)
+        if k+1<len(order): e=min(e,float(lines[order[k+1]]['start'])-GAP)
+        slot=max(e-s,0.3); dur=sf.info(l['path']).duration
+        if dur<=slot+0.02: continue
+        tempo=min(dur/slot,MAXT); af=f'atempo={tempo:.4f}'
+        if dur/tempo>slot: af+=f',atrim=0:{slot:.3f},afade=t=out:st={max(slot-0.08,0):.3f}:d=0.08'; trimmed+=1
+        dst=out/f'{i:04d}.wav'
+        subprocess.run(['ffmpeg','-y','-v','error','-i',l['path'],'-af',af,'-c:a','pcm_s16le',str(dst)],check=True)
+        l['path']=str(dst); l['fit_tempo']=round(tempo,3); sped+=1
+        print(f"fit {l.get('segment_id',i)}: {dur:.2f}s -> slot {slot:.2f}s tempo={tempo:.2f}"+(' TRIMMED' if dur/tempo>slot else ''),flush=True)
+    write_json(mf,data); print(f'fit_tts: sped={sped} (of which trimmed={trimmed}) of {len(lines)}',flush=True)
+if __name__=='__main__': main()
+
+============================================================
+# FILE: scripts/merge_segments.py
+============================================================
+#!/usr/bin/env python3
+"""Join aligned ASR characters to the independent speaker timeline."""
+import json, unicodedata
+from common import WORK, read_json, write_json
+
+SENTENCE_END=set('。！？.!?')
+CLAUSE_END=set('，、；：,;:')
+MIN_SEG=2.5  # секунд: минимальный слот для связной реплики
+
+def attach_punctuation(asr_text, aligned_words):
+    clean=''.join(c for c in asr_text if not c.isspace() and not unicodedata.category(c).startswith('P'))
+    aligned=''.join(w['text'] for w in aligned_words)
+    if clean!=aligned:
+        raise RuntimeError(f'ASR/aligner character sequences differ (ASR={len(clean)}, aligner={len(aligned)}); refusing to assign wrong timestamps.')
+    punctuation=['' for _ in aligned_words]; cursor=0
+    for char in asr_text:
+        if char.isspace(): continue
+        if unicodedata.category(char).startswith('P'):
+            if cursor: punctuation[cursor-1]+=char
+        else: cursor+=1
+    return [{**w,'text':w['text']+punctuation[i],'punctuation_after':punctuation[i]} for i,w in enumerate(aligned_words)]
+
+def label_words(words, turns):
+    labeled=[]
+    for word in words:
+        spans={}
+        if float(word['end'])<=float(word['start'])+1e-6:
+            point=float(word['start'])
+            for turn in turns:
+                if turn['start']-1e-6<=point<=turn['end']+1e-6:
+                    spans[turn['speaker_id']]=spans.get(turn['speaker_id'],0.0)+.01
+        for turn in turns:
+            amount=max(0.0,min(word['end'],turn['end'])-max(word['start'],turn['start']))
+            if amount>0: spans[turn['speaker_id']]=spans.get(turn['speaker_id'],0.0)+amount
+        if not spans:
+            labeled.append({**word,'speaker_id':'UNKNOWN','speaker_confidence':'none','overlap_speaker_ids':[],'overlap_confirmed':False})
+            continue
+        sorted_spans=sorted(spans.items(),key=lambda x:x[1],reverse=True)
+        total=sum(v for _,v in sorted_spans); winner,amount=sorted_spans[0]
+        confidence=amount/max(total,1e-9)
+        overlap=[s for s,v in sorted_spans if s!=winner and v>=.05]
+        labeled.append({**word,'speaker_id':winner,'speaker_confidence':'high' if confidence>=.8 else 'medium' if confidence>=.6 else 'low','speaker_overlap_ratio':round(confidence,3),'overlap_speaker_ids':overlap,'overlap_confirmed':bool(overlap)})
+    return labeled
+
+def group_words(words, voice_types):
+    groups=[]; current=[]
+    def flush():
+        if not current: return
+        first,last=current[0],current[-1]; speaker=first['speaker_id']
+        overlaps=sorted({s for w in current for s in w.get('overlap_speaker_ids',[])})
+        groups.append({'segment_id':f'SEG_{len(groups):04d}','start':float(first['start']),'end':float(last['end']),'speaker_id':speaker,'voice_type':voice_types.get(speaker,{}).get('voice_type','unknown'),'speaker_confidence':'low' if any(w['speaker_confidence']=='low' for w in current) else 'medium' if any(w['speaker_confidence']=='medium' for w in current) else first['speaker_confidence'],'source_text':''.join(w['text'] for w in current),'source_words':[{'text':w['text'],'start':w['start'],'end':w['end']} for w in current],'overlap_speaker_ids':overlaps,'overlap_confirmed':bool(overlaps),'voice_id':None,'translated_text':''})
+        current.clear()
+    for word in words:
+        if not current: current.append(word); continue
+        prev=current[-1]; elapsed=word['end']-current[0]['start']; gap=word['start']-prev['end']
+        same_speaker=word['speaker_id']==current[0]['speaker_id']
+        terminal=prev['punctuation_after'] and any(c in prev['punctuation_after'] for c in SENTENCE_END)
+        comma=prev['punctuation_after'] and any(c in prev['punctuation_after'] for c in CLAUSE_END)
+        if not same_speaker or gap>.55 or (terminal and prev['end']-current[0]['start']>=MIN_SEG) or (elapsed>=8.0 and comma) or elapsed>=11.0:
+            flush()
+        current.append(word)
+    flush()
+    return groups
+
+def main():
+    asr=read_json(WORK/'asr.json'); alignment=read_json(WORK/'alignment.json'); diarization=read_json(WORK/'diarization.json')
+    words=attach_punctuation(asr['text'],alignment['words'])
+    words=label_words(words,diarization['turns'])
+    lines=group_words(words,diarization.get('voice_types',{}))
+    unknown=sum(1 for w in words if w['speaker_id']=='UNKNOWN')
+    low=sum(1 for w in words if w['speaker_confidence']=='low')
+    result={'source':'alignment.json words joined to diarization.json turns by maximum temporal intersection','speaker_count':diarization['speaker_count'],'word_count':len(words),'unknown_word_count':unknown,'low_confidence_word_count':low,'lines':lines}
+    write_json(WORK/'dialogue_segments_raw.json',result)
+    print(f'Built {len(lines)} speaker-labelled segments from {len(words)} aligned characters; unknown words={unknown}; low-confidence words={low}',flush=True)
+    for line in lines: print(f"{line['segment_id']} {line['start']:.2f}-{line['end']:.2f} speaker={line['speaker_id']} conf={line['speaker_confidence']} {line['source_text'][:54]}",flush=True)
+if __name__=='__main__': main()
+
+============================================================
+# FILE: scripts/mix_audio.py
+============================================================
+#!/usr/bin/env python3
+"""Mix generated speech, selected library effects, and optional ambience."""
+import json, subprocess
+from pathlib import Path
+import soundfile as sf
+from common import ROOT, WORK, read_json, write_json
+
+def run(cmd): subprocess.run(cmd,check=True)
+def main():
+    import fit_tts; fit_tts.main()
+    duration=float(read_json(WORK/'audio_meta.json')['duration']); manifest=read_json(WORK/'tts_manifest.json')['lines']
+    intervals=[]; confirmed=[]; incorrect=[]
+    for line in manifest:
+        audio_duration=sf.info(line['path']).duration
+        intervals.append((float(line['start']),float(line['start'])+audio_duration,line))
+    for i,(start_a,end_a,a) in enumerate(intervals):
+        for start_b,end_b,b in intervals[i+1:]:
+            overlap=max(0.0,min(end_a,end_b)-max(start_a,start_b))
+            if overlap<=.02: continue
+            a_confirms=bool(a.get('overlap_confirmed')) and b.get('speaker_id') in a.get('overlap_speaker_ids',[])
+            b_confirms=bool(b.get('overlap_confirmed')) and a.get('speaker_id') in b.get('overlap_speaker_ids',[])
+            if a_confirms and b_confirms: confirmed.append({'segments':[a.get('segment_id'),b.get('segment_id')],'speaker_ids':[a.get('speaker_id'),b.get('speaker_id')],'overlap_seconds':round(overlap,3)})
+            else: incorrect.append({'segments':[a.get('segment_id'),b.get('segment_id')],'speaker_ids':[a.get('speaker_id'),b.get('speaker_id')],'overlap_seconds':round(overlap,3)})
+    write_json(WORK/'timeline_validation.json',{'incorrect_overlaps':incorrect,'diarization_confirmed_overlaps':confirmed,'tts_segment_count':len(intervals)})
+    if incorrect:
+        detail='; '.join(f"{x['segments'][0]}↔{x['segments'][1]} {x['overlap_seconds']:.2f}s" for x in incorrect)
+        raise RuntimeError(f'Unsafe TTS overlap remains before mixing: {detail}')
+    print(f'TTS timeline check: incorrect overlaps=0; diarization-confirmed overlaps={len(confirmed)}',flush=True)
+    fx=read_json(WORK/'sfx_timeline.json').get('events',[]); amb=read_json(WORK/'ambience.json')
+    inputs=[]; filters=[]; labels=[]
+    for i,line in enumerate(manifest):
+        inputs+=['-i',line['path']]
+        delay=max(0,int(float(line['start'])*1000)); label=f'v{i}'
+        filters.append(f'[{i}:a]aresample=48000,volume=1.0,adelay={delay}|{delay}[{label}]'); labels.append(f'[{label}]')
+    for j,event in enumerate(fx):
+        idx=len(manifest)+j; inputs+=['-i',event['path']]; label=f'f{j}'; delay=max(0,int(event['start']*1000))
+        filters.append(f'[{idx}:a]aresample=48000,volume={event.get("volume",0.18)},adelay={delay}|{delay}[{label}]'); labels.append(f'[{label}]')
+    if amb.get('enabled'):
+        candidate=amb['candidate']; path=ROOT/candidate['path']
+        inputs+=['-stream_loop','-1','-i',str(path)]; idx=len(manifest)+len(fx); filters.append(f'[{idx}:a]aresample=48000,volume={amb["volume"]},atrim=0:{duration}[amb]'); labels.append('[amb]')
+    if not labels: raise SystemExit('No generated audio to mix')
+    filters.append(''.join(labels)+f'amix=inputs={len(labels)}:duration=longest:normalize=0,alimiter=limit=0.95,apad,atrim=0:{duration}[out]')
+    out=WORK/'mix.wav'; run(['ffmpeg','-y','-v','error',*inputs,'-filter_complex',';'.join(filters),'-map','[out]','-ar','48000','-ac','2','-c:a','pcm_s16le',str(out)])
+    print(f'Mixed audio: {out}')
+if __name__=='__main__': main()
+
+============================================================
+# FILE: scripts/mux.py
+============================================================
+#!/usr/bin/env python3
+"""Mux video frames with only the newly generated Russian audio."""
+import subprocess
+from pathlib import Path
+from common import ROOT, WORK, INPUT_VIDEO, OUTPUT_DIR, config
+
+def main():
+    if config().get('use_original_audio',True): raise SystemExit('Safety check: original audio must remain disabled')
+    src=INPUT_VIDEO or next((ROOT/'input').glob('*.mp4')); audio=WORK/'mix.wav'; out=Path(__import__('os').environ.get('AI_DUB_OUTPUT_FILE', OUTPUT_DIR/'test_dub.mp4')); out.parent.mkdir(parents=True,exist_ok=True)
+    subprocess.run(['ffmpeg','-y','-v','error','-i',str(src),'-i',str(audio),'-map','0:v:0','-map','1:a:0','-c:v','copy','-c:a','aac','-b:a','192k','-shortest','-movflags','+faststart',str(out)],check=True)
+    print(f'Created {out}')
+if __name__=='__main__': main()
+
+============================================================
+# FILE: scripts/pipeline.py
+============================================================
+#!/usr/bin/env python3
+"""Run a bounded local dubbing test; full-length processing needs explicit opt-in."""
+import argparse, json, os, subprocess, sys, time
+from pathlib import Path
+from common import ROOT, config, write_json, load_env
+
+def run(script, env, *args):
+    python=ROOT/'.venvs'/env/'bin/python'
+    cmd=[str(python),str(ROOT/'scripts'/script),*args]
+    print('\n>>> '+script,flush=True)
+    subprocess.run(cmd,cwd=ROOT,check=True,env=os.environ.copy())
+
+def main():
+    p=argparse.ArgumentParser(description=__doc__); sub=p.add_subparsers(dest='mode',required=True)
+    t=sub.add_parser('test'); t.add_argument('--duration',type=float,default=None); t.add_argument('--start',type=float,default=0)
+    sub.add_parser('resume'); full=sub.add_parser('full'); full.add_argument('--confirm-full-length',action='store_true')
+    a=p.parse_args(); load_env(); cfg=config()
+    if cfg.get('use_original_audio',True): raise SystemExit('Safety check failed: config.yaml must keep use_original_audio: false')
+    source=next((ROOT/'input').glob('*.mp4'),None)
+    if source is None: raise SystemExit('No input MP4 found')
+    probe=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','json',str(source)],text=True))
+    total=float(probe['format']['duration'])
+    if a.mode=='full' and not a.confirm_full_length: raise SystemExit('Full run blocked. User requested only a short test; do not confirm without a separate explicit request.')
+    duration=(a.duration or cfg.get('test_duration_seconds',150)) if a.mode!='full' else total
+    start=0 if a.mode=='full' else a.start
+    if duration>300 and a.mode!='full': raise SystemExit('Test duration is limited to 300 seconds')
+    if a.mode=='full' and total>300: raise SystemExit('Full processing has not been explicitly authorized; use test or resume')
+    t0=time.monotonic()
+    subprocess.run([sys.executable,str(ROOT/'scripts/extract_audio.py'),'--input',str(source),'--duration',str(duration),'--start',str(start)],cwd=ROOT,check=True)
+    write_json(ROOT/'work/audio_meta.json',{'duration':duration,'start':start,'source':str(source)})
+    run('asr.py','asr'); run('align.py','asr'); run('diarize.py','asr'); run('translate.py','translate'); run('dialogue.py','tts'); run('tts.py','tts')
+    if cfg.get('enable_sfx'): run('sfx.py','asr','timeline')
+    else: write_json(ROOT/'work/sfx_timeline.json',{'events':[]})
+    if cfg.get('enable_ambience'): run('ambience.py','asr')
+    else: write_json(ROOT/'work/ambience.json',{'enabled':False})
+    run('mix_audio.py','asr'); run('mux.py','asr')
+    elapsed=time.monotonic()-t0
+    write_json(ROOT/'work/pipeline_stats.json',{'duration':duration,'start':start,'elapsed_seconds':elapsed,'source_duration_seconds':total})
+    print(f'Pipeline complete in {elapsed:.1f}s')
+if __name__=='__main__': main()
+
+============================================================
+# FILE: scripts/sfx.py
+============================================================
+#!/usr/bin/env python3
+"""Offline Sonniss library scanner and filename-based sound search."""
+from __future__ import annotations
+import argparse, json, re, subprocess, os
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+WORK = Path(os.environ.get('AI_DUB_WORKDIR', ROOT / 'work')).resolve()
+AUDIO_EXTS = {'.wav', '.wave', '.aif', '.aiff', '.flac', '.mp3', '.m4a', '.ogg', '.opus', '.caf'}
+RULES = {
+ 'footsteps':['footstep','steps','walking','walk','run','running','flip flop'],
+ 'doors':['door','hinge','lock','latch'], 'clothing':['cloth','clothing','fabric','shirt','jacket','velcro'],
+ 'objects':['drop','pickup','handling','object','case','bag'], 'kitchen':['kitchen','cup','glass clink','plate','cutlery','cooking'],
+ 'phones':['phone','telephone','ringtone','mobile'], 'electronics':['electronic','electric','machine','alarm','ui','interface','radio','computer'],
+ 'vehicles':['vehicle','car','truck','train','motorcycle','engine','pass-by','traffic','commute'],
+ 'impacts':['impact','hit','punch','slam','bang','boom','crash','collision'], 'water':['water','rain','liquid','drip','splash','river','pool'],
+ 'paper':['paper','book','page','card','scratch card'], 'wood':['wood','wooden','timber'], 'metal':['metal','iron','steel','metallic'],
+ 'glass':['glass','crystal'], 'nature':['forest','bird','animal','nature','wind','leaves','cricket','campfire'],
+ 'weather':['weather','storm','thunder','wind','rain','fireworks'], 'room_tone':['room tone','roomtone','interior ambience','fridge hum','office'],
+ 'street':['street','urban','city','traffic','public spaces'], 'crowd':['crowd','walla','voices','audience','match','restaurant','bar'],
+ 'movement':['movement','foley','climb','run','swing','swoosh','whoosh','rush','pass by'], 'ambience':['ambience','ambient','atmosphere','environment','interior','exterior'],
+ 'weapons':['weapon','sword','gun','melee','rifle','blade'], 'creatures':['creature','monster','dinosaur','beast','growl'],
+ 'music_like':['musical','music box','drone','saxophone','horn'], 'designed':['designed','cinematic','transition','sci-fi','magic','glitch']
+}
+def classify(path: Path):
+    text = re.sub(r'[_-]+', ' ', (path.parent.name + ' ' + path.stem).lower())
+    cats = [c for c, words in RULES.items() if any(w in text for w in words)]
+    if not cats: cats = ['uncategorized']
+    tags = sorted(set(re.findall(r'[a-z0-9]+', text)))
+    return cats, tags
+
+def probe(path: Path):
+    cmd=['ffprobe','-v','error','-select_streams','a:0','-show_entries','stream=codec_name,sample_rate,channels,channel_layout,bits_per_sample:format=duration,size','-of','json',str(path)]
+    try:
+        data=json.loads(subprocess.check_output(cmd,stderr=subprocess.DEVNULL,text=True))
+        stream=(data.get('streams') or [{}])[0]; fmt=data.get('format',{})
+        duration=float(fmt['duration']) if fmt.get('duration') else None
+        return {'duration':duration,'sample_rate':int(stream['sample_rate']) if stream.get('sample_rate') else None,
+                'channels':stream.get('channels'),'channel_layout':stream.get('channel_layout'),
+                'codec':stream.get('codec_name'),'bits_per_sample':stream.get('bits_per_sample'),
+                'size_bytes':int(fmt['size']) if fmt.get('size') else path.stat().st_size}
+    except Exception as e:
+        return {'duration':None,'sample_rate':None,'channels':None,'channel_layout':None,'codec':None,'bits_per_sample':None,'size_bytes':path.stat().st_size,'probe_error':str(e)}
+
+def build_index(root: Path, output: Path):
+    files=sorted(p for p in root.rglob('*') if p.is_file() and p.suffix.lower() in AUDIO_EXTS)
+    rows=[]; failures=0
+    for i,p in enumerate(files,1):
+        cats,tags=classify(p); info=probe(p)
+        if info.get('probe_error'): failures+=1
+        rows.append({'path':p.relative_to(ROOT).as_posix() if str(p).startswith(str(ROOT) + '/') else str(p), 'filename':p.name,'category':cats,'tags':tags,'loudness_lufs':None,**info})
+        if i%50==0: print(f'Indexed {i}/{len(files)}',flush=True)
+    result={'schema_version':1,'library_root':str(root),'audio_files':len(rows),'probe_failures':failures,
+            'categories':sorted({c for x in rows for c in x['category']}),'loudness_note':'Not measured during metadata scan; null means unavailable.', 'files':rows}
+    output.parent.mkdir(parents=True,exist_ok=True); output.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
+    print(f'Indexed {len(rows)} files; {failures} probe failures; {len(result["categories"])} categories → {output}')
+
+def make_timeline():
+    from common import read_json, write_json
+    index=json.loads((ROOT/'work'/'sfx_index.json').read_text()); lines=read_json(WORK/'translation.json')['lines']
+    cues={'footsteps':['walk','walking','run','running','footstep','steps','идет','идут','бежит','шаг'],
+          'doors':['door','opens','closes','двер','открой','закрой'], 'phones':['phone','call','ring','телефон','звонит'],
+          'glass':['glass','bottle','cup','стакан','бутыл','чаш'], 'impacts':['hit',' удар',' ударил','падает','crash','bang'],
+          'water':['rain','water','splash','дожд','вода','река'], 'vehicles':['car','truck','engine','машин','автомоб','двигатель']}
+    used=[]; previous=-99
+    for line in lines:
+        if line['start']-previous<5: continue
+        text=(' '+line.get('translated_text','').lower()+' '+line.get('source_text','').lower())
+        category=next((c for c,words in cues.items() if any(w in text for w in words)),None)
+        if not category: continue
+        pool=[x for x in index['files'] if category in x['category'] and x.get('duration') and x['duration']>0.5]
+        if not pool: continue
+        clip=pool[0]
+        used.append({'start':float(line['start']),'duration':min(clip['duration'],3.0),'path':str(ROOT/clip['path']),'category':category,'volume':0.14,'matched_text':line.get('translated_text','')})
+        previous=line['start']
+        if len(used)>=6: break
+    write_json(WORK/'sfx_timeline.json',{'events':used,'note':'Conservative keyword-to-filename match against local library.'})
+    print(f'Selected {len(used)} sound effects from local library')
+
+def main():
+    ap=argparse.ArgumentParser(description=__doc__); sub=ap.add_subparsers(dest='cmd',required=True)
+    scan=sub.add_parser('index'); scan.add_argument('--library',type=Path,default=ROOT/'sfx_library'); scan.add_argument('--output',type=Path,default=WORK/'sfx_index.json')
+    search=sub.add_parser('search'); search.add_argument('query'); search.add_argument('--index',type=Path,default=WORK/'sfx_index.json'); search.add_argument('--limit',type=int,default=10)
+    sub.add_parser('timeline')
+    a=ap.parse_args()
+    if a.cmd=='index': build_index(a.library,a.output)
+    elif a.cmd=='timeline': make_timeline()
+    else:
+        data=json.loads(a.index.read_text()); terms=set(re.findall(r'[a-z0-9]+',a.query.lower())); scored=[]
+        for x in data['files']:
+            hay=set(x['tags'])|set(x['category']); score=len(terms&hay)
+            if score: scored.append((score,x))
+        for _,x in sorted(scored,key=lambda p:(-p[0],p[1]['filename']))[:a.limit]: print(f"{x['category']} | {x['duration']}s | {x['path']}")
+if __name__=='__main__': main()
+
+============================================================
+# FILE: scripts/translate.py
+============================================================
+#!/usr/bin/env python3
+"""Context-aware, speaker-aware Chinese to Russian dialogue translation."""
+import argparse, json, re, difflib
+from common import ROOT, WORK, config, read_json, write_json, load_env, speech_rate
+
+def clean_answer(text):
+    text=re.sub(r'<think>.*?</think>','',text,flags=re.S).strip()
+    text=re.sub(r'^(?:<<<\d+>>>|\d+[.)])\s*','',text).strip()
+    return text.strip('"“” «»\n ')
+
+def make_prompt(line, previous, following, char_limit, duration):
+    payload={'current':{'speaker_id':line['speaker_id'],'acoustic_voice_type':line.get('voice_type','unknown'),'source_chinese':line['source_text']},'previous_lines_for_context_only':previous,'following_lines_for_context_only':following,'target_duration_seconds':round(duration,2),'max_russian_characters_including_spaces':char_limit,'glossary_names_use_exactly':GLOSSARY,'story_summary_and_characters':SUMMARY}
+    system=('You are a professional Chinese-to-Russian audiovisual dialogue translator. Translate the CURRENT Chinese utterance into natural, idiomatic spoken Russian. Preserve exactly its meaning, facts, point of view, names, tone, and speaker intent. Use neighboring lines only to resolve references and maintain continuity; translate only the current line. Never copy a neighboring Russian line, combine different speakers, add events, invent dialogue, or fill in missing facts. Keep direct speech in the same person and tense as the source. Return only the Russian utterance, without analysis, labels, or quotation marks.')
+    user=('Context follows. The acoustic voice type is only a cue for Russian grammatical agreement when the line itself identifies its speaker; do not infer story facts or character identity from voice type. Use simple, fluent Russian suitable for speech. Keep within the exact length limit while preserving the key meaning.\n'+json.dumps(payload,ensure_ascii=False))
+    return [{'role':'system','content':system},{'role':'user','content':user}]
+
+GLOSSARY={}; SUMMARY=''
+def build_summary(model,tokenizer,lines):
+    global SUMMARY
+    from mlx_lm import generate
+    from mlx_lm.sample_utils import make_sampler
+    text='\n'.join(l['source_text'] for l in lines)[:6000]
+    msgs=[{'role':'system','content':'Read this transcript (source language) and write a compact briefing in Russian, max 120 words: who the speakers or characters are and how they relate, the setting, what is happening, slang and running jokes. Use facts from the text only; do not invent.'},{'role':'user','content':text}]
+    try:
+        prompt=tokenizer.apply_chat_template(msgs,add_generation_prompt=True,tokenize=False,enable_thinking=False)
+        SUMMARY=re.sub(r'<think>.*?</think>','',generate(model,tokenizer,prompt=prompt,max_tokens=300,verbose=False,sampler=make_sampler(temp=0.0)),flags=re.S).strip()
+    except Exception as e: print('summary skipped:',type(e).__name__,flush=True)
+    write_json(WORK/'summary.json',{'summary':SUMMARY}); print('summary:',SUMMARY[:200],flush=True)
+
+def build_glossary(model,tokenizer,lines):
+    global GLOSSARY
+    from mlx_lm import generate
+    from mlx_lm.sample_utils import make_sampler
+    text='\n'.join(l['source_text'] for l in lines)[:6000]
+    msgs=[{'role':'system','content':'Extract proper names (people, nicknames, places, brands) from the source text. Give each ONE fixed Russian rendering (standard practical transcription for the source language; established Russian form for known places). Output ONLY a JSON object that maps each name, written exactly as it appears in the source text, to its Cyrillic Russian form. Output {} if the text contains no proper names.'},{'role':'user','content':text}]
+    try:
+        prompt=tokenizer.apply_chat_template(msgs,add_generation_prompt=True,tokenize=False,enable_thinking=False)
+        out=re.sub(r'<think>.*?</think>','',generate(model,tokenizer,prompt=prompt,max_tokens=500,verbose=False,sampler=make_sampler(temp=0.0)),flags=re.S)
+        m=re.search(r'\{.*\}',out,re.S); GLOSSARY={k:v for k,v in (json.loads(m.group(0)) if m else {}).items() if isinstance(v,str) and k in text}
+    except Exception as e: print('glossary skipped:',type(e).__name__,flush=True)
+    write_json(WORK/'glossary.json',GLOSSARY); print('glossary:',GLOSSARY,flush=True)
+
+def main():
+    p=argparse.ArgumentParser(); p.add_argument('--input',default=str(WORK/'dialogue_segments_raw.json')); a=p.parse_args()
+    load_env(); cfg=config(); raw=read_json(a.input); lines=raw['lines']
+    if not lines: raise SystemExit('No speaker-labelled dialogue segments to translate')
+    from mlx_lm import load, generate
+    from mlx_lm.sample_utils import make_sampler
+    model_id=cfg.get('translation_model','mlx-community/Qwen3-8B-4bit')
+    model,tokenizer=load(model_id); output=[]; raw_log=[]; RATE=speech_rate(); print(f'speech rate {RATE} chars/s',flush=True); build_glossary(model,tokenizer,lines); build_summary(model,tokenizer,lines)
+    for i,line in enumerate(lines):
+        start=float(line['start']); end=float(line['end']);
+        if i+1<len(lines) and not line.get('overlap_confirmed'):
+            slot=max(.25,float(lines[i+1]['start'])-start)
+        else: slot=max(.25,end-start)
+        # Leave enough room for natural Russian, then let the TTS pacing guard
+        # stretch the final audio modestly without crossing the next start.
+        max_chars=max(8,int(slot*RATE*float(cfg.get('tts_target_tempo',1.35))))
+        prev=[{'speaker_id':x['speaker_id'],'voice_type':x.get('voice_type','unknown'),'source_chinese':x['source_text'],'russian_translation':x.get('translated_text','')} for x in output[max(0,i-3):i]]
+        following=[{'speaker_id':x['speaker_id'],'voice_type':x.get('voice_type','unknown'),'source_chinese':x['source_text']} for x in lines[i+1:min(len(lines),i+4)]]
+        messages=make_prompt(line,prev,following,max_chars,slot)
+        try: prompt=tokenizer.apply_chat_template(messages,tokenize=False,add_generation_prompt=True,enable_thinking=False)
+        except TypeError: prompt=tokenizer.apply_chat_template(messages,tokenize=False,add_generation_prompt=True)+'\n/no_think\n'
+        answer=clean_answer(generate(model,tokenizer,prompt=prompt,max_tokens=384,verbose=False,sampler=make_sampler(temp=0.0)))
+        attempts=1; first=answer
+        while (len(answer)>max_chars or (cfg.get('output_language')=='ru' and re.search('[A-Za-z]',answer))) and attempts<6:
+            short_messages=[{'role':'system','content':'You are editing a Russian dubbing line to fit a strict time slot. Rewrite it as a short, natural spoken sentence. Preserve the central fact and intent; remove secondary detail. Count characters before answering. The answer MUST be no longer than the stated limit. Output only the Russian line.'},{'role':'user','content':f'MAXIMUM {int(max_chars*0.85)} characters including spaces and at most {max(3,int(max_chars*0.85/6.5))} words; do not exceed this limit.\nCURRENT CHINESE: {line["source_text"]}\nSTORY: {SUMMARY}\nRUSSIAN DRAFT: {answer}'}]
+            try: short_prompt=tokenizer.apply_chat_template(short_messages,tokenize=False,add_generation_prompt=True,enable_thinking=False)
+            except TypeError: short_prompt=tokenizer.apply_chat_template(short_messages,tokenize=False,add_generation_prompt=True)+'\n/no_think\n'
+            answer=clean_answer(generate(model,tokenizer,prompt=short_prompt,max_tokens=192,verbose=False,sampler=make_sampler(temp=0.0))); attempts+=1
+        if any(difflib.SequenceMatcher(None,answer,x['russian_translation']).ratio()>0.7 for x in prev if x.get('russian_translation')): answer=first
+        if not answer: raise SystemExit(f'Translation returned an empty line for {line["segment_id"]}')
+        if len(answer)>max_chars:
+            print(f'WARN {line["segment_id"]}: {len(answer)}>{max_chars} chars, atempo will fit it',flush=True)
+        item={**line,'target_duration_seconds':round(slot,3),'max_russian_characters':max_chars,'translated_text':answer,'translation_attempts':attempts}
+        output.append(item); raw_log.append({'segment_id':line['segment_id'],'speaker_id':line['speaker_id'],'source_text':line['source_text'],'context':{'previous':prev,'following':following},'target_duration':round(slot,3),'translation':answer,'attempts':attempts})
+        print(f"Translated {i+1}/{len(lines)} {line['segment_id']} speaker={line['speaker_id']} {len(answer)}/{max_chars} chars",flush=True)
+    del model,tokenizer
+    write_json(WORK/'translated_segments.json',{'model':model_id,'lines':output})
+    write_json(WORK/'translation.json',{'model':model_id,'lines':output})
+    write_json(WORK/'translation_debug.json',{'model':model_id,'segments':raw_log})
+    print(f'Translated {len(output)} speaker-labelled segments using neighboring context; saved translated_segments.json',flush=True)
+if __name__=='__main__': main()
+
+============================================================
+# FILE: scripts/tts.py
+============================================================
+#!/usr/bin/env python3
+"""Generate dialogue with one persistent Russian voice profile per speaker."""
+import gc, hashlib, json, subprocess
+from collections import Counter
+from pathlib import Path
+import soundfile as sf
+from common import ROOT, WORK, config, read_json, write_json
+
+PROFILE_TEXT='Сегодня тихо светает. Я расскажу эту историю спокойно, ясно и выразительно.'
+PROFILE_VERSION=1
+DESIGN_MODEL='mlx-community/Qwen3-TTS-12Hz-1.7B-VoiceDesign-bf16'
+RATES=[]
+CLONE_MODEL='mlx-community/Qwen3-TTS-12Hz-0.6B-Base-bf16'
+
+def voice_instruction(voice_type, ordinal):
+    traits=['warm, clear, steady timbre','light, bright, articulate timbre','rounded, resonant, composed timbre','slightly textured, calm, expressive timbre']
+    trait=traits[ordinal % len(traits)]
+    if voice_type=='female':
+        identity='An adult female native Russian speaker with a naturally feminine mid-to-high register'
+    elif voice_type=='male':
+        identity='An adult male native Russian speaker with a naturally masculine mid register'
+    else:
+        identity='An adult native Russian speaker with a natural, neutral middle register; do not force a strongly masculine or feminine sound'
+    return f'{identity}, {trait}. Standard contemporary Russian pronunciation, clear Moscow standard accent, no Chinese accent. Natural narration with measured, expressive intonation.'
+
+def build_voice_profiles(speaker_ids, voice_types, segment_counts):
+    """Design each voice once, persist it, then reuse its same audio as clone reference."""
+    profile_dir=WORK/'voice_profiles'; profile_dir.mkdir(parents=True,exist_ok=True)
+    manifest_path=WORK/'voice_profiles.json'
+    saved=json.loads(manifest_path.read_text()) if manifest_path.exists() else {}
+    saved_ok=(saved.get('profile_version')==PROFILE_VERSION and saved.get('model')==DESIGN_MODEL and set(saved.get('speaker_to_voice',{}))==set(speaker_ids))
+    speaker_to_voice=saved.get('speaker_to_voice',{}) if saved_ok else {}
+    profiles=saved.get('profiles',{}) if saved_ok else {}
+    missing=[]
+    for ordinal,speaker_id in enumerate(speaker_ids):
+        voice_id=speaker_to_voice.get(speaker_id, f'VOICE_{ordinal:02d}')
+        speaker_to_voice[speaker_id]=voice_id
+        profile=profiles.get(voice_id,{})
+        ref=Path(profile.get('reference_audio','')) if profile.get('reference_audio') else None
+        expected_type=voice_types.get(speaker_id,{}).get('voice_type','unknown')
+        expected_instruction=voice_instruction(expected_type,ordinal)
+        if not profile.get('reference_text')==PROFILE_TEXT or profile.get('voice_type')!=expected_type or profile.get('instruction')!=expected_instruction or not ref or not ref.exists() or ref.stat().st_size<=1024:
+            missing.append((ordinal,speaker_id,voice_id,expected_type,expected_instruction))
+    if missing:
+        from mlx_audio.tts.utils import load_model
+        import numpy as np
+        design_model=load_model(DESIGN_MODEL)
+        for ordinal,speaker_id,voice_id,voice_type,instruction in missing:
+            ref=profile_dir/f'{voice_id.lower()}.wav'
+            results=list(design_model.generate_voice_design(text=PROFILE_TEXT,language='Russian',instruct=instruction))
+            if not results: raise RuntimeError(f'VoiceDesign returned no reference audio for {speaker_id}')
+            audio=np.asarray(results[0].audio).squeeze(); sr=int(results[0].sample_rate)
+            sf.write(ref,audio,sr)
+            profiles[voice_id]={'speaker_id':speaker_id,'voice_type':voice_type,'voice_confidence':voice_types.get(speaker_id,{}).get('confidence','low'),'instruction':instruction,'reference_text':PROFILE_TEXT,'reference_audio':str(ref),'reference_sample_rate':sr,'source':'one-time native Russian VoiceDesign sample; source audio is not used as a TTS clone reference'}
+            write_json(manifest_path,{'profile_version':PROFILE_VERSION,'backend':'qwen3_mlx','model':DESIGN_MODEL,'clone_model':CLONE_MODEL,'speaker_to_voice':speaker_to_voice,'profiles':profiles})
+        del design_model; gc.collect()
+        try:
+            import mlx.core as mx
+            mx.clear_cache()
+        except Exception: pass
+    voice_types_report={s:voice_types.get(s,{'voice_type':'unknown','confidence':'low'}) for s in speaker_ids}
+    report={'profile_version':PROFILE_VERSION,'backend':'qwen3_mlx','model':DESIGN_MODEL,'clone_model':CLONE_MODEL,'speaker_to_voice':speaker_to_voice,'profiles':profiles,'voice_types':voice_types_report,'segment_counts':dict(segment_counts),'fallbacks':{s:'neutral unknown voice design' for s in speaker_ids if voice_types_report[s].get('voice_type')=='unknown'}}
+    write_json(manifest_path,report)
+    print('Speaker voice assignment:')
+    for speaker_id in speaker_ids:
+        info=voice_types_report[speaker_id]
+        print(f'{speaker_id} | {info.get("voice_type","unknown")} | {speaker_to_voice[speaker_id]} | {segment_counts.get(speaker_id,0)} segments')
+    return speaker_to_voice,profiles
+
+def main():
+    cfg=config(); backend=cfg.get('tts_backend','qwen3')
+    data=read_json(WORK/'dialogue.json'); speaker_data=read_json(WORK/'speakers.json')
+    lines=data['lines']
+    speaker_ids=sorted({line.get('speaker_id',line.get('speaker','UNKNOWN')) for line in lines})
+    segment_counts=Counter(line.get('speaker_id',line.get('speaker','UNKNOWN')) for line in lines)
+    voice_types=speaker_data.get('voice_types',{})
+    refs={}
+
+    if backend=='qwen3_mlx':
+        speaker_to_voice,profiles=build_voice_profiles(speaker_ids,voice_types,segment_counts)
+        for line in lines:
+            speaker_id=line.get('speaker_id',line.get('speaker','UNKNOWN'))
+            line['speaker_id']=speaker_id; line['speaker']=speaker_id; line['voice_id']=speaker_to_voice[speaker_id]
+            profile=profiles[line['voice_id']]
+            refs[speaker_id]={'path':profile['reference_audio'],'text':profile['reference_text']}
+        # Keep the explicit map in every dialogue segment for inspection and resume.
+        write_json(WORK/'dialogue.json',{'lines':lines})
+        write_json(WORK/'dialogue_segments.json',{'lines':lines,'timing_policy':'source start preserved; non-overlapping TTS is fitted before the next line'})
+        write_json(WORK/'voice_mapping.json',{'speaker_to_voice':speaker_to_voice,'voice_types':{s:voice_types.get(s,{'voice_type':'unknown','confidence':'low'}) for s in speaker_ids},'profiles':profiles,'created_once_for_video':True})
+        from mlx_audio.tts.utils import load_model
+        import numpy as np
+        import mlx.core as mx
+        model=load_model(CLONE_MODEL)
+    else:
+        # Legacy backends retain their existing source-reference behavior, but
+        # select that reference once per speaker and never once per segment.
+        source=WORK/'audio.wav'; speakers=speaker_data
+        for speaker_id in speaker_ids:
+            utterances=[x for x in speakers['utterances'] if x.get('speaker_id',x.get('speaker'))==speaker_id]
+            turns=[x for x in utterances if 2.5<=x['end']-x['start']<=12] or utterances
+            if not turns: continue
+            chosen=max(turns,key=lambda x:min(x['end']-x['start'],8)); p=WORK/f'reference_{speaker_id}.wav'
+            subprocess.run(['ffmpeg','-y','-v','error','-ss',str(max(0,chosen['start'])),'-t',str(min(12,chosen['end']-chosen['start'])),'-i',str(source),'-ac','1','-ar','24000',str(p)],check=True)
+            refs[speaker_id]={'path':str(p),'text':chosen['source_text']}
+        if not refs: raise SystemExit('No speaker reference audio available')
+        speaker_to_voice={speaker_id:f'VOICE_{i:02d}' for i,speaker_id in enumerate(speaker_ids)}
+        for line in lines:
+            speaker_id=line.get('speaker_id',line.get('speaker','UNKNOWN'))
+            line['speaker_id']=speaker_id; line['speaker']=speaker_id; line['voice_id']=speaker_to_voice[speaker_id]
+        write_json(WORK/'dialogue.json',{'lines':lines})
+        if backend=='qwen3':
+            import torch
+            from qwen_tts import Qwen3TTSModel
+            model=Qwen3TTSModel.from_pretrained('Qwen/Qwen3-TTS-12Hz-0.6B-Base',device_map='mps',dtype=torch.bfloat16)
+        elif backend=='chatterbox':
+            from chatterbox.mtl_tts import ChatterboxMultilingualTTS
+            model=ChatterboxMultilingualTTS.from_pretrained(device='mps')
+        elif backend=='cosyvoice3':
+            raise RuntimeError('CosyVoice3 backend requires a local Fun-CosyVoice3 model installation.')
+        else: raise RuntimeError(f'Unknown TTS backend: {backend}')
+        profiles={voice_id:{'reference_audio':refs[speaker_id]['path']} for speaker_id,voice_id in speaker_to_voice.items()}
+        print('Speaker voice assignment:')
+        for speaker_id in speaker_ids:
+            info=voice_types.get(speaker_id,{'voice_type':'unknown'})
+            print(f'{speaker_id} | {info.get("voice_type","unknown")} | {speaker_to_voice[speaker_id]} | {segment_counts.get(speaker_id,0)} segments')
+
+    outdir=WORK/'tts'; outdir.mkdir(parents=True,exist_ok=True); manifest=[]
+    resume_path=WORK/'tts_resume.json'; resume=json.loads(resume_path.read_text()) if resume_path.exists() else {}
+    profile_hash={voice_id:hashlib.sha256(Path(profile['reference_audio']).read_bytes()).hexdigest() for voice_id,profile in profiles.items()}
+    for i,line in enumerate(lines):
+        speaker_id=line.get('speaker_id',line.get('speaker','UNKNOWN')); voice_id=speaker_to_voice[speaker_id]; ref=refs[speaker_id]
+        path=outdir/f'{i:04d}.wav'
+        digest=hashlib.sha256((line['translated_text']+'\0'+voice_id+'\0'+profile_hash[voice_id]+'\0'+str(line.get('available_duration'))+'\0'+backend+'_fixed_profile_v2').encode()).hexdigest()
+        if path.exists() and path.stat().st_size>1024 and resume.get(str(i),{}).get('text_sha256')==digest:
+            info=sf.info(path); manifest.append({'i':i,'segment_id':line['segment_id'],'speaker_id':speaker_id,'voice_id':voice_id,'start':line['start'],'end':line['end'],'available_end':line['available_end'],'available_duration':line['available_duration'],'tts_end':line['start']+info.duration,'tts_duration':info.duration,'overlap_confirmed':line.get('overlap_confirmed',False),'overlap_speaker_ids':line.get('overlap_speaker_ids',[]),'path':str(path),'sample_rate':info.samplerate,'tts_speed':line['tts_speed'],'translated_text':line['translated_text'],'source_text':line['source_text']})
+            print(f'Reused synthesized line {i+1}/{len(lines)}',flush=True); continue
+        # Reset sampling to a stable speaker-specific seed for consistent style.
+        if backend=='qwen3_mlx':
+            mx.random.seed(1409+speaker_ids.index(speaker_id))
+            results=list(model.generate(text=line['translated_text'],lang_code='Russian',ref_audio=ref['path'],ref_text=ref['text']))
+            wav=np.asarray(results[0].audio).squeeze() if results else None
+            sr=int(results[0].sample_rate) if results else 0
+        elif backend=='qwen3':
+            wavs,sr=model.generate_voice_clone(text=line['translated_text'],language='Russian',ref_audio=ref['path'],ref_text=ref['text'],x_vector_only_mode=True)
+            wav=wavs[0]
+        elif backend=='chatterbox':
+            result=model.generate(text=line['translated_text'],language_id='ru',audio_prompt_path=ref['path'])
+            wav=result.squeeze().cpu().numpy(); sr=model.sr
+        if wav is None: raise RuntimeError(f'{backend} returned no audio for dialogue line {i}')
+        sf.write(path,wav,sr)
+        duration=sf.info(path).duration; available=float(line['available_duration'])
+        if duration>.8: RATES.append(len(line['translated_text'])/duration)
+        if duration>available+.03:
+            ratio=duration/max(available,.1)
+            if ratio>1.32:
+                print('WARN',f"{line['segment_id']} ({speaker_id} → {voice_id}) is {duration:.2f}s but only {available:.2f}s are available; shortening is required before mixing.")
+            paced=path.with_suffix('.paced.wav')
+            tempo=min(ratio,float(cfg.get('tts_max_tempo',1.7))); af=f'atempo={tempo:.6f}'
+            if duration/tempo>available: af+=f',atrim=0:{available:.3f},afade=t=out:st={max(available-0.08,0):.3f}:d=0.08'; print('TRIMMED',line['segment_id'],flush=True)
+            subprocess.run(['ffmpeg','-y','-v','error','-i',str(path),'-filter:a',af,'-ar',str(sr),str(paced)],check=True)
+            paced.replace(path); duration=sf.info(path).duration
+        resume[str(i)]={'text_sha256':digest,'sample_rate':int(sr),'speaker_id':speaker_id,'voice_id':voice_id,'tts_duration':duration}
+        tmp=resume_path.with_suffix('.tmp'); tmp.write_text(json.dumps(resume,ensure_ascii=False,indent=2)); tmp.replace(resume_path)
+        manifest.append({'i':i,'segment_id':line['segment_id'],'speaker_id':speaker_id,'voice_id':voice_id,'start':line['start'],'end':line['end'],'available_end':line['available_end'],'available_duration':line['available_duration'],'tts_end':line['start']+duration,'tts_duration':duration,'overlap_confirmed':line.get('overlap_confirmed',False),'overlap_speaker_ids':line.get('overlap_speaker_ids',[]),'path':str(path),'sample_rate':sr,'tts_speed':line['tts_speed'],'translated_text':line['translated_text'],'source_text':line['source_text']})
+        print(f"segment {i+1:03d} speaker={speaker_id} voice={voice_id} start={line['start']:.2f} end={line['start']+duration:.2f} slot_end={line['available_end']:.2f}",flush=True)
+    del model; gc.collect()
+    if backend=='qwen3_mlx':
+        try: mx.clear_cache()
+        except Exception: pass
+    if backend=='qwen3' and torch.backends.mps.is_available(): torch.mps.empty_cache()
+    write_json(WORK/'tts_manifest.json',{'backend':backend,'voice_mode':'one persistent native Russian reference per speaker' if backend=='qwen3_mlx' else 'one persistent source reference per speaker','voice_mapping':speaker_to_voice,'lines':manifest,'references':refs})
+    print(f'Synthesized {len(manifest)} TTS lines')
+    if RATES:
+        import statistics; r={'chars_per_second':round(statistics.median(RATES),2),'n':len(RATES)}; write_json(WORK/'rate.json',r); write_json(WORK.parent/'_tts_rate.json',r); print('TTS natural rate:',r,flush=True)
+
+if __name__=='__main__': main()
+
+============================================================
+# FILE: setup
+============================================================
+#!/bin/sh
+ROOT=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+if [ ! -x "$ROOT/.venvs/asr/bin/python" ]; then
+  if ! command -v python3.11 >/dev/null 2>&1; then
+    if ! command -v brew >/dev/null 2>&1; then echo "Python 3.11 is required. Install Homebrew, then rerun ./setup." >&2; exit 1; fi
+    brew install python@3.11 || exit 1
+    PATH="$(brew --prefix python@3.11)/bin:$PATH"; export PATH
+  fi
+  mkdir -p "$ROOT/.venvs"
+  python3.11 -m venv "$ROOT/.venvs/asr" || exit 1
+  "$ROOT/.venvs/asr/bin/python" -m pip install --upgrade pip PyYAML || exit 1
+fi
+PY="$ROOT/.venvs/asr/bin/python"
+"$PY" -c 'import yaml' >/dev/null 2>&1 || "$PY" -m pip install PyYAML || exit 1
+exec "$PY" "$ROOT/scripts/cli.py" setup "$@"

@@ -1,0 +1,76 @@
+{
+  "model": "pyannote/speaker-diarization-3.1",
+  "speaker_count_bounds": {
+    "min_speakers": 2,
+    "max_speakers": 8,
+    "exact_count_forced": false
+  },
+  "speaker_map": {
+    "SPEAKER_01": "SPEAKER_00",
+    "SPEAKER_00": "SPEAKER_01"
+  },
+  "speaker_ids": [
+    "SPEAKER_00",
+    "SPEAKER_01"
+  ],
+  "speaker_count": 2,
+  "turns": [
+    {
+      "speaker_id": "SPEAKER_00",
+      "start": 0.03096875,
+      "end": 191.03909375,
+      "confidence": "not_calibrated_by_pyannote_3_1"
+    },
+    {
+      "speaker_id": "SPEAKER_01",
+      "start": 191.03909375,
+      "end": 204.97784375,
+      "confidence": "not_calibrated_by_pyannote_3_1"
+    },
+    {
+      "speaker_id": "SPEAKER_00",
+      "start": 204.97784375,
+      "end": 1199.97846875,
+      "confidence": "not_calibrated_by_pyannote_3_1"
+    }
+  ],
+  "overlap_intervals": [],
+  "uncertain_turns": [],
+  "voice_types": {
+    "SPEAKER_00": {
+      "voice_type": "female",
+      "confidence": "high",
+      "f0_median_hz": 205.3,
+      "f0_q25_hz": 192.7,
+      "f0_q75_hz": 226.5,
+      "voiced_seconds": 15.73,
+      "method": "conservative pYIN acoustic heuristic; ambiguous or short samples are unknown"
+    },
+    "SPEAKER_01": {
+      "voice_type": "unknown",
+      "confidence": "low",
+      "f0_median_hz": 181.4,
+      "f0_q25_hz": 171.9,
+      "f0_q75_hz": 193.3,
+      "voiced_seconds": 0.22,
+      "method": "conservative pYIN acoustic heuristic; ambiguous or short samples are unknown"
+    }
+  },
+  "speaker_similarity": {
+    "labels": [
+      "SPEAKER_01",
+      "SPEAKER_00"
+    ],
+    "cosine": [
+      [
+        1.0,
+        0.94
+      ],
+      [
+        0.94,
+        1.0
+      ]
+    ]
+  },
+  "merged_speakers": {}
+}

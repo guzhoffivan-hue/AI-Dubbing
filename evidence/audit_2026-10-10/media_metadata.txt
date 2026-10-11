@@ -1,0 +1,77 @@
+# Media inventory, pre-edit snapshot
+
+ORIGINAL source (found, matches run signature)
+  path: /Volumes/develop/Download/42503442096-1-192.mp4
+  size: 7026950160  mtime: 2026-10-07 01:38:53  md5(first+last4MB): 4ac44d5ec69797faea5c1b358dec4cf9
+  duration: 32298.300000  container: mov,mp4,m4a,3gp,3g2,mj2
+    stream 0: video/h264 sr=None ch=None 1280x720
+    stream 1: audio/aac sr=44100 ch=2 NonexNone
+
+input/ current (DIFFERENT file, 240.78s)
+  path: input/42503442096-1-192.mp4
+  size: 50797084  mtime: 2026-10-07 12:28:14  md5(first+last4MB): acacf9f0d50ceb37c181350e91c48309
+  duration: 240.782000  container: mov,mp4,m4a,3gp,3g2,mj2
+    stream 0: video/h264 sr=None ch=None 1280x720
+    stream 1: audio/aac sr=44100 ch=2 NonexNone
+
+work/42503442096-1-192/audio.wav
+  path: work/42503442096-1-192/audio.wav
+  size: 57600078  mtime: 2026-10-07 16:29:55  md5(first+last4MB): 0b55e951f2ccb4ec5be5c75196424de2
+  duration: 1800.000000  container: wav
+    stream 0: audio/pcm_s16le sr=16000 ch=1 NonexNone
+
+work/audio.wav (pipeline.py run)
+  path: work/audio.wav
+  size: 4800078  mtime: 2026-10-07 03:03:23  md5(first+last4MB): 9e8fbb9820841b427aaaf4d4946c4108
+  duration: 150.000000  container: wav
+    stream 0: audio/pcm_s16le sr=16000 ch=1 NonexNone
+
+output/test_dub.mp4
+  path: output/test_dub.mp4
+  size: 429811231  mtime: 2026-10-08 13:12:06  md5(first+last4MB): 19f0384fd50f563e0d2e115c22e064f4
+  duration: 1800.000000  container: mov,mp4,m4a,3gp,3g2,mj2
+    stream 0: video/h264 sr=None ch=None 1280x720
+    stream 1: audio/aac sr=48000 ch=2 NonexNone
+
+output/test_dub_v3.mp4
+  path: output/test_dub_v3.mp4
+  size: 32337587  mtime: 2026-10-07 05:12:27  md5(first+last4MB): 53089544dd2e94a8a77f62e9eb197adc
+  duration: 150.000000  container: mov,mp4,m4a,3gp,3g2,mj2
+    stream 0: video/h264 sr=None ch=None 1280x720
+    stream 1: audio/aac sr=48000 ch=2 NonexNone
+
+output/test_dub_v4.mp4
+  path: output/test_dub_v4.mp4
+  size: 32761391  mtime: 2026-10-07 13:26:52  md5(first+last4MB): 964d8454064b64d4dd4a12f435a3bb0c
+  duration: 150.000000  container: mov,mp4,m4a,3gp,3g2,mj2
+    stream 0: video/h264 sr=None ch=None 1280x720
+    stream 1: audio/aac sr=48000 ch=2 NonexNone
+
+output/test_dub_v5.mp4
+  path: output/test_dub_v5.mp4
+  size: 32801347  mtime: 2026-10-07 14:09:50  md5(first+last4MB): 974d3d87cd27fe0a74c4173fa815b7fe
+  duration: 150.000000  container: mov,mp4,m4a,3gp,3g2,mj2
+    stream 0: video/h264 sr=None ch=None 1280x720
+    stream 1: audio/aac sr=48000 ch=2 NonexNone
+
+output/test_dub_v6_210s.mp4
+  path: output/test_dub_v6_210s.mp4
+  size: 45242569  mtime: 2026-10-07 14:38:18  md5(first+last4MB): 7922e4a09556e7db5eced441d17b4a01
+  duration: 210.000000  container: mov,mp4,m4a,3gp,3g2,mj2
+    stream 0: video/h264 sr=None ch=None 1280x720
+    stream 1: audio/aac sr=48000 ch=2 NonexNone
+
+output/test_dub_v7_210s.mp4
+  path: output/test_dub_v7_210s.mp4
+  size: 45224459  mtime: 2026-10-07 15:03:40  md5(first+last4MB): f3e3dcb3068708c67a6b73bc3bbe1196
+  duration: 210.000000  container: mov,mp4,m4a,3gp,3g2,mj2
+    stream 0: video/h264 sr=None ch=None 1280x720
+    stream 1: audio/aac sr=48000 ch=2 NonexNone
+
+# asr_chunks in work/42503442096-1-192/asr_chunks
+  count: 15
+  first: chunk_0000.wav duration=120.000000
+  last:  chunk_0014.wav duration=120.000000
+
+# tts/ wav files
+  count: 43  range: 0000.wav..0042.wav

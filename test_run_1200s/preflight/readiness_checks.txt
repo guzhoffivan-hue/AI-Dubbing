@@ -1,0 +1,22 @@
+AI-Dubbing 1200s test run — readiness checks
+generated: 2026-10-10 02:10:45
+scripts under test: test_run_1200s/scripts (md5-identical to live fixed scripts)
+
+[PASS] 1. alignment offsets derive from real chunk durations                  no magic constant; 15x120s -> last offset 1680.0s, timeline ends 1800.0s (legacy 180s offset ended 2640s)
+[PASS] 2. partial translation is rejected                                     - covers 5 of 10 segments
+[PASS] 3. translation from another segment set is rejected                    - segment 2: id mismatch (segments.json='LINE_0003', translated_segments.json='SEG_0002')
+[PASS] 4. stale TTS manifest (same count, other ids) is rejected              - line 1: manifest is for 'SEG_0001' but the dialogue line is 'LINE_0002' (stale manifest from an earlier segment set)
+[PASS] 4b. real artifacts: manifest does not match its dialogue set           - line SEG_0009: manifest text does not match the dialogue text
+[PASS] 5. mixing is blocked when most of the video has no speech              - speech ends at 210.000s but the audio is 1800.000s long: 1590.000s (88.3%) has no dubbing at all
+[PASS] 6. positive control: a complete set is accepted                        a complete, consistent 25s set is accepted (no over-blocking)
+[PASS] 6b. real incident data (43 lines / 1800s) is rejected                  - speech ends at 210.002s but the audio is 1800.000s long: 1589.997s (88.3%) has no dubbing at all
+[PASS] 7. no resumable state in the test root; source-bound signature intact  fresh work root has no status.json or per-video artifacts; signature keys size/mtime_ns/duration/path/mode/start/pipeline_version present
+[PASS] 8. artifacts of the previous run cannot be reused                      previous run rejected: - covers 600 of 1330 segments
+
+10/10 readiness checks passed
+
+=== test suite run inside the isolated test root ===
+----------------------------------------------------------------------
+Ran 39 tests in 0.027s
+
+OK

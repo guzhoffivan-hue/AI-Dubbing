@@ -1,0 +1,15 @@
+#!/bin/sh
+ROOT=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+if [ ! -x "$ROOT/.venvs/asr/bin/python" ]; then
+  if ! command -v python3.11 >/dev/null 2>&1; then
+    if ! command -v brew >/dev/null 2>&1; then echo "Python 3.11 is required. Install Homebrew, then rerun ./setup." >&2; exit 1; fi
+    brew install python@3.11 || exit 1
+    PATH="$(brew --prefix python@3.11)/bin:$PATH"; export PATH
+  fi
+  mkdir -p "$ROOT/.venvs"
+  python3.11 -m venv "$ROOT/.venvs/asr" || exit 1
+  "$ROOT/.venvs/asr/bin/python" -m pip install --upgrade pip PyYAML || exit 1
+fi
+PY="$ROOT/.venvs/asr/bin/python"
+"$PY" -c 'import yaml' >/dev/null 2>&1 || "$PY" -m pip install PyYAML || exit 1
+exec "$PY" "$ROOT/scripts/cli.py" setup "$@"

@@ -1,0 +1,43 @@
+Run 2 timing, and the system-sleep finding
+==========================================
+Measured wall-clock stage boundaries (from logs/staged_run_wrapper.log):
+
+  02:45:09  start (cli.py pid 72737)
+  02:45:11  extract_audio -> done
+  02:45:11  asr -> running
+  03:01:00  asr -> done                    (15.8 min wall)
+  03:01:00  alignment -> running
+  03:17:34  alignment -> done              (16.6 min wall)
+  03:17:34  diarization -> running
+  04:33:56  diarization -> done            (76.4 min wall)
+  04:33:56  segment_merge -> done
+  04:33:56  target reached; process group terminated
+
+  Wall clock total : 108.8 min
+  Watchdog reported: "finished after 32.5 min"   <- time.monotonic() elapsed
+
+The 76-minute discrepancy is system sleep. Evidence:
+  * time.monotonic() pauses while macOS sleeps; the watchdog's elapsed value is
+    therefore the real compute time, not wall time.
+  * pmset -g log shows Deep Idle sleep and DarkWake cycles while the run was live.
+  * pmset -g assertions showed UserIsActive 0 and NO PreventSystemSleep assertion
+    held by the pipeline: the machine was free to sleep during model inference.
+  * Immediately after `caffeinate -is -w 72737` was started at 04:30:53, the
+    diarization stage completed at 04:33:56 - i.e. in ~3 minutes.
+
+Consequence: the earlier "slow" stages were not slow, they were suspended.
+Real compute for the four stages: ~32.5 min.
+
+Run-1 vs run-2 determinism (md5 of the artifacts):
+  asr.json         7e425197b5...   identical
+  alignment.json   c83dd080b7...   identical
+  diarization.json ae812377a8...   identical
+  segments.json    d55c936802...   identical
+=> ASR, forced alignment, diarization and merging all reproduce byte-for-byte
+   on the same input. The wall-clock difference was purely system sleep.
+
+Operational implication for the full video: the preserved 1800 s run took
+translation ~53 min for 600 lines and TTS ~4 s/line of *compute*. On a machine
+that sleeps while idle, a multi-hour dubbing run will stretch out by however long
+the machine sleeps. Long runs should be started under `caffeinate` (or with idle
+sleep disabled).

@@ -1,0 +1,24 @@
+work dir: /Volumes/develop/AI-Dubbing/test_run_1200s/work/42503442096_first1200s
+audio.wav        : 1200.000 s   (38400078 bytes)
+asr_chunks       : 10 files, total 1200.000 s, each 120.00..120.00 s
+asr.json         : 9691 chars, language=Chinese, segments=0
+alignment.json   : 8607 words, 0.000 .. 1199.920 s
+  coverage gaps >30s : 0, total 0.0 s
+  pre-fix code would have claimed up to 1740.0 s (+540 s of phantom timeline)
+diarization.json : 3 turns, speakers=2, ends 1199.978 s
+segments.json    : 1061 lines, 0.000 .. 1199.920 s, speakers=['SPEAKER_00', 'SPEAKER_01']
+  line gaps >60s   : 0
+status.json      : extract_audio=done, asr=done, alignment=done, diarization=done, segment_merge=done, translation=pending, dialogue=pending, tts=pending, sfx=pending, ambience=pending, mix=pending, mux=pending
+logs             :
+  42503442096_first1200s_align.log                28 lines, 0 error lines
+  42503442096_first1200s_asr.log                  53 lines, 0 error lines
+  42503442096_first1200s_diarize.log              16 lines, 0 error lines
+  42503442096_first1200s_translate.log             3 lines, 0 error lines
+  cli_stdout.log                                   8 lines, 0 error lines
+  staged_run_wrapper.log                          24 lines, 0 error lines
+
+notes:
+  - no phantom coverage gaps (the 180s-offset bug produced 14 gaps / 968.8s on the 1800s run)
+  - fix removed ~540s of phantom timeline
+
+RESULT: all staged checks passed

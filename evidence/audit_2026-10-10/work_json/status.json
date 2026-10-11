@@ -1,0 +1,29 @@
+{
+  "extract_audio": "done",
+  "asr": "done",
+  "alignment": "done",
+  "diarization": "done",
+  "segment_merge": "done",
+  "translation": "running",
+  "dialogue": "pending",
+  "tts": "pending",
+  "sfx": "pending",
+  "ambience": "pending",
+  "mix": "pending",
+  "mux": "pending",
+  "_signature": {
+    "pipeline_version": 5,
+    "tts_backend": "qwen3_mlx",
+    "tts_voice_mode": "one_profile_per_diarized_speaker_v2",
+    "diarization_model": "pyannote/speaker-diarization-3.1",
+    "diarization_min_speakers": 2,
+    "diarization_max_speakers": 8,
+    "translation_model": "mlx-community/Qwen3-8B-4bit",
+    "path": "/Volumes/develop/AI-Dubbing/input/42503442096-1-192.mp4",
+    "size": 7026950160,
+    "mtime_ns": 1791326333813462138,
+    "mode": "test",
+    "start": 0,
+    "duration": 1800.0
+  }
+}

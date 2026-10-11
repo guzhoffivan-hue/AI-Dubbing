@@ -1,0 +1,32 @@
+Segment-merge fix — before/after on the 1200 s isolated test
+============================================================
+Inputs (unchanged, no model re-runs): asr.json, alignment.json, diarization.json
+Command: caffeinate -i ./.venvs/asr/bin/python scripts/merge_segments.py
+         (AI_DUB_WORKDIR=work/42503442096_first1200s)
+
+                        BEFORE      AFTER
+  lines                  1061        373
+  mean line duration     0.93 s      2.89 s
+  median                 0.88 s      2.56 s
+  min / max              0.00 / 3.52 0.01 / 6.48 s
+  zero-length lines        54           0
+  lines < 0.6 s           281          27
+  lines > 6.5 s             0           0
+  line overlaps             0           0
+  timestamps beyond audio   0           0
+  text chars               9691        9691   (asr.json text = 9691, lost = 0)
+  speaker labels          {S0:1047, S1:14}   {S0:367, S1:6}
+  worst cross-speaker overlap 0.018 s     0.018 s (unchanged; midpoint quantisation)
+  lines contradicting the diarization turn at their midpoint: 0
+
+Root cause of the zero-length lines: alignment emits zero-width tokens
+(start == end) for function characters - 761 of 8607 tokens. The old merge broke
+a line on every Chinese comma and every 0.25 s micro-gap, which could leave a
+single zero-width token alone in a line. The merge stage can absorb this without
+touching timestamps; alignment itself does not have to change.
+
+Reproducibility: two consecutive runs produced identical output
+(md5 78e88b07d6fe23252d927a32cf0f72d7).
+
+Pre-fix output preserved verbatim at preflight/run1_artifacts/segments.json
+(md5 d55c936802678baebed173bdfffe6247).

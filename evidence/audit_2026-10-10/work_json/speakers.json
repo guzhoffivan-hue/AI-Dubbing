@@ -1,0 +1,228 @@
+{
+  "model": "pyannote/speaker-diarization-3.1",
+  "speaker_count_bounds": {
+    "min_speakers": 2,
+    "max_speakers": 8,
+    "exact_count_forced": false
+  },
+  "speaker_map": {
+    "SPEAKER_00": "SPEAKER_00",
+    "SPEAKER_01": "SPEAKER_01"
+  },
+  "speaker_ids": [
+    "SPEAKER_00",
+    "SPEAKER_01"
+  ],
+  "speaker_count": 2,
+  "turns": [
+    {
+      "speaker_id": "SPEAKER_00",
+      "start": 0.03096875,
+      "end": 595.97159375,
+      "confidence": "not_calibrated_by_pyannote_3_1"
+    },
+    {
+      "speaker_id": "SPEAKER_01",
+      "start": 595.97159375,
+      "end": 606.0290937500001,
+      "confidence": "not_calibrated_by_pyannote_3_1"
+    },
+    {
+      "speaker_id": "SPEAKER_00",
+      "start": 606.0290937500001,
+      "end": 950.9709687500001,
+      "confidence": "not_calibrated_by_pyannote_3_1"
+    },
+    {
+      "speaker_id": "SPEAKER_01",
+      "start": 950.9709687500001,
+      "end": 957.0290937500001,
+      "confidence": "not_calibrated_by_pyannote_3_1"
+    },
+    {
+      "speaker_id": "SPEAKER_00",
+      "start": 957.0290937500001,
+      "end": 1103.9765937500001,
+      "confidence": "not_calibrated_by_pyannote_3_1"
+    },
+    {
+      "speaker_id": "SPEAKER_01",
+      "start": 1103.9765937500001,
+      "end": 1104.0272187500002,
+      "confidence": "not_calibrated_by_pyannote_3_1"
+    },
+    {
+      "speaker_id": "SPEAKER_00",
+      "start": 1104.0272187500002,
+      "end": 1108.9715937500002,
+      "confidence": "not_calibrated_by_pyannote_3_1"
+    },
+    {
+      "speaker_id": "SPEAKER_01",
+      "start": 1108.9715937500002,
+      "end": 1116.02534375,
+      "confidence": "not_calibrated_by_pyannote_3_1"
+    },
+    {
+      "speaker_id": "SPEAKER_00",
+      "start": 1116.02534375,
+      "end": 1116.9703437500002,
+      "confidence": "not_calibrated_by_pyannote_3_1"
+    },
+    {
+      "speaker_id": "SPEAKER_01",
+      "start": 1116.9703437500002,
+      "end": 1117.03784375,
+      "confidence": "not_calibrated_by_pyannote_3_1"
+    },
+    {
+      "speaker_id": "SPEAKER_00",
+      "start": 1117.03784375,
+      "end": 1136.96721875,
+      "confidence": "not_calibrated_by_pyannote_3_1"
+    },
+    {
+      "speaker_id": "SPEAKER_01",
+      "start": 1136.96721875,
+      "end": 1142.02971875,
+      "confidence": "not_calibrated_by_pyannote_3_1"
+    },
+    {
+      "speaker_id": "SPEAKER_00",
+      "start": 1142.02971875,
+      "end": 1351.9715937500002,
+      "confidence": "not_calibrated_by_pyannote_3_1"
+    },
+    {
+      "speaker_id": "SPEAKER_01",
+      "start": 1351.9715937500002,
+      "end": 1368.03659375,
+      "confidence": "not_calibrated_by_pyannote_3_1"
+    },
+    {
+      "speaker_id": "SPEAKER_00",
+      "start": 1368.03659375,
+      "end": 1615.96409375,
+      "confidence": "not_calibrated_by_pyannote_3_1"
+    },
+    {
+      "speaker_id": "SPEAKER_01",
+      "start": 1388.03346875,
+      "end": 1388.4890937500002,
+      "confidence": "not_calibrated_by_pyannote_3_1"
+    },
+    {
+      "speaker_id": "SPEAKER_01",
+      "start": 1615.96409375,
+      "end": 1622.0390937500001,
+      "confidence": "not_calibrated_by_pyannote_3_1"
+    },
+    {
+      "speaker_id": "SPEAKER_00",
+      "start": 1622.0390937500001,
+      "end": 1683.17721875,
+      "confidence": "not_calibrated_by_pyannote_3_1"
+    },
+    {
+      "speaker_id": "SPEAKER_01",
+      "start": 1683.1265937500002,
+      "end": 1683.61596875,
+      "confidence": "not_calibrated_by_pyannote_3_1"
+    },
+    {
+      "speaker_id": "SPEAKER_00",
+      "start": 1683.5653437500002,
+      "end": 1799.9690937500002,
+      "confidence": "not_calibrated_by_pyannote_3_1"
+    }
+  ],
+  "overlap_intervals": [
+    {
+      "start": 1388.03346875,
+      "end": 1388.4890937500002,
+      "speaker_ids": [
+        "SPEAKER_00",
+        "SPEAKER_01"
+      ]
+    },
+    {
+      "start": 1683.1265937500002,
+      "end": 1683.17721875,
+      "speaker_ids": [
+        "SPEAKER_00",
+        "SPEAKER_01"
+      ]
+    },
+    {
+      "start": 1683.5653437500002,
+      "end": 1683.61596875,
+      "speaker_ids": [
+        "SPEAKER_01",
+        "SPEAKER_00"
+      ]
+    }
+  ],
+  "uncertain_turns": [
+    {
+      "speaker_id": "SPEAKER_01",
+      "start": 1103.9765937500001,
+      "end": 1104.0272187500002,
+      "reason": "shorter_than_0.75_seconds"
+    },
+    {
+      "speaker_id": "SPEAKER_01",
+      "start": 1116.9703437500002,
+      "end": 1117.03784375,
+      "reason": "shorter_than_0.75_seconds"
+    },
+    {
+      "speaker_id": "SPEAKER_01",
+      "start": 1388.03346875,
+      "end": 1388.4890937500002,
+      "reason": "shorter_than_0.75_seconds"
+    },
+    {
+      "speaker_id": "SPEAKER_01",
+      "start": 1683.1265937500002,
+      "end": 1683.61596875,
+      "reason": "shorter_than_0.75_seconds"
+    }
+  ],
+  "voice_types": {
+    "SPEAKER_00": {
+      "voice_type": "female",
+      "confidence": "high",
+      "f0_median_hz": 206.5,
+      "f0_q25_hz": 192.7,
+      "f0_q75_hz": 226.5,
+      "voiced_seconds": 24.69,
+      "method": "conservative pYIN acoustic heuristic; ambiguous or short samples are unknown"
+    },
+    "SPEAKER_01": {
+      "voice_type": "unknown",
+      "confidence": "low",
+      "f0_median_hz": 211.4,
+      "f0_q25_hz": 179.5,
+      "f0_q75_hz": 221.4,
+      "voiced_seconds": 0.9,
+      "method": "conservative pYIN acoustic heuristic; ambiguous or short samples are unknown"
+    }
+  },
+  "speaker_similarity": {
+    "labels": [
+      "SPEAKER_00",
+      "SPEAKER_01"
+    ],
+    "cosine": [
+      [
+        1.0,
+        0.953
+      ],
+      [
+        0.953,
+        1.0
+      ]
+    ]
+  },
+  "merged_speakers": {}
+}

@@ -1,0 +1,2 @@
+#!/bin/sh
+exec "$(dirname "$0")/.venvs/asr/bin/python" "$(dirname "$0")/scripts/cli.py" dub "$@"

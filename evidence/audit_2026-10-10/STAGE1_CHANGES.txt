@@ -1,0 +1,19 @@
+# Stage 1 change surface (AI-Dubbing only)
+# generated 2026-10-10 02:07:34   baseline entries parsed: 110
+
+## modified (6)
+  scripts/align.py             was 2336c200  now 296eb411
+  scripts/cli.py               was 6a2b8d7a  now bcc1ece5
+  scripts/common.py            was b68ae3a6  now 53930bfc
+  scripts/dialogue.py          was 15522e3e  now 05cad2f1
+  scripts/mix_audio.py         was 0edbe8a2  now a48de324
+  scripts/tts.py               was 89e6d607  now d3bca404
+
+## added (4)
+  scripts/integrity.py         now 3daa9954
+  tests/test_align_offsets.py  now 7dd49b67
+  tests/test_integrity.py      now 9d04f4f0
+  tests/test_scripts_parse.py  now 0c62e8ac
+
+## unintended modifications: 0
+## files that disappeared: 0

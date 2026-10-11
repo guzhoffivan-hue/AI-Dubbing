@@ -1,0 +1,28 @@
+
+
+$ /Volumes/develop/AI-Dubbing/test_run_1200s/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/test_run_1200s/scripts/align.py
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ForcedAligner-0.6B/.no_exist/c7cbfc2048c462b0d63a45797104fc9db3ad62b7/custom_generate/generate.py'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ForcedAligner-0.6B/.no_exist/c7cbfc2048c462b0d63a45797104fc9db3ad62b7/custom_generate/generate.py'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ForcedAligner-0.6B/.no_exist/c7cbfc2048c462b0d63a45797104fc9db3ad62b7/processor_config.json'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ForcedAligner-0.6B/.no_exist/c7cbfc2048c462b0d63a45797104fc9db3ad62b7/processor_config.json'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ForcedAligner-0.6B/.no_exist/c7cbfc2048c462b0d63a45797104fc9db3ad62b7/processor_config.json'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ForcedAligner-0.6B/.no_exist/c7cbfc2048c462b0d63a45797104fc9db3ad62b7/processor_config.json'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ForcedAligner-0.6B/.no_exist/c7cbfc2048c462b0d63a45797104fc9db3ad62b7/processor_config.json'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ForcedAligner-0.6B/.no_exist/c7cbfc2048c462b0d63a45797104fc9db3ad62b7/processor_config.json'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ForcedAligner-0.6B/.no_exist/c7cbfc2048c462b0d63a45797104fc9db3ad62b7/processor_config.json'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ForcedAligner-0.6B/.no_exist/c7cbfc2048c462b0d63a45797104fc9db3ad62b7/processor_config.json'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ForcedAligner-0.6B/.no_exist/c7cbfc2048c462b0d63a45797104fc9db3ad62b7/chat_template.jinja'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ForcedAligner-0.6B/.no_exist/c7cbfc2048c462b0d63a45797104fc9db3ad62b7/chat_template.jinja'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ForcedAligner-0.6B/.no_exist/c7cbfc2048c462b0d63a45797104fc9db3ad62b7/audio_tokenizer_config.json'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 1] Operation not permitted: '/Users/mac/.cache/huggingface/hub/models--Qwen--Qwen3-ForcedAligner-0.6B/.no_exist/c7cbfc2048c462b0d63a45797104fc9db3ad62b7/audio_tokenizer_config.json'
+Aligned chunk 1/10
+Aligned chunk 2/10
+Aligned chunk 3/10
+Aligned chunk 4/10
+Aligned chunk 5/10
+Aligned chunk 6/10
+Aligned chunk 7/10
+Aligned chunk 8/10
+Aligned chunk 9/10
+Aligned chunk 10/10
+Aligned 8607 tokens; saved /Volumes/develop/AI-Dubbing/test_run_1200s/work/42503442096_first1200s/alignment.json
