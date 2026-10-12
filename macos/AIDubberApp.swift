@@ -127,17 +127,45 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKScriptMessageHandler
         NSApp.mainMenu = mainMenu
     }
 
+    private func killStaleBackendOnPort() {
+        let task = Process()
+        task.executableURL = URL(fileURLWithPath: "/usr/sbin/lsof")
+        task.arguments = ["-t", "-i", ":\(apiPort)"]
+        let pipe = Pipe()
+        task.standardOutput = pipe
+        task.standardError = FileHandle.nullDevice
+        do {
+            try task.run()
+            task.waitUntilExit()
+            let data = pipe.fileHandleForReading.readDataToEndOfFile()
+            if let output = String(data: data, encoding: .utf8) {
+                for line in output.split(whereSeparator: \.isNewline) {
+                    if let pid = Int32(line.trimmingCharacters(in: .whitespaces)), pid != getpid() {
+                        kill(pid, SIGTERM)
+                    }
+                }
+            }
+        } catch {}
+    }
+
     private func startBackendIfNeeded(completion: @escaping (Bool) -> Void) {
-        let healthURL = URL(string: "http://127.0.0.1:\(apiPort)/api/health")!
-        var req = URLRequest(url: healthURL)
+        let statusURL = URL(string: "http://127.0.0.1:\(apiPort)/api/dub/status")!
+        var req = URLRequest(url: statusURL)
         req.timeoutInterval = 0.4
 
-        URLSession.shared.dataTask(with: req) { [weak self] _, response, _ in
-            if let http = response as? HTTPURLResponse, http.statusCode == 200 {
+        URLSession.shared.dataTask(with: req) { [weak self] data, response, _ in
+            guard let self = self else { return }
+            if let http = response as? HTTPURLResponse, http.statusCode == 200,
+               let data = data,
+               let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+               let isRunning = json["is_running"] as? Bool, isRunning == true {
                 DispatchQueue.main.async { completion(true) }
                 return
             }
-            self?.spawnBackendProcess(completion: completion)
+            self.killStaleBackendOnPort()
+            DispatchQueue.global().asyncAfter(deadline: .now() + 0.25) {
+                self.spawnBackendProcess(completion: completion)
+            }
         }.resume()
     }
 
@@ -236,7 +264,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKScriptMessageHandler
             let localHTML = root.appendingPathComponent("core/app/ui/index.html")
             let bundledHTML = Bundle.main.resourceURL?.appendingPathComponent("index.html")
             if backendReady, let url = URL(string: "http://127.0.0.1:\(self.apiPort)/") {
-                self.webView.load(URLRequest(url: url))
+                self.webView.load(URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData))
             } else if FileManager.default.fileExists(atPath: localHTML.path) {
                 self.webView.loadFileURL(localHTML, allowingReadAccessTo: localHTML.deletingLastPathComponent())
             } else if let bundledHTML = bundledHTML, FileManager.default.fileExists(atPath: bundledHTML.path) {
