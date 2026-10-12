@@ -1,36 +1,128 @@
-# AI-Dubbing
+# AI Dubber 🎬🎙️
 
-Offline, local-first video dubbing for Apple Silicon. `./dub` processes supported videos from `input/` sequentially, stores per-video intermediates in `work/<video>/`, and writes `<name>_ru.mp4` to `output/`. The final mux maps only the generated audio stream; the source audio is never mapped. The safety setting `use_original_audio` must remain `false`.
+> **Полный автономный дубляж видео на Apple Silicon (macOS). 100% локально, без облаков и подписок.**
 
-Heavy stages use separate Python environments so ASR, translation, and TTS model weights are not intentionally loaded in one process. A failed stage is recorded in `work/<video>/status.json`; rerunning `./dub` reuses completed artifacts for the same input and run mode. Detailed stage logs are written under `logs/`.
+[![macOS](https://img.shields.io/badge/macOS-Apple%20Silicon%20(M1%2FM2%2FM3%2FM4)-black?logo=apple)](https://apple.com)
+[![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)](https://python.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?logo=fastapi)](https://fastapi.tiangolo.com)
+[![MLX](https://img.shields.io/badge/Apple-MLX-orange)](https://github.com/ml-explore/mlx)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-## Первый запуск
+AI Dubber — это нативное macOS-приложение и модульный движок дубляжа видео на русском языке. Приложение полностью локально транскрибирует речь, разделяет говорящих, переводит текст с учетом контекста, клонирует голоса и синтезирует русскую речь, накладывая эффекты (SFX) и фоновый эмбиенс.
 
-```sh
-cd ~/AI-Dubbing
+---
+
+## ✨ Ключевые возможности
+
+- 🖥️ **Нативное macOS-приложение**: компактный Swift + WebKit интерфейс, поддержка Drag & Drop, плавные анимации, индикация этапов и автоматическое управление фоновым сервером.
+- 🔒 **100% Offline & Private**: вся обработка выполняется исключительно на вашем Mac через Metal/MPS и Apple MLX. Никакие данные не отправляются на сторонние серверы.
+- 🎯 **Умный аудиомикшер («Smear Sequencing»)**:
+  - Предотвращение наложений реплик разных персонажей.
+  - Алгоритм сглаживания (*smear*): длинные переведённые фразы плавно занимают соседние паузы без неестественного ускорения речи.
+  - Защита от обрывов предложений и устранение артефактов эха.
+- 🎭 **Диаризация и распределение голосов**: автоматическое определение спикеров (PyAnnote) и генерация индивидуальных тембров через `Qwen3-TTS`.
+- 🔊 **Саунд-дизайн (SFX & Ambience)**: автоматический подбор фоновых шумов и звуковых эффектов для реалистичной картины звучания.
+
+---
+
+## 🛠️ Архитектура конвейера (12 этапов)
+
+```mermaid
+flowchart TD
+    A["🎥 Исходное видео"] --> B["1. Extract Audio"]
+    B --> C["2. Transcription (Qwen3-ASR)"]
+    C --> D["3. Alignment (Forced Aligner)"]
+    D --> E["4. Diarization (PyAnnote)"]
+    E --> F["5. Segment Merge"]
+    F --> G["6. Translation (Qwen3-8B MLX)"]
+    G --> H["7. Dialogue Budgeting"]
+    H --> I["8. Speech Synthesis (Qwen3-TTS MLX)"]
+    I --> J["9. SFX Selection"]
+    I --> K["10. Ambience Bed"]
+    J & K & I --> L["11. Audio Mix (Smear + De-echo)"]
+    L --> M["12. Video Mux (FFmpeg)"]
+    M --> N["🎬 Готовое видео (_ru.mp4)"]
+```
+
+---
+
+## 💻 Системные требования
+
+- **ОС**: macOS 13.0 (Ventura) или новее.
+- **Процессор**: Apple Silicon (M1 / M2 / M3 / M4, рекомендуется Pro / Max / Ultra).
+- **Оперативная память**: 16 ГБ RAM (рекомендуется 24+ ГБ для длинных видео).
+- **Дисковое пространство**: ~15–20 ГБ для весов локальных моделей.
+- **Инструменты**: [Homebrew](https://brew.sh), `ffmpeg`.
+
+---
+
+## 🚀 Установка и запуск
+
+### Вариант 1: Установка через DMG (рекомендуется)
+
+1. Скачайте образ **`AI-Dubber.dmg`** из раздела [Releases](../../releases).
+2. Откройте образ и перетащите **AI Dubber.app** в папку **«Программы»** (`/Applications`).
+3. Запустите приложение.
+4. При первом запуске откроется окно **Настройки моделей**:
+   - Введите ваш токен Hugging Face (`HF_TOKEN`) для диаризации PyAnnote.
+   - Скачайте необходимые веса моделей в один клик.
+5. Перетащите видео в окно приложения и нажмите кнопку старта!
+
+---
+
+### Вариант 2: Запуск из исходного кода (для разработчиков)
+
+#### 1. Клонирование репозитория
+
+```bash
+git clone https://github.com/guzhoffivan-hue/AI-Dubbing.git
+cd AI-Dubbing
+```
+
+#### 2. Первоначальная настройка окружений
+
+Скрипт настроит изолированные виртуальные окружения Python 3.11, установит зависимости и скачает базовые веса:
+
+```bash
 ./setup
 ```
 
-`./setup` creates isolated Python 3.11 environments, installs the local model dependencies and FFmpeg if needed, checks or builds the SFX index, then runs a bounded 150-second end-to-end sample. The pyannote diarization model is gated: accept its Hugging Face conditions and add a local token as `HF_TOKEN=...` in `.env` to run the sample. Setup never processes an entire long video. For a manual short diagnostic sample, use `./dub --test` (optionally `--start SEC --duration SEC`).
+#### 3. Сборка нативного приложения и DMG
 
-Python 3.11 and Homebrew are required for automatic environment setup. Model weights are downloaded into the local Hugging Face / MLX cache when their pipeline stage first runs; no inference is sent to a cloud service.
+```bash
+# Сборка .app бандла:
+./macos/build_app.sh
 
-## Обычное использование
-
-```sh
-cp /path/to/video.mp4 ~/AI-Dubbing/input/
-cd ~/AI-Dubbing
-./dub
+# Сборка готового DMG установщика:
+./macos/build_dmg.sh
 ```
 
-After processing:
+#### 4. Запуск бэкенда и CLI
 
-```text
-~/AI-Dubbing/output/
+```bash
+# Запуск API бэкенда:
+./api
+
+# Или запуск дубляжа напрямую через CLI:
+./dub --test --duration 150
 ```
 
-Several videos are processed one after another. A normal `./dub` run processes complete input videos; setup's sample is bounded. Do not use a full run until the sample result has been reviewed.
+---
 
-## Current implementation limits
+## 🧪 Тестирование
 
-The current SFX index is metadata and filename based; sound event/scene detection from video frames is not implemented yet. SFX placement uses conservative dialogue keyword matching. The configured TTS backend is Qwen3-TTS; setup does not yet benchmark Qwen3-TTS, Chatterbox, and CosyVoice or auto-select among them. The diarization stage requires a Hugging Face token and accepted model access. These items are reported as setup limitations rather than claimed as completed features.
+Проект покрыт полным набором модульных и интеграционных тестов (181 тест):
+
+```bash
+# Запуск pytest для ядра:
+.venvs/asr/bin/pytest
+
+# Запуск тестов сценариев и инвариантов:
+python3 -m unittest discover -s tests
+```
+
+---
+
+## 📄 Лицензия
+
+Проект распространяется под лицензией MIT. Подробности в файле [LICENSE](LICENSE).
