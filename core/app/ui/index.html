@@ -850,6 +850,18 @@
     document.getElementById("controlsRunning").style.display = "none";
     document.getElementById("controlsDone").style.display = "none";
     document.getElementById("controlsIdle").style.display = "flex";
+
+    const dubFill = document.getElementById("dubProgressFill");
+    if (dubFill) {
+      dubFill.style.background = "";
+      dubFill.style.width = "0%";
+    }
+    const btnCancel = document.querySelector(".btn-cancel-soft");
+    if (btnCancel) {
+      btnCancel.textContent = "Отмена";
+      btnCancel.onclick = () => cancelDubbing();
+    }
+
     setPageDot(0);
   }
 
@@ -932,7 +944,16 @@
         enterDoneState(data.output_video);
       } else if (data.last_error) {
         sub.textContent = `Ошибка: ${data.last_error}`;
-        setTimeout(() => resetToIdle(), 3500);
+        sub.style.display = "block";
+        const wellTitle = document.getElementById("wellTitle");
+        if (wellTitle) wellTitle.textContent = "Произошла ошибка";
+        const dubFill = document.getElementById("dubProgressFill");
+        if (dubFill) dubFill.style.background = "#FF453A";
+        const btnCancel = document.querySelector(".btn-cancel-soft");
+        if (btnCancel) {
+          btnCancel.textContent = "Вернуться";
+          btnCancel.onclick = () => resetToIdle();
+        }
       } else {
         resetToIdle();
       }

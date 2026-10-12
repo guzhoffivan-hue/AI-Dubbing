@@ -534,7 +534,7 @@ def start_dub(req: DubStartRequest) -> dict[str, Any]:
         input_video=video,
         output_dir=ROOT / "output",
         start=req.start,
-        duration=duration if duration is not None else 0.0,
+        duration=duration,
     )
     layout.check_config()
 
