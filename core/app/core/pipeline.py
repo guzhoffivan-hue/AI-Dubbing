@@ -1,4 +1,5 @@
 import json
+import threading
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable
@@ -7,6 +8,12 @@ from app.core.artifact_manifest import (
     ArtifactStore,
     build_manifest,
     verify_manifest,
+)
+from app.core.cancellation import (
+    TIMEOUT_REASON,
+    CancelToken,
+    StageCancelled,
+    StageTimeout,
 )
 from app.core.pipeline_context import PipelineContext
 from app.core.pipeline_state import PipelineState
@@ -27,6 +34,12 @@ class PipelineProgress:
     message: str
 
 
+def _ignore_line(_line: str) -> None:
+    """A stage without a progress reader still gets a callable to feed its lines to."""
+
+    return None
+
+
 class Pipeline:
     def __init__(
         self,
@@ -36,6 +49,7 @@ class Pipeline:
         on_progress: Callable[[PipelineProgress], None] | None = None,
         project_dir: Path | None = None,
         artifact_store: ArtifactStore | None = None,
+        cancel: CancelToken | None = None,
     ):
         self.state = state or PipelineState()
         self.context = context
@@ -43,6 +57,7 @@ class Pipeline:
             handlers or {}
         )
         self.on_progress = on_progress
+        self.cancel = cancel if cancel is not None else CancelToken()
         self.results: dict[str, object] = {}
 
         if project_dir is not None:
@@ -238,6 +253,57 @@ class Pipeline:
             )
             self.report(stage, 0.0, stage_state.message)
 
+    def _apply_progress(
+        self,
+        stage: PipelineStage,
+        stage_state: StageState,
+        progress: float,
+        message: str,
+    ) -> None:
+        """Report progress inside a running stage without rewriting the state file.
+
+        A long stage reports thousands of lines; persisting each one would rewrite
+        the whole state (and ``fsync`` it) for every translated line. The state file
+        is still written at stage boundaries, while in-process readers see the live
+        value through the progress callback.
+        """
+
+        stage_state.progress = progress
+        stage_state.message = message
+        self.report(stage, progress, message)
+
+    def _line_callback(
+        self,
+        stage: PipelineStage,
+        stage_state: StageState,
+        handler: StageHandler,
+    ):
+        """Feed a stage's log lines to its progress reader."""
+
+        reader = handler.progress
+
+        if reader is None:
+            return None
+
+        def handle(line: str) -> None:
+            try:
+                update = reader(line)
+            except Exception:
+                # A broken reader must never fail a stage that is working.
+                return
+
+            if update is None:
+                return
+
+            self._apply_progress(
+                stage,
+                stage_state,
+                min(1.0, max(0.0, float(update.fraction))),
+                update.message or line.strip(),
+            )
+
+        return handle
+
     def _ensure_outcome(self, outcome: StageOutcome | None) -> None:
         if outcome is None or outcome.artifact is None:
             return
@@ -247,6 +313,106 @@ class Pipeline:
                 "Expected artifact is missing or empty: "
                 f"{outcome.artifact}"
             )
+
+    def request_cancel(self, reason: str = "cancelled") -> None:
+        """Ask the run to stop. Safe to call from another thread (e.g. a signal handler)."""
+
+        self.cancel.request(reason)
+
+    def _run_attempt(
+        self,
+        stage: PipelineStage,
+        handler: StageHandler,
+        run_context: PipelineContext | None,
+        stage_state: StageState,
+    ) -> StageOutcome | None:
+        """One attempt of one stage, with its own deadline and its own token.
+
+        The token is a child of the pipeline token, so a timeout here cannot
+        reach the stages that follow, while a user cancel still stops this stage.
+        """
+
+        token = self.cancel.child()
+        # While a stage runs its line callback is always callable: a stage must not
+        # have to know whether anything is interested in its output.
+        on_line = self._line_callback(stage, stage_state, handler) or _ignore_line
+
+        if run_context is not None:
+            run_context.cancel = token
+            run_context.on_output_line = on_line
+
+        timer = None
+
+        if handler.timeout is not None and handler.timeout > 0:
+            timer = threading.Timer(
+                handler.timeout,
+                token.request,
+                args=(TIMEOUT_REASON, handler.timeout),
+            )
+            timer.daemon = True
+            timer.start()
+
+        try:
+            # A user cancel from before this attempt is not a timeout.
+            token.raise_if_cancelled()
+
+            if handler.precondition is not None:
+                # Cross-stage invariants are checked before the stage is
+                # allowed to touch anything: a stale artifact must stop the
+                # pipeline, not silently produce a broken video.
+                handler.precondition(run_context)
+
+            outcome = handler.run(run_context)
+
+            # A handler that ignores the token (a blocking call) is still
+            # stopped from the pipeline's point of view: whatever it produced
+            # cannot be trusted as a finished stage.
+            token.raise_if_cancelled()
+
+            return outcome
+        finally:
+            if timer is not None:
+                timer.cancel()
+
+            if run_context is not None:
+                run_context.cancel = None
+                run_context.on_output_line = None
+
+    def _run_handler(
+        self,
+        stage: PipelineStage,
+        handler: StageHandler,
+        run_context: PipelineContext | None,
+        stage_state: StageState,
+    ) -> StageOutcome | None:
+        """Run a stage, retrying failures but never retrying a user cancel."""
+
+        attempts = max(1, int(handler.retries) + 1)
+
+        for attempt in range(1, attempts + 1):
+            try:
+                return self._run_attempt(
+                    stage,
+                    handler,
+                    run_context,
+                    stage_state,
+                )
+            except StageCancelled:
+                raise
+            except Exception as exc:
+                if attempt >= attempts:
+                    raise
+
+                self.report(
+                    stage,
+                    0.0,
+                    f"{stage.value} failed ({type(exc).__name__}: {exc}); "
+                    f"retrying ({attempt}/{attempts - 1})",
+                )
+
+        raise RuntimeError(
+            f"{stage.value} made no attempt"
+        )  # pragma: no cover - the loop above always returns or raises
 
     def _store_result(
         self,
@@ -281,6 +447,21 @@ class Pipeline:
         for stage in PipelineStage:
             handler = self.handlers.get(stage)
             stage_state = self.state.get(stage.value)
+
+            # A cancelled run stops before the next stage starts and leaves the
+            # remaining stages untouched, so the saved state resumes them later.
+            if self.cancel.cancelled:
+                if stage_state.status == StageStatus.COMPLETED:
+                    continue
+
+                self._apply(
+                    stage,
+                    stage_state,
+                    StageStatus.CANCELLED,
+                    0.0,
+                    f"Cancelled before {stage.value}: {self.cancel.reason}",
+                )
+                return
 
             # A stage left RUNNING by a previous crash is recoverable: treat
             # it as not started so the pipeline can safely re-run it.
@@ -346,14 +527,31 @@ class Pipeline:
             )
 
             try:
-                if handler.precondition is not None:
-                    # Cross-stage invariants are checked before the stage is
-                    # allowed to touch anything: a stale artifact must stop the
-                    # pipeline, not silently produce a broken video.
-                    handler.precondition(run_context)
-
-                outcome = handler.run(run_context)
+                outcome = self._run_handler(
+                    stage,
+                    handler,
+                    run_context,
+                    stage_state,
+                )
                 self._ensure_outcome(outcome)
+            except StageCancelled as exc:
+                self._apply(
+                    stage,
+                    stage_state,
+                    StageStatus.CANCELLED,
+                    0.0,
+                    f"Cancelled during {stage.value}: {exc.reason}",
+                )
+                return
+            except StageTimeout as exc:
+                self._apply(
+                    stage,
+                    stage_state,
+                    StageStatus.FAILED,
+                    0.0,
+                    f"{stage.value} {exc}",
+                )
+                continue
             except Exception as exc:
                 self._apply(
                     stage,

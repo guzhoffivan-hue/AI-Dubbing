@@ -1,0 +1,932 @@
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/tts/bin/python /Volumes/develop/AI-Dubbing/scripts/tts.py
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/tts/bin/python /Volumes/develop/AI-Dubbing/scripts/tts.py
+/bin/sh: sox: command not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]
+Fetching 4 files:  25%|██▌       | 1/4 [00:00<00:01,  1.84it/s]
+Fetching 4 files: 100%|██████████| 4/4 [00:58<00:00, 14.57s/it]
+Fetching 4 files: 100%|██████████| 4/4 [00:58<00:00, 14.57s/it]
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+Traceback (most recent call last):
+  File "/Volumes/develop/AI-Dubbing/scripts/tts.py", line 36, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/tts.py", line 28, in main
+    wavs,sr=model.generate_voice_clone(text=line['translated_text'],language='Russian',ref_audio=ref['path'],ref_text=ref['text'],x_vector_only_mode=False)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/qwen_tts/inference/qwen3_tts_model.py", line 603, in generate_voice_clone
+    talker_codes_list, _ = self.model.generate(
+                           ^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/qwen_tts/core/models/modeling_qwen3_tts.py", line 2272, in generate
+    talker_result = self.talker.generate(
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/transformers/generation/utils.py", line 2564, in generate
+    result = decoding_method(
+             ^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/transformers/generation/utils.py", line 2787, in _sample
+    outputs = model_forward(**model_inputs, return_dict=True)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/transformers/utils/generic.py", line 918, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/qwen_tts/core/models/modeling_qwen3_tts.py", line 1671, in forward
+    predictor_result = self.code_predictor.generate(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/transformers/generation/utils.py", line 2564, in generate
+    result = decoding_method(
+             ^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/transformers/generation/utils.py", line 2829, in _sample
+    next_tokens = torch.multinomial(probs, num_samples=1).squeeze(1)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: probability tensor contains either `inf`, `nan` or element < 0
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/tts/bin/python /Volumes/develop/AI-Dubbing/scripts/tts.py
+/bin/sh: sox: command not found
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+
+********
+Warning: flash-attn is not installed. Will only run the manual PyTorch version. Please install flash-attn for faster inference.
+********
+ 
+
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]
+Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 3632.22it/s]
+Setting `pad_token_id` to `eos_token_id`:2150 for open-end generation.
+Traceback (most recent call last):
+  File "/Volumes/develop/AI-Dubbing/scripts/tts.py", line 36, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/tts.py", line 28, in main
+    wavs,sr=model.generate_voice_clone(text=line['translated_text'],language='Russian',ref_audio=ref['path'],ref_text=ref['text'],x_vector_only_mode=True)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/qwen_tts/inference/qwen3_tts_model.py", line 603, in generate_voice_clone
+    talker_codes_list, _ = self.model.generate(
+                           ^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/qwen_tts/core/models/modeling_qwen3_tts.py", line 2272, in generate
+    talker_result = self.talker.generate(
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/transformers/generation/utils.py", line 2564, in generate
+    result = decoding_method(
+             ^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/transformers/generation/utils.py", line 2787, in _sample
+    outputs = model_forward(**model_inputs, return_dict=True)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/transformers/utils/generic.py", line 918, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/qwen_tts/core/models/modeling_qwen3_tts.py", line 1671, in forward
+    predictor_result = self.code_predictor.generate(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/transformers/generation/utils.py", line 2564, in generate
+    result = decoding_method(
+             ^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/tts/lib/python3.11/site-packages/transformers/generation/utils.py", line 2829, in _sample
+    next_tokens = torch.multinomial(probs, num_samples=1).squeeze(1)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: probability tensor contains either `inf`, `nan` or element < 0
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/tts/bin/python /Volumes/develop/AI-Dubbing/scripts/tts.py
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/tts.py
+Traceback (most recent call last):
+  File "/Volumes/develop/AI-Dubbing/scripts/tts.py", line 5, in <module>
+    import soundfile as sf
+ModuleNotFoundError: No module named 'soundfile'
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/tts.py
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/tts.py
+
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]
+Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 3614.48it/s]
+[transformers] You are using a model of type `qwen3_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+  Initialized encoder codebooks
+Loaded speech tokenizer from /Users/mac/.cache/huggingface/hub/models--mlx-community--Qwen3-TTS-12Hz-0.6B-Base-bf16/snapshots/1eccf1cb2519b5a4e8a95b5f0544f3303568164f/speech_tokenizer
+Synthesized 10/19
+Traceback (most recent call last):
+  File "/Volumes/develop/AI-Dubbing/scripts/tts.py", line 66, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/tts.py", line 63, in main
+    if torch.backends.mps.is_available(): torch.mps.empty_cache()
+       ^^^^^
+UnboundLocalError: cannot access local variable 'torch' where it is not associated with a value
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/tts.py
+
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]
+Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 3706.03it/s]
+[transformers] You are using a model of type `qwen3_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+  Initialized encoder codebooks
+Loaded speech tokenizer from /Users/mac/.cache/huggingface/hub/models--mlx-community--Qwen3-TTS-12Hz-0.6B-Base-bf16/snapshots/1eccf1cb2519b5a4e8a95b5f0544f3303568164f/speech_tokenizer
+Reused synthesized line 1/19
+Reused synthesized line 2/19
+Reused synthesized line 3/19
+Reused synthesized line 4/19
+Reused synthesized line 5/19
+Reused synthesized line 6/19
+Reused synthesized line 7/19
+Reused synthesized line 8/19
+Reused synthesized line 9/19
+Reused synthesized line 10/19
+Reused synthesized line 11/19
+Reused synthesized line 12/19
+Reused synthesized line 13/19
+Reused synthesized line 14/19
+Reused synthesized line 15/19
+Reused synthesized line 16/19
+Reused synthesized line 17/19
+Reused synthesized line 18/19
+Reused synthesized line 19/19
+Synthesized 19 lines
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/tts.py
+
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Fetching 12 files:   8%|▊         | 1/12 [00:00<00:04,  2.25it/s]
+Fetching 12 files:  67%|██████▋   | 8/12 [00:00<00:00, 14.95it/s]
+Fetching 12 files:  92%|█████████▏| 11/12 [00:01<00:00, 10.90it/s]
+Fetching 12 files:  92%|█████████▏| 11/12 [00:20<00:00, 10.90it/s]
+Fetching 12 files: 100%|██████████| 12/12 [05:02<00:00, 43.91s/it]
+Fetching 12 files: 100%|██████████| 12/12 [05:02<00:00, 25.19s/it]
+[transformers] You are using a model of type `qwen3_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+  Initialized encoder codebooks
+Loaded speech tokenizer from /Users/mac/.cache/huggingface/hub/models--mlx-community--Qwen3-TTS-12Hz-1.7B-VoiceDesign-bf16/snapshots/7d3824abff87e49756bb0f83fb5411de75d160c4/speech_tokenizer
+Synthesized 10/19
+Synthesized 19 lines
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/tts.py
+
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]
+Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2913.22it/s]
+[transformers] You are using a model of type `qwen3_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+  Initialized encoder codebooks
+Loaded speech tokenizer from /Users/mac/.cache/huggingface/hub/models--mlx-community--Qwen3-TTS-12Hz-1.7B-VoiceDesign-bf16/snapshots/7d3824abff87e49756bb0f83fb5411de75d160c4/speech_tokenizer
+Speaker voice assignment:
+SPEAKER_00 | female | VOICE_00 | 19 segments
+
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]
+Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2844.88it/s]
+[transformers] You are using a model of type `qwen3_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+  Initialized encoder codebooks
+Loaded speech tokenizer from /Users/mac/.cache/huggingface/hub/models--mlx-community--Qwen3-TTS-12Hz-0.6B-Base-bf16/snapshots/1eccf1cb2519b5a4e8a95b5f0544f3303568164f/speech_tokenizer
+Synthesized line 1/19 (SPEAKER_00 → VOICE_00)
+Synthesized line 2/19 (SPEAKER_00 → VOICE_00)
+Synthesized line 3/19 (SPEAKER_00 → VOICE_00)
+Synthesized line 4/19 (SPEAKER_00 → VOICE_00)
+Synthesized line 5/19 (SPEAKER_00 → VOICE_00)
+Synthesized line 6/19 (SPEAKER_00 → VOICE_00)
+Synthesized line 7/19 (SPEAKER_00 → VOICE_00)
+Synthesized line 8/19 (SPEAKER_00 → VOICE_00)
+Synthesized line 9/19 (SPEAKER_00 → VOICE_00)
+Synthesized line 10/19 (SPEAKER_00 → VOICE_00)
+Synthesized line 11/19 (SPEAKER_00 → VOICE_00)
+Synthesized line 12/19 (SPEAKER_00 → VOICE_00)
+Synthesized line 13/19 (SPEAKER_00 → VOICE_00)
+Synthesized line 14/19 (SPEAKER_00 → VOICE_00)
+Synthesized line 15/19 (SPEAKER_00 → VOICE_00)
+Synthesized line 16/19 (SPEAKER_00 → VOICE_00)
+Synthesized line 17/19 (SPEAKER_00 → VOICE_00)
+Synthesized line 18/19 (SPEAKER_00 → VOICE_00)
+Synthesized line 19/19 (SPEAKER_00 → VOICE_00)
+Synthesized 19 TTS lines
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/tts.py
+
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]
+Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 1849.88it/s]
+[transformers] You are using a model of type `qwen3_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+  Initialized encoder codebooks
+Loaded speech tokenizer from /Users/mac/.cache/huggingface/hub/models--mlx-community--Qwen3-TTS-12Hz-1.7B-VoiceDesign-bf16/snapshots/7d3824abff87e49756bb0f83fb5411de75d160c4/speech_tokenizer
+Speaker voice assignment:
+SPEAKER_00 | female | VOICE_00 | 38 segments
+SPEAKER_01 | unknown | VOICE_01 | 6 segments
+
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]
+Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2254.80it/s]
+[transformers] You are using a model of type `qwen3_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+  Initialized encoder codebooks
+Loaded speech tokenizer from /Users/mac/.cache/huggingface/hub/models--mlx-community--Qwen3-TTS-12Hz-0.6B-Base-bf16/snapshots/1eccf1cb2519b5a4e8a95b5f0544f3303568164f/speech_tokenizer
+Traceback (most recent call last):
+  File "/Volumes/develop/AI-Dubbing/scripts/tts.py", line 171, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/tts.py", line 154, in main
+    raise RuntimeError(f"{line['segment_id']} ({speaker_id} → {voice_id}) is {duration:.2f}s but only {available:.2f}s are available; shortening is required before mixing.")
+RuntimeError: SEG_0000 (SPEAKER_00 → VOICE_00) is 6.19s but only 3.60s are available; shortening is required before mixing.
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/tts.py
+Speaker voice assignment:
+SPEAKER_00 | female | VOICE_00 | 38 segments
+SPEAKER_01 | unknown | VOICE_01 | 6 segments
+
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]
+Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 1889.75it/s]
+[transformers] You are using a model of type `qwen3_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+  Initialized encoder codebooks
+Loaded speech tokenizer from /Users/mac/.cache/huggingface/hub/models--mlx-community--Qwen3-TTS-12Hz-0.6B-Base-bf16/snapshots/1eccf1cb2519b5a4e8a95b5f0544f3303568164f/speech_tokenizer
+WARN SEG_0000 (SPEAKER_00 → VOICE_00) is 5.20s but only 3.60s are available; shortening is required before mixing.
+TRIMMED SEG_0000
+segment 001 speaker=SPEAKER_00 voice=VOICE_00 start=0.00 end=3.60 slot_end=3.60
+WARN SEG_0001 (SPEAKER_00 → VOICE_00) is 5.28s but only 3.68s are available; shortening is required before mixing.
+TRIMMED SEG_0001
+segment 002 speaker=SPEAKER_00 voice=VOICE_00 start=3.60 end=7.28 slot_end=7.28
+segment 003 speaker=SPEAKER_00 voice=VOICE_00 start=7.28 end=9.63 slot_end=11.12
+segment 004 speaker=SPEAKER_00 voice=VOICE_00 start=11.12 end=12.72 slot_end=12.72
+segment 005 speaker=SPEAKER_00 voice=VOICE_00 start=12.72 end=16.02 slot_end=17.28
+WARN SEG_0005 (SPEAKER_00 → VOICE_00) is 9.29s but only 5.36s are available; shortening is required before mixing.
+TRIMMED SEG_0005
+segment 006 speaker=SPEAKER_00 voice=VOICE_00 start=17.28 end=22.64 slot_end=22.64
+segment 007 speaker=SPEAKER_00 voice=VOICE_00 start=22.64 end=25.78 slot_end=28.32
+segment 008 speaker=SPEAKER_00 voice=VOICE_00 start=28.32 end=31.78 slot_end=32.32
+WARN SEG_0008 (SPEAKER_00 → VOICE_00) is 8.62s but only 4.16s are available; shortening is required before mixing.
+TRIMMED SEG_0008
+segment 009 speaker=SPEAKER_00 voice=VOICE_00 start=32.32 end=36.48 slot_end=36.48
+segment 010 speaker=SPEAKER_00 voice=VOICE_00 start=36.48 end=42.17 slot_end=42.16
+segment 011 speaker=SPEAKER_00 voice=VOICE_00 start=42.16 end=45.54 slot_end=45.76
+segment 012 speaker=SPEAKER_00 voice=VOICE_00 start=45.76 end=50.32 slot_end=51.84
+WARN SEG_0012 (SPEAKER_00 → VOICE_00) is 8.30s but only 4.72s are available; shortening is required before mixing.
+TRIMMED SEG_0012
+segment 013 speaker=SPEAKER_00 voice=VOICE_00 start=51.84 end=56.56 slot_end=56.56
+segment 014 speaker=SPEAKER_00 voice=VOICE_00 start=56.56 end=61.60 slot_end=61.60
+WARN SEG_0014 (SPEAKER_00 → VOICE_00) is 1.09s but only 0.32s are available; shortening is required before mixing.
+TRIMMED SEG_0014
+segment 015 speaker=SPEAKER_00 voice=VOICE_00 start=61.60 end=61.92 slot_end=61.92
+WARN SEG_0015 (SPEAKER_01 → VOICE_01) is 1.52s but only 0.96s are available; shortening is required before mixing.
+TRIMMED SEG_0015
+segment 016 speaker=SPEAKER_01 voice=VOICE_01 start=61.92 end=62.88 slot_end=62.88
+segment 017 speaker=SPEAKER_01 voice=VOICE_01 start=63.12 end=65.25 slot_end=65.28
+WARN SEG_0017 (SPEAKER_01 → VOICE_01) is 4.72s but only 2.88s are available; shortening is required before mixing.
+TRIMMED SEG_0017
+segment 018 speaker=SPEAKER_01 voice=VOICE_01 start=65.28 end=68.16 slot_end=68.16
+segment 019 speaker=SPEAKER_01 voice=VOICE_01 start=68.16 end=71.73 slot_end=76.00
+WARN SEG_0019 (SPEAKER_01 → VOICE_01) is 1.44s but only 1.04s are available; shortening is required before mixing.
+TRIMMED SEG_0019
+segment 020 speaker=SPEAKER_01 voice=VOICE_01 start=76.00 end=77.04 slot_end=77.04
+WARN SEG_0020 (SPEAKER_01 → VOICE_01) is 1.60s but only 0.88s are available; shortening is required before mixing.
+TRIMMED SEG_0020
+segment 021 speaker=SPEAKER_01 voice=VOICE_01 start=77.04 end=77.92 slot_end=77.92
+segment 022 speaker=SPEAKER_00 voice=VOICE_00 start=77.92 end=81.61 slot_end=82.96
+segment 023 speaker=SPEAKER_00 voice=VOICE_00 start=83.12 end=85.55 slot_end=85.92
+segment 024 speaker=SPEAKER_00 voice=VOICE_00 start=85.92 end=87.56 slot_end=87.68
+segment 025 speaker=SPEAKER_00 voice=VOICE_00 start=87.68 end=89.64 slot_end=92.24
+segment 026 speaker=SPEAKER_00 voice=VOICE_00 start=92.24 end=93.88 slot_end=93.92
+segment 027 speaker=SPEAKER_00 voice=VOICE_00 start=93.92 end=96.59 slot_end=98.80
+segment 028 speaker=SPEAKER_00 voice=VOICE_00 start=98.80 end=102.33 slot_end=102.56
+segment 029 speaker=SPEAKER_00 voice=VOICE_00 start=102.56 end=104.83 slot_end=105.20
+segment 030 speaker=SPEAKER_00 voice=VOICE_00 start=105.20 end=105.98 slot_end=106.16
+segment 031 speaker=SPEAKER_00 voice=VOICE_00 start=106.16 end=108.96 slot_end=108.96
+WARN SEG_0031 (SPEAKER_00 → VOICE_00) is 1.72s but only 1.20s are available; shortening is required before mixing.
+TRIMMED SEG_0031
+segment 032 speaker=SPEAKER_00 voice=VOICE_00 start=108.96 end=110.16 slot_end=110.16
+TRIMMED SEG_0032
+segment 033 speaker=SPEAKER_00 voice=VOICE_00 start=110.16 end=111.36 slot_end=111.36
+segment 034 speaker=SPEAKER_00 voice=VOICE_00 start=111.36 end=112.48 slot_end=112.48
+segment 035 speaker=SPEAKER_00 voice=VOICE_00 start=112.48 end=113.68 slot_end=113.68
+segment 036 speaker=SPEAKER_00 voice=VOICE_00 start=113.68 end=114.62 slot_end=114.96
+segment 037 speaker=SPEAKER_00 voice=VOICE_00 start=114.96 end=116.01 slot_end=116.00
+TRIMMED SEG_0037
+segment 038 speaker=SPEAKER_00 voice=VOICE_00 start=116.00 end=117.92 slot_end=117.92
+segment 039 speaker=SPEAKER_00 voice=VOICE_00 start=117.92 end=121.61 slot_end=123.52
+segment 040 speaker=SPEAKER_00 voice=VOICE_00 start=123.52 end=126.03 slot_end=127.44
+segment 041 speaker=SPEAKER_00 voice=VOICE_00 start=127.44 end=130.66 slot_end=131.20
+segment 042 speaker=SPEAKER_00 voice=VOICE_00 start=131.20 end=136.96 slot_end=138.48
+segment 043 speaker=SPEAKER_00 voice=VOICE_00 start=138.48 end=141.43 slot_end=142.48
+segment 044 speaker=SPEAKER_00 voice=VOICE_00 start=142.48 end=145.38 slot_end=149.92
+Synthesized 44 TTS lines
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/tts.py
+
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]
+Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 3098.29it/s]
+[transformers] You are using a model of type `qwen3_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+  Initialized encoder codebooks
+Loaded speech tokenizer from /Users/mac/.cache/huggingface/hub/models--mlx-community--Qwen3-TTS-12Hz-1.7B-VoiceDesign-bf16/snapshots/7d3824abff87e49756bb0f83fb5411de75d160c4/speech_tokenizer
+Speaker voice assignment:
+SPEAKER_00 | female | VOICE_00 | 31 segments
+
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]
+Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2334.17it/s]
+[transformers] You are using a model of type `qwen3_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+  Initialized encoder codebooks
+Loaded speech tokenizer from /Users/mac/.cache/huggingface/hub/models--mlx-community--Qwen3-TTS-12Hz-0.6B-Base-bf16/snapshots/1eccf1cb2519b5a4e8a95b5f0544f3303568164f/speech_tokenizer
+WARN SEG_0000 (SPEAKER_00 → VOICE_00) is 6.92s but only 3.60s are available; shortening is required before mixing.
+TRIMMED SEG_0000
+segment 001 speaker=SPEAKER_00 voice=VOICE_00 start=0.00 end=3.60 slot_end=3.60
+WARN SEG_0001 (SPEAKER_00 → VOICE_00) is 5.73s but only 3.68s are available; shortening is required before mixing.
+TRIMMED SEG_0001
+segment 002 speaker=SPEAKER_00 voice=VOICE_00 start=3.60 end=7.28 slot_end=7.28
+segment 003 speaker=SPEAKER_00 voice=VOICE_00 start=7.28 end=10.78 slot_end=11.12
+segment 004 speaker=SPEAKER_00 voice=VOICE_00 start=11.12 end=17.24 slot_end=17.28
+segment 005 speaker=SPEAKER_00 voice=VOICE_00 start=17.28 end=22.64 slot_end=22.64
+segment 006 speaker=SPEAKER_00 voice=VOICE_00 start=22.64 end=27.25 slot_end=28.32
+segment 007 speaker=SPEAKER_00 voice=VOICE_00 start=28.32 end=32.13 slot_end=32.32
+WARN SEG_0007 (SPEAKER_00 → VOICE_00) is 8.04s but only 4.16s are available; shortening is required before mixing.
+TRIMMED SEG_0007
+segment 008 speaker=SPEAKER_00 voice=VOICE_00 start=32.32 end=36.48 slot_end=36.48
+WARN SEG_0008 (SPEAKER_00 → VOICE_00) is 7.72s but only 5.68s are available; shortening is required before mixing.
+segment 009 speaker=SPEAKER_00 voice=VOICE_00 start=36.48 end=42.16 slot_end=42.16
+segment 010 speaker=SPEAKER_00 voice=VOICE_00 start=42.16 end=45.58 slot_end=45.76
+segment 011 speaker=SPEAKER_00 voice=VOICE_00 start=45.76 end=51.33 slot_end=51.84
+WARN SEG_0011 (SPEAKER_00 → VOICE_00) is 6.60s but only 4.72s are available; shortening is required before mixing.
+segment 012 speaker=SPEAKER_00 voice=VOICE_00 start=51.84 end=56.57 slot_end=56.56
+segment 013 speaker=SPEAKER_00 voice=VOICE_00 start=56.56 end=60.53 slot_end=61.60
+TRIMMED SEG_0013
+segment 014 speaker=SPEAKER_00 voice=VOICE_00 start=61.60 end=65.27 slot_end=65.28
+segment 015 speaker=SPEAKER_00 voice=VOICE_00 start=65.28 end=67.82 slot_end=68.16
+segment 016 speaker=SPEAKER_00 voice=VOICE_00 start=68.16 end=75.84 slot_end=76.00
+segment 017 speaker=SPEAKER_00 voice=VOICE_00 start=76.00 end=79.89 slot_end=83.12
+segment 018 speaker=SPEAKER_00 voice=VOICE_00 start=83.12 end=85.92 slot_end=85.92
+segment 019 speaker=SPEAKER_00 voice=VOICE_00 start=85.92 end=87.74 slot_end=92.24
+segment 020 speaker=SPEAKER_00 voice=VOICE_00 start=92.24 end=94.06 slot_end=98.80
+segment 021 speaker=SPEAKER_00 voice=VOICE_00 start=98.80 end=101.90 slot_end=102.56
+segment 022 speaker=SPEAKER_00 voice=VOICE_00 start=102.56 end=105.82 slot_end=106.16
+WARN SEG_0022 (SPEAKER_00 → VOICE_00) is 4.45s but only 2.80s are available; shortening is required before mixing.
+TRIMMED SEG_0022
+segment 023 speaker=SPEAKER_00 voice=VOICE_00 start=106.16 end=108.96 slot_end=108.96
+WARN SEG_0023 (SPEAKER_00 → VOICE_00) is 5.49s but only 3.52s are available; shortening is required before mixing.
+TRIMMED SEG_0023
+segment 024 speaker=SPEAKER_00 voice=VOICE_00 start=108.96 end=112.48 slot_end=112.48
+WARN SEG_0024 (SPEAKER_00 → VOICE_00) is 4.93s but only 3.52s are available; shortening is required before mixing.
+TRIMMED SEG_0024
+segment 025 speaker=SPEAKER_00 voice=VOICE_00 start=112.48 end=116.00 slot_end=116.00
+WARN SEG_0025 (SPEAKER_00 → VOICE_00) is 14.99s but only 7.52s are available; shortening is required before mixing.
+TRIMMED SEG_0025
+segment 026 speaker=SPEAKER_00 voice=VOICE_00 start=116.00 end=123.52 slot_end=123.52
+segment 027 speaker=SPEAKER_00 voice=VOICE_00 start=123.52 end=126.54 slot_end=127.44
+segment 028 speaker=SPEAKER_00 voice=VOICE_00 start=127.44 end=131.21 slot_end=131.20
+segment 029 speaker=SPEAKER_00 voice=VOICE_00 start=131.20 end=138.48 slot_end=138.48
+segment 030 speaker=SPEAKER_00 voice=VOICE_00 start=138.48 end=142.48 slot_end=142.48
+segment 031 speaker=SPEAKER_00 voice=VOICE_00 start=142.48 end=148.84 slot_end=149.92
+Synthesized 31 TTS lines
+TTS natural rate: {'chars_per_second': 12.58, 'n': 31}
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/tts.py
+Speaker voice assignment:
+SPEAKER_00 | female | VOICE_00 | 43 segments
+
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]
+Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 1796.92it/s]
+[transformers] You are using a model of type `qwen3_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+  Initialized encoder codebooks
+Loaded speech tokenizer from /Users/mac/.cache/huggingface/hub/models--mlx-community--Qwen3-TTS-12Hz-0.6B-Base-bf16/snapshots/1eccf1cb2519b5a4e8a95b5f0544f3303568164f/speech_tokenizer
+WARN SEG_0000 (SPEAKER_00 → VOICE_00) is 7.24s but only 3.60s are available; shortening is required before mixing.
+TRIMMED SEG_0000
+segment 001 speaker=SPEAKER_00 voice=VOICE_00 start=0.00 end=3.60 slot_end=3.60
+segment 002 speaker=SPEAKER_00 voice=VOICE_00 start=3.60 end=11.12 slot_end=11.12
+segment 003 speaker=SPEAKER_00 voice=VOICE_00 start=11.12 end=16.05 slot_end=17.28
+segment 004 speaker=SPEAKER_00 voice=VOICE_00 start=17.28 end=22.29 slot_end=22.64
+segment 005 speaker=SPEAKER_00 voice=VOICE_00 start=22.64 end=26.85 slot_end=28.32
+segment 006 speaker=SPEAKER_00 voice=VOICE_00 start=28.32 end=32.05 slot_end=32.32
+segment 007 speaker=SPEAKER_00 voice=VOICE_00 start=32.32 end=35.34 slot_end=36.48
+segment 008 speaker=SPEAKER_00 voice=VOICE_00 start=36.48 end=39.74 slot_end=42.16
+segment 009 speaker=SPEAKER_00 voice=VOICE_00 start=42.16 end=45.77 slot_end=45.76
+segment 010 speaker=SPEAKER_00 voice=VOICE_00 start=45.76 end=50.77 slot_end=51.84
+segment 011 speaker=SPEAKER_00 voice=VOICE_00 start=51.84 end=54.38 slot_end=56.56
+WARN SEG_0011 (SPEAKER_00 → VOICE_00) is 6.84s but only 5.04s are available; shortening is required before mixing.
+segment 012 speaker=SPEAKER_00 voice=VOICE_00 start=56.56 end=61.61 slot_end=61.60
+TRIMMED SEG_0012
+segment 013 speaker=SPEAKER_00 voice=VOICE_00 start=61.60 end=65.26 slot_end=65.28
+segment 014 speaker=SPEAKER_00 voice=VOICE_00 start=65.28 end=68.17 slot_end=68.16
+TRIMMED SEG_0014
+segment 015 speaker=SPEAKER_00 voice=VOICE_00 start=68.16 end=76.00 slot_end=76.00
+WARN SEG_0015 (SPEAKER_00 → VOICE_00) is 12.54s but only 7.12s are available; shortening is required before mixing.
+TRIMMED SEG_0015
+segment 016 speaker=SPEAKER_00 voice=VOICE_00 start=76.00 end=83.12 slot_end=83.12
+segment 017 speaker=SPEAKER_00 voice=VOICE_00 start=83.12 end=85.74 slot_end=85.92
+segment 018 speaker=SPEAKER_00 voice=VOICE_00 start=85.92 end=88.46 slot_end=92.24
+WARN SEG_0018 (SPEAKER_00 → VOICE_00) is 12.59s but only 6.56s are available; shortening is required before mixing.
+TRIMMED SEG_0018
+segment 019 speaker=SPEAKER_00 voice=VOICE_00 start=92.24 end=98.80 slot_end=98.80
+segment 020 speaker=SPEAKER_00 voice=VOICE_00 start=98.80 end=101.95 slot_end=102.56
+segment 021 speaker=SPEAKER_00 voice=VOICE_00 start=102.56 end=105.10 slot_end=106.16
+WARN SEG_0021 (SPEAKER_00 → VOICE_00) is 4.69s but only 2.72s are available; shortening is required before mixing.
+TRIMMED SEG_0021
+segment 022 speaker=SPEAKER_00 voice=VOICE_00 start=106.16 end=108.88 slot_end=108.88
+segment 023 speaker=SPEAKER_00 voice=VOICE_00 start=108.88 end=112.38 slot_end=112.48
+segment 024 speaker=SPEAKER_00 voice=VOICE_00 start=112.48 end=116.01 slot_end=116.00
+segment 025 speaker=SPEAKER_00 voice=VOICE_00 start=116.00 end=120.29 slot_end=121.76
+segment 026 speaker=SPEAKER_00 voice=VOICE_00 start=121.76 end=127.45 slot_end=127.44
+segment 027 speaker=SPEAKER_00 voice=VOICE_00 start=127.44 end=131.21 slot_end=131.20
+segment 028 speaker=SPEAKER_00 voice=VOICE_00 start=131.20 end=137.88 slot_end=138.48
+segment 029 speaker=SPEAKER_00 voice=VOICE_00 start=138.48 end=140.70 slot_end=142.48
+segment 030 speaker=SPEAKER_00 voice=VOICE_00 start=142.48 end=151.12 slot_end=151.12
+WARN SEG_0030 (SPEAKER_00 → VOICE_00) is 7.72s but only 5.12s are available; shortening is required before mixing.
+TRIMMED SEG_0030
+segment 031 speaker=SPEAKER_00 voice=VOICE_00 start=151.12 end=156.24 slot_end=156.24
+segment 032 speaker=SPEAKER_00 voice=VOICE_00 start=156.24 end=162.33 slot_end=162.56
+segment 033 speaker=SPEAKER_00 voice=VOICE_00 start=162.56 end=168.65 slot_end=170.00
+segment 034 speaker=SPEAKER_00 voice=VOICE_00 start=170.00 end=172.94 slot_end=174.88
+segment 035 speaker=SPEAKER_00 voice=VOICE_00 start=174.88 end=177.84 slot_end=177.84
+segment 036 speaker=SPEAKER_00 voice=VOICE_00 start=177.84 end=181.00 slot_end=181.04
+segment 037 speaker=SPEAKER_00 voice=VOICE_00 start=181.04 end=184.77 slot_end=186.08
+segment 038 speaker=SPEAKER_00 voice=VOICE_00 start=186.08 end=188.06 slot_end=188.96
+segment 039 speaker=SPEAKER_00 voice=VOICE_00 start=188.96 end=192.14 slot_end=193.36
+segment 040 speaker=SPEAKER_00 voice=VOICE_00 start=193.36 end=199.72 slot_end=200.08
+WARN SEG_0040 (SPEAKER_00 → VOICE_00) is 5.41s but only 3.76s are available; shortening is required before mixing.
+segment 041 speaker=SPEAKER_00 voice=VOICE_00 start=200.08 end=203.85 slot_end=203.84
+WARN SEG_0041 (SPEAKER_00 → VOICE_00) is 8.79s but only 3.84s are available; shortening is required before mixing.
+TRIMMED SEG_0041
+segment 042 speaker=SPEAKER_00 voice=VOICE_00 start=203.84 end=207.68 slot_end=207.68
+segment 043 speaker=SPEAKER_00 voice=VOICE_00 start=207.68 end=209.98 slot_end=210.00
+Synthesized 43 TTS lines
+TTS natural rate: {'chars_per_second': 12.28, 'n': 43}
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/tts.py
+
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]
+Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2678.64it/s]
+[transformers] You are using a model of type `qwen3_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+  Initialized encoder codebooks
+Loaded speech tokenizer from /Users/mac/.cache/huggingface/hub/models--mlx-community--Qwen3-TTS-12Hz-1.7B-VoiceDesign-bf16/snapshots/7d3824abff87e49756bb0f83fb5411de75d160c4/speech_tokenizer
+Speaker voice assignment:
+SPEAKER_00 | female | VOICE_00 | 39 segments
+SPEAKER_01 | unknown | VOICE_01 | 4 segments
+
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]
+Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2286.55it/s]
+[transformers] You are using a model of type `qwen3_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+  Initialized encoder codebooks
+Loaded speech tokenizer from /Users/mac/.cache/huggingface/hub/models--mlx-community--Qwen3-TTS-12Hz-0.6B-Base-bf16/snapshots/1eccf1cb2519b5a4e8a95b5f0544f3303568164f/speech_tokenizer
+WARN SEG_0000 (SPEAKER_00 → VOICE_00) is 5.44s but only 3.60s are available; shortening is required before mixing.
+TRIMMED SEG_0000
+segment 001 speaker=SPEAKER_00 voice=VOICE_00 start=0.00 end=3.58 slot_end=3.60
+segment 002 speaker=SPEAKER_00 voice=VOICE_00 start=3.60 end=10.24 slot_end=11.12
+WARN SEG_0002 (SPEAKER_00 → VOICE_00) is 11.31s but only 6.16s are available; shortening is required before mixing.
+TRIMMED SEG_0002
+segment 003 speaker=SPEAKER_00 voice=VOICE_00 start=11.12 end=17.28 slot_end=17.28
+segment 004 speaker=SPEAKER_00 voice=VOICE_00 start=17.28 end=22.08 slot_end=22.64
+segment 005 speaker=SPEAKER_00 voice=VOICE_00 start=22.64 end=27.60 slot_end=28.32
+segment 006 speaker=SPEAKER_00 voice=VOICE_00 start=28.32 end=32.32 slot_end=32.32
+WARN SEG_0006 (SPEAKER_00 → VOICE_00) is 7.36s but only 4.16s are available; shortening is required before mixing.
+TRIMMED SEG_0006
+segment 007 speaker=SPEAKER_00 voice=VOICE_00 start=32.32 end=36.48 slot_end=36.48
+segment 008 speaker=SPEAKER_00 voice=VOICE_00 start=36.48 end=42.14 slot_end=42.16
+segment 009 speaker=SPEAKER_00 voice=VOICE_00 start=42.16 end=45.77 slot_end=45.76
+segment 010 speaker=SPEAKER_00 voice=VOICE_00 start=45.76 end=51.20 slot_end=51.84
+WARN SEG_0010 (SPEAKER_00 → VOICE_00) is 9.76s but only 4.72s are available; shortening is required before mixing.
+TRIMMED SEG_0010
+segment 011 speaker=SPEAKER_00 voice=VOICE_00 start=51.84 end=56.56 slot_end=56.56
+segment 012 speaker=SPEAKER_00 voice=VOICE_00 start=56.56 end=61.20 slot_end=61.60
+segment 013 speaker=SPEAKER_00 voice=VOICE_00 start=61.60 end=65.29 slot_end=65.28
+WARN SEG_0013 (SPEAKER_00 → VOICE_00) is 4.96s but only 2.88s are available; shortening is required before mixing.
+TRIMMED SEG_0013
+segment 014 speaker=SPEAKER_00 voice=VOICE_00 start=65.28 end=68.16 slot_end=68.16
+segment 015 speaker=SPEAKER_00 voice=VOICE_00 start=68.16 end=76.01 slot_end=76.00
+WARN SEG_0015 (SPEAKER_00 → VOICE_00) is 9.92s but only 7.12s are available; shortening is required before mixing.
+segment 016 speaker=SPEAKER_00 voice=VOICE_00 start=76.00 end=83.12 slot_end=83.12
+segment 017 speaker=SPEAKER_00 voice=VOICE_00 start=83.12 end=85.68 slot_end=85.92
+segment 018 speaker=SPEAKER_00 voice=VOICE_00 start=85.92 end=87.76 slot_end=92.24
+segment 019 speaker=SPEAKER_00 voice=VOICE_00 start=92.24 end=97.04 slot_end=98.80
+segment 020 speaker=SPEAKER_00 voice=VOICE_00 start=98.80 end=102.56 slot_end=102.56
+segment 021 speaker=SPEAKER_00 voice=VOICE_00 start=102.56 end=104.40 slot_end=106.16
+segment 022 speaker=SPEAKER_00 voice=VOICE_00 start=106.16 end=108.88 slot_end=108.88
+segment 023 speaker=SPEAKER_00 voice=VOICE_00 start=108.88 end=112.49 slot_end=112.48
+segment 024 speaker=SPEAKER_00 voice=VOICE_00 start=112.48 end=115.52 slot_end=116.00
+segment 025 speaker=SPEAKER_00 voice=VOICE_00 start=116.00 end=121.73 slot_end=121.76
+segment 026 speaker=SPEAKER_00 voice=VOICE_00 start=121.76 end=125.60 slot_end=127.44
+segment 027 speaker=SPEAKER_00 voice=VOICE_00 start=127.44 end=130.32 slot_end=131.20
+TRIMMED SEG_0027
+segment 028 speaker=SPEAKER_00 voice=VOICE_00 start=131.20 end=138.47 slot_end=138.48
+segment 029 speaker=SPEAKER_00 voice=VOICE_00 start=138.48 end=142.46 slot_end=142.48
+segment 030 speaker=SPEAKER_00 voice=VOICE_00 start=142.48 end=150.88 slot_end=151.12
+WARN SEG_0030 (SPEAKER_00 → VOICE_00) is 8.32s but only 5.12s are available; shortening is required before mixing.
+segment 031 speaker=SPEAKER_00 voice=VOICE_00 start=151.12 end=156.26 slot_end=156.24
+WARN SEG_0031 (SPEAKER_00 → VOICE_00) is 12.19s but only 6.32s are available; shortening is required before mixing.
+TRIMMED SEG_0031
+segment 032 speaker=SPEAKER_00 voice=VOICE_00 start=156.24 end=162.56 slot_end=162.56
+WARN SEG_0032 (SPEAKER_00 → VOICE_00) is 12.19s but only 7.44s are available; shortening is required before mixing.
+segment 033 speaker=SPEAKER_00 voice=VOICE_00 start=162.56 end=169.99 slot_end=170.00
+segment 034 speaker=SPEAKER_00 voice=VOICE_00 start=170.00 end=173.28 slot_end=174.88
+segment 035 speaker=SPEAKER_00 voice=VOICE_00 start=174.88 end=177.82 slot_end=177.84
+WARN SEG_0035 (SPEAKER_00 → VOICE_00) is 5.92s but only 3.20s are available; shortening is required before mixing.
+TRIMMED SEG_0035
+segment 036 speaker=SPEAKER_00 voice=VOICE_00 start=177.84 end=181.04 slot_end=181.04
+segment 037 speaker=SPEAKER_00 voice=VOICE_00 start=181.04 end=185.44 slot_end=186.08
+segment 038 speaker=SPEAKER_00 voice=VOICE_00 start=186.08 end=188.48 slot_end=188.96
+segment 039 speaker=SPEAKER_00 voice=VOICE_00 start=188.96 end=191.92 slot_end=191.92
+segment 040 speaker=SPEAKER_01 voice=VOICE_01 start=191.92 end=195.73 slot_end=200.08
+WARN SEG_0040 (SPEAKER_01 → VOICE_01) is 7.88s but only 3.76s are available; shortening is required before mixing.
+TRIMMED SEG_0040
+segment 041 speaker=SPEAKER_01 voice=VOICE_01 start=200.08 end=203.84 slot_end=203.84
+segment 042 speaker=SPEAKER_01 voice=VOICE_01 start=203.84 end=206.86 slot_end=207.68
+segment 043 speaker=SPEAKER_01 voice=VOICE_01 start=207.68 end=210.00 slot_end=210.00
+Synthesized 43 TTS lines
+TTS natural rate: {'chars_per_second': 13.59, 'n': 43}
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/tts.py
+Speaker voice assignment:
+SPEAKER_00 | female | VOICE_00 | 39 segments
+SPEAKER_01 | unknown | VOICE_01 | 4 segments
+
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]
+Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2535.98it/s]
+[transformers] You are using a model of type `qwen3_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+  Initialized encoder codebooks
+Loaded speech tokenizer from /Users/mac/.cache/huggingface/hub/models--mlx-community--Qwen3-TTS-12Hz-0.6B-Base-bf16/snapshots/1eccf1cb2519b5a4e8a95b5f0544f3303568164f/speech_tokenizer
+WARN SEG_0000 (SPEAKER_00 → VOICE_00) is 5.44s but only 3.60s are available; shortening is required before mixing.
+segment 001 speaker=SPEAKER_00 voice=VOICE_00 start=0.00 end=3.12 slot_end=3.60
+segment 002 speaker=SPEAKER_00 voice=VOICE_00 start=3.60 end=10.24 slot_end=11.12
+WARN SEG_0002 (SPEAKER_00 → VOICE_00) is 11.31s but only 6.16s are available; shortening is required before mixing.
+segment 003 speaker=SPEAKER_00 voice=VOICE_00 start=11.12 end=17.23 slot_end=17.28
+segment 004 speaker=SPEAKER_00 voice=VOICE_00 start=17.28 end=22.08 slot_end=22.64
+segment 005 speaker=SPEAKER_00 voice=VOICE_00 start=22.64 end=27.60 slot_end=28.32
+segment 006 speaker=SPEAKER_00 voice=VOICE_00 start=28.32 end=32.32 slot_end=32.32
+WARN SEG_0006 (SPEAKER_00 → VOICE_00) is 7.36s but only 4.16s are available; shortening is required before mixing.
+segment 007 speaker=SPEAKER_00 voice=VOICE_00 start=32.32 end=36.29 slot_end=36.48
+segment 008 speaker=SPEAKER_00 voice=VOICE_00 start=36.48 end=42.14 slot_end=42.16
+segment 009 speaker=SPEAKER_00 voice=VOICE_00 start=42.16 end=45.77 slot_end=45.76
+segment 010 speaker=SPEAKER_00 voice=VOICE_00 start=45.76 end=51.20 slot_end=51.84
+WARN SEG_0010 (SPEAKER_00 → VOICE_00) is 9.76s but only 4.72s are available; shortening is required before mixing.
+segment 011 speaker=SPEAKER_00 voice=VOICE_00 start=51.84 end=57.10 slot_end=56.56
+segment 012 speaker=SPEAKER_00 voice=VOICE_00 start=56.56 end=61.20 slot_end=61.60
+segment 013 speaker=SPEAKER_00 voice=VOICE_00 start=61.60 end=65.29 slot_end=65.28
+WARN SEG_0013 (SPEAKER_00 → VOICE_00) is 4.96s but only 2.88s are available; shortening is required before mixing.
+segment 014 speaker=SPEAKER_00 voice=VOICE_00 start=65.28 end=67.95 slot_end=68.16
+segment 015 speaker=SPEAKER_00 voice=VOICE_00 start=68.16 end=76.01 slot_end=76.00
+WARN SEG_0015 (SPEAKER_00 → VOICE_00) is 9.92s but only 7.12s are available; shortening is required before mixing.
+segment 016 speaker=SPEAKER_00 voice=VOICE_00 start=76.00 end=83.12 slot_end=83.12
+segment 017 speaker=SPEAKER_00 voice=VOICE_00 start=83.12 end=85.68 slot_end=85.92
+segment 018 speaker=SPEAKER_00 voice=VOICE_00 start=85.92 end=87.76 slot_end=92.24
+segment 019 speaker=SPEAKER_00 voice=VOICE_00 start=92.24 end=97.04 slot_end=98.80
+segment 020 speaker=SPEAKER_00 voice=VOICE_00 start=98.80 end=102.56 slot_end=102.56
+segment 021 speaker=SPEAKER_00 voice=VOICE_00 start=102.56 end=104.40 slot_end=106.16
+segment 022 speaker=SPEAKER_00 voice=VOICE_00 start=106.16 end=108.88 slot_end=108.88
+segment 023 speaker=SPEAKER_00 voice=VOICE_00 start=108.88 end=112.49 slot_end=112.48
+segment 024 speaker=SPEAKER_00 voice=VOICE_00 start=112.48 end=115.52 slot_end=116.00
+segment 025 speaker=SPEAKER_00 voice=VOICE_00 start=116.00 end=121.73 slot_end=121.76
+segment 026 speaker=SPEAKER_00 voice=VOICE_00 start=121.76 end=125.60 slot_end=127.44
+segment 027 speaker=SPEAKER_00 voice=VOICE_00 start=127.44 end=130.32 slot_end=131.20
+segment 028 speaker=SPEAKER_00 voice=VOICE_00 start=131.20 end=137.51 slot_end=138.48
+segment 029 speaker=SPEAKER_00 voice=VOICE_00 start=138.48 end=142.46 slot_end=142.48
+segment 030 speaker=SPEAKER_00 voice=VOICE_00 start=142.48 end=150.88 slot_end=151.12
+WARN SEG_0030 (SPEAKER_00 → VOICE_00) is 8.32s but only 5.12s are available; shortening is required before mixing.
+segment 031 speaker=SPEAKER_00 voice=VOICE_00 start=151.12 end=156.26 slot_end=156.24
+WARN SEG_0031 (SPEAKER_00 → VOICE_00) is 12.19s but only 6.32s are available; shortening is required before mixing.
+segment 032 speaker=SPEAKER_00 voice=VOICE_00 start=156.24 end=162.82 slot_end=162.56
+WARN SEG_0032 (SPEAKER_00 → VOICE_00) is 12.19s but only 7.44s are available; shortening is required before mixing.
+segment 033 speaker=SPEAKER_00 voice=VOICE_00 start=162.56 end=169.99 slot_end=170.00
+segment 034 speaker=SPEAKER_00 voice=VOICE_00 start=170.00 end=173.28 slot_end=174.88
+segment 035 speaker=SPEAKER_00 voice=VOICE_00 start=174.88 end=177.82 slot_end=177.84
+WARN SEG_0035 (SPEAKER_00 → VOICE_00) is 5.92s but only 3.20s are available; shortening is required before mixing.
+segment 036 speaker=SPEAKER_00 voice=VOICE_00 start=177.84 end=181.03 slot_end=181.04
+segment 037 speaker=SPEAKER_00 voice=VOICE_00 start=181.04 end=185.44 slot_end=186.08
+segment 038 speaker=SPEAKER_00 voice=VOICE_00 start=186.08 end=188.48 slot_end=188.96
+segment 039 speaker=SPEAKER_00 voice=VOICE_00 start=188.96 end=191.92 slot_end=191.92
+segment 040 speaker=SPEAKER_01 voice=VOICE_01 start=191.92 end=195.73 slot_end=200.08
+WARN SEG_0040 (SPEAKER_01 → VOICE_01) is 7.88s but only 3.76s are available; shortening is required before mixing.
+segment 041 speaker=SPEAKER_01 voice=VOICE_01 start=200.08 end=204.35 slot_end=203.84
+segment 042 speaker=SPEAKER_01 voice=VOICE_01 start=203.84 end=206.86 slot_end=207.68
+segment 043 speaker=SPEAKER_01 voice=VOICE_01 start=207.68 end=210.00 slot_end=210.00
+Synthesized 43 TTS lines
+TTS natural rate: {'chars_per_second': 13.59, 'n': 43}
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/tts.py
+Speaker voice assignment:
+SPEAKER_00 | female | VOICE_00 | 39 segments
+SPEAKER_01 | unknown | VOICE_01 | 4 segments
+
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]
+Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2304.67it/s]
+[transformers] You are using a model of type `qwen3_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+  Initialized encoder codebooks
+Loaded speech tokenizer from /Users/mac/.cache/huggingface/hub/models--mlx-community--Qwen3-TTS-12Hz-0.6B-Base-bf16/snapshots/1eccf1cb2519b5a4e8a95b5f0544f3303568164f/speech_tokenizer
+WARN SEG_0000 (SPEAKER_00 → VOICE_00) is 6.16s but only 3.60s are available; shortening is required before mixing.
+segment 001 speaker=SPEAKER_00 voice=VOICE_00 start=0.00 end=3.63 slot_end=3.60
+segment 002 speaker=SPEAKER_00 voice=VOICE_00 start=3.60 end=9.20 slot_end=11.12
+WARN SEG_0002 (SPEAKER_00 → VOICE_00) is 11.12s but only 6.16s are available; shortening is required before mixing.
+segment 003 speaker=SPEAKER_00 voice=VOICE_00 start=11.12 end=17.63 slot_end=17.28
+segment 004 speaker=SPEAKER_00 voice=VOICE_00 start=17.28 end=22.63 slot_end=22.64
+segment 005 speaker=SPEAKER_00 voice=VOICE_00 start=22.64 end=28.29 slot_end=28.32
+segment 006 speaker=SPEAKER_00 voice=VOICE_00 start=28.32 end=32.31 slot_end=32.32
+WARN SEG_0006 (SPEAKER_00 → VOICE_00) is 8.64s but only 4.16s are available; shortening is required before mixing.
+segment 007 speaker=SPEAKER_00 voice=VOICE_00 start=32.32 end=37.40 slot_end=36.48
+WARN SEG_0007 (SPEAKER_00 → VOICE_00) is 8.03s but only 5.68s are available; shortening is required before mixing.
+segment 008 speaker=SPEAKER_00 voice=VOICE_00 start=36.48 end=42.16 slot_end=42.16
+segment 009 speaker=SPEAKER_00 voice=VOICE_00 start=42.16 end=45.73 slot_end=45.76
+segment 010 speaker=SPEAKER_00 voice=VOICE_00 start=45.76 end=51.83 slot_end=51.84
+WARN SEG_0010 (SPEAKER_00 → VOICE_00) is 6.48s but only 4.72s are available; shortening is required before mixing.
+segment 011 speaker=SPEAKER_00 voice=VOICE_00 start=51.84 end=56.55 slot_end=56.56
+segment 012 speaker=SPEAKER_00 voice=VOICE_00 start=56.56 end=61.60 slot_end=61.60
+WARN SEG_0012 (SPEAKER_00 → VOICE_00) is 5.36s but only 3.68s are available; shortening is required before mixing.
+segment 013 speaker=SPEAKER_00 voice=VOICE_00 start=61.60 end=65.26 slot_end=65.28
+WARN SEG_0013 (SPEAKER_00 → VOICE_00) is 5.04s but only 2.88s are available; shortening is required before mixing.
+segment 014 speaker=SPEAKER_00 voice=VOICE_00 start=65.28 end=68.22 slot_end=68.16
+WARN SEG_0014 (SPEAKER_00 → VOICE_00) is 16.02s but only 7.84s are available; shortening is required before mixing.
+segment 015 speaker=SPEAKER_00 voice=VOICE_00 start=68.16 end=77.59 slot_end=76.00
+segment 016 speaker=SPEAKER_00 voice=VOICE_00 start=76.00 end=80.88 slot_end=83.12
+Reused synthesized line 17/43
+Reused synthesized line 18/43
+WARN SEG_0018 (SPEAKER_00 → VOICE_00) is 10.88s but only 6.56s are available; shortening is required before mixing.
+segment 019 speaker=SPEAKER_00 voice=VOICE_00 start=92.24 end=98.79 slot_end=98.80
+segment 020 speaker=SPEAKER_00 voice=VOICE_00 start=98.80 end=101.76 slot_end=102.56
+segment 021 speaker=SPEAKER_00 voice=VOICE_00 start=102.56 end=106.13 slot_end=106.16
+WARN SEG_0021 (SPEAKER_00 → VOICE_00) is 3.76s but only 2.72s are available; shortening is required before mixing.
+segment 022 speaker=SPEAKER_00 voice=VOICE_00 start=106.16 end=108.87 slot_end=108.88
+segment 023 speaker=SPEAKER_00 voice=VOICE_00 start=108.88 end=112.49 slot_end=112.48
+segment 024 speaker=SPEAKER_00 voice=VOICE_00 start=112.48 end=116.00 slot_end=116.00
+WARN SEG_0024 (SPEAKER_00 → VOICE_00) is 8.56s but only 5.76s are available; shortening is required before mixing.
+segment 025 speaker=SPEAKER_00 voice=VOICE_00 start=116.00 end=121.77 slot_end=121.76
+segment 026 speaker=SPEAKER_00 voice=VOICE_00 start=121.76 end=127.42 slot_end=127.44
+segment 027 speaker=SPEAKER_00 voice=VOICE_00 start=127.44 end=129.60 slot_end=131.20
+segment 028 speaker=SPEAKER_00 voice=VOICE_00 start=131.20 end=138.49 slot_end=138.48
+Reused synthesized line 29/43
+segment 030 speaker=SPEAKER_00 voice=VOICE_00 start=142.48 end=151.12 slot_end=151.12
+WARN SEG_0030 (SPEAKER_00 → VOICE_00) is 7.76s but only 5.12s are available; shortening is required before mixing.
+segment 031 speaker=SPEAKER_00 voice=VOICE_00 start=151.12 end=156.25 slot_end=156.24
+segment 032 speaker=SPEAKER_00 voice=VOICE_00 start=156.24 end=161.12 slot_end=162.56
+WARN SEG_0032 (SPEAKER_00 → VOICE_00) is 10.40s but only 7.44s are available; shortening is required before mixing.
+segment 033 speaker=SPEAKER_00 voice=VOICE_00 start=162.56 end=170.01 slot_end=170.00
+segment 034 speaker=SPEAKER_00 voice=VOICE_00 start=170.00 end=174.87 slot_end=174.88
+segment 035 speaker=SPEAKER_00 voice=VOICE_00 start=174.88 end=177.85 slot_end=177.84
+segment 036 speaker=SPEAKER_00 voice=VOICE_00 start=177.84 end=180.88 slot_end=181.04
+segment 037 speaker=SPEAKER_00 voice=VOICE_00 start=181.04 end=184.40 slot_end=186.08
+segment 038 speaker=SPEAKER_00 voice=VOICE_00 start=186.08 end=188.72 slot_end=188.96
+segment 039 speaker=SPEAKER_00 voice=VOICE_00 start=188.96 end=191.92 slot_end=191.92
+Reused synthesized line 40/43
+WARN SEG_0040 (SPEAKER_01 → VOICE_01) is 6.21s but only 3.76s are available; shortening is required before mixing.
+segment 041 speaker=SPEAKER_01 voice=VOICE_01 start=200.08 end=203.85 slot_end=203.84
+segment 042 speaker=SPEAKER_01 voice=VOICE_01 start=203.84 end=207.65 slot_end=207.68
+Reused synthesized line 43/43
+Synthesized 43 TTS lines
+TTS natural rate: {'chars_per_second': 13.7, 'n': 38}
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/tts.py
+Speaker voice assignment:
+SPEAKER_00 | female | VOICE_00 | 39 segments
+SPEAKER_01 | unknown | VOICE_01 | 4 segments
+
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]
+Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2511.43it/s]
+[transformers] You are using a model of type `qwen3_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+  Initialized encoder codebooks
+Loaded speech tokenizer from /Users/mac/.cache/huggingface/hub/models--mlx-community--Qwen3-TTS-12Hz-0.6B-Base-bf16/snapshots/1eccf1cb2519b5a4e8a95b5f0544f3303568164f/speech_tokenizer
+Reused synthesized line 1/43
+segment 002 speaker=SPEAKER_00 voice=VOICE_00 start=3.60 end=8.56 slot_end=11.12
+segment 003 speaker=SPEAKER_00 voice=VOICE_00 start=11.12 end=16.24 slot_end=17.28
+segment 004 speaker=SPEAKER_00 voice=VOICE_00 start=17.28 end=22.65 slot_end=22.64
+segment 005 speaker=SPEAKER_00 voice=VOICE_00 start=22.64 end=27.92 slot_end=28.32
+segment 006 speaker=SPEAKER_00 voice=VOICE_00 start=28.32 end=32.32 slot_end=32.32
+WARN SEG_0006 (SPEAKER_00 → VOICE_00) is 7.92s but only 4.16s are available; shortening is required before mixing.
+segment 007 speaker=SPEAKER_00 voice=VOICE_00 start=32.32 end=36.95 slot_end=36.48
+WARN SEG_0007 (SPEAKER_00 → VOICE_00) is 7.60s but only 5.68s are available; shortening is required before mixing.
+segment 008 speaker=SPEAKER_00 voice=VOICE_00 start=36.48 end=42.14 slot_end=42.16
+segment 009 speaker=SPEAKER_00 voice=VOICE_00 start=42.16 end=45.75 slot_end=45.76
+segment 010 speaker=SPEAKER_00 voice=VOICE_00 start=45.76 end=51.76 slot_end=51.84
+WARN SEG_0010 (SPEAKER_00 → VOICE_00) is 7.68s but only 4.72s are available; shortening is required before mixing.
+segment 011 speaker=SPEAKER_00 voice=VOICE_00 start=51.84 end=56.54 slot_end=56.56
+segment 012 speaker=SPEAKER_00 voice=VOICE_00 start=56.56 end=61.58 slot_end=61.60
+Reused synthesized line 13/43
+WARN SEG_0013 (SPEAKER_00 → VOICE_00) is 4.72s but only 2.88s are available; shortening is required before mixing.
+segment 014 speaker=SPEAKER_00 voice=VOICE_00 start=65.28 end=68.17 slot_end=68.16
+segment 015 speaker=SPEAKER_00 voice=VOICE_00 start=68.16 end=75.99 slot_end=76.00
+segment 016 speaker=SPEAKER_00 voice=VOICE_00 start=76.00 end=83.11 slot_end=83.12
+Reused synthesized line 17/43
+WARN SEG_0017 (SPEAKER_00 → VOICE_00) is 8.40s but only 6.32s are available; shortening is required before mixing.
+segment 018 speaker=SPEAKER_00 voice=VOICE_00 start=85.92 end=92.21 slot_end=92.24
+segment 019 speaker=SPEAKER_00 voice=VOICE_00 start=92.24 end=97.44 slot_end=98.80
+WARN SEG_0019 (SPEAKER_00 → VOICE_00) is 5.52s but only 3.76s are available; shortening is required before mixing.
+segment 020 speaker=SPEAKER_00 voice=VOICE_00 start=98.80 end=102.57 slot_end=102.56
+segment 021 speaker=SPEAKER_00 voice=VOICE_00 start=102.56 end=106.08 slot_end=106.16
+segment 022 speaker=SPEAKER_00 voice=VOICE_00 start=106.16 end=108.88 slot_end=108.88
+WARN SEG_0022 (SPEAKER_00 → VOICE_00) is 5.60s but only 3.60s are available; shortening is required before mixing.
+segment 023 speaker=SPEAKER_00 voice=VOICE_00 start=108.88 end=112.48 slot_end=112.48
+segment 024 speaker=SPEAKER_00 voice=VOICE_00 start=112.48 end=115.97 slot_end=116.00
+segment 025 speaker=SPEAKER_00 voice=VOICE_00 start=116.00 end=121.76 slot_end=121.76
+segment 026 speaker=SPEAKER_00 voice=VOICE_00 start=121.76 end=127.45 slot_end=127.44
+segment 027 speaker=SPEAKER_00 voice=VOICE_00 start=127.44 end=129.92 slot_end=131.20
+segment 028 speaker=SPEAKER_00 voice=VOICE_00 start=131.20 end=138.49 slot_end=138.48
+segment 029 speaker=SPEAKER_00 voice=VOICE_00 start=138.48 end=142.00 slot_end=142.48
+segment 030 speaker=SPEAKER_00 voice=VOICE_00 start=142.48 end=144.96 slot_end=151.12
+WARN SEG_0030 (SPEAKER_00 → VOICE_00) is 7.28s but only 5.12s are available; shortening is required before mixing.
+segment 031 speaker=SPEAKER_00 voice=VOICE_00 start=151.12 end=156.23 slot_end=156.24
+segment 032 speaker=SPEAKER_00 voice=VOICE_00 start=156.24 end=162.54 slot_end=162.56
+segment 033 speaker=SPEAKER_00 voice=VOICE_00 start=162.56 end=169.98 slot_end=170.00
+WARN SEG_0033 (SPEAKER_00 → VOICE_00) is 6.56s but only 4.88s are available; shortening is required before mixing.
+segment 034 speaker=SPEAKER_00 voice=VOICE_00 start=170.00 end=174.87 slot_end=174.88
+WARN SEG_0034 (SPEAKER_00 → VOICE_00) is 4.21s but only 2.96s are available; shortening is required before mixing.
+segment 035 speaker=SPEAKER_00 voice=VOICE_00 start=174.88 end=177.84 slot_end=177.84
+WARN SEG_0035 (SPEAKER_00 → VOICE_00) is 5.92s but only 3.20s are available; shortening is required before mixing.
+segment 036 speaker=SPEAKER_00 voice=VOICE_00 start=177.84 end=181.31 slot_end=181.04
+Reused synthesized line 37/43
+segment 038 speaker=SPEAKER_00 voice=VOICE_00 start=186.08 end=188.48 slot_end=188.96
+WARN SEG_0038 (SPEAKER_00 → VOICE_00) is 4.64s but only 2.96s are available; shortening is required before mixing.
+segment 039 speaker=SPEAKER_00 voice=VOICE_00 start=188.96 end=191.90 slot_end=191.92
+Reused synthesized line 40/43
+Reused synthesized line 41/43
+segment 042 speaker=SPEAKER_01 voice=VOICE_01 start=203.84 end=206.86 slot_end=207.68
+Reused synthesized line 43/43
+Synthesized 43 TTS lines
+TTS natural rate: {'chars_per_second': 13.59, 'n': 36}
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/tts.py
+Speaker voice assignment:
+SPEAKER_00 | female | VOICE_00 | 39 segments
+SPEAKER_01 | unknown | VOICE_01 | 4 segments
+
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]
+Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 1947.74it/s]
+[transformers] You are using a model of type `qwen3_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+  Initialized encoder codebooks
+Loaded speech tokenizer from /Users/mac/.cache/huggingface/hub/models--mlx-community--Qwen3-TTS-12Hz-0.6B-Base-bf16/snapshots/1eccf1cb2519b5a4e8a95b5f0544f3303568164f/speech_tokenizer
+Reused synthesized line 1/43
+Reused synthesized line 2/43
+Reused synthesized line 3/43
+segment 004 speaker=SPEAKER_00 voice=VOICE_00 start=17.28 end=22.36 slot_end=22.64
+Reused synthesized line 5/43
+Reused synthesized line 6/43
+WARN SEG_0006 (SPEAKER_00 → VOICE_00) is 8.96s but only 4.16s are available; shortening is required before mixing.
+segment 007 speaker=SPEAKER_00 voice=VOICE_00 start=32.32 end=37.59 slot_end=36.48
+Reused synthesized line 8/43
+segment 009 speaker=SPEAKER_00 voice=VOICE_00 start=42.16 end=44.24 slot_end=45.76
+Reused synthesized line 10/43
+segment 011 speaker=SPEAKER_00 voice=VOICE_00 start=51.84 end=56.24 slot_end=56.56
+segment 012 speaker=SPEAKER_00 voice=VOICE_00 start=56.56 end=60.24 slot_end=61.60
+segment 013 speaker=SPEAKER_00 voice=VOICE_00 start=61.60 end=65.29 slot_end=65.28
+WARN SEG_0013 (SPEAKER_00 → VOICE_00) is 5.20s but only 2.88s are available; shortening is required before mixing.
+segment 014 speaker=SPEAKER_00 voice=VOICE_00 start=65.28 end=68.32 slot_end=68.16
+segment 015 speaker=SPEAKER_00 voice=VOICE_00 start=68.16 end=75.99 slot_end=76.00
+WARN SEG_0015 (SPEAKER_00 → VOICE_00) is 10.16s but only 7.12s are available; shortening is required before mixing.
+segment 016 speaker=SPEAKER_00 voice=VOICE_00 start=76.00 end=83.13 slot_end=83.12
+Reused synthesized line 17/43
+WARN SEG_0017 (SPEAKER_00 → VOICE_00) is 10.72s but only 6.32s are available; shortening is required before mixing.
+segment 018 speaker=SPEAKER_00 voice=VOICE_00 start=85.92 end=92.23 slot_end=92.24
+Reused synthesized line 19/43
+segment 020 speaker=SPEAKER_00 voice=VOICE_00 start=98.80 end=102.56 slot_end=102.56
+WARN SEG_0020 (SPEAKER_00 → VOICE_00) is 5.12s but only 3.60s are available; shortening is required before mixing.
+segment 021 speaker=SPEAKER_00 voice=VOICE_00 start=102.56 end=106.16 slot_end=106.16
+Reused synthesized line 22/43
+WARN SEG_0022 (SPEAKER_00 → VOICE_00) is 5.28s but only 3.60s are available; shortening is required before mixing.
+segment 023 speaker=SPEAKER_00 voice=VOICE_00 start=108.88 end=112.49 slot_end=112.48
+segment 024 speaker=SPEAKER_00 voice=VOICE_00 start=112.48 end=115.84 slot_end=116.00
+WARN SEG_0024 (SPEAKER_00 → VOICE_00) is 7.76s but only 5.76s are available; shortening is required before mixing.
+segment 025 speaker=SPEAKER_00 voice=VOICE_00 start=116.00 end=121.75 slot_end=121.76
+segment 026 speaker=SPEAKER_00 voice=VOICE_00 start=121.76 end=127.40 slot_end=127.44
+WARN SEG_0026 (SPEAKER_00 → VOICE_00) is 5.84s but only 3.76s are available; shortening is required before mixing.
+segment 027 speaker=SPEAKER_00 voice=VOICE_00 start=127.44 end=131.19 slot_end=131.20
+segment 028 speaker=SPEAKER_00 voice=VOICE_00 start=131.20 end=138.48 slot_end=138.48
+WARN SEG_0028 (SPEAKER_00 → VOICE_00) is 5.32s but only 4.00s are available; shortening is required before mixing.
+segment 029 speaker=SPEAKER_00 voice=VOICE_00 start=138.48 end=142.49 slot_end=142.48
+segment 030 speaker=SPEAKER_00 voice=VOICE_00 start=142.48 end=151.13 slot_end=151.12
+Reused synthesized line 31/43
+segment 032 speaker=SPEAKER_00 voice=VOICE_00 start=156.24 end=162.56 slot_end=162.56
+segment 033 speaker=SPEAKER_00 voice=VOICE_00 start=162.56 end=169.84 slot_end=170.00
+segment 034 speaker=SPEAKER_00 voice=VOICE_00 start=170.00 end=174.40 slot_end=174.88
+WARN SEG_0034 (SPEAKER_00 → VOICE_00) is 4.64s but only 2.96s are available; shortening is required before mixing.
+segment 035 speaker=SPEAKER_00 voice=VOICE_00 start=174.88 end=177.82 slot_end=177.84
+Reused synthesized line 36/43
+Reused synthesized line 37/43
+segment 038 speaker=SPEAKER_00 voice=VOICE_00 start=186.08 end=188.40 slot_end=188.96
+Reused synthesized line 39/43
+segment 040 speaker=SPEAKER_01 voice=VOICE_01 start=191.92 end=196.05 slot_end=200.08
+WARN SEG_0040 (SPEAKER_01 → VOICE_01) is 8.76s but only 3.76s are available; shortening is required before mixing.
+segment 041 speaker=SPEAKER_01 voice=VOICE_01 start=200.08 end=205.24 slot_end=203.84
+segment 042 speaker=SPEAKER_01 voice=VOICE_01 start=203.84 end=207.68 slot_end=207.68
+Reused synthesized line 43/43
+Synthesized 43 TTS lines
+TTS natural rate: {'chars_per_second': 13.71, 'n': 28}
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/tts.py
+Speaker voice assignment:
+SPEAKER_00 | female | VOICE_00 | 39 segments
+SPEAKER_01 | unknown | VOICE_01 | 4 segments
+
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]
+Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2805.09it/s]
+[transformers] You are using a model of type `qwen3_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+  Initialized encoder codebooks
+Loaded speech tokenizer from /Users/mac/.cache/huggingface/hub/models--mlx-community--Qwen3-TTS-12Hz-0.6B-Base-bf16/snapshots/1eccf1cb2519b5a4e8a95b5f0544f3303568164f/speech_tokenizer
+Reused synthesized line 1/43
+Reused synthesized line 2/43
+segment 003 speaker=SPEAKER_00 voice=VOICE_00 start=11.12 end=16.24 slot_end=17.28
+segment 004 speaker=SPEAKER_00 voice=VOICE_00 start=17.28 end=22.63 slot_end=22.64
+segment 005 speaker=SPEAKER_00 voice=VOICE_00 start=22.64 end=26.88 slot_end=28.32
+segment 006 speaker=SPEAKER_00 voice=VOICE_00 start=28.32 end=32.29 slot_end=32.32
+WARN SEG_0006 (SPEAKER_00 → VOICE_00) is 7.52s but only 4.16s are available; shortening is required before mixing.
+segment 007 speaker=SPEAKER_00 voice=VOICE_00 start=32.32 end=36.75 slot_end=36.48
+Reused synthesized line 8/43
+segment 009 speaker=SPEAKER_00 voice=VOICE_00 start=42.16 end=45.73 slot_end=45.76
+segment 010 speaker=SPEAKER_00 voice=VOICE_00 start=45.76 end=51.20 slot_end=51.84
+WARN SEG_0010 (SPEAKER_00 → VOICE_00) is 7.68s but only 4.72s are available; shortening is required before mixing.
+segment 011 speaker=SPEAKER_00 voice=VOICE_00 start=51.84 end=56.54 slot_end=56.56
+segment 012 speaker=SPEAKER_00 voice=VOICE_00 start=56.56 end=61.58 slot_end=61.60
+WARN SEG_0012 (SPEAKER_00 → VOICE_00) is 5.36s but only 3.68s are available; shortening is required before mixing.
+segment 013 speaker=SPEAKER_00 voice=VOICE_00 start=61.60 end=65.26 slot_end=65.28
+WARN SEG_0013 (SPEAKER_00 → VOICE_00) is 4.72s but only 2.88s are available; shortening is required before mixing.
+segment 014 speaker=SPEAKER_00 voice=VOICE_00 start=65.28 end=68.17 slot_end=68.16
+segment 015 speaker=SPEAKER_00 voice=VOICE_00 start=68.16 end=75.99 slot_end=76.00
+segment 016 speaker=SPEAKER_00 voice=VOICE_00 start=76.00 end=83.11 slot_end=83.12
+Reused synthesized line 17/43
+WARN SEG_0017 (SPEAKER_00 → VOICE_00) is 8.40s but only 6.32s are available; shortening is required before mixing.
+segment 018 speaker=SPEAKER_00 voice=VOICE_00 start=85.92 end=92.21 slot_end=92.24
+Reused synthesized line 19/43
+WARN SEG_0019 (SPEAKER_00 → VOICE_00) is 5.52s but only 3.76s are available; shortening is required before mixing.
+segment 020 speaker=SPEAKER_00 voice=VOICE_00 start=98.80 end=102.57 slot_end=102.56
+segment 021 speaker=SPEAKER_00 voice=VOICE_00 start=102.56 end=106.08 slot_end=106.16
+Reused synthesized line 22/43
+WARN SEG_0022 (SPEAKER_00 → VOICE_00) is 5.60s but only 3.60s are available; shortening is required before mixing.
+segment 023 speaker=SPEAKER_00 voice=VOICE_00 start=108.88 end=112.48 slot_end=112.48
+segment 024 speaker=SPEAKER_00 voice=VOICE_00 start=112.48 end=115.97 slot_end=116.00
+segment 025 speaker=SPEAKER_00 voice=VOICE_00 start=116.00 end=121.76 slot_end=121.76
+segment 026 speaker=SPEAKER_00 voice=VOICE_00 start=121.76 end=127.45 slot_end=127.44
+segment 027 speaker=SPEAKER_00 voice=VOICE_00 start=127.44 end=129.92 slot_end=131.20
+segment 028 speaker=SPEAKER_00 voice=VOICE_00 start=131.20 end=138.49 slot_end=138.48
+segment 029 speaker=SPEAKER_00 voice=VOICE_00 start=138.48 end=142.00 slot_end=142.48
+segment 030 speaker=SPEAKER_00 voice=VOICE_00 start=142.48 end=144.96 slot_end=151.12
+Reused synthesized line 31/43
+segment 032 speaker=SPEAKER_00 voice=VOICE_00 start=156.24 end=162.54 slot_end=162.56
+segment 033 speaker=SPEAKER_00 voice=VOICE_00 start=162.56 end=169.98 slot_end=170.00
+WARN SEG_0033 (SPEAKER_00 → VOICE_00) is 6.56s but only 4.88s are available; shortening is required before mixing.
+segment 034 speaker=SPEAKER_00 voice=VOICE_00 start=170.00 end=174.87 slot_end=174.88
+WARN SEG_0034 (SPEAKER_00 → VOICE_00) is 4.21s but only 2.96s are available; shortening is required before mixing.
+segment 035 speaker=SPEAKER_00 voice=VOICE_00 start=174.88 end=177.84 slot_end=177.84
+Reused synthesized line 36/43
+Reused synthesized line 37/43
+segment 038 speaker=SPEAKER_00 voice=VOICE_00 start=186.08 end=188.48 slot_end=188.96
+Reused synthesized line 39/43
+segment 040 speaker=SPEAKER_01 voice=VOICE_01 start=191.92 end=195.73 slot_end=200.08
+WARN SEG_0040 (SPEAKER_01 → VOICE_01) is 6.21s but only 3.76s are available; shortening is required before mixing.
+segment 041 speaker=SPEAKER_01 voice=VOICE_01 start=200.08 end=203.85 slot_end=203.84
+segment 042 speaker=SPEAKER_01 voice=VOICE_01 start=203.84 end=206.86 slot_end=207.68
+Reused synthesized line 43/43
+Synthesized 43 TTS lines
+TTS natural rate: {'chars_per_second': 13.04, 'n': 32}

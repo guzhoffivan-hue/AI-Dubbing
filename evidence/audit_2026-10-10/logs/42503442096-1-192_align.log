@@ -1,0 +1,137 @@
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/align.py
+Aligned 1089 tokens; saved /Volumes/develop/AI-Dubbing/work/42503442096-1-192/alignment.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/align.py
+Aligned 1089 tokens; saved /Volumes/develop/AI-Dubbing/work/42503442096-1-192/alignment.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/align.py
+Aligned 1089 tokens; saved /Volumes/develop/AI-Dubbing/work/42503442096-1-192/alignment.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/align.py
+Aligned 1089 tokens; saved /Volumes/develop/AI-Dubbing/work/42503442096-1-192/alignment.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/align.py
+Aligned 1513 tokens; saved /Volumes/develop/AI-Dubbing/work/42503442096-1-192/alignment.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/align.py
+Traceback (most recent call last):
+  File "/Volumes/develop/AI-Dubbing/scripts/align.py", line 18, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/align.py", line 12, in main
+    items=model.align(audio=a.audio,text=text,language=source['language'])[0]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/qwen_asr/inference/qwen3_forced_aligner.py", line 447, in align
+    logits = self.model.thinker(**inputs).logits
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/transformers/utils/generic.py", line 918, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/qwen_asr/core/transformers_backend/modeling_qwen3_asr.py", line 1196, in forward
+    audio_features = self.get_audio_features(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/qwen_asr/core/transformers_backend/modeling_qwen3_asr.py", line 1125, in get_audio_features
+    audio_output = self.audio_tower(
+                   ^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/qwen_asr/core/transformers_backend/modeling_qwen3_asr.py", line 729, in forward
+    layer_outputs = encoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/transformers/modeling_layers.py", line 94, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/qwen_asr/core/transformers_backend/modeling_qwen3_asr.py", line 556, in forward
+    hidden_states = self.self_attn(
+                    ^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/qwen_asr/core/transformers_backend/modeling_qwen3_asr.py", line 501, in forward
+    attn_output, _ = attention_interface(
+                     ^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/transformers/integrations/sdpa_attention.py", line 96, in sdpa_attention_forward
+    attn_output = torch.nn.functional.scaled_dot_product_attention(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Invalid buffer size: 16.32 GB
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/align.py
+Aligned chunk 1/10
+Aligned chunk 2/10
+Aligned chunk 3/10
+Aligned chunk 4/10
+Aligned chunk 5/10
+Aligned chunk 6/10
+Aligned chunk 7/10
+Aligned chunk 8/10
+Aligned chunk 9/10
+Aligned chunk 10/10
+Aligned 12713 tokens; saved /Volumes/develop/AI-Dubbing/work/42503442096-1-192/alignment.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/align.py
+Aligned chunk 1/15
+Aligned chunk 2/15
+Aligned chunk 3/15
+Aligned chunk 4/15
+Aligned chunk 5/15
+Aligned chunk 6/15
+Aligned chunk 7/15
+Aligned chunk 8/15
+Aligned chunk 9/15
+Aligned chunk 10/15
+Aligned chunk 11/15
+Aligned chunk 12/15
+Aligned chunk 13/15
+Aligned chunk 14/15
+Aligned chunk 15/15
+Aligned 12796 tokens; saved /Volumes/develop/AI-Dubbing/work/42503442096-1-192/alignment.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/align.py
+Aligned chunk 1/15
+Aligned chunk 2/15
+Aligned chunk 3/15
+Aligned chunk 4/15
+Aligned chunk 5/15
+Aligned chunk 6/15
+Aligned chunk 7/15
+Aligned chunk 8/15
+Aligned chunk 9/15
+Aligned chunk 10/15
+Aligned chunk 11/15
+Aligned chunk 12/15
+Aligned chunk 13/15
+Aligned chunk 14/15
+Aligned chunk 15/15
+Aligned 12796 tokens; saved /Volumes/develop/AI-Dubbing/work/42503442096-1-192/alignment.json

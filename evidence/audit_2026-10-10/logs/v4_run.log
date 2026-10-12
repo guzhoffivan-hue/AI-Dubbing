@@ -1,0 +1,129 @@
+
+Video 1/1: 42503442096-1-192.mp4
+[1/12] Extracting audio — elapsed 0.0 min, estimated remaining 0.0 min
+[2/12] Transcribing — elapsed 0.0 min, estimated remaining 0.0 min
+[3/12] Aligning — elapsed 2.5 min, estimated remaining 11.3 min
+[4/12] Detecting speakers — elapsed 2.8 min, estimated remaining 7.6 min
+[5/12] Building speaker-labelled segments — elapsed 4.2 min, estimated remaining 7.3 min
+[6/12] Translating — elapsed 4.2 min, estimated remaining 5.0 min
+
+ERROR: Video: 42503442096-1-192.mp4
+Stage: Translating
+translate failed. Details are in /Volumes/develop/AI-Dubbing/logs/42503442096-1-192_translate.log.
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]
+Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 2720.63it/s]
+Traceback (most recent call last):
+  File "/Volumes/develop/AI-Dubbing/scripts/translate.py", line 56, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/translate.py", line 38, in main
+    answer=clean_answer(generate(model,tokenizer,prompt=prompt,max_tokens=384,verbose=False,sampler=greedy_sampler()))
+                                                                                                    ^^^^^^^^^^^^^^^^
+TypeError: greedy_sampler() missing 1 required positional argument: 'logprobs'
+
+Video 1/1: 42503442096-1-192.mp4
+[5/12] Extracting audio — already complete, resuming
+[5/12] Transcribing — already complete, resuming
+[5/12] Aligning — already complete, resuming
+[5/12] Detecting speakers — already complete, resuming
+[5/12] Building speaker-labelled segments — already complete, resuming
+[6/12] Translating — elapsed 0.0 min, estimated remaining 0.0 min
+[7/12] Adapting dialogue timing — elapsed 6.4 min, estimated remaining 32.2 min
+[8/12] Generating Russian voices — elapsed 6.4 min, estimated remaining 12.9 min
+
+ERROR: Video: 42503442096-1-192.mp4
+Stage: Generating Russian voices
+tts failed. Details are in /Volumes/develop/AI-Dubbing/logs/42503442096-1-192_tts.log.
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]
+Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2254.80it/s]
+[transformers] You are using a model of type `qwen3_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+  Initialized encoder codebooks
+Loaded speech tokenizer from /Users/mac/.cache/huggingface/hub/models--mlx-community--Qwen3-TTS-12Hz-0.6B-Base-bf16/snapshots/1eccf1cb2519b5a4e8a95b5f0544f3303568164f/speech_tokenizer
+Traceback (most recent call last):
+  File "/Volumes/develop/AI-Dubbing/scripts/tts.py", line 171, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/tts.py", line 154, in main
+    raise RuntimeError(f"{line['segment_id']} ({speaker_id} → {voice_id}) is {duration:.2f}s but only {available:.2f}s are available; shortening is required before mixing.")
+RuntimeError: SEG_0000 (SPEAKER_00 → VOICE_00) is 6.19s but only 3.60s are available; shortening is required before mixing.
+
+Video 1/1: 42503442096-1-192.mp4
+[5/12] Extracting audio — already complete, resuming
+[5/12] Transcribing — already complete, resuming
+[5/12] Aligning — already complete, resuming
+[5/12] Detecting speakers — already complete, resuming
+[5/12] Building speaker-labelled segments — already complete, resuming
+[6/12] Translating — elapsed 0.0 min, estimated remaining 0.0 min
+[7/12] Adapting dialogue timing — elapsed 6.2 min, estimated remaining 30.9 min
+[8/12] Generating Russian voices — elapsed 6.2 min, estimated remaining 12.4 min
+[9/12] Building SFX — elapsed 8.2 min, estimated remaining 8.2 min
+[10/12] Selecting ambience — elapsed 8.2 min, estimated remaining 4.1 min
+[11/12] Mixing audio — elapsed 8.2 min, estimated remaining 1.6 min
+[12/12] Encoding output — elapsed 8.2 min, estimated remaining 0.0 min
+Completed: /Volumes/develop/AI-Dubbing/output/test_dub.mp4
+
+Video 1/1: 42503442096-1-192.mp4
+[5/12] Extracting audio — already complete, resuming
+[5/12] Transcribing — already complete, resuming
+[5/12] Aligning — already complete, resuming
+[6/12] Detecting speakers — elapsed 0.0 min, estimated remaining 0.0 min
+
+ERROR: Video: 42503442096-1-192.mp4
+Stage: Detecting speakers
+diarize failed. Details are in /Volumes/develop/AI-Dubbing/logs/42503442096-1-192_diarize.log.
+/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/models/blocks/pooling.py:104: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/ReduceOps.cpp:1839.)
+  std = sequences.std(dim=-1, correction=1)
+MERGED speakers: {'SPEAKER_01': 'SPEAKER_00'}
+Traceback (most recent call last):
+  File "/Volumes/develop/AI-Dubbing/scripts/diarize.py", line 90, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/diarize.py", line 85, in main
+    write_json(a.output,result); write_json(WORK/'speakers.json',result)
+               ^^^^^^^^
+AttributeError: 'str' object has no attribute 'output'
+
+Video 1/1: 42503442096-1-192.mp4
+[5/12] Extracting audio — already complete, resuming
+[5/12] Transcribing — already complete, resuming
+[5/12] Aligning — already complete, resuming
+[6/12] Detecting speakers — elapsed 0.0 min, estimated remaining 0.0 min
+[7/12] Building speaker-labelled segments — elapsed 1.3 min, estimated remaining 6.4 min
+[8/12] Translating — elapsed 1.3 min, estimated remaining 2.6 min
+[9/12] Adapting dialogue timing — elapsed 8.8 min, estimated remaining 8.8 min
+[10/12] Generating Russian voices — elapsed 8.8 min, estimated remaining 4.4 min
+[10/12] Building SFX — already complete, resuming
+[10/12] Selecting ambience — already complete, resuming
+[11/12] Mixing audio — elapsed 11.1 min, estimated remaining 2.2 min
+[12/12] Encoding output — elapsed 11.1 min, estimated remaining 0.0 min
+Completed: /Volumes/develop/AI-Dubbing/output/test_dub.mp4
+
+Video 1/1: 42503442096-1-192.mp4
+[1/12] Extracting audio — elapsed 0.0 min, estimated remaining 0.0 min
+[2/12] Transcribing — elapsed 0.0 min, estimated remaining 0.0 min
+[3/12] Aligning — elapsed 3.9 min, estimated remaining 17.4 min
+[4/12] Detecting speakers — elapsed 4.3 min, estimated remaining 11.4 min
+[5/12] Building speaker-labelled segments — elapsed 6.1 min, estimated remaining 10.7 min
+[6/12] Translating — elapsed 6.1 min, estimated remaining 7.3 min
+[7/12] Adapting dialogue timing — elapsed 16.0 min, estimated remaining 13.3 min
+[8/12] Generating Russian voices — elapsed 16.0 min, estimated remaining 9.1 min
+[9/12] Building SFX — elapsed 18.8 min, estimated remaining 7.1 min
+[10/12] Selecting ambience — elapsed 18.8 min, estimated remaining 4.2 min
+[11/12] Mixing audio — elapsed 18.8 min, estimated remaining 1.9 min
+[12/12] Encoding output — elapsed 18.8 min, estimated remaining 0.0 min
+Completed: /Volumes/develop/AI-Dubbing/output/test_dub.mp4
+
+Video 1/1: 42503442096-1-192.mp4
+[5/12] Extracting audio — already complete, resuming
+[5/12] Transcribing — already complete, resuming
+[5/12] Aligning — already complete, resuming
+[6/12] Detecting speakers — elapsed 0.0 min, estimated remaining 0.0 min
+[7/12] Building speaker-labelled segments — elapsed 1.9 min, estimated remaining 9.4 min
+[8/12] Translating — elapsed 1.9 min, estimated remaining 3.8 min
+[9/12] Adapting dialogue timing — elapsed 11.8 min, estimated remaining 11.8 min
+[10/12] Generating Russian voices — elapsed 11.8 min, estimated remaining 5.9 min
+[10/12] Building SFX — already complete, resuming
+[10/12] Selecting ambience — already complete, resuming
+[11/12] Mixing audio — elapsed 15.1 min, estimated remaining 3.0 min
+[12/12] Encoding output — elapsed 15.1 min, estimated remaining 0.0 min
+Completed: /Volumes/develop/AI-Dubbing/output/test_dub.mp4

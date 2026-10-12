@@ -23,7 +23,7 @@ def build(tmp, config="use_original_audio: false\ntts_backend: qwen3_mlx\n"):
 
 class Recorder:
     def __init__(self): self.calls = []
-    def __call__(self, command, env, cwd, log): self.calls.append((command, env, cwd, log))
+    def __call__(self, command, env, cwd, log, cancel=None, on_line=None): self.calls.append((command, env, cwd, log))
 
 
 class AdapterTests(unittest.TestCase):
@@ -149,6 +149,37 @@ class AdapterTests(unittest.TestCase):
         ok = self.layout.root/"scripts"/"ok.py"; ok.write_text("print('fine')\n")
         adapters.subprocess_runner(["python3", str(ok)], {}, self.layout.root, log)
         self.assertIn("fine", log.read_text())
+
+    def test_progress_readers_cover_the_long_stages(self):
+        self.layout.work_dir.mkdir(parents=True, exist_ok=True)
+        (self.layout.work_dir / "dialogue.json").write_text(json.dumps({"lines": [1, 2, 3, 4]}))
+        asr = make_handler("asr", self.layout).progress
+        self.assertAlmostEqual(asr("ASR Chunk 1/4 completed (975 chars)").fraction, 0.25)
+        alignment = make_handler("alignment", self.layout).progress
+        self.assertAlmostEqual(alignment("Aligned chunk 3/4").fraction, 0.75)
+        translation = make_handler("translation", self.layout).progress
+        self.assertAlmostEqual(
+            translation("Translated 1/47 LINE_0001 speaker=SPEAKER_00 116/63 chars").fraction,
+            1 / 47,
+        )
+        tts = make_handler("tts", self.layout).progress
+        self.assertAlmostEqual(tts("segment 002 speaker=SPEAKER_00 voice=ru_01 start=1.00").fraction, 0.5)
+
+    def test_short_stages_report_no_intra_stage_progress(self):
+        for stage in ("extract_audio", "diarization", "sfx", "ambience", "mix", "mux"):
+            self.assertIsNone(make_handler(stage, self.layout).progress)
+
+    def test_the_handler_passes_cancel_and_lines_to_the_runner(self):
+        seen = {}
+
+        def recorder(command, env, cwd, log, cancel=None, on_line=None):
+            seen["cancel"] = cancel
+            seen["on_line"] = on_line
+
+        handler = make_handler("asr", self.layout, runner=recorder)
+        context = mock.Mock(cancel="TOKEN", on_output_line="LINES")
+        handler.run(context)
+        self.assertEqual(seen, {"cancel": "TOKEN", "on_line": "LINES"})
 
     def test_parameters_cover_config_that_changes_output(self):
         (self.layout.root / "config.yaml").write_text(

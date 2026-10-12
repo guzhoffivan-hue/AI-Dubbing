@@ -1,0 +1,23 @@
+A (core): /Volumes/develop/AI-Dubbing/work/core_e2e_150s
+B (cli) : /Volumes/develop/e2e_cli_ref/work/42503442096-1-192
+
+audio.wav                  SAME  4800078 vs 4800078 bytes
+audio_meta.json            SAME  same JSON (absolute paths ignored)
+asr.json                   SAME  same JSON (absolute paths ignored)
+alignment.json             SAME  same JSON (absolute paths ignored)
+diarization.json           SAME  same JSON (absolute paths ignored)
+speakers.json              SAME  same JSON (absolute paths ignored)
+segments.json              SAME  same JSON (absolute paths ignored)
+translated_segments.json   SAME  same JSON (absolute paths ignored)
+glossary.json              SAME  same JSON (absolute paths ignored)
+summary.json               SAME  same JSON (absolute paths ignored)
+dialogue.json              DIFF  differs: root.lines[0].voice_id: str vs NoneType; root.lines[1].voice_id: str vs NoneType; root.lines[2].voice_id: str vs NoneType
+dialogue_segments.json     DIFF  differs: root.lines[0].voice_id: str vs NoneType; root.lines[1].voice_id: str vs NoneType; root.lines[2].voice_id: str vs NoneType
+voice_profiles.json        SAME  same JSON (absolute paths ignored)
+tts_manifest.json          DIFF  differs: root.lines[0].tts_duration: 4.448458333333333 != 5.824; root.lines[0].tts_end: 4.448458333333333 != 5.824; root.lines[0].tts_speed: 2.47 != 2.3
+sfx_timeline.json          SAME  same JSON (absolute paths ignored)
+ambience.json              SAME  same JSON (absolute paths ignored)
+mix.wav                    DIFF  28800078 vs 28800078 bytes; md5 26c490a2 vs dcacb34f
+final video                SAME  duration 154.433000 vs 154.433000; 34474000 vs 34229328 bytes; md5 1f8762a2 vs c84fd1bf
+
+4 of 18 compared artifacts differ

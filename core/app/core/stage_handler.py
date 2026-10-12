@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import TYPE_CHECKING, Callable, Union
 
+from app.core.progress import LineCallback, StageProgressUpdate
 from app.models.pipeline_stage import PipelineStage
 
 if TYPE_CHECKING:
@@ -43,6 +44,11 @@ ParameterLocator = Callable[["PipelineContext"], Union[dict, None]]
 # It raises to refuse the run (see app.invariants.InvariantError).
 Precondition = Callable[["PipelineContext"], None]
 
+# Optional progress reader: receives one log line of the running stage and returns what
+# it means for progress, or None when the line says nothing (see app.core.progress). The
+# reader keeps its own state, so it may be an object rather than a plain function.
+ProgressReader = Callable[[str], Union[StageProgressUpdate, None]]
+
 
 @dataclass
 class StageHandler:
@@ -51,6 +57,17 @@ class StageHandler:
     inputs: InputLocator | None = None
     parameters: ParameterLocator | None = None
     precondition: Precondition | None = None
+    # Deadline for one attempt, in seconds (None = no limit). The deadline is
+    # per attempt and enforced through the stage's cancel token, so a runner that
+    # owns a process can stop it; a blocking handler is still reported as timed
+    # out, only once it returns.
+    timeout: float | None = None
+    # Extra attempts a failing stage gets before the pipeline gives up. A user
+    # cancel is never retried, because the user asked for the run to stop.
+    retries: int = 0
+    # Turns this stage's log lines into progress, so a stage that runs for hours
+    # reports where it is instead of looking hung.
+    progress: ProgressReader | None = None
 
 
 StageHandlerRegistry = dict[PipelineStage, StageHandler]

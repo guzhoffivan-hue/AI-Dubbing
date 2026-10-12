@@ -1,0 +1,759 @@
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/translate.py
+
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]
+Fetching 9 files:  11%|█         | 1/9 [00:00<00:04,  1.69it/s]
+Fetching 9 files:  67%|██████▋   | 6/9 [00:01<00:00,  6.24it/s]
+Fetching 9 files:  78%|███████▊  | 7/9 [00:01<00:00,  5.30it/s]
+Fetching 9 files:  89%|████████▉ | 8/9 [00:02<00:00,  2.25it/s]
+Fetching 9 files: 100%|██████████| 9/9 [20:09<00:00, 291.49s/it]
+Fetching 9 files: 100%|██████████| 9/9 [20:09<00:00, 134.40s/it]
+Translated 1 lines; saved /Volumes/develop/AI-Dubbing/work/42503442096-1-192/translation.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/translate.py
+
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]
+Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 3657.11it/s]
+Traceback (most recent call last):
+  File "/Volumes/develop/AI-Dubbing/scripts/translate.py", line 29, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/translate.py", line 20, in main
+    translated=json.loads(match.group())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 4 column 244 (char 3189)
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/translate.py
+
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]
+Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 3266.59it/s]
+Translation returned 13 of 19 lines. Raw model response saved to /Volumes/develop/AI-Dubbing/work/42503442096-1-192/translation_raw.txt; rerun ./dub to retry.
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/translate.py
+
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]
+Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 2977.97it/s]
+Translation returned 12 of 19 lines. Raw model response saved to /Volumes/develop/AI-Dubbing/work/42503442096-1-192/translation_raw.txt; rerun ./dub to retry.
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/translate.py
+
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]
+Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 3194.98it/s]
+Translated batch 1/19 (0/5 lines)
+Translated batch 6/19 (0/5 lines)
+Translated batch 11/19 (0/5 lines)
+Translated batch 16/19 (0/4 lines)
+Translation returned 0 of 19 lines. Raw model response saved to /Volumes/develop/AI-Dubbing/work/42503442096-1-192/translation_raw.txt; rerun ./dub to retry.
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/translate.py
+
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]
+Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 3167.11it/s]
+Translated line 1/19
+Translated line 2/19
+Translated line 3/19
+Translated line 4/19
+Translated line 5/19
+Translated line 6/19
+Translated line 7/19
+Translated line 8/19
+Translated line 9/19
+Translated line 10/19
+Translated line 11/19
+Translated line 12/19
+Translated line 13/19
+Translated line 14/19
+Translated line 15/19
+Translated line 16/19
+Translated line 17/19
+Translated line 18/19
+Translated line 19/19
+Translated 19 lines; saved /Volumes/develop/AI-Dubbing/work/42503442096-1-192/translation.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/translate.py
+
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]
+Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 3007.15it/s]
+Translated line 1/19
+Translated line 2/19
+Translated line 3/19
+Translated line 4/19
+Translated line 5/19
+Translated line 6/19
+Translated line 7/19
+Translated line 8/19
+Translated line 9/19
+Translated line 10/19
+Cannot adapt translated line 11 to 7.8s without overcompression; shorten/split dialogue before retry.
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/translate.py
+
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]
+Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 3297.98it/s]
+Translated line 1/19
+Translated line 2/19
+Translated line 3/19
+Translated line 4/19
+Translated line 5/19
+Translated line 6/19
+Translated line 7/19
+Translated line 8/19
+Translated line 9/19
+Translated line 10/19
+Translated line 11/19
+Translated line 12/19
+Translated line 13/19
+Translated line 14/19
+Translated line 15/19
+Translated line 16/19
+Translated line 17/19
+Translated line 18/19
+Translated line 19/19
+Translated 19 lines; saved /Volumes/develop/AI-Dubbing/work/42503442096-1-192/translation.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/translate.py
+
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]
+Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 2720.63it/s]
+Traceback (most recent call last):
+  File "/Volumes/develop/AI-Dubbing/scripts/translate.py", line 56, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/translate.py", line 38, in main
+    answer=clean_answer(generate(model,tokenizer,prompt=prompt,max_tokens=384,verbose=False,sampler=greedy_sampler()))
+                                                                                                    ^^^^^^^^^^^^^^^^
+TypeError: greedy_sampler() missing 1 required positional argument: 'logprobs'
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/translate.py
+
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]
+Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 2603.54it/s]
+WARN SEG_0000: 92>61 chars, atempo will fit it
+Translated 1/44 SEG_0000 speaker=SPEAKER_00 92/61 chars
+WARN SEG_0001: 66>62 chars, atempo will fit it
+Translated 2/44 SEG_0001 speaker=SPEAKER_00 66/62 chars
+Translated 3/44 SEG_0002 speaker=SPEAKER_00 60/65 chars
+Translated 4/44 SEG_0003 speaker=SPEAKER_00 26/27 chars
+WARN SEG_0004: 123>77 chars, atempo will fit it
+Translated 5/44 SEG_0004 speaker=SPEAKER_00 123/77 chars
+Translated 6/44 SEG_0005 speaker=SPEAKER_00 87/91 chars
+Translated 7/44 SEG_0006 speaker=SPEAKER_00 71/96 chars
+Translated 8/44 SEG_0007 speaker=SPEAKER_00 65/68 chars
+WARN SEG_0008: 129>70 chars, atempo will fit it
+Translated 9/44 SEG_0008 speaker=SPEAKER_00 129/70 chars
+Translated 10/44 SEG_0009 speaker=SPEAKER_00 90/96 chars
+WARN SEG_0010: 69>61 chars, atempo will fit it
+Translated 11/44 SEG_0010 speaker=SPEAKER_00 69/61 chars
+WARN SEG_0011: 105>103 chars, atempo will fit it
+Translated 12/44 SEG_0011 speaker=SPEAKER_00 105/103 chars
+WARN SEG_0012: 103>80 chars, atempo will fit it
+Translated 13/44 SEG_0012 speaker=SPEAKER_00 103/80 chars
+Translated 14/44 SEG_0013 speaker=SPEAKER_00 84/85 chars
+Translated 15/44 SEG_0014 speaker=SPEAKER_00 8/8 chars
+Translated 16/44 SEG_0015 speaker=SPEAKER_01 14/16 chars
+Translated 17/44 SEG_0016 speaker=SPEAKER_01 30/36 chars
+WARN SEG_0017: 81>48 chars, atempo will fit it
+Translated 18/44 SEG_0017 speaker=SPEAKER_01 81/48 chars
+Translated 19/44 SEG_0018 speaker=SPEAKER_01 130/133 chars
+WARN SEG_0019: 24>17 chars, atempo will fit it
+Translated 20/44 SEG_0019 speaker=SPEAKER_01 24/17 chars
+WARN SEG_0020: 27>14 chars, atempo will fit it
+Translated 21/44 SEG_0020 speaker=SPEAKER_01 27/14 chars
+Translated 22/44 SEG_0021 speaker=SPEAKER_00 43/85 chars
+Translated 23/44 SEG_0022 speaker=SPEAKER_00 42/47 chars
+WARN SEG_0023: 33>29 chars, atempo will fit it
+Translated 24/44 SEG_0023 speaker=SPEAKER_00 33/29 chars
+Translated 25/44 SEG_0024 speaker=SPEAKER_00 20/77 chars
+WARN SEG_0025: 32>28 chars, atempo will fit it
+Translated 26/44 SEG_0025 speaker=SPEAKER_00 32/28 chars
+Translated 27/44 SEG_0026 speaker=SPEAKER_00 71/82 chars
+Translated 28/44 SEG_0027 speaker=SPEAKER_00 38/63 chars
+Translated 29/44 SEG_0028 speaker=SPEAKER_00 39/44 chars
+Translated 30/44 SEG_0029 speaker=SPEAKER_00 15/16 chars
+Translated 31/44 SEG_0030 speaker=SPEAKER_00 46/47 chars
+WARN SEG_0031: 21>20 chars, atempo will fit it
+Translated 32/44 SEG_0031 speaker=SPEAKER_00 21/20 chars
+Translated 33/44 SEG_0032 speaker=SPEAKER_00 17/20 chars
+WARN SEG_0033: 21>19 chars, atempo will fit it
+Translated 34/44 SEG_0033 speaker=SPEAKER_00 21/19 chars
+WARN SEG_0034: 21>20 chars, atempo will fit it
+Translated 35/44 SEG_0034 speaker=SPEAKER_00 21/20 chars
+Translated 36/44 SEG_0035 speaker=SPEAKER_00 12/21 chars
+WARN SEG_0036: 22>17 chars, atempo will fit it
+Translated 37/44 SEG_0036 speaker=SPEAKER_00 22/17 chars
+Translated 38/44 SEG_0037 speaker=SPEAKER_00 29/32 chars
+WARN SEG_0038: 113>95 chars, atempo will fit it
+Translated 39/44 SEG_0038 speaker=SPEAKER_00 113/95 chars
+Translated 40/44 SEG_0039 speaker=SPEAKER_00 41/66 chars
+WARN SEG_0040: 75>63 chars, atempo will fit it
+Translated 41/44 SEG_0040 speaker=SPEAKER_00 75/63 chars
+WARN SEG_0041: 160>123 chars, atempo will fit it
+Translated 42/44 SEG_0041 speaker=SPEAKER_00 160/123 chars
+Translated 43/44 SEG_0042 speaker=SPEAKER_00 54/68 chars
+WARN SEG_0043: 167>126 chars, atempo will fit it
+Translated 44/44 SEG_0043 speaker=SPEAKER_00 167/126 chars
+Translated 44 speaker-labelled segments using neighboring context; saved translated_segments.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/translate.py
+
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]
+Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 6136.01it/s]
+WARN SEG_0000: 86>41 chars, atempo will fit it
+Translated 1/44 SEG_0000 speaker=SPEAKER_00 86/41 chars
+WARN SEG_0001: 65>42 chars, atempo will fit it
+Translated 2/44 SEG_0001 speaker=SPEAKER_00 65/42 chars
+Translated 3/44 SEG_0002 speaker=SPEAKER_00 29/44 chars
+Translated 4/44 SEG_0003 speaker=SPEAKER_00 18/18 chars
+Translated 5/44 SEG_0004 speaker=SPEAKER_00 47/52 chars
+WARN SEG_0005: 123>61 chars, atempo will fit it
+Translated 6/44 SEG_0005 speaker=SPEAKER_00 123/61 chars
+Translated 7/44 SEG_0006 speaker=SPEAKER_00 51/65 chars
+WARN SEG_0007: 50>46 chars, atempo will fit it
+Translated 8/44 SEG_0007 speaker=SPEAKER_00 50/46 chars
+WARN SEG_0008: 120>47 chars, atempo will fit it
+Translated 9/44 SEG_0008 speaker=SPEAKER_00 120/47 chars
+WARN SEG_0009: 103>65 chars, atempo will fit it
+Translated 10/44 SEG_0009 speaker=SPEAKER_00 103/65 chars
+WARN SEG_0010: 52>41 chars, atempo will fit it
+Translated 11/44 SEG_0010 speaker=SPEAKER_00 52/41 chars
+WARN SEG_0011: 72>69 chars, atempo will fit it
+Translated 12/44 SEG_0011 speaker=SPEAKER_00 72/69 chars
+WARN SEG_0012: 132>54 chars, atempo will fit it
+Translated 13/44 SEG_0012 speaker=SPEAKER_00 132/54 chars
+WARN SEG_0013: 62>57 chars, atempo will fit it
+Translated 14/44 SEG_0013 speaker=SPEAKER_00 62/57 chars
+Translated 15/44 SEG_0014 speaker=SPEAKER_00 8/8 chars
+WARN SEG_0015: 22>11 chars, atempo will fit it
+Translated 16/44 SEG_0015 speaker=SPEAKER_01 22/11 chars
+Translated 17/44 SEG_0016 speaker=SPEAKER_01 22/24 chars
+WARN SEG_0017: 81>33 chars, atempo will fit it
+Translated 18/44 SEG_0017 speaker=SPEAKER_01 81/33 chars
+Translated 19/44 SEG_0018 speaker=SPEAKER_01 55/90 chars
+WARN SEG_0019: 19>11 chars, atempo will fit it
+Translated 20/44 SEG_0019 speaker=SPEAKER_01 19/11 chars
+WARN SEG_0020: 27>10 chars, atempo will fit it
+Translated 21/44 SEG_0020 speaker=SPEAKER_01 27/10 chars
+Translated 22/44 SEG_0021 speaker=SPEAKER_00 52/57 chars
+WARN SEG_0022: 34>32 chars, atempo will fit it
+Translated 23/44 SEG_0022 speaker=SPEAKER_00 34/32 chars
+WARN SEG_0023: 22>20 chars, atempo will fit it
+Translated 24/44 SEG_0023 speaker=SPEAKER_00 22/20 chars
+Translated 25/44 SEG_0024 speaker=SPEAKER_00 20/52 chars
+WARN SEG_0025: 21>19 chars, atempo will fit it
+Translated 26/44 SEG_0025 speaker=SPEAKER_00 21/19 chars
+Translated 27/44 SEG_0026 speaker=SPEAKER_00 40/56 chars
+Translated 28/44 SEG_0027 speaker=SPEAKER_00 41/43 chars
+Translated 29/44 SEG_0028 speaker=SPEAKER_00 25/30 chars
+WARN SEG_0029: 12>11 chars, atempo will fit it
+Translated 30/44 SEG_0029 speaker=SPEAKER_00 12/11 chars
+WARN SEG_0030: 56>32 chars, atempo will fit it
+Translated 31/44 SEG_0030 speaker=SPEAKER_00 56/32 chars
+WARN SEG_0031: 21>13 chars, atempo will fit it
+Translated 32/44 SEG_0031 speaker=SPEAKER_00 21/13 chars
+Translated 33/44 SEG_0032 speaker=SPEAKER_00 13/13 chars
+Translated 34/44 SEG_0033 speaker=SPEAKER_00 7/12 chars
+Translated 35/44 SEG_0034 speaker=SPEAKER_00 13/13 chars
+Translated 36/44 SEG_0035 speaker=SPEAKER_00 9/14 chars
+WARN SEG_0036: 18>11 chars, atempo will fit it
+Translated 37/44 SEG_0036 speaker=SPEAKER_00 18/11 chars
+WARN SEG_0037: 33>22 chars, atempo will fit it
+Translated 38/44 SEG_0037 speaker=SPEAKER_00 33/22 chars
+Translated 39/44 SEG_0038 speaker=SPEAKER_00 50/64 chars
+Translated 40/44 SEG_0039 speaker=SPEAKER_00 33/45 chars
+WARN SEG_0040: 48>43 chars, atempo will fit it
+Translated 41/44 SEG_0040 speaker=SPEAKER_00 48/43 chars
+WARN SEG_0041: 91>83 chars, atempo will fit it
+Translated 42/44 SEG_0041 speaker=SPEAKER_00 91/83 chars
+Translated 43/44 SEG_0042 speaker=SPEAKER_00 40/46 chars
+Translated 44/44 SEG_0043 speaker=SPEAKER_00 45/85 chars
+Translated 44 speaker-labelled segments using neighboring context; saved translated_segments.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/translate.py
+
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]
+Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 2597.45it/s]
+speech rate 14.0 chars/s
+glossary: {'source': 'russian'}
+WARN SEG_0000: 94>50 chars, atempo will fit it
+Translated 1/31 SEG_0000 speaker=SPEAKER_00 94/50 chars
+WARN SEG_0001: 70>51 chars, atempo will fit it
+Translated 2/31 SEG_0001 speaker=SPEAKER_00 70/51 chars
+Translated 3/31 SEG_0002 speaker=SPEAKER_00 44/53 chars
+Translated 4/31 SEG_0003 speaker=SPEAKER_00 68/86 chars
+WARN SEG_0004: 86>75 chars, atempo will fit it
+Translated 5/31 SEG_0004 speaker=SPEAKER_00 86/75 chars
+Translated 6/31 SEG_0005 speaker=SPEAKER_00 58/79 chars
+Translated 7/31 SEG_0006 speaker=SPEAKER_00 50/56 chars
+WARN SEG_0007: 107>58 chars, atempo will fit it
+Translated 8/31 SEG_0007 speaker=SPEAKER_00 107/58 chars
+WARN SEG_0008: 117>79 chars, atempo will fit it
+Translated 9/31 SEG_0008 speaker=SPEAKER_00 117/79 chars
+Translated 10/31 SEG_0009 speaker=SPEAKER_00 45/50 chars
+Translated 11/31 SEG_0010 speaker=SPEAKER_00 72/85 chars
+WARN SEG_0011: 79>66 chars, atempo will fit it
+Translated 12/31 SEG_0011 speaker=SPEAKER_00 79/66 chars
+Translated 13/31 SEG_0012 speaker=SPEAKER_00 49/70 chars
+WARN SEG_0013: 52>51 chars, atempo will fit it
+Translated 14/31 SEG_0013 speaker=SPEAKER_00 52/51 chars
+WARN SEG_0014: 42>40 chars, atempo will fit it
+Translated 15/31 SEG_0014 speaker=SPEAKER_00 42/40 chars
+Translated 16/31 SEG_0015 speaker=SPEAKER_00 105/109 chars
+Translated 17/31 SEG_0016 speaker=SPEAKER_00 51/99 chars
+Translated 18/31 SEG_0017 speaker=SPEAKER_00 34/39 chars
+Translated 19/31 SEG_0018 speaker=SPEAKER_00 16/88 chars
+Translated 20/31 SEG_0019 speaker=SPEAKER_00 16/91 chars
+Translated 21/31 SEG_0020 speaker=SPEAKER_00 36/52 chars
+Translated 22/31 SEG_0021 speaker=SPEAKER_00 38/50 chars
+WARN SEG_0022: 60>39 chars, atempo will fit it
+Translated 23/31 SEG_0022 speaker=SPEAKER_00 60/39 chars
+WARN SEG_0023: 65>49 chars, atempo will fit it
+Translated 24/31 SEG_0023 speaker=SPEAKER_00 65/49 chars
+WARN SEG_0024: 57>49 chars, atempo will fit it
+Translated 25/31 SEG_0024 speaker=SPEAKER_00 57/49 chars
+WARN SEG_0025: 197>105 chars, atempo will fit it
+Translated 26/31 SEG_0025 speaker=SPEAKER_00 197/105 chars
+Translated 27/31 SEG_0026 speaker=SPEAKER_00 38/54 chars
+Translated 28/31 SEG_0027 speaker=SPEAKER_00 51/52 chars
+Translated 29/31 SEG_0028 speaker=SPEAKER_00 91/101 chars
+WARN SEG_0029: 59>56 chars, atempo will fit it
+Translated 30/31 SEG_0029 speaker=SPEAKER_00 59/56 chars
+Translated 31/31 SEG_0030 speaker=SPEAKER_00 77/104 chars
+Translated 31 speaker-labelled segments using neighboring context; saved translated_segments.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/translate.py
+
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]
+Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 1573.13it/s]
+speech rate 12.58 chars/s
+glossary: {'苏小唐': 'Су Сяотань', '钟南山': 'Чжун Наньшань', '清虚观': 'Чиньшухуан'}
+WARN SEG_0000: 98>45 chars, atempo will fit it
+Translated 1/43 SEG_0000 speaker=SPEAKER_00 98/45 chars
+WARN SEG_0001: 105>94 chars, atempo will fit it
+Translated 2/43 SEG_0001 speaker=SPEAKER_00 105/94 chars
+Translated 3/43 SEG_0002 speaker=SPEAKER_00 66/77 chars
+WARN SEG_0003: 70>67 chars, atempo will fit it
+Translated 4/43 SEG_0003 speaker=SPEAKER_00 70/67 chars
+Translated 5/43 SEG_0004 speaker=SPEAKER_00 42/71 chars
+Translated 6/43 SEG_0005 speaker=SPEAKER_00 50/50 chars
+Translated 7/43 SEG_0006 speaker=SPEAKER_00 42/52 chars
+Translated 8/43 SEG_0007 speaker=SPEAKER_00 34/71 chars
+WARN SEG_0008: 51>45 chars, atempo will fit it
+Translated 9/43 SEG_0008 speaker=SPEAKER_00 51/45 chars
+Translated 10/43 SEG_0009 speaker=SPEAKER_00 74/76 chars
+Translated 11/43 SEG_0010 speaker=SPEAKER_00 26/59 chars
+WARN SEG_0011: 76>63 chars, atempo will fit it
+Translated 12/43 SEG_0011 speaker=SPEAKER_00 76/63 chars
+Translated 13/43 SEG_0012 speaker=SPEAKER_00 42/46 chars
+WARN SEG_0013: 44>36 chars, atempo will fit it
+Translated 14/43 SEG_0013 speaker=SPEAKER_00 44/36 chars
+WARN SEG_0014: 104>98 chars, atempo will fit it
+Translated 15/43 SEG_0014 speaker=SPEAKER_00 104/98 chars
+WARN SEG_0015: 190>89 chars, atempo will fit it
+Translated 16/43 SEG_0015 speaker=SPEAKER_00 190/89 chars
+Translated 17/43 SEG_0016 speaker=SPEAKER_00 32/35 chars
+Translated 18/43 SEG_0017 speaker=SPEAKER_00 20/79 chars
+WARN SEG_0018: 178>82 chars, atempo will fit it
+Translated 19/43 SEG_0018 speaker=SPEAKER_00 178/82 chars
+Translated 20/43 SEG_0019 speaker=SPEAKER_00 38/47 chars
+Translated 21/43 SEG_0020 speaker=SPEAKER_00 25/45 chars
+WARN SEG_0021: 58>34 chars, atempo will fit it
+Translated 22/43 SEG_0021 speaker=SPEAKER_00 58/34 chars
+Translated 23/43 SEG_0022 speaker=SPEAKER_00 39/45 chars
+Translated 24/43 SEG_0023 speaker=SPEAKER_00 36/44 chars
+Translated 25/43 SEG_0024 speaker=SPEAKER_00 60/72 chars
+WARN SEG_0025: 98>71 chars, atempo will fit it
+Translated 26/43 SEG_0025 speaker=SPEAKER_00 98/71 chars
+Translated 27/43 SEG_0026 speaker=SPEAKER_00 41/47 chars
+Translated 28/43 SEG_0027 speaker=SPEAKER_00 84/91 chars
+Translated 29/43 SEG_0028 speaker=SPEAKER_00 23/50 chars
+Translated 30/43 SEG_0029 speaker=SPEAKER_00 108/108 chars
+WARN SEG_0030: 109>64 chars, atempo will fit it
+Translated 31/43 SEG_0030 speaker=SPEAKER_00 109/64 chars
+WARN SEG_0031: 88>79 chars, atempo will fit it
+Translated 32/43 SEG_0031 speaker=SPEAKER_00 88/79 chars
+Translated 33/43 SEG_0032 speaker=SPEAKER_00 88/93 chars
+Translated 34/43 SEG_0033 speaker=SPEAKER_00 34/61 chars
+Translated 35/43 SEG_0034 speaker=SPEAKER_00 32/37 chars
+Translated 36/43 SEG_0035 speaker=SPEAKER_00 36/40 chars
+Translated 37/43 SEG_0036 speaker=SPEAKER_00 42/63 chars
+Translated 38/43 SEG_0037 speaker=SPEAKER_00 21/36 chars
+Translated 39/43 SEG_0038 speaker=SPEAKER_00 45/55 chars
+Translated 40/43 SEG_0039 speaker=SPEAKER_00 77/84 chars
+WARN SEG_0040: 58>47 chars, atempo will fit it
+Translated 41/43 SEG_0040 speaker=SPEAKER_00 58/47 chars
+WARN SEG_0041: 117>48 chars, atempo will fit it
+Translated 42/43 SEG_0041 speaker=SPEAKER_00 117/48 chars
+Translated 43/43 SEG_0042 speaker=SPEAKER_00 24/29 chars
+Translated 43 speaker-labelled segments using neighboring context; saved translated_segments.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/translate.py
+
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]
+Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 1633.15it/s]
+speech rate 12.28 chars/s
+glossary: {'苏小唐': 'Су Сяотань', '钟南山': 'Чжун Наньшань', '清虚观': 'Чиньшухуан'}
+summary: **Краткое изложение:**  
+В тексте два персонажа: 96-летний старец-действующий, который использует систему для поддержания здоровья, и Су Сяотань — популярная ведущая, которая проверяет мистиков. Су Ся
+WARN SEG_0000: 79>59 chars, atempo will fit it
+Translated 1/43 SEG_0000 speaker=SPEAKER_00 79/59 chars
+Translated 2/43 SEG_0001 speaker=SPEAKER_00 87/124 chars
+WARN SEG_0002: 161>102 chars, atempo will fit it
+Translated 3/43 SEG_0002 speaker=SPEAKER_00 161/102 chars
+Translated 4/43 SEG_0003 speaker=SPEAKER_00 74/88 chars
+Translated 5/43 SEG_0004 speaker=SPEAKER_00 67/94 chars
+Translated 6/43 SEG_0005 speaker=SPEAKER_00 62/66 chars
+WARN SEG_0006: 118>68 chars, atempo will fit it
+Translated 7/43 SEG_0006 speaker=SPEAKER_00 118/68 chars
+Translated 8/43 SEG_0007 speaker=SPEAKER_00 92/94 chars
+Translated 9/43 SEG_0008 speaker=SPEAKER_00 59/59 chars
+Translated 10/43 SEG_0009 speaker=SPEAKER_00 74/100 chars
+WARN SEG_0010: 145>78 chars, atempo will fit it
+Translated 11/43 SEG_0010 speaker=SPEAKER_00 145/78 chars
+Translated 12/43 SEG_0011 speaker=SPEAKER_00 66/83 chars
+Translated 13/43 SEG_0012 speaker=SPEAKER_00 60/61 chars
+WARN SEG_0013: 82>47 chars, atempo will fit it
+Translated 14/43 SEG_0013 speaker=SPEAKER_00 82/47 chars
+Translated 15/43 SEG_0014 speaker=SPEAKER_00 129/129 chars
+WARN SEG_0015: 129>118 chars, atempo will fit it
+Translated 16/43 SEG_0015 speaker=SPEAKER_00 129/118 chars
+Translated 17/43 SEG_0016 speaker=SPEAKER_00 32/46 chars
+Translated 18/43 SEG_0017 speaker=SPEAKER_00 20/104 chars
+Translated 19/43 SEG_0018 speaker=SPEAKER_00 60/108 chars
+Translated 20/43 SEG_0019 speaker=SPEAKER_00 44/62 chars
+Translated 21/43 SEG_0020 speaker=SPEAKER_00 25/59 chars
+WARN SEG_0021: 47>45 chars, atempo will fit it
+Translated 22/43 SEG_0021 speaker=SPEAKER_00 47/45 chars
+Translated 23/43 SEG_0022 speaker=SPEAKER_00 44/59 chars
+Translated 24/43 SEG_0023 speaker=SPEAKER_00 41/58 chars
+Translated 25/43 SEG_0024 speaker=SPEAKER_00 76/95 chars
+Translated 26/43 SEG_0025 speaker=SPEAKER_00 53/94 chars
+Translated 27/43 SEG_0026 speaker=SPEAKER_00 41/62 chars
+WARN SEG_0027: 121>120 chars, atempo will fit it
+Translated 28/43 SEG_0027 speaker=SPEAKER_00 121/120 chars
+Translated 29/43 SEG_0028 speaker=SPEAKER_00 54/66 chars
+Translated 30/43 SEG_0029 speaker=SPEAKER_00 125/143 chars
+WARN SEG_0030: 115>84 chars, atempo will fit it
+Translated 31/43 SEG_0030 speaker=SPEAKER_00 115/84 chars
+WARN SEG_0031: 182>104 chars, atempo will fit it
+Translated 32/43 SEG_0031 speaker=SPEAKER_00 182/104 chars
+WARN SEG_0032: 182>123 chars, atempo will fit it
+Translated 33/43 SEG_0032 speaker=SPEAKER_00 182/123 chars
+Translated 34/43 SEG_0033 speaker=SPEAKER_00 45/80 chars
+Translated 35/43 SEG_0034 speaker=SPEAKER_00 37/49 chars
+WARN SEG_0035: 82>53 chars, atempo will fit it
+Translated 36/43 SEG_0035 speaker=SPEAKER_00 82/53 chars
+Translated 37/43 SEG_0036 speaker=SPEAKER_00 46/83 chars
+Translated 38/43 SEG_0037 speaker=SPEAKER_00 29/47 chars
+Translated 39/43 SEG_0038 speaker=SPEAKER_00 36/49 chars
+Translated 40/43 SEG_0039 speaker=SPEAKER_01 40/135 chars
+WARN SEG_0040: 84>62 chars, atempo will fit it
+Translated 41/43 SEG_0040 speaker=SPEAKER_01 84/62 chars
+Translated 42/43 SEG_0041 speaker=SPEAKER_01 41/63 chars
+Translated 43/43 SEG_0042 speaker=SPEAKER_01 24/38 chars
+Translated 43 speaker-labelled segments using neighboring context; saved translated_segments.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/translate.py
+
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]
+Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 2434.46it/s]
+speech rate 13.59 chars/s
+glossary: {'苏小唐': 'Су Сяотань', '钟南山': 'Чжун Наньшань', '清虚观': 'Чиньшухуан'}
+summary: **Краткое изложение:**  
+В тексте два персонажа: 96-летний старец-действующий, который использует систему для поддержания здоровья, и Су Сяотань — популярная ведущая, которая проверяет мистиков. Су Ся
+WARN SEG_0000: 85>66 chars, atempo will fit it
+Translated 1/43 SEG_0000 speaker=SPEAKER_00 85/66 chars
+Translated 2/43 SEG_0001 speaker=SPEAKER_00 75/137 chars
+WARN SEG_0002: 160>113 chars, atempo will fit it
+Translated 3/43 SEG_0002 speaker=SPEAKER_00 160/113 chars
+Translated 4/43 SEG_0003 speaker=SPEAKER_00 88/98 chars
+Translated 5/43 SEG_0004 speaker=SPEAKER_00 66/104 chars
+Translated 6/43 SEG_0005 speaker=SPEAKER_00 73/73 chars
+WARN SEG_0006: 127>76 chars, atempo will fit it
+Translated 7/43 SEG_0006 speaker=SPEAKER_00 127/76 chars
+WARN SEG_0007: 123>104 chars, atempo will fit it
+Translated 8/43 SEG_0007 speaker=SPEAKER_00 123/104 chars
+Translated 9/43 SEG_0008 speaker=SPEAKER_00 54/66 chars
+Translated 10/43 SEG_0009 speaker=SPEAKER_00 87/111 chars
+WARN SEG_0010: 111>86 chars, atempo will fit it
+Translated 11/43 SEG_0010 speaker=SPEAKER_00 111/86 chars
+Translated 12/43 SEG_0011 speaker=SPEAKER_00 82/92 chars
+WARN SEG_0012: 68>67 chars, atempo will fit it
+Translated 13/43 SEG_0012 speaker=SPEAKER_00 68/67 chars
+WARN SEG_0013: 81>52 chars, atempo will fit it
+Translated 14/43 SEG_0013 speaker=SPEAKER_00 81/52 chars
+WARN SEG_0014: 202>143 chars, atempo will fit it
+Translated 15/43 SEG_0014 speaker=SPEAKER_00 202/143 chars
+Translated 16/43 SEG_0015 speaker=SPEAKER_00 64/130 chars
+Translated 17/43 SEG_0016 speaker=SPEAKER_00 32/51 chars
+Translated 18/43 SEG_0017 speaker=SPEAKER_00 20/115 chars
+WARN SEG_0018: 158>120 chars, atempo will fit it
+Translated 19/43 SEG_0018 speaker=SPEAKER_00 158/120 chars
+Translated 20/43 SEG_0019 speaker=SPEAKER_00 36/68 chars
+Translated 21/43 SEG_0020 speaker=SPEAKER_00 63/66 chars
+Translated 22/43 SEG_0021 speaker=SPEAKER_00 45/49 chars
+Translated 23/43 SEG_0022 speaker=SPEAKER_00 57/66 chars
+Translated 24/43 SEG_0023 speaker=SPEAKER_00 45/64 chars
+WARN SEG_0024: 120>105 chars, atempo will fit it
+Translated 25/43 SEG_0024 speaker=SPEAKER_00 120/105 chars
+Translated 26/43 SEG_0025 speaker=SPEAKER_00 83/104 chars
+Translated 27/43 SEG_0026 speaker=SPEAKER_00 30/68 chars
+Translated 28/43 SEG_0027 speaker=SPEAKER_00 126/133 chars
+Translated 29/43 SEG_0028 speaker=SPEAKER_00 54/73 chars
+Translated 30/43 SEG_0029 speaker=SPEAKER_00 154/158 chars
+WARN SEG_0030: 120>93 chars, atempo will fit it
+Translated 31/43 SEG_0030 speaker=SPEAKER_00 120/93 chars
+Translated 32/43 SEG_0031 speaker=SPEAKER_00 64/115 chars
+WARN SEG_0032: 154>136 chars, atempo will fit it
+Translated 33/43 SEG_0032 speaker=SPEAKER_00 154/136 chars
+Translated 34/43 SEG_0033 speaker=SPEAKER_00 87/89 chars
+Translated 35/43 SEG_0034 speaker=SPEAKER_00 45/54 chars
+Translated 36/43 SEG_0035 speaker=SPEAKER_00 41/58 chars
+Translated 37/43 SEG_0036 speaker=SPEAKER_00 43/92 chars
+Translated 38/43 SEG_0037 speaker=SPEAKER_00 36/52 chars
+Translated 39/43 SEG_0038 speaker=SPEAKER_00 33/54 chars
+Translated 40/43 SEG_0039 speaker=SPEAKER_01 40/149 chars
+WARN SEG_0040: 69>68 chars, atempo will fit it
+Translated 41/43 SEG_0040 speaker=SPEAKER_01 69/68 chars
+Translated 42/43 SEG_0041 speaker=SPEAKER_01 40/70 chars
+Translated 43/43 SEG_0042 speaker=SPEAKER_01 24/42 chars
+Translated 43 speaker-labelled segments using neighboring context; saved translated_segments.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/translate.py
+
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]
+Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 2307.10it/s]
+speech rate 13.7 chars/s
+glossary: {'苏小唐': 'Су Сяотань', '钟南山': 'Чжун Наньшань', '清虚观': 'Чиньшухуан'}
+summary: **Краткое изложение:**  
+В тексте два персонажа: 96-летний старец-действующий, который использует систему для поддержания здоровья, и Су Сяотань — популярная ведущая, которая проверяет мистиков. Су Ся
+WARN SEG_0000: 85>66 chars, atempo will fit it
+Translated 1/43 SEG_0000 speaker=SPEAKER_00 85/66 chars
+Translated 2/43 SEG_0001 speaker=SPEAKER_00 72/139 chars
+Translated 3/43 SEG_0002 speaker=SPEAKER_00 65/113 chars
+Translated 4/43 SEG_0003 speaker=SPEAKER_00 85/99 chars
+Translated 5/43 SEG_0004 speaker=SPEAKER_00 72/105 chars
+Translated 6/43 SEG_0005 speaker=SPEAKER_00 62/73 chars
+WARN SEG_0006: 117>76 chars, atempo will fit it
+Translated 7/43 SEG_0006 speaker=SPEAKER_00 117/76 chars
+WARN SEG_0007: 123>105 chars, atempo will fit it
+Translated 8/43 SEG_0007 speaker=SPEAKER_00 123/105 chars
+Translated 9/43 SEG_0008 speaker=SPEAKER_00 54/66 chars
+Translated 10/43 SEG_0009 speaker=SPEAKER_00 82/112 chars
+WARN SEG_0010: 112>87 chars, atempo will fit it
+Translated 11/43 SEG_0010 speaker=SPEAKER_00 112/87 chars
+Translated 12/43 SEG_0011 speaker=SPEAKER_00 85/93 chars
+Translated 13/43 SEG_0012 speaker=SPEAKER_00 68/68 chars
+WARN SEG_0013: 69>53 chars, atempo will fit it
+Translated 14/43 SEG_0013 speaker=SPEAKER_00 69/53 chars
+Translated 15/43 SEG_0014 speaker=SPEAKER_00 124/145 chars
+Translated 16/43 SEG_0015 speaker=SPEAKER_00 124/131 chars
+Translated 17/43 SEG_0016 speaker=SPEAKER_00 32/51 chars
+Translated 18/43 SEG_0017 speaker=SPEAKER_00 108/116 chars
+Translated 19/43 SEG_0018 speaker=SPEAKER_00 71/121 chars
+Translated 20/43 SEG_0019 speaker=SPEAKER_00 69/69 chars
+Translated 21/43 SEG_0020 speaker=SPEAKER_00 53/66 chars
+Translated 22/43 SEG_0021 speaker=SPEAKER_00 47/50 chars
+Translated 23/43 SEG_0022 speaker=SPEAKER_00 60/66 chars
+Translated 24/43 SEG_0023 speaker=SPEAKER_00 42/65 chars
+Translated 25/43 SEG_0024 speaker=SPEAKER_00 71/106 chars
+Translated 26/43 SEG_0025 speaker=SPEAKER_00 84/105 chars
+Translated 27/43 SEG_0026 speaker=SPEAKER_00 32/69 chars
+Translated 28/43 SEG_0027 speaker=SPEAKER_00 125/134 chars
+Translated 29/43 SEG_0028 speaker=SPEAKER_00 47/73 chars
+Translated 30/43 SEG_0029 speaker=SPEAKER_00 32/159 chars
+WARN SEG_0030: 103>94 chars, atempo will fit it
+Translated 31/43 SEG_0030 speaker=SPEAKER_00 103/94 chars
+Translated 32/43 SEG_0031 speaker=SPEAKER_00 95/116 chars
+Translated 33/43 SEG_0032 speaker=SPEAKER_00 99/137 chars
+Translated 34/43 SEG_0033 speaker=SPEAKER_00 90/90 chars
+Translated 35/43 SEG_0034 speaker=SPEAKER_00 49/54 chars
+WARN SEG_0035: 82>59 chars, atempo will fit it
+Translated 36/43 SEG_0035 speaker=SPEAKER_00 82/59 chars
+Translated 37/43 SEG_0036 speaker=SPEAKER_00 43/93 chars
+Translated 38/43 SEG_0037 speaker=SPEAKER_00 29/53 chars
+Translated 39/43 SEG_0038 speaker=SPEAKER_00 54/54 chars
+Translated 40/43 SEG_0039 speaker=SPEAKER_01 40/150 chars
+Translated 41/43 SEG_0040 speaker=SPEAKER_01 69/69 chars
+Translated 42/43 SEG_0041 speaker=SPEAKER_01 41/71 chars
+Translated 43/43 SEG_0042 speaker=SPEAKER_01 24/42 chars
+Translated 43 speaker-labelled segments using neighboring context; saved translated_segments.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/translate.py
+
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]
+Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 2467.08it/s]
+speech rate 13.59 chars/s
+glossary: {'苏小唐': 'Су Сяотань', '钟南山': 'Чжун Наньшань', '清虚观': 'Чиньшухуан'}
+summary: **Краткое изложение:**  
+В тексте два персонажа: 96-летний старец-действующий, который использует систему для поддержания здоровья, и Су Сяотань — популярная ведущая, которая проверяет мистиков. Су Ся
+WARN SEG_0000: 85>66 chars, atempo will fit it
+Translated 1/43 SEG_0000 speaker=SPEAKER_00 85/66 chars
+Translated 2/43 SEG_0001 speaker=SPEAKER_00 72/137 chars
+Translated 3/43 SEG_0002 speaker=SPEAKER_00 65/113 chars
+Translated 4/43 SEG_0003 speaker=SPEAKER_00 72/98 chars
+Translated 5/43 SEG_0004 speaker=SPEAKER_00 72/104 chars
+Translated 6/43 SEG_0005 speaker=SPEAKER_00 62/73 chars
+WARN SEG_0006: 120>76 chars, atempo will fit it
+Translated 7/43 SEG_0006 speaker=SPEAKER_00 120/76 chars
+WARN SEG_0007: 123>104 chars, atempo will fit it
+Translated 8/43 SEG_0007 speaker=SPEAKER_00 123/104 chars
+Translated 9/43 SEG_0008 speaker=SPEAKER_00 29/66 chars
+Translated 10/43 SEG_0009 speaker=SPEAKER_00 82/111 chars
+Translated 11/43 SEG_0010 speaker=SPEAKER_00 61/86 chars
+Translated 12/43 SEG_0011 speaker=SPEAKER_00 52/92 chars
+Translated 13/43 SEG_0012 speaker=SPEAKER_00 55/67 chars
+WARN SEG_0013: 80>52 chars, atempo will fit it
+Translated 14/43 SEG_0013 speaker=SPEAKER_00 80/52 chars
+Translated 15/43 SEG_0014 speaker=SPEAKER_00 135/143 chars
+WARN SEG_0015: 135>130 chars, atempo will fit it
+Translated 16/43 SEG_0015 speaker=SPEAKER_00 135/130 chars
+Translated 17/43 SEG_0016 speaker=SPEAKER_00 32/51 chars
+WARN SEG_0017: 150>115 chars, atempo will fit it
+Translated 18/43 SEG_0017 speaker=SPEAKER_00 150/115 chars
+Translated 19/43 SEG_0018 speaker=SPEAKER_00 71/120 chars
+Translated 20/43 SEG_0019 speaker=SPEAKER_00 58/68 chars
+Translated 21/43 SEG_0020 speaker=SPEAKER_00 60/66 chars
+Translated 22/43 SEG_0021 speaker=SPEAKER_00 47/49 chars
+Translated 23/43 SEG_0022 speaker=SPEAKER_00 60/66 chars
+Translated 24/43 SEG_0023 speaker=SPEAKER_00 41/64 chars
+Translated 25/43 SEG_0024 speaker=SPEAKER_00 91/105 chars
+Translated 26/43 SEG_0025 speaker=SPEAKER_00 85/104 chars
+WARN SEG_0026: 80>68 chars, atempo will fit it
+Translated 27/43 SEG_0026 speaker=SPEAKER_00 80/68 chars
+Translated 28/43 SEG_0027 speaker=SPEAKER_00 121/133 chars
+Translated 29/43 SEG_0028 speaker=SPEAKER_00 73/73 chars
+WARN SEG_0029: 166>158 chars, atempo will fit it
+Translated 30/43 SEG_0029 speaker=SPEAKER_00 166/158 chars
+WARN SEG_0030: 103>93 chars, atempo will fit it
+Translated 31/43 SEG_0030 speaker=SPEAKER_00 103/93 chars
+Translated 32/43 SEG_0031 speaker=SPEAKER_00 109/115 chars
+Translated 33/43 SEG_0032 speaker=SPEAKER_00 103/136 chars
+Translated 34/43 SEG_0033 speaker=SPEAKER_00 54/89 chars
+Translated 35/43 SEG_0034 speaker=SPEAKER_00 53/54 chars
+WARN SEG_0035: 82>58 chars, atempo will fit it
+Translated 36/43 SEG_0035 speaker=SPEAKER_00 82/58 chars
+Translated 37/43 SEG_0036 speaker=SPEAKER_00 43/92 chars
+Translated 38/43 SEG_0037 speaker=SPEAKER_00 30/52 chars
+Translated 39/43 SEG_0038 speaker=SPEAKER_00 54/54 chars
+Translated 40/43 SEG_0039 speaker=SPEAKER_01 62/149 chars
+WARN SEG_0040: 87>68 chars, atempo will fit it
+Translated 41/43 SEG_0040 speaker=SPEAKER_01 87/68 chars
+Translated 42/43 SEG_0041 speaker=SPEAKER_01 57/70 chars
+Translated 43/43 SEG_0042 speaker=SPEAKER_01 24/42 chars
+Translated 43 speaker-labelled segments using neighboring context; saved translated_segments.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/translate.py
+
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]
+Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 2796.82it/s]
+speech rate 13.71 chars/s
+glossary: {'苏小唐': 'Су Сяотань', '钟南山': 'Чжун Наньшань', '清虚观': 'Чиньшухуан'}
+summary: **Краткое изложение:**  
+В тексте два персонажа: 96-летний старец-действующий, который использует систему для поддержания здоровья, и Су Сяотань — популярная ведущая, которая проверяет мистиков. Су Ся
+WARN SEG_0000: 85>66 chars, atempo will fit it
+Translated 1/43 SEG_0000 speaker=SPEAKER_00 85/66 chars
+Translated 2/43 SEG_0001 speaker=SPEAKER_00 72/139 chars
+Translated 3/43 SEG_0002 speaker=SPEAKER_00 72/114 chars
+Translated 4/43 SEG_0003 speaker=SPEAKER_00 88/99 chars
+Translated 5/43 SEG_0004 speaker=SPEAKER_00 70/105 chars
+Translated 6/43 SEG_0005 speaker=SPEAKER_00 64/74 chars
+WARN SEG_0006: 105>76 chars, atempo will fit it
+Translated 7/43 SEG_0006 speaker=SPEAKER_00 105/76 chars
+WARN SEG_0007: 123>105 chars, atempo will fit it
+Translated 8/43 SEG_0007 speaker=SPEAKER_00 123/105 chars
+Translated 9/43 SEG_0008 speaker=SPEAKER_00 54/66 chars
+Translated 10/43 SEG_0009 speaker=SPEAKER_00 74/112 chars
+WARN SEG_0010: 112>87 chars, atempo will fit it
+Translated 11/43 SEG_0010 speaker=SPEAKER_00 112/87 chars
+Translated 12/43 SEG_0011 speaker=SPEAKER_00 85/93 chars
+Translated 13/43 SEG_0012 speaker=SPEAKER_00 68/68 chars
+WARN SEG_0013: 69>53 chars, atempo will fit it
+Translated 14/43 SEG_0013 speaker=SPEAKER_00 69/53 chars
+Translated 15/43 SEG_0014 speaker=SPEAKER_00 124/145 chars
+Translated 16/43 SEG_0015 speaker=SPEAKER_00 124/131 chars
+Translated 17/43 SEG_0016 speaker=SPEAKER_00 32/51 chars
+Translated 18/43 SEG_0017 speaker=SPEAKER_00 108/116 chars
+Translated 19/43 SEG_0018 speaker=SPEAKER_00 71/121 chars
+Translated 20/43 SEG_0019 speaker=SPEAKER_00 69/69 chars
+Translated 21/43 SEG_0020 speaker=SPEAKER_00 53/66 chars
+Translated 22/43 SEG_0021 speaker=SPEAKER_00 47/50 chars
+Translated 23/43 SEG_0022 speaker=SPEAKER_00 60/66 chars
+Translated 24/43 SEG_0023 speaker=SPEAKER_00 42/65 chars
+Translated 25/43 SEG_0024 speaker=SPEAKER_00 71/106 chars
+Translated 26/43 SEG_0025 speaker=SPEAKER_00 84/105 chars
+Translated 27/43 SEG_0026 speaker=SPEAKER_00 32/69 chars
+Translated 28/43 SEG_0027 speaker=SPEAKER_00 125/134 chars
+Translated 29/43 SEG_0028 speaker=SPEAKER_00 47/74 chars
+Translated 30/43 SEG_0029 speaker=SPEAKER_00 32/159 chars
+WARN SEG_0030: 103>94 chars, atempo will fit it
+Translated 31/43 SEG_0030 speaker=SPEAKER_00 103/94 chars
+Translated 32/43 SEG_0031 speaker=SPEAKER_00 95/116 chars
+Translated 33/43 SEG_0032 speaker=SPEAKER_00 99/137 chars
+Translated 34/43 SEG_0033 speaker=SPEAKER_00 90/90 chars
+Translated 35/43 SEG_0034 speaker=SPEAKER_00 49/54 chars
+WARN SEG_0035: 82>59 chars, atempo will fit it
+Translated 36/43 SEG_0035 speaker=SPEAKER_00 82/59 chars
+Translated 37/43 SEG_0036 speaker=SPEAKER_00 43/93 chars
+Translated 38/43 SEG_0037 speaker=SPEAKER_00 29/53 chars
+Translated 39/43 SEG_0038 speaker=SPEAKER_00 54/54 chars
+Translated 40/43 SEG_0039 speaker=SPEAKER_01 40/151 chars
+Translated 41/43 SEG_0040 speaker=SPEAKER_01 69/69 chars
+Translated 42/43 SEG_0041 speaker=SPEAKER_01 41/71 chars
+Translated 43/43 SEG_0042 speaker=SPEAKER_01 24/42 chars
+Translated 43 speaker-labelled segments using neighboring context; saved translated_segments.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/translate.py
+
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]
+Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 2841.67it/s]
+speech rate 13.04 chars/s
+Traceback (most recent call last):
+  File "/Volumes/develop/AI-Dubbing/scripts/translate.py", line 86, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/translate.py", line 53, in main
+    model,tokenizer=load(model_id); output=[]; raw_log=[]; RATE=speech_rate(); print(f'speech rate {RATE} chars/s',flush=True); build_glossary(model,tokenizer,lines); build_summary(model,tokenizer,lines)
+                                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/translate.py", line 37, in build_glossary
+    text='\n'.join(l['source_text'] for l in lines)[:6000]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/translate.py", line 37, in <genexpr>
+    text='\n'.join(l['source_text'] for l in lines)[:6000]
+                   ~^^^^^^^^^^^^^^^
+KeyError: 'source_text'
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/translate.py
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/translate.py
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/translate/bin/python /Volumes/develop/AI-Dubbing/scripts/translate.py

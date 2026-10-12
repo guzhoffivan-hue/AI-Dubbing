@@ -16,20 +16,27 @@ Safety carried over into the core:
   reused after its inputs change;
 * ``precondition`` -- ``use_original_audio`` must be false (the same guard as
   ``cli.check_config``), and the cross-stage invariants run *before* the stage starts, so a
-  stale translation can never reach TTS or the mixer.
+  stale translation can never reach TTS or the mixer;
+* ``cancel`` -- the stage subprocess is polled and stopped on a user cancel or a
+  stage timeout, which ``cli.run_script`` cannot do because it blocks in ``subprocess.run``.
 """
 
 from __future__ import annotations
 
 import json
 import os
+import queue
 import re
 import shutil
+import signal
 import subprocess
+import threading
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Callable
+from typing import Protocol
 
+from app.core.cancellation import CancelToken
+from app.core.progress import LineCallback, LogProgress
 from app.core.stage_handler import StageHandler, StageOutcome
 from app.invariants import validate_translation, validate_tts_timeline
 
@@ -85,7 +92,29 @@ _STUBS = {
 
 # A runner performs the actual call; injectable so tests never launch ffmpeg or a model.
 # Arguments: command, environment, working directory, log file.
-Runner = Callable[[list, dict, Path, Path], None]
+class Runner(Protocol):
+    """Executes one stage command.
+
+    ``cancel`` is a cooperative token and ``on_line`` receives the stage's output as
+    it arrives. A runner that owns a subprocess must poll the token and stream the
+    lines: that is what lets a user cancel or a stage timeout stop the work, and what
+    lets a long stage report progress instead of looking hung
+    (see app.core.cancellation and app.core.progress).
+    """
+
+    def __call__(
+        self,
+        command: list,
+        env: dict,
+        cwd: Path,
+        log_path: Path,
+        cancel: CancelToken | None = None,
+        on_line: LineCallback | None = None,
+    ) -> None: ...
+
+
+#: How often a running stage checks the cancel token.
+POLL_SECONDS = 0.5
 
 
 def probe_duration(video: Path) -> float:
@@ -333,8 +362,44 @@ class EngineLayout:
         return parameters
 
 
-def subprocess_runner(command: list, env: dict, cwd: Path, log_path: Path) -> None:
-    """Run a stage like cli.run_script: log everything, fail with the tail of the output."""
+def _stop_process(process: subprocess.Popen) -> None:
+    """Stop a stage process and everything it spawned.
+
+    The process is started in its own session, so the signal reaches the group:
+    ``caffeinate`` is only the parent of the real stage, and terminating it alone
+    would leave the stage running.
+    """
+
+    if process.poll() is not None:
+        return
+
+    for stop_signal in (signal.SIGTERM, signal.SIGKILL):
+        try:
+            os.killpg(os.getpgid(process.pid), stop_signal)
+        except (ProcessLookupError, PermissionError):
+            process.kill()
+
+        try:
+            process.wait(timeout=10)
+            return
+        except subprocess.TimeoutExpired:
+            continue
+
+
+def subprocess_runner(
+    command: list,
+    env: dict,
+    cwd: Path,
+    log_path: Path,
+    cancel: CancelToken | None = None,
+    on_line: LineCallback | None = None,
+) -> None:
+    """Run a stage like cli.run_script: log everything, fail with the tail of the output.
+
+    Unlike ``cli.run_script`` this streams the output instead of blocking in
+    ``subprocess.run``, so a cancelled or timed out stage stops its own process and
+    a long stage can report progress while it works.
+    """
 
     log_path.parent.mkdir(parents=True, exist_ok=True)
     # a sleeping Mac pauses long stages and breaks wall-clock budgets (seen on the 1200 s run)
@@ -343,24 +408,83 @@ def subprocess_runner(command: list, env: dict, cwd: Path, log_path: Path) -> No
     with log_path.open("a", encoding="utf-8") as log:
         log.write("\n\n$ " + " ".join(command) + "\n")
         log.flush()
-        completed = subprocess.run(
+
+        process = subprocess.Popen(
             [*prefix, *command],
             cwd=cwd,
             env=env,
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             text=True,
-            check=False,
+            bufsize=1,
+            start_new_session=True,
         )
-        output = completed.stdout or ""
-        log.write(output)
-        log.flush()
+        lines: queue.Queue = queue.Queue()
 
-    if completed.returncode != 0:
+        def pump() -> None:
+            # Reading in a thread keeps the main loop free to watch the cancel token.
+            stream = process.stdout
+
+            try:
+                if stream is not None:
+                    for line in stream:
+                        lines.put(line)
+            finally:
+                lines.put(None)
+
+        reader = threading.Thread(target=pump, daemon=True)
+        reader.start()
+
+        collected: list[str] = []
+
+        while True:
+            try:
+                line = lines.get(timeout=POLL_SECONDS)
+            except queue.Empty:
+                if cancel is not None and cancel.cancelled:
+                    _stop_process(process)
+
+                    while True:
+                        try:
+                            leftover = lines.get(timeout=POLL_SECONDS)
+                        except queue.Empty:
+                            break
+
+                        if leftover is None:
+                            break
+
+                        collected.append(leftover)
+                        log.write(leftover)
+
+                    log.write(f"\n[core] stage stopped ({cancel.reason})\n")
+                    log.flush()
+
+                    # Raises StageCancelled or StageTimeout, so the pipeline records
+                    # why the stage stopped instead of blaming the exit code.
+                    cancel.raise_if_cancelled()
+
+                continue
+
+            if line is None:
+                break
+
+            collected.append(line)
+            log.write(line)
+            log.flush()
+
+            if on_line is not None:
+                on_line(line)
+
+        process.wait()
+        reader.join(timeout=5)
+
+    output = "".join(collected)
+
+    if process.returncode != 0:
         tail = "\n".join(output.strip().splitlines()[-12:])
 
         raise AdapterError(
-            f"{Path(command[1]).name} failed with exit code {completed.returncode}. "
+            f"{Path(command[1]).name} failed with exit code {process.returncode}. "
             f"Details are in {log_path}.\n{tail}"
         )
 
@@ -377,6 +501,52 @@ def preconditions_for(stage: str, layout: EngineLayout):
             validate_tts_timeline(layout.work_dir, audio_seconds=layout.audio_seconds())
 
     return check
+
+
+def _json_line_count(path: Path) -> int | None:
+    """How many speech lines a stage is about to process, when the input is readable."""
+
+    try:
+        return len(json.loads(path.read_text(encoding="utf-8"))["lines"])
+    except (OSError, ValueError, TypeError, KeyError):
+        return None
+
+
+def progress_for(stage: str, layout: EngineLayout) -> LogProgress | None:
+    """How this stage's own log says how far it has got.
+
+    Only the long stages get a reader: the short ones finish in seconds, and a fake
+    bar would be worse than none. Diarization prints no per-unit line of its own, so
+    it honestly reports no intra-stage progress.
+    """
+
+    if stage == "asr":
+        return LogProgress(
+            (r"ASR Chunk (\d+)/(\d+) completed",),
+            total_pattern=r"Splitting into (\d+) safe chunks",
+        )
+
+    if stage == "alignment":
+        return LogProgress((r"Aligned chunk (\d+)/(\d+)",))
+
+    if stage == "translation":
+        return LogProgress(
+            (
+                r"Translated (\d+)/(\d+) LINE_",
+                r"\[(\d+)/(\d+)\] Translating LINE_",
+            )
+        )
+
+    if stage == "tts":
+        return LogProgress(
+            (
+                r"segment (\d+) speaker=",
+                r"Reused synthesized line (\d+)/(\d+)",
+            ),
+            total=_json_line_count(layout.work_dir / "dialogue.json"),
+        )
+
+    return None
 
 
 def make_handler(
@@ -403,7 +573,14 @@ def make_handler(
                 layout.write_audio_meta()
 
             command = layout.command(stage)
-            perform(command, layout.env(stage), layout.root, layout.log_path(stage))
+            perform(
+                command,
+                layout.env(stage),
+                layout.root,
+                layout.log_path(stage),
+                cancel=getattr(_context, "cancel", None),
+                on_line=getattr(_context, "on_output_line", None),
+            )
 
         return StageOutcome(artifact=artifact, value={"stage": stage, "command": command})
 
@@ -413,6 +590,7 @@ def make_handler(
         inputs=lambda _context: [layout.path_of(name) for name in spec.inputs],
         parameters=lambda _context: layout.parameters_for(stage),
         precondition=check,
+        progress=progress_for(stage, layout),
     )
 
 

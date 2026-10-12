@@ -1,0 +1,1154 @@
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/extract_audio.py --duration 150 --start 0 --output /Volumes/develop/AI-Dubbing/work/42503442096-1-192/audio.wav
+Extracted 150.0s source audio to /Volumes/develop/AI-Dubbing/work/42503442096-1-192/audio.wav
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/asr.py
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:06<00:06,  6.42s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.15s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.64s/it]
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+ASR language=Chinese; characters=1217; saved /Volumes/develop/AI-Dubbing/work/42503442096-1-192/asr.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/dialogue.py
+Prepared 1 dialogue lines
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/extract_audio.py --duration 150 --start 0 --output /Volumes/develop/AI-Dubbing/work/42503442096-1-192/audio.wav
+Extracted 150.0s source audio to /Volumes/develop/AI-Dubbing/work/42503442096-1-192/audio.wav
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/asr.py
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:06<00:06,  6.71s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.34s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.85s/it]
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+ASR language=Chinese; characters=1217; saved /Volumes/develop/AI-Dubbing/work/42503442096-1-192/asr.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/dialogue.py
+Prepared 19 dialogue lines
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/extract_audio.py --duration 150 --start 0 --output /Volumes/develop/AI-Dubbing/work/42503442096-1-192/audio.wav
+Extracted 150.0s source audio to /Volumes/develop/AI-Dubbing/work/42503442096-1-192/audio.wav
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/asr.py
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.82s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.49s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.84s/it]
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+ASR language=Chinese; characters=1217; saved /Volumes/develop/AI-Dubbing/work/42503442096-1-192/asr.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/dialogue.py
+Prepared 19 dialogue lines
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/sfx.py timeline
+Traceback (most recent call last):
+  File "/Volumes/develop/AI-Dubbing/scripts/sfx.py", line 94, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/sfx.py", line 87, in main
+    elif a.cmd=='timeline': make_timeline()
+                            ^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/sfx.py", line 60, in make_timeline
+    index=json.loads((WORK/'sfx_index.json').read_text()); lines=read_json(WORK/'translation.json')['lines']
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/pathlib.py", line 1058, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Volumes/develop/AI-Dubbing/work/42503442096-1-192/sfx_index.json'
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/sfx.py timeline
+Selected 0 sound effects from local library
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/ambience.py
+Selected ambience candidate
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mix_audio.py
+Mixed audio: /Volumes/develop/AI-Dubbing/work/42503442096-1-192/mix.wav
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mux.py
+Created /Volumes/develop/AI-Dubbing/output/test_dub.mp4
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/ambience.py
+No long ambience candidate found
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mix_audio.py
+Mixed audio: /Volumes/develop/AI-Dubbing/work/42503442096-1-192/mix.wav
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mux.py
+Created /Volumes/develop/AI-Dubbing/output/test_dub.mp4
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mix_audio.py
+Mixed audio: /Volumes/develop/AI-Dubbing/work/42503442096-1-192/mix.wav
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mux.py
+Created /Volumes/develop/AI-Dubbing/output/test_dub.mp4
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/dialogue.py
+Prepared 19 dialogue lines
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mix_audio.py
+Mixed audio: /Volumes/develop/AI-Dubbing/work/42503442096-1-192/mix.wav
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mux.py
+Created output/test_dub_v3.mp4
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/extract_audio.py --duration 150 --start 0 --output /Volumes/develop/AI-Dubbing/work/42503442096-1-192/audio.wav
+Extracted 150.0s source audio to /Volumes/develop/AI-Dubbing/work/42503442096-1-192/audio.wav
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/asr.py
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:07<00:07,  8.00s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  3.74s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  4.38s/it]
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+ASR language=Chinese; characters=1217; saved /Volumes/develop/AI-Dubbing/work/42503442096-1-192/asr.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/merge_segments.py
+Built 44 speaker-labelled segments from 1089 aligned characters; unknown words=0; low-confidence words=1
+SEG_0000 0.00-3.52 speaker=SPEAKER_00 conf=high 当成为九十六岁老道士的时候，系统告诉你还剩下十一个月的寿命。
+SEG_0001 3.60-7.20 speaker=SPEAKER_00 conf=high 不仅患有骨质疏松、气血两虚，甚至走起路来三条腿全打哆嗦。
+SEG_0002 7.28-10.96 speaker=SPEAKER_00 conf=high 但还好绑定了的养生签到系统，可以通过健康生活方式积攒养生值。
+SEG_0003 11.12-12.64 speaker=SPEAKER_00 conf=high 于是你直接开启了退休生活。
+SEG_0004 12.72-17.20 speaker=SPEAKER_00 conf=high 三个月下来，寿元从十一月涨到了两年多，还解锁了归西土耐法以及一堆技能。
+SEG_0005 17.28-22.40 speaker=SPEAKER_00 conf=high 本来就打算这么安安稳稳的摆烂下去，结果今天山下来的女主播，说是要来打假你这个招摇撞骗的老骗。
+SEG_0006 22.64-28.16 speaker=SPEAKER_00 conf=high 那个女主播的名字叫苏小唐，是某短视频平台的户外打假主播，粉丝五百多万，以专丝神棍著称。
+SEG_0007 28.32-32.24 speaker=SPEAKER_00 conf=high 他最擅长的就是跑到各种神神秘秘的地方，用镜头撕开骗子的真面目。
+SEG_0008 32.32-36.32 speaker=SPEAKER_00 conf=high 半年前他接了一个假和尚的骗局，视频播放量破了两亿，从此一战成名。
+SEG_0009 36.48-42.08 speaker=SPEAKER_00 conf=high 今天他来到钟南山，是因为有人在网上发帖说钟南山清虚观的老道长有神通，摸骨知命，奇准无比。
+SEG_0010 42.16-45.68 speaker=SPEAKER_00 conf=high 苏小唐看到这帖子后，立马就来劲了，这不就是送上门的素材吗？
+SEG_0011 45.76-51.60 speaker=SPEAKER_00 conf=high 于是他提前做了功课，搜索钟南山清虚观相关的内容，只是网上能查到的信息很少，连个官方账号都没有。
+SEG_0012 51.84-56.40 speaker=SPEAKER_00 conf=high 老道长叫什么不知道，多大年纪也不知道，反正就是那种藏在深山里的高人，专门骗有缘人。
+SEG_0013 56.56-61.44 speaker=SPEAKER_00 conf=high 当时的苏小唐在心里冷笑，又是个套路，老神秘感，制造信息差，让你觉得他有真本事。
+SEG_0014 61.60-61.92 speaker=SPEAKER_00 conf=high 出发之
+SEG_0015 61.92-62.88 speaker=SPEAKER_01 conf=low 前，他志在必得。
+SEG_0016 63.12-65.12 speaker=SPEAKER_01 conf=high 今天我非把那个老道长的底裤扒干净不可。
+SEG_0017 65.28-68.08 speaker=SPEAKER_01 conf=high 带着团队爬了四十分钟的山，终于来到清虚观门口。
+SEG_0018 68.16-75.92 speaker=SPEAKER_01 conf=high 结果他第一眼看到的是，你窝在一把破竹椅上，怀里抱着一只橘猫，手里端着一杯热茶，脸上的皱纹深得能夹死蚊子，须发
+SEG_0019 76.00-76.96 speaker=SPEAKER_01 conf=high 看着倒是有点仙气。
+SEG_0020 77.04-77.92 speaker=SPEAKER_01 conf=high 可问题是，你太
+SEG_0021 77.92-82.96 speaker=SPEAKER_00 conf=medium 瘦了，瘦的跟竹竿似的，道袍空荡荡的挂在身上，风一吹就鼓起来，感觉骨头架子都要被吹散。
+SEG_0022 83.12-85.76 speaker=SPEAKER_00 conf=high 苏小唐看到后，差点破防，忍不住笑出声来。
+SEG_0023 85.92-87.60 speaker=SPEAKER_00 conf=high 这就是传说中的有神通的老道长。
+SEG_0024 87.68-92.16 speaker=SPEAKER_00 conf=high 他不动声色的调整了一下麦，确保声音清晰，然后压低声音：“家人们，你们看到了吗？
+SEG_0025 92.24-93.76 speaker=SPEAKER_00 conf=high 这就是那位神通广大的老道长。
+SEG_0026 93.92-98.64 speaker=SPEAKER_00 conf=high 我是先生明啊，我不是不尊重老人家，但是你们看他这个状态，说实话，我觉得他比我的爷爷还要虚。”
+SEG_0027 98.80-102.48 speaker=SPEAKER_00 conf=high 直播间在线人数已经破了十万，听到主播的话，弹幕立刻刷的飞起。
+SEG_0028 102.56-105.04 speaker=SPEAKER_00 conf=high 我操，感觉这个老道长快要咽气了，真的假的？
+SEG_0029 105.20-106.00 speaker=SPEAKER_00 conf=high 不会直播出病吧？
+SEG_0030 106.16-108.80 speaker=SPEAKER_00 conf=high 小唐姐快跑啊，别被老道长讹上了，不然你赔不起的。
+SEG_0031 108.96-110.00 speaker=SPEAKER_00 conf=high 哈哈哈哈，这也太瘦了吧！
+SEG_0032 110.16-111.20 speaker=SPEAKER_00 conf=high 感觉一阵风就能吹走。
+SEG_0033 111.36-112.32 speaker=SPEAKER_00 conf=high 老道长，你还好吗？
+SEG_0034 112.48-113.52 speaker=SPEAKER_00 conf=high 需要我帮你叫幺二零吗？
+SEG_0035 113.68-114.88 speaker=SPEAKER_00 conf=high 这看着不像是有神通吗？
+SEG_0036 114.96-116.00 speaker=SPEAKER_00 conf=high 倒像是有什么大病似的。
+SEG_0037 116.00-117.92 speaker=SPEAKER_00 conf=high 苏姐赶紧上去问，看他怎么忽悠我。
+SEG_0038 117.92-123.36 speaker=SPEAKER_00 conf=high 十五毛钱，他马上要说自己今年一百二十岁，七一百二十岁，我看他这样子活到八十就不错。
+SEG_0039 123.52-127.36 speaker=SPEAKER_00 conf=high 苏小唐扫了一眼弹幕，嘴角微微上扬，弹幕的反应跟他预想的一模一样。
+SEG_0040 127.44-131.12 speaker=SPEAKER_00 conf=high 第一印象全都是这老头快不行，看就快要死了，这也是他想要的效果。
+SEG_0041 131.20-138.40 speaker=SPEAKER_00 conf=high 于是他快步走到道观门口，在距离你大约三米的地方站定，脸上挂着职业化的微笑，语气倒是挺客气：“您好，请问您是这
+SEG_0042 138.48-142.48 speaker=SPEAKER_00 conf=high 我是做户外直播的主播，我叫苏小唐，路过这里能跟老道长您聊上两句吗？”
+SEG_0043 142.48-149.92 speaker=SPEAKER_00 conf=high 说完，他把手机摄像头对准你，镜头里你微微抬起头，露出一张满是皱纹的脸庞，眼睛不大，眼窝深陷，眼皮耷拉着，看着
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/dialogue.py
+Prepared 44 dialogue segments with non-overlap speech budgets
+SEG_0000 0.00-3.60 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0001 3.60-7.28 speaker=SPEAKER_00 overlap=False budget=3.68s
+SEG_0002 7.28-11.12 speaker=SPEAKER_00 overlap=False budget=3.84s
+SEG_0003 11.12-12.72 speaker=SPEAKER_00 overlap=False budget=1.60s
+SEG_0004 12.72-17.28 speaker=SPEAKER_00 overlap=False budget=4.56s
+SEG_0005 17.28-22.64 speaker=SPEAKER_00 overlap=False budget=5.36s
+SEG_0006 22.64-28.32 speaker=SPEAKER_00 overlap=False budget=5.68s
+SEG_0007 28.32-32.32 speaker=SPEAKER_00 overlap=False budget=4.00s
+SEG_0008 32.32-36.48 speaker=SPEAKER_00 overlap=False budget=4.16s
+SEG_0009 36.48-42.16 speaker=SPEAKER_00 overlap=False budget=5.68s
+SEG_0010 42.16-45.76 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0011 45.76-51.84 speaker=SPEAKER_00 overlap=False budget=6.08s
+SEG_0012 51.84-56.56 speaker=SPEAKER_00 overlap=False budget=4.72s
+SEG_0013 56.56-61.60 speaker=SPEAKER_00 overlap=False budget=5.04s
+SEG_0014 61.60-61.92 speaker=SPEAKER_00 overlap=False budget=0.32s
+SEG_0015 61.92-62.88 speaker=SPEAKER_01 overlap=True budget=0.96s
+SEG_0016 63.12-65.28 speaker=SPEAKER_01 overlap=False budget=2.16s
+SEG_0017 65.28-68.16 speaker=SPEAKER_01 overlap=False budget=2.88s
+SEG_0018 68.16-76.00 speaker=SPEAKER_01 overlap=False budget=7.84s
+SEG_0019 76.00-77.04 speaker=SPEAKER_01 overlap=False budget=1.04s
+SEG_0020 77.04-77.92 speaker=SPEAKER_01 overlap=False budget=0.88s
+SEG_0021 77.92-82.96 speaker=SPEAKER_00 overlap=True budget=5.04s
+SEG_0022 83.12-85.92 speaker=SPEAKER_00 overlap=False budget=2.80s
+SEG_0023 85.92-87.68 speaker=SPEAKER_00 overlap=False budget=1.76s
+SEG_0024 87.68-92.24 speaker=SPEAKER_00 overlap=False budget=4.56s
+SEG_0025 92.24-93.92 speaker=SPEAKER_00 overlap=False budget=1.68s
+SEG_0026 93.92-98.80 speaker=SPEAKER_00 overlap=False budget=4.88s
+SEG_0027 98.80-102.56 speaker=SPEAKER_00 overlap=False budget=3.76s
+SEG_0028 102.56-105.20 speaker=SPEAKER_00 overlap=False budget=2.64s
+SEG_0029 105.20-106.16 speaker=SPEAKER_00 overlap=False budget=0.96s
+SEG_0030 106.16-108.96 speaker=SPEAKER_00 overlap=False budget=2.80s
+SEG_0031 108.96-110.16 speaker=SPEAKER_00 overlap=False budget=1.20s
+SEG_0032 110.16-111.36 speaker=SPEAKER_00 overlap=False budget=1.20s
+SEG_0033 111.36-112.48 speaker=SPEAKER_00 overlap=False budget=1.12s
+SEG_0034 112.48-113.68 speaker=SPEAKER_00 overlap=False budget=1.20s
+SEG_0035 113.68-114.96 speaker=SPEAKER_00 overlap=False budget=1.28s
+SEG_0036 114.96-116.00 speaker=SPEAKER_00 overlap=False budget=1.04s
+SEG_0037 116.00-117.92 speaker=SPEAKER_00 overlap=False budget=1.92s
+SEG_0038 117.92-123.52 speaker=SPEAKER_00 overlap=False budget=5.60s
+SEG_0039 123.52-127.44 speaker=SPEAKER_00 overlap=False budget=3.92s
+SEG_0040 127.44-131.20 speaker=SPEAKER_00 overlap=False budget=3.76s
+SEG_0041 131.20-138.48 speaker=SPEAKER_00 overlap=False budget=7.28s
+SEG_0042 138.48-142.48 speaker=SPEAKER_00 overlap=False budget=4.00s
+SEG_0043 142.48-149.92 speaker=SPEAKER_00 overlap=False budget=7.44s
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/dialogue.py
+Prepared 44 dialogue segments with non-overlap speech budgets
+SEG_0000 0.00-3.60 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0001 3.60-7.28 speaker=SPEAKER_00 overlap=False budget=3.68s
+SEG_0002 7.28-11.12 speaker=SPEAKER_00 overlap=False budget=3.84s
+SEG_0003 11.12-12.72 speaker=SPEAKER_00 overlap=False budget=1.60s
+SEG_0004 12.72-17.28 speaker=SPEAKER_00 overlap=False budget=4.56s
+SEG_0005 17.28-22.64 speaker=SPEAKER_00 overlap=False budget=5.36s
+SEG_0006 22.64-28.32 speaker=SPEAKER_00 overlap=False budget=5.68s
+SEG_0007 28.32-32.32 speaker=SPEAKER_00 overlap=False budget=4.00s
+SEG_0008 32.32-36.48 speaker=SPEAKER_00 overlap=False budget=4.16s
+SEG_0009 36.48-42.16 speaker=SPEAKER_00 overlap=False budget=5.68s
+SEG_0010 42.16-45.76 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0011 45.76-51.84 speaker=SPEAKER_00 overlap=False budget=6.08s
+SEG_0012 51.84-56.56 speaker=SPEAKER_00 overlap=False budget=4.72s
+SEG_0013 56.56-61.60 speaker=SPEAKER_00 overlap=False budget=5.04s
+SEG_0014 61.60-61.92 speaker=SPEAKER_00 overlap=False budget=0.32s
+SEG_0015 61.92-62.88 speaker=SPEAKER_01 overlap=True budget=0.96s
+SEG_0016 63.12-65.28 speaker=SPEAKER_01 overlap=False budget=2.16s
+SEG_0017 65.28-68.16 speaker=SPEAKER_01 overlap=False budget=2.88s
+SEG_0018 68.16-76.00 speaker=SPEAKER_01 overlap=False budget=7.84s
+SEG_0019 76.00-77.04 speaker=SPEAKER_01 overlap=False budget=1.04s
+SEG_0020 77.04-77.92 speaker=SPEAKER_01 overlap=False budget=0.88s
+SEG_0021 77.92-82.96 speaker=SPEAKER_00 overlap=True budget=5.04s
+SEG_0022 83.12-85.92 speaker=SPEAKER_00 overlap=False budget=2.80s
+SEG_0023 85.92-87.68 speaker=SPEAKER_00 overlap=False budget=1.76s
+SEG_0024 87.68-92.24 speaker=SPEAKER_00 overlap=False budget=4.56s
+SEG_0025 92.24-93.92 speaker=SPEAKER_00 overlap=False budget=1.68s
+SEG_0026 93.92-98.80 speaker=SPEAKER_00 overlap=False budget=4.88s
+SEG_0027 98.80-102.56 speaker=SPEAKER_00 overlap=False budget=3.76s
+SEG_0028 102.56-105.20 speaker=SPEAKER_00 overlap=False budget=2.64s
+SEG_0029 105.20-106.16 speaker=SPEAKER_00 overlap=False budget=0.96s
+SEG_0030 106.16-108.96 speaker=SPEAKER_00 overlap=False budget=2.80s
+SEG_0031 108.96-110.16 speaker=SPEAKER_00 overlap=False budget=1.20s
+SEG_0032 110.16-111.36 speaker=SPEAKER_00 overlap=False budget=1.20s
+SEG_0033 111.36-112.48 speaker=SPEAKER_00 overlap=False budget=1.12s
+SEG_0034 112.48-113.68 speaker=SPEAKER_00 overlap=False budget=1.20s
+SEG_0035 113.68-114.96 speaker=SPEAKER_00 overlap=False budget=1.28s
+SEG_0036 114.96-116.00 speaker=SPEAKER_00 overlap=False budget=1.04s
+SEG_0037 116.00-117.92 speaker=SPEAKER_00 overlap=False budget=1.92s
+SEG_0038 117.92-123.52 speaker=SPEAKER_00 overlap=False budget=5.60s
+SEG_0039 123.52-127.44 speaker=SPEAKER_00 overlap=False budget=3.92s
+SEG_0040 127.44-131.20 speaker=SPEAKER_00 overlap=False budget=3.76s
+SEG_0041 131.20-138.48 speaker=SPEAKER_00 overlap=False budget=7.28s
+SEG_0042 138.48-142.48 speaker=SPEAKER_00 overlap=False budget=4.00s
+SEG_0043 142.48-149.92 speaker=SPEAKER_00 overlap=False budget=7.44s
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/sfx.py timeline
+Selected 1 sound effects from local library
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/ambience.py
+No long ambience candidate found
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mix_audio.py
+fit SEG_0000: 3.60s -> slot 3.52s tempo=1.02
+fit SEG_0001: 3.68s -> slot 3.60s tempo=1.02 TRIMMED
+fit SEG_0003: 1.60s -> slot 1.52s tempo=1.05
+fit SEG_0005: 5.36s -> slot 5.12s tempo=1.05
+fit SEG_0008: 4.16s -> slot 4.00s tempo=1.04
+fit SEG_0009: 5.69s -> slot 5.60s tempo=1.02
+fit SEG_0012: 4.72s -> slot 4.56s tempo=1.04
+fit SEG_0013: 5.04s -> slot 4.88s tempo=1.03
+fit SEG_0016: 2.13s -> slot 2.00s tempo=1.07
+fit SEG_0017: 2.88s -> slot 2.80s tempo=1.03
+fit SEG_0019: 1.04s -> slot 0.96s tempo=1.08
+fit SEG_0020: 0.88s -> slot 0.83s tempo=1.06 TRIMMED
+fit SEG_0025: 1.64s -> slot 1.52s tempo=1.08 TRIMMED
+fit SEG_0030: 2.80s -> slot 2.64s tempo=1.06
+fit SEG_0031: 1.20s -> slot 1.04s tempo=1.15
+fit SEG_0032: 1.20s -> slot 1.04s tempo=1.15
+fit SEG_0033: 1.12s -> slot 0.96s tempo=1.17
+fit SEG_0034: 1.20s -> slot 1.04s tempo=1.16
+fit SEG_0036: 1.05s -> slot 0.99s tempo=1.06 TRIMMED
+fit SEG_0037: 1.92s -> slot 1.87s tempo=1.03
+fit_tts: sped=20 (of which trimmed=4) of 44
+TTS timeline check: incorrect overlaps=0; diarization-confirmed overlaps=0
+Mixed audio: /Volumes/develop/AI-Dubbing/work/42503442096-1-192/mix.wav
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mux.py
+Created /Volumes/develop/AI-Dubbing/output/test_dub.mp4
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/merge_segments.py
+Built 31 speaker-labelled segments from 1089 aligned characters; unknown words=0; low-confidence words=0
+SEG_0000 0.00-3.52 speaker=SPEAKER_00 conf=high 当成为九十六岁老道士的时候，系统告诉你还剩下十一个月的寿命。
+SEG_0001 3.60-7.20 speaker=SPEAKER_00 conf=high 不仅患有骨质疏松、气血两虚，甚至走起路来三条腿全打哆嗦。
+SEG_0002 7.28-10.96 speaker=SPEAKER_00 conf=high 但还好绑定了的养生签到系统，可以通过健康生活方式积攒养生值。
+SEG_0003 11.12-17.20 speaker=SPEAKER_00 conf=high 于是你直接开启了退休生活。三个月下来，寿元从十一月涨到了两年多，还解锁了归西土耐法以及一堆技能。
+SEG_0004 17.28-22.40 speaker=SPEAKER_00 conf=high 本来就打算这么安安稳稳的摆烂下去，结果今天山下来的女主播，说是要来打假你这个招摇撞骗的老骗。
+SEG_0005 22.64-28.16 speaker=SPEAKER_00 conf=high 那个女主播的名字叫苏小唐，是某短视频平台的户外打假主播，粉丝五百多万，以专丝神棍著称。
+SEG_0006 28.32-32.24 speaker=SPEAKER_00 conf=high 他最擅长的就是跑到各种神神秘秘的地方，用镜头撕开骗子的真面目。
+SEG_0007 32.32-36.32 speaker=SPEAKER_00 conf=high 半年前他接了一个假和尚的骗局，视频播放量破了两亿，从此一战成名。
+SEG_0008 36.48-42.08 speaker=SPEAKER_00 conf=high 今天他来到钟南山，是因为有人在网上发帖说钟南山清虚观的老道长有神通，摸骨知命，奇准无比。
+SEG_0009 42.16-45.68 speaker=SPEAKER_00 conf=high 苏小唐看到这帖子后，立马就来劲了，这不就是送上门的素材吗？
+SEG_0010 45.76-51.60 speaker=SPEAKER_00 conf=high 于是他提前做了功课，搜索钟南山清虚观相关的内容，只是网上能查到的信息很少，连个官方账号都没有。
+SEG_0011 51.84-56.40 speaker=SPEAKER_00 conf=high 老道长叫什么不知道，多大年纪也不知道，反正就是那种藏在深山里的高人，专门骗有缘人。
+SEG_0012 56.56-61.44 speaker=SPEAKER_00 conf=high 当时的苏小唐在心里冷笑，又是个套路，老神秘感，制造信息差，让你觉得他有真本事。
+SEG_0013 61.60-65.12 speaker=SPEAKER_00 conf=high 出发之前，他志在必得。今天我非把那个老道长的底裤扒干净不可。
+SEG_0014 65.28-68.08 speaker=SPEAKER_00 conf=high 带着团队爬了四十分钟的山，终于来到清虚观门口。
+SEG_0015 68.16-75.92 speaker=SPEAKER_00 conf=high 结果他第一眼看到的是，你窝在一把破竹椅上，怀里抱着一只橘猫，手里端着一杯热茶，脸上的皱纹深得能夹死蚊子，须发
+SEG_0016 76.00-82.96 speaker=SPEAKER_00 conf=high 看着倒是有点仙气。可问题是，你太瘦了，瘦的跟竹竿似的，道袍空荡荡的挂在身上，风一吹就鼓起来，感觉骨头架子都要
+SEG_0017 83.12-85.76 speaker=SPEAKER_00 conf=high 苏小唐看到后，差点破防，忍不住笑出声来。
+SEG_0018 85.92-92.16 speaker=SPEAKER_00 conf=high 这就是传说中的有神通的老道长。他不动声色的调整了一下麦，确保声音清晰，然后压低声音：“家人们，你们看到了吗？
+SEG_0019 92.24-98.64 speaker=SPEAKER_00 conf=high 这就是那位神通广大的老道长。我是先生明啊，我不是不尊重老人家，但是你们看他这个状态，说实话，我觉得他比我的爷
+SEG_0020 98.80-102.48 speaker=SPEAKER_00 conf=high 直播间在线人数已经破了十万，听到主播的话，弹幕立刻刷的飞起。
+SEG_0021 102.56-106.00 speaker=SPEAKER_00 conf=high 我操，感觉这个老道长快要咽气了，真的假的？不会直播出病吧？
+SEG_0022 106.16-108.80 speaker=SPEAKER_00 conf=high 小唐姐快跑啊，别被老道长讹上了，不然你赔不起的。
+SEG_0023 108.96-112.32 speaker=SPEAKER_00 conf=high 哈哈哈哈，这也太瘦了吧！感觉一阵风就能吹走。老道长，你还好吗？
+SEG_0024 112.48-116.00 speaker=SPEAKER_00 conf=high 需要我帮你叫幺二零吗？这看着不像是有神通吗？倒像是有什么大病似的。
+SEG_0025 116.00-123.36 speaker=SPEAKER_00 conf=high 苏姐赶紧上去问，看他怎么忽悠我。十五毛钱，他马上要说自己今年一百二十岁，七一百二十岁，我看他这样子活到八十就
+SEG_0026 123.52-127.36 speaker=SPEAKER_00 conf=high 苏小唐扫了一眼弹幕，嘴角微微上扬，弹幕的反应跟他预想的一模一样。
+SEG_0027 127.44-131.12 speaker=SPEAKER_00 conf=high 第一印象全都是这老头快不行，看就快要死了，这也是他想要的效果。
+SEG_0028 131.20-138.40 speaker=SPEAKER_00 conf=high 于是他快步走到道观门口，在距离你大约三米的地方站定，脸上挂着职业化的微笑，语气倒是挺客气：“您好，请问您是这
+SEG_0029 138.48-142.48 speaker=SPEAKER_00 conf=high 我是做户外直播的主播，我叫苏小唐，路过这里能跟老道长您聊上两句吗？”
+SEG_0030 142.48-149.92 speaker=SPEAKER_00 conf=high 说完，他把手机摄像头对准你，镜头里你微微抬起头，露出一张满是皱纹的脸庞，眼睛不大，眼窝深陷，眼皮耷拉着，看着
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/dialogue.py
+Prepared 31 dialogue segments with non-overlap speech budgets
+SEG_0000 0.00-3.60 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0001 3.60-7.28 speaker=SPEAKER_00 overlap=False budget=3.68s
+SEG_0002 7.28-11.12 speaker=SPEAKER_00 overlap=False budget=3.84s
+SEG_0003 11.12-17.28 speaker=SPEAKER_00 overlap=False budget=6.16s
+SEG_0004 17.28-22.64 speaker=SPEAKER_00 overlap=False budget=5.36s
+SEG_0005 22.64-28.32 speaker=SPEAKER_00 overlap=False budget=5.68s
+SEG_0006 28.32-32.32 speaker=SPEAKER_00 overlap=False budget=4.00s
+SEG_0007 32.32-36.48 speaker=SPEAKER_00 overlap=False budget=4.16s
+SEG_0008 36.48-42.16 speaker=SPEAKER_00 overlap=False budget=5.68s
+SEG_0009 42.16-45.76 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0010 45.76-51.84 speaker=SPEAKER_00 overlap=False budget=6.08s
+SEG_0011 51.84-56.56 speaker=SPEAKER_00 overlap=False budget=4.72s
+SEG_0012 56.56-61.60 speaker=SPEAKER_00 overlap=False budget=5.04s
+SEG_0013 61.60-65.28 speaker=SPEAKER_00 overlap=False budget=3.68s
+SEG_0014 65.28-68.16 speaker=SPEAKER_00 overlap=False budget=2.88s
+SEG_0015 68.16-76.00 speaker=SPEAKER_00 overlap=False budget=7.84s
+SEG_0016 76.00-83.12 speaker=SPEAKER_00 overlap=False budget=7.12s
+SEG_0017 83.12-85.92 speaker=SPEAKER_00 overlap=False budget=2.80s
+SEG_0018 85.92-92.24 speaker=SPEAKER_00 overlap=False budget=6.32s
+SEG_0019 92.24-98.80 speaker=SPEAKER_00 overlap=False budget=6.56s
+SEG_0020 98.80-102.56 speaker=SPEAKER_00 overlap=False budget=3.76s
+SEG_0021 102.56-106.16 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0022 106.16-108.96 speaker=SPEAKER_00 overlap=False budget=2.80s
+SEG_0023 108.96-112.48 speaker=SPEAKER_00 overlap=False budget=3.52s
+SEG_0024 112.48-116.00 speaker=SPEAKER_00 overlap=False budget=3.52s
+SEG_0025 116.00-123.52 speaker=SPEAKER_00 overlap=False budget=7.52s
+SEG_0026 123.52-127.44 speaker=SPEAKER_00 overlap=False budget=3.92s
+SEG_0027 127.44-131.20 speaker=SPEAKER_00 overlap=False budget=3.76s
+SEG_0028 131.20-138.48 speaker=SPEAKER_00 overlap=False budget=7.28s
+SEG_0029 138.48-142.48 speaker=SPEAKER_00 overlap=False budget=4.00s
+SEG_0030 142.48-149.92 speaker=SPEAKER_00 overlap=False budget=7.44s
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mix_audio.py
+fit SEG_0000: 3.60s -> slot 3.52s tempo=1.02
+fit SEG_0001: 3.68s -> slot 3.60s tempo=1.02 TRIMMED
+fit SEG_0003: 6.12s -> slot 6.08s tempo=1.01
+fit SEG_0004: 5.36s -> slot 5.12s tempo=1.05
+fit SEG_0007: 4.16s -> slot 4.00s tempo=1.04
+fit SEG_0008: 5.68s -> slot 5.60s tempo=1.01
+fit SEG_0011: 4.73s -> slot 4.56s tempo=1.04
+fit SEG_0013: 3.67s -> slot 3.52s tempo=1.04 TRIMMED
+fit SEG_0017: 2.80s -> slot 2.64s tempo=1.06
+fit SEG_0022: 2.80s -> slot 2.64s tempo=1.06
+fit SEG_0023: 3.52s -> slot 3.36s tempo=1.05
+fit SEG_0024: 3.52s -> slot 3.47s tempo=1.01 TRIMMED
+fit SEG_0025: 7.52s -> slot 7.36s tempo=1.02
+fit SEG_0027: 3.77s -> slot 3.68s tempo=1.02
+fit SEG_0028: 7.28s -> slot 7.20s tempo=1.01 TRIMMED
+fit SEG_0029: 4.00s -> slot 3.95s tempo=1.01
+fit_tts: sped=16 (of which trimmed=4) of 31
+TTS timeline check: incorrect overlaps=0; diarization-confirmed overlaps=0
+Mixed audio: /Volumes/develop/AI-Dubbing/work/42503442096-1-192/mix.wav
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mux.py
+Created /Volumes/develop/AI-Dubbing/output/test_dub.mp4
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/extract_audio.py --duration 210.0 --start 0 --output /Volumes/develop/AI-Dubbing/work/42503442096-1-192/audio.wav
+Extracted 210.0s source audio to /Volumes/develop/AI-Dubbing/work/42503442096-1-192/audio.wav
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/asr.py
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:06<00:06,  6.26s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.08s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.55s/it]
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+ASR language=Chinese; characters=1697; saved /Volumes/develop/AI-Dubbing/work/42503442096-1-192/asr.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/merge_segments.py
+Built 43 speaker-labelled segments from 1513 aligned characters; unknown words=0; low-confidence words=0
+SEG_0000 0.00-3.52 speaker=SPEAKER_00 conf=high 当成为九十六岁老道士的时候，系统告诉你还剩下十一个月的寿命。
+SEG_0001 3.60-10.96 speaker=SPEAKER_00 conf=high 不仅患有骨质疏松、气血两虚、甚至走起路来三条腿全打哆嗦，但还好绑定的养生签到系统被通过健康生活方式积攒养生值
+SEG_0002 11.12-17.20 speaker=SPEAKER_00 conf=high 于是你直接开启了退休生活。三个月下来，寿元从十一个月涨到了两年多，还解锁了归西土耐法以及一堆技能。
+SEG_0003 17.28-22.40 speaker=SPEAKER_00 conf=high 本来打算这么安安稳稳的摆烂下去，结果今天山下的女主播说是要来打假你这个招摇撞骗的老骗。
+SEG_0004 22.64-28.16 speaker=SPEAKER_00 conf=high 那个女主播的名字叫苏小唐，是某短视频平台的户外打假主播，粉丝五百多万，以专丝神棍著称。
+SEG_0005 28.32-32.24 speaker=SPEAKER_00 conf=high 他最擅长的就是跑到各种神神秘秘的地方，用镜头撕开骗子的真面目。
+SEG_0006 32.32-36.32 speaker=SPEAKER_00 conf=high 半年前他接了一个假和尚的骗局，视频播放量破了两亿，从此一战成名。
+SEG_0007 36.48-42.08 speaker=SPEAKER_00 conf=high 今天他来到钟南山，是因为有人在网上发帖说钟南山清虚观的老道长有神通，摸骨知命，奇准无比。
+SEG_0008 42.16-45.68 speaker=SPEAKER_00 conf=high 苏小唐看到这种帖子后，立马就来了。这不就是送上门的素材吗？
+SEG_0009 45.76-51.60 speaker=SPEAKER_00 conf=high 于是他提前做了功课，搜索钟南山清虚观相关的内容，只是网上能查到的信息很少，连个官方账号都没有。
+SEG_0010 51.84-56.40 speaker=SPEAKER_00 conf=high 老道长叫什么不知道，多大年纪不知道，反正就是那种藏在深山里的高人，专门骗有缘人。
+SEG_0011 56.56-61.44 speaker=SPEAKER_00 conf=high 当时的苏小唐在心里冷笑，又是的套路，老神棍，制造信息差，让你觉得他有真本事。
+SEG_0012 61.60-65.12 speaker=SPEAKER_00 conf=high 出发之前，他志在必得。今天我非把那个老道长的底裤扒干净不可。
+SEG_0013 65.28-68.08 speaker=SPEAKER_00 conf=high 带着团队爬了四十分钟的山，终于来到清虚观门口。
+SEG_0014 68.16-75.92 speaker=SPEAKER_00 conf=high 结果他第一眼看到的是，你窝在一把破竹椅上，怀里抱着一只橘猫，手里端着一杯热茶，脸上的皱纹深得能掐死蚊子，须发
+SEG_0015 76.00-82.96 speaker=SPEAKER_00 conf=high 看着倒有点仙气。可问题是，你太瘦了，瘦的跟竹竿似的，道袍空荡荡的挂在身上，风一吹就鼓起来，感觉骨头架子都要被
+SEG_0016 83.12-85.76 speaker=SPEAKER_00 conf=high 苏小唐看到后差点破防，忍不住要笑出声来。
+SEG_0017 85.92-92.16 speaker=SPEAKER_00 conf=high 这就是传说中的有神通的老道长。他不动声色的调整了一下麦，确保声音清晰，然后压低声音：“家人们，你们看到了吗？
+SEG_0018 92.24-98.64 speaker=SPEAKER_00 conf=high 这就是那位神通广大的老道长。我是先生命啊，我不是不尊重老人家，但是你们看他这个状态，说是夸我，他比我的爷爷还
+SEG_0019 98.80-102.48 speaker=SPEAKER_00 conf=high 直播间在线人数已经破了十万，听到主播的话，弹幕立刻刷的飞起。
+SEG_0020 102.56-106.00 speaker=SPEAKER_00 conf=high 我操，感觉这个老道长快要咽气了，真的假的？不会直播出病吧？
+SEG_0021 106.16-108.72 speaker=SPEAKER_00 conf=high 小唐姐快跑啊，别被老道长讹上了，不然你赔不起。
+SEG_0022 108.88-112.32 speaker=SPEAKER_00 conf=high 哈哈哈哈，这太瘦了吧？感觉一阵风就能吹走。老道长你还好吗？
+SEG_0023 112.48-116.00 speaker=SPEAKER_00 conf=high 需要我帮你叫幺二零吗？这看着不像是有神通吗？倒像是有什么大病似的。
+SEG_0024 116.00-121.60 speaker=SPEAKER_00 conf=high 苏姐赶紧上去问，看他怎么忽悠我。我五毛钱，他马上要说自己今年一百二十岁，七一百二十岁。
+SEG_0025 121.76-127.36 speaker=SPEAKER_00 conf=high 我看他这样子能活到八十就不错。苏小唐扫了一眼弹幕，嘴角微微上扬，弹幕的反应跟他预想的一模一样。
+SEG_0026 127.44-131.12 speaker=SPEAKER_00 conf=high 第一印象全都是这老头快不行，看就快要死了。这也是他想要的效果。
+SEG_0027 131.20-138.40 speaker=SPEAKER_00 conf=high 于是他快步走到道观门口，在距离大约三米的地方站定，脸上挂着直话的微笑，语气倒是挺客气：“您好，请问您是这座道
+SEG_0028 138.48-142.48 speaker=SPEAKER_00 conf=high 我是做户外直播的主播，我叫苏小唐，路过这里能跟老道长您聊上句吗？”
+SEG_0029 142.48-150.96 speaker=SPEAKER_00 conf=high 说完，他把手机摄像头对准你，镜头里你微微抬起头，露出一张满是皱纹的脸庞，眼睛不大，眼窝深陷，眼皮耷拉着，看着
+SEG_0030 151.12-156.08 speaker=SPEAKER_00 conf=high 但是你的眼神，苏小唐看到后顿时愣了一下，不是这个老家伙的眼神，怎么感觉挺清亮？
+SEG_0031 156.24-162.48 speaker=SPEAKER_00 conf=high 他在打假的这些年见过无数骗子，那些人的眼睛要么是精明的发亮，要么就是故作高深的半闭着，生怕被人看穿一样。
+SEG_0032 162.56-169.84 speaker=SPEAKER_00 conf=high 但是你的眼神和他以前见过的都很不一样，平和的就像是一潭死水，没有攻击性，也没有防备心，就是像小孩子眼神那般，
+SEG_0033 170.00-174.80 speaker=SPEAKER_00 conf=high 或者说，看着他身后某个东西，你看的是那架无人机，作为一名穿越人士，你当然见过无人机。
+SEG_0034 174.88-177.76 speaker=SPEAKER_00 conf=high 但是原生活了九六年，记忆里还是头一回看见东西。
+SEG_0035 177.84-180.88 speaker=SPEAKER_00 conf=high 这小东西嗡嗡嗡在空中转，像只大苍蝇，还挺有意思。
+SEG_0036 181.04-185.92 speaker=SPEAKER_00 conf=high 为了维持住人设，你指了指无人机，嗓音沙哑，带着老年人特有的气音：“你们是个什么物件？”
+SEG_0037 186.08-188.72 speaker=SPEAKER_00 conf=high 苏小唐没想到老道长开口第一句话问的居然是这个。
+SEG_0038 188.96-193.20 speaker=SPEAKER_00 conf=high 他微微一怔后才反应过来：“老道长，这个是无人机航拍用的，您之前没有见过吗？
+SEG_0039 193.36-199.92 speaker=SPEAKER_00 conf=high 头回见。”你随口说了一句，又看了两眼，这才收回目光，端起茶杯喝了一口，慢悠悠的：“你刚才说你是主播，播哪方面
+SEG_0040 200.08-203.60 speaker=SPEAKER_00 conf=high 弹幕又炸了！哈哈哈哈，那个是什么物件？连无人机都不知道，笑我了。
+SEG_0041 203.84-207.52 speaker=SPEAKER_00 conf=high 老道长十锤道王多年，看他的这个反应，不像是装的，他是真的不知道。
+SEG_0042 207.68-210.00 speaker=SPEAKER_00 conf=high 苏姐，你快解释一下，给他开开眼，让他知。”
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/dialogue.py
+Prepared 43 dialogue segments with non-overlap speech budgets
+SEG_0000 0.00-3.60 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0001 3.60-11.12 speaker=SPEAKER_00 overlap=False budget=7.52s
+SEG_0002 11.12-17.28 speaker=SPEAKER_00 overlap=False budget=6.16s
+SEG_0003 17.28-22.64 speaker=SPEAKER_00 overlap=False budget=5.36s
+SEG_0004 22.64-28.32 speaker=SPEAKER_00 overlap=False budget=5.68s
+SEG_0005 28.32-32.32 speaker=SPEAKER_00 overlap=False budget=4.00s
+SEG_0006 32.32-36.48 speaker=SPEAKER_00 overlap=False budget=4.16s
+SEG_0007 36.48-42.16 speaker=SPEAKER_00 overlap=False budget=5.68s
+SEG_0008 42.16-45.76 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0009 45.76-51.84 speaker=SPEAKER_00 overlap=False budget=6.08s
+SEG_0010 51.84-56.56 speaker=SPEAKER_00 overlap=False budget=4.72s
+SEG_0011 56.56-61.60 speaker=SPEAKER_00 overlap=False budget=5.04s
+SEG_0012 61.60-65.28 speaker=SPEAKER_00 overlap=False budget=3.68s
+SEG_0013 65.28-68.16 speaker=SPEAKER_00 overlap=False budget=2.88s
+SEG_0014 68.16-76.00 speaker=SPEAKER_00 overlap=False budget=7.84s
+SEG_0015 76.00-83.12 speaker=SPEAKER_00 overlap=False budget=7.12s
+SEG_0016 83.12-85.92 speaker=SPEAKER_00 overlap=False budget=2.80s
+SEG_0017 85.92-92.24 speaker=SPEAKER_00 overlap=False budget=6.32s
+SEG_0018 92.24-98.80 speaker=SPEAKER_00 overlap=False budget=6.56s
+SEG_0019 98.80-102.56 speaker=SPEAKER_00 overlap=False budget=3.76s
+SEG_0020 102.56-106.16 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0021 106.16-108.88 speaker=SPEAKER_00 overlap=False budget=2.72s
+SEG_0022 108.88-112.48 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0023 112.48-116.00 speaker=SPEAKER_00 overlap=False budget=3.52s
+SEG_0024 116.00-121.76 speaker=SPEAKER_00 overlap=False budget=5.76s
+SEG_0025 121.76-127.44 speaker=SPEAKER_00 overlap=False budget=5.68s
+SEG_0026 127.44-131.20 speaker=SPEAKER_00 overlap=False budget=3.76s
+SEG_0027 131.20-138.48 speaker=SPEAKER_00 overlap=False budget=7.28s
+SEG_0028 138.48-142.48 speaker=SPEAKER_00 overlap=False budget=4.00s
+SEG_0029 142.48-151.12 speaker=SPEAKER_00 overlap=False budget=8.64s
+SEG_0030 151.12-156.24 speaker=SPEAKER_00 overlap=False budget=5.12s
+SEG_0031 156.24-162.56 speaker=SPEAKER_00 overlap=False budget=6.32s
+SEG_0032 162.56-170.00 speaker=SPEAKER_00 overlap=False budget=7.44s
+SEG_0033 170.00-174.88 speaker=SPEAKER_00 overlap=False budget=4.88s
+SEG_0034 174.88-177.84 speaker=SPEAKER_00 overlap=False budget=2.96s
+SEG_0035 177.84-181.04 speaker=SPEAKER_00 overlap=False budget=3.20s
+SEG_0036 181.04-186.08 speaker=SPEAKER_00 overlap=False budget=5.04s
+SEG_0037 186.08-188.96 speaker=SPEAKER_00 overlap=False budget=2.88s
+SEG_0038 188.96-193.36 speaker=SPEAKER_00 overlap=False budget=4.40s
+SEG_0039 193.36-200.08 speaker=SPEAKER_00 overlap=False budget=6.72s
+SEG_0040 200.08-203.84 speaker=SPEAKER_00 overlap=False budget=3.76s
+SEG_0041 203.84-207.68 speaker=SPEAKER_00 overlap=False budget=3.84s
+SEG_0042 207.68-210.00 speaker=SPEAKER_00 overlap=False budget=2.32s
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/sfx.py timeline
+Selected 1 sound effects from local library
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/ambience.py
+Selected ambience candidate
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mix_audio.py
+fit SEG_0000: 3.60s -> slot 3.52s tempo=1.02
+fit SEG_0001: 7.52s -> slot 7.36s tempo=1.02 TRIMMED
+fit SEG_0008: 3.61s -> slot 3.52s tempo=1.03
+fit SEG_0011: 5.05s -> slot 4.88s tempo=1.03
+fit SEG_0012: 3.66s -> slot 3.52s tempo=1.04 TRIMMED
+fit SEG_0013: 2.89s -> slot 2.80s tempo=1.03
+fit SEG_0014: 7.84s -> slot 7.76s tempo=1.01 TRIMMED
+fit SEG_0015: 7.12s -> slot 6.96s tempo=1.02 TRIMMED
+fit SEG_0018: 6.56s -> slot 6.40s tempo=1.02
+fit SEG_0021: 2.72s -> slot 2.56s tempo=1.06
+fit SEG_0022: 3.50s -> slot 3.44s tempo=1.02
+fit SEG_0023: 3.53s -> slot 3.47s tempo=1.02
+fit SEG_0025: 5.69s -> slot 5.60s tempo=1.02
+fit SEG_0026: 3.77s -> slot 3.68s tempo=1.02 TRIMMED
+fit SEG_0029: 8.64s -> slot 8.48s tempo=1.02
+fit SEG_0030: 5.12s -> slot 4.96s tempo=1.03
+fit SEG_0034: 2.96s -> slot 2.88s tempo=1.03 TRIMMED
+fit SEG_0035: 3.16s -> slot 3.04s tempo=1.04 TRIMMED
+fit SEG_0040: 3.77s -> slot 3.52s tempo=1.07
+fit SEG_0041: 3.84s -> slot 3.68s tempo=1.04
+fit_tts: sped=20 (of which trimmed=7) of 43
+TTS timeline check: incorrect overlaps=0; diarization-confirmed overlaps=0
+Mixed audio: /Volumes/develop/AI-Dubbing/work/42503442096-1-192/mix.wav
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mux.py
+Created /Volumes/develop/AI-Dubbing/output/test_dub.mp4
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/merge_segments.py
+Built 43 speaker-labelled segments from 1513 aligned characters; unknown words=0; low-confidence words=0
+SEG_0000 0.00-3.52 speaker=SPEAKER_00 conf=high 当成为九十六岁老道士的时候，系统告诉你还剩下十一个月的寿命。
+SEG_0001 3.60-10.96 speaker=SPEAKER_00 conf=high 不仅患有骨质疏松、气血两虚、甚至走起路来三条腿全打哆嗦，但还好绑定的养生签到系统被通过健康生活方式积攒养生值
+SEG_0002 11.12-17.20 speaker=SPEAKER_00 conf=high 于是你直接开启了退休生活。三个月下来，寿元从十一个月涨到了两年多，还解锁了归西土耐法以及一堆技能。
+SEG_0003 17.28-22.40 speaker=SPEAKER_00 conf=high 本来打算这么安安稳稳的摆烂下去，结果今天山下的女主播说是要来打假你这个招摇撞骗的老骗。
+SEG_0004 22.64-28.16 speaker=SPEAKER_00 conf=high 那个女主播的名字叫苏小唐，是某短视频平台的户外打假主播，粉丝五百多万，以专丝神棍著称。
+SEG_0005 28.32-32.24 speaker=SPEAKER_00 conf=high 他最擅长的就是跑到各种神神秘秘的地方，用镜头撕开骗子的真面目。
+SEG_0006 32.32-36.32 speaker=SPEAKER_00 conf=high 半年前他接了一个假和尚的骗局，视频播放量破了两亿，从此一战成名。
+SEG_0007 36.48-42.08 speaker=SPEAKER_00 conf=high 今天他来到钟南山，是因为有人在网上发帖说钟南山清虚观的老道长有神通，摸骨知命，奇准无比。
+SEG_0008 42.16-45.68 speaker=SPEAKER_00 conf=high 苏小唐看到这种帖子后，立马就来了。这不就是送上门的素材吗？
+SEG_0009 45.76-51.60 speaker=SPEAKER_00 conf=high 于是他提前做了功课，搜索钟南山清虚观相关的内容，只是网上能查到的信息很少，连个官方账号都没有。
+SEG_0010 51.84-56.40 speaker=SPEAKER_00 conf=high 老道长叫什么不知道，多大年纪不知道，反正就是那种藏在深山里的高人，专门骗有缘人。
+SEG_0011 56.56-61.44 speaker=SPEAKER_00 conf=high 当时的苏小唐在心里冷笑，又是的套路，老神棍，制造信息差，让你觉得他有真本事。
+SEG_0012 61.60-65.12 speaker=SPEAKER_00 conf=high 出发之前，他志在必得。今天我非把那个老道长的底裤扒干净不可。
+SEG_0013 65.28-68.08 speaker=SPEAKER_00 conf=high 带着团队爬了四十分钟的山，终于来到清虚观门口。
+SEG_0014 68.16-75.92 speaker=SPEAKER_00 conf=high 结果他第一眼看到的是，你窝在一把破竹椅上，怀里抱着一只橘猫，手里端着一杯热茶，脸上的皱纹深得能掐死蚊子，须发
+SEG_0015 76.00-82.96 speaker=SPEAKER_00 conf=high 看着倒有点仙气。可问题是，你太瘦了，瘦的跟竹竿似的，道袍空荡荡的挂在身上，风一吹就鼓起来，感觉骨头架子都要被
+SEG_0016 83.12-85.76 speaker=SPEAKER_00 conf=high 苏小唐看到后差点破防，忍不住要笑出声来。
+SEG_0017 85.92-92.16 speaker=SPEAKER_00 conf=high 这就是传说中的有神通的老道长。他不动声色的调整了一下麦，确保声音清晰，然后压低声音：“家人们，你们看到了吗？
+SEG_0018 92.24-98.64 speaker=SPEAKER_00 conf=high 这就是那位神通广大的老道长。我是先生命啊，我不是不尊重老人家，但是你们看他这个状态，说是夸我，他比我的爷爷还
+SEG_0019 98.80-102.48 speaker=SPEAKER_00 conf=high 直播间在线人数已经破了十万，听到主播的话，弹幕立刻刷的飞起。
+SEG_0020 102.56-106.00 speaker=SPEAKER_00 conf=high 我操，感觉这个老道长快要咽气了，真的假的？不会直播出病吧？
+SEG_0021 106.16-108.72 speaker=SPEAKER_00 conf=high 小唐姐快跑啊，别被老道长讹上了，不然你赔不起。
+SEG_0022 108.88-112.32 speaker=SPEAKER_00 conf=high 哈哈哈哈，这太瘦了吧？感觉一阵风就能吹走。老道长你还好吗？
+SEG_0023 112.48-116.00 speaker=SPEAKER_00 conf=high 需要我帮你叫幺二零吗？这看着不像是有神通吗？倒像是有什么大病似的。
+SEG_0024 116.00-121.60 speaker=SPEAKER_00 conf=high 苏姐赶紧上去问，看他怎么忽悠我。我五毛钱，他马上要说自己今年一百二十岁，七一百二十岁。
+SEG_0025 121.76-127.36 speaker=SPEAKER_00 conf=high 我看他这样子能活到八十就不错。苏小唐扫了一眼弹幕，嘴角微微上扬，弹幕的反应跟他预想的一模一样。
+SEG_0026 127.44-131.12 speaker=SPEAKER_00 conf=high 第一印象全都是这老头快不行，看就快要死了。这也是他想要的效果。
+SEG_0027 131.20-138.40 speaker=SPEAKER_00 conf=high 于是他快步走到道观门口，在距离大约三米的地方站定，脸上挂着直话的微笑，语气倒是挺客气：“您好，请问您是这座道
+SEG_0028 138.48-142.48 speaker=SPEAKER_00 conf=high 我是做户外直播的主播，我叫苏小唐，路过这里能跟老道长您聊上句吗？”
+SEG_0029 142.48-150.96 speaker=SPEAKER_00 conf=high 说完，他把手机摄像头对准你，镜头里你微微抬起头，露出一张满是皱纹的脸庞，眼睛不大，眼窝深陷，眼皮耷拉着，看着
+SEG_0030 151.12-156.08 speaker=SPEAKER_00 conf=high 但是你的眼神，苏小唐看到后顿时愣了一下，不是这个老家伙的眼神，怎么感觉挺清亮？
+SEG_0031 156.24-162.48 speaker=SPEAKER_00 conf=high 他在打假的这些年见过无数骗子，那些人的眼睛要么是精明的发亮，要么就是故作高深的半闭着，生怕被人看穿一样。
+SEG_0032 162.56-169.84 speaker=SPEAKER_00 conf=high 但是你的眼神和他以前见过的都很不一样，平和的就像是一潭死水，没有攻击性，也没有防备心，就是像小孩子眼神那般，
+SEG_0033 170.00-174.80 speaker=SPEAKER_00 conf=high 或者说，看着他身后某个东西，你看的是那架无人机，作为一名穿越人士，你当然见过无人机。
+SEG_0034 174.88-177.76 speaker=SPEAKER_00 conf=high 但是原生活了九六年，记忆里还是头一回看见东西。
+SEG_0035 177.84-180.88 speaker=SPEAKER_00 conf=high 这小东西嗡嗡嗡在空中转，像只大苍蝇，还挺有意思。
+SEG_0036 181.04-185.92 speaker=SPEAKER_00 conf=high 为了维持住人设，你指了指无人机，嗓音沙哑，带着老年人特有的气音：“你们是个什么物件？”
+SEG_0037 186.08-188.72 speaker=SPEAKER_00 conf=high 苏小唐没想到老道长开口第一句话问的居然是这个。
+SEG_0038 188.96-191.92 speaker=SPEAKER_00 conf=high 他微微一怔后才反应过来：“老道长，这个是无人机航
+SEG_0039 191.92-199.92 speaker=SPEAKER_01 conf=medium 拍用的，您之前没有见过吗？头回见。”你随口说了一句，又看了两眼，这才收回目光，端起茶杯喝了一口，慢悠悠的：“
+SEG_0040 200.08-203.60 speaker=SPEAKER_01 conf=high 弹幕又炸了！哈哈哈哈，那个是什么物件？连无人机都不知道，笑我了。
+SEG_0041 203.84-207.52 speaker=SPEAKER_01 conf=high 老道长十锤道王多年，看他的这个反应，不像是装的，他是真的不知道。
+SEG_0042 207.68-210.00 speaker=SPEAKER_01 conf=high 苏姐，你快解释一下，给他开开眼，让他知。”
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/dialogue.py
+Prepared 43 dialogue segments with non-overlap speech budgets
+SEG_0000 0.00-3.60 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0001 3.60-11.12 speaker=SPEAKER_00 overlap=False budget=7.52s
+SEG_0002 11.12-17.28 speaker=SPEAKER_00 overlap=False budget=6.16s
+SEG_0003 17.28-22.64 speaker=SPEAKER_00 overlap=False budget=5.36s
+SEG_0004 22.64-28.32 speaker=SPEAKER_00 overlap=False budget=5.68s
+SEG_0005 28.32-32.32 speaker=SPEAKER_00 overlap=False budget=4.00s
+SEG_0006 32.32-36.48 speaker=SPEAKER_00 overlap=False budget=4.16s
+SEG_0007 36.48-42.16 speaker=SPEAKER_00 overlap=False budget=5.68s
+SEG_0008 42.16-45.76 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0009 45.76-51.84 speaker=SPEAKER_00 overlap=False budget=6.08s
+SEG_0010 51.84-56.56 speaker=SPEAKER_00 overlap=False budget=4.72s
+SEG_0011 56.56-61.60 speaker=SPEAKER_00 overlap=False budget=5.04s
+SEG_0012 61.60-65.28 speaker=SPEAKER_00 overlap=False budget=3.68s
+SEG_0013 65.28-68.16 speaker=SPEAKER_00 overlap=False budget=2.88s
+SEG_0014 68.16-76.00 speaker=SPEAKER_00 overlap=False budget=7.84s
+SEG_0015 76.00-83.12 speaker=SPEAKER_00 overlap=False budget=7.12s
+SEG_0016 83.12-85.92 speaker=SPEAKER_00 overlap=False budget=2.80s
+SEG_0017 85.92-92.24 speaker=SPEAKER_00 overlap=False budget=6.32s
+SEG_0018 92.24-98.80 speaker=SPEAKER_00 overlap=False budget=6.56s
+SEG_0019 98.80-102.56 speaker=SPEAKER_00 overlap=False budget=3.76s
+SEG_0020 102.56-106.16 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0021 106.16-108.88 speaker=SPEAKER_00 overlap=False budget=2.72s
+SEG_0022 108.88-112.48 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0023 112.48-116.00 speaker=SPEAKER_00 overlap=False budget=3.52s
+SEG_0024 116.00-121.76 speaker=SPEAKER_00 overlap=False budget=5.76s
+SEG_0025 121.76-127.44 speaker=SPEAKER_00 overlap=False budget=5.68s
+SEG_0026 127.44-131.20 speaker=SPEAKER_00 overlap=False budget=3.76s
+SEG_0027 131.20-138.48 speaker=SPEAKER_00 overlap=False budget=7.28s
+SEG_0028 138.48-142.48 speaker=SPEAKER_00 overlap=False budget=4.00s
+SEG_0029 142.48-151.12 speaker=SPEAKER_00 overlap=False budget=8.64s
+SEG_0030 151.12-156.24 speaker=SPEAKER_00 overlap=False budget=5.12s
+SEG_0031 156.24-162.56 speaker=SPEAKER_00 overlap=False budget=6.32s
+SEG_0032 162.56-170.00 speaker=SPEAKER_00 overlap=False budget=7.44s
+SEG_0033 170.00-174.88 speaker=SPEAKER_00 overlap=False budget=4.88s
+SEG_0034 174.88-177.84 speaker=SPEAKER_00 overlap=False budget=2.96s
+SEG_0035 177.84-181.04 speaker=SPEAKER_00 overlap=False budget=3.20s
+SEG_0036 181.04-186.08 speaker=SPEAKER_00 overlap=False budget=5.04s
+SEG_0037 186.08-188.96 speaker=SPEAKER_00 overlap=False budget=2.88s
+SEG_0038 188.96-191.92 speaker=SPEAKER_00 overlap=False budget=2.96s
+SEG_0039 191.92-200.08 speaker=SPEAKER_01 overlap=False budget=8.16s
+SEG_0040 200.08-203.84 speaker=SPEAKER_01 overlap=False budget=3.76s
+SEG_0041 203.84-207.68 speaker=SPEAKER_01 overlap=False budget=3.84s
+SEG_0042 207.68-210.00 speaker=SPEAKER_01 overlap=False budget=2.32s
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mix_audio.py
+fit SEG_0000: 3.58s -> slot 3.52s tempo=1.02
+fit SEG_0002: 6.16s -> slot 6.08s tempo=1.01 TRIMMED
+fit SEG_0005: 4.00s -> slot 3.92s tempo=1.02
+fit SEG_0006: 4.16s -> slot 4.00s tempo=1.04
+fit SEG_0007: 5.66s -> slot 5.60s tempo=1.01
+fit SEG_0008: 3.61s -> slot 3.52s tempo=1.03
+fit SEG_0010: 4.72s -> slot 4.56s tempo=1.04
+fit SEG_0012: 3.69s -> slot 3.52s tempo=1.05
+fit SEG_0013: 2.88s -> slot 2.80s tempo=1.03
+fit SEG_0014: 7.85s -> slot 7.76s tempo=1.01
+fit SEG_0015: 7.12s -> slot 6.96s tempo=1.02
+fit SEG_0019: 3.76s -> slot 3.68s tempo=1.02
+fit SEG_0021: 2.72s -> slot 2.56s tempo=1.06 TRIMMED
+fit SEG_0022: 3.61s -> slot 3.44s tempo=1.05
+fit SEG_0024: 5.73s -> slot 5.60s tempo=1.02
+fit SEG_0027: 7.27s -> slot 7.20s tempo=1.01 TRIMMED
+fit SEG_0028: 3.98s -> slot 3.95s tempo=1.01
+fit SEG_0030: 5.14s -> slot 4.96s tempo=1.04
+fit SEG_0031: 6.32s -> slot 6.24s tempo=1.01
+fit SEG_0032: 7.43s -> slot 7.28s tempo=1.02 TRIMMED
+fit SEG_0034: 2.94s -> slot 2.88s tempo=1.02
+fit SEG_0035: 3.20s -> slot 3.04s tempo=1.05
+fit SEG_0038: 2.96s -> slot 2.91s tempo=1.02
+fit SEG_0040: 3.76s -> slot 3.52s tempo=1.07
+fit_tts: sped=24 (of which trimmed=4) of 43
+TTS timeline check: incorrect overlaps=0; diarization-confirmed overlaps=0
+Mixed audio: /Volumes/develop/AI-Dubbing/work/42503442096-1-192/mix.wav
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mux.py
+Created /Volumes/develop/AI-Dubbing/output/test_dub.mp4
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mix_audio.py
+Traceback (most recent call last):
+  File "/Volumes/develop/AI-Dubbing/scripts/mix_audio.py", line 45, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/mix_audio.py", line 27, in main
+    raise RuntimeError(f'Unsafe TTS overlap remains before mixing: {detail}')
+RuntimeError: Unsafe TTS overlap remains before mixing: SEG_0010↔SEG_0011 0.54s; SEG_0031↔SEG_0032 0.26s; SEG_0040↔SEG_0041 0.51s
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mix_audio.py
+Traceback (most recent call last):
+  File "/Volumes/develop/AI-Dubbing/scripts/mix_audio.py", line 45, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/mix_audio.py", line 27, in main
+    raise RuntimeError(f'Unsafe TTS overlap remains before mixing: {detail}')
+RuntimeError: Unsafe TTS overlap remains before mixing: SEG_0010↔SEG_0011 0.54s; SEG_0031↔SEG_0032 0.26s; SEG_0040↔SEG_0041 0.51s
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mix_audio.py
+Overlaps mixed cleanly: SEG_0010↔SEG_0011 0.54s; SEG_0031↔SEG_0032 0.26s; SEG_0040↔SEG_0041 0.51s
+TTS timeline check: incorrect overlaps=0; diarization-confirmed overlaps=0
+Mixed audio: /Volumes/develop/AI-Dubbing/work/42503442096-1-192/mix.wav
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mux.py
+Created /Volumes/develop/AI-Dubbing/output/test_dub.mp4
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/extract_audio.py --duration 1800.0 --start 0 --output /Volumes/develop/AI-Dubbing/work/42503442096-1-192/audio.wav
+Extracted 1800.0s source audio to /Volumes/develop/AI-Dubbing/work/42503442096-1-192/audio.wav
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/asr.py
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:07<00:07,  7.78s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  3.79s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  4.39s/it]
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Traceback (most recent call last):
+  File "/Volumes/develop/AI-Dubbing/scripts/asr.py", line 18, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/asr.py", line 12, in main
+    result=model.transcribe(audio=a.audio,language=language)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/qwen_asr/inference/qwen3_asr.py", line 383, in transcribe
+    raw_outputs = self._infer_asr(chunk_ctx, chunk_wavs, chunk_lang)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/qwen_asr/inference/qwen3_asr.py", line 485, in _infer_asr
+    return self._infer_asr_transformers(contexts, wavs, languages)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/qwen_asr/inference/qwen3_asr.py", line 510, in _infer_asr_transformers
+    text_ids = self.model.generate(**inputs, max_new_tokens=self.max_new_tokens)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/qwen_asr/core/transformers_backend/modeling_qwen3_asr.py", line 1353, in generate
+    thinker_result = self.thinker.generate(input_ids=input_ids, return_dict_in_generate=True, **thinker_kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/transformers/generation/utils.py", line 2566, in generate
+    result = decoding_method(
+             ^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/transformers/generation/utils.py", line 2786, in _sample
+    outputs = self(**model_inputs, return_dict=True)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/transformers/utils/generic.py", line 918, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/qwen_asr/core/transformers_backend/modeling_qwen3_asr.py", line 1196, in forward
+    audio_features = self.get_audio_features(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/qwen_asr/core/transformers_backend/modeling_qwen3_asr.py", line 1125, in get_audio_features
+    audio_output = self.audio_tower(
+                   ^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/qwen_asr/core/transformers_backend/modeling_qwen3_asr.py", line 729, in forward
+    layer_outputs = encoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/transformers/modeling_layers.py", line 94, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/qwen_asr/core/transformers_backend/modeling_qwen3_asr.py", line 556, in forward
+    hidden_states = self.self_attn(
+                    ^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/qwen_asr/core/transformers_backend/modeling_qwen3_asr.py", line 501, in forward
+    attn_output, _ = attention_interface(
+                     ^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/transformers/integrations/sdpa_attention.py", line 96, in sdpa_attention_forward
+    attn_output = torch.nn.functional.scaled_dot_product_attention(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: MPS backend out of memory (MPS allocated: 5.23 GB, other allocations: 14.54 GB, max allowed: 20.13 GB). Tried to allocate 7.26 GB on private pool. Use PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 to disable upper limit for memory allocations (may cause system failure).
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/asr.py
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/asr.py
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.66s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.55s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.86s/it]
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+ASR Chunk 1/10 (0s - 180s): 1453 chars
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+ASR Chunk 2/10 (180s - 360s): 1479 chars
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+ASR Chunk 3/10 (360s - 540s): 1456 chars
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+ASR Chunk 4/10 (540s - 720s): 1431 chars
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+ASR Chunk 5/10 (720s - 900s): 1462 chars
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+ASR Chunk 6/10 (900s - 1080s): 1413 chars
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+ASR Chunk 7/10 (1080s - 1260s): 1403 chars
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+ASR Chunk 8/10 (1260s - 1440s): 1407 chars
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+ASR Chunk 9/10 (1440s - 1620s): 1402 chars
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+ASR Chunk 10/10 (1620s - 1800s): 1419 chars
+ASR Complete: language=Chinese; total characters=14325; saved /Volumes/develop/AI-Dubbing/work/42503442096-1-192/asr.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/merge_segments.py
+Traceback (most recent call last):
+  File "/Volumes/develop/AI-Dubbing/scripts/merge_segments.py", line 77, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/merge_segments.py", line 68, in main
+    words=attach_punctuation(asr['text'],alignment['words'])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/merge_segments.py", line 20, in attach_punctuation
+    if cursor: punctuation[cursor-1]+=char
+               ~~~~~~~~~~~^^^^^^^^^^
+IndexError: list index out of range
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/merge_segments.py
+Traceback (most recent call last):
+  File "/Volumes/develop/AI-Dubbing/scripts/merge_segments.py", line 78, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/merge_segments.py", line 71, in main
+    lines=group_words(words,diarization.get('voice_types',{}))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/merge_segments.py", line 59, in group_words
+    terminal=prev['punctuation_after'] and any(c in prev['punctuation_after'] for c in SENTENCE_END)
+             ~~~~^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'punctuation_after'
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/merge_segments.py
+Created 20 speaker-labelled lines; saved /Volumes/develop/AI-Dubbing/work/42503442096-1-192/segments.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/dialogue.py
+Prepared 43 dialogue segments with non-overlap speech budgets
+SEG_0000 0.00-3.60 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0001 3.60-11.12 speaker=SPEAKER_00 overlap=False budget=7.52s
+SEG_0002 11.12-17.28 speaker=SPEAKER_00 overlap=False budget=6.16s
+SEG_0003 17.28-22.64 speaker=SPEAKER_00 overlap=False budget=5.36s
+SEG_0004 22.64-28.32 speaker=SPEAKER_00 overlap=False budget=5.68s
+SEG_0005 28.32-32.32 speaker=SPEAKER_00 overlap=False budget=4.00s
+SEG_0006 32.32-36.48 speaker=SPEAKER_00 overlap=False budget=4.16s
+SEG_0007 36.48-42.16 speaker=SPEAKER_00 overlap=False budget=5.68s
+SEG_0008 42.16-45.76 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0009 45.76-51.84 speaker=SPEAKER_00 overlap=False budget=6.08s
+SEG_0010 51.84-56.56 speaker=SPEAKER_00 overlap=False budget=4.72s
+SEG_0011 56.56-61.60 speaker=SPEAKER_00 overlap=False budget=5.04s
+SEG_0012 61.60-65.28 speaker=SPEAKER_00 overlap=False budget=3.68s
+SEG_0013 65.28-68.16 speaker=SPEAKER_00 overlap=False budget=2.88s
+SEG_0014 68.16-76.00 speaker=SPEAKER_00 overlap=False budget=7.84s
+SEG_0015 76.00-83.12 speaker=SPEAKER_00 overlap=False budget=7.12s
+SEG_0016 83.12-85.92 speaker=SPEAKER_00 overlap=False budget=2.80s
+SEG_0017 85.92-92.24 speaker=SPEAKER_00 overlap=False budget=6.32s
+SEG_0018 92.24-98.80 speaker=SPEAKER_00 overlap=False budget=6.56s
+SEG_0019 98.80-102.56 speaker=SPEAKER_00 overlap=False budget=3.76s
+SEG_0020 102.56-106.16 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0021 106.16-108.88 speaker=SPEAKER_00 overlap=False budget=2.72s
+SEG_0022 108.88-112.48 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0023 112.48-116.00 speaker=SPEAKER_00 overlap=False budget=3.52s
+SEG_0024 116.00-121.76 speaker=SPEAKER_00 overlap=False budget=5.76s
+SEG_0025 121.76-127.44 speaker=SPEAKER_00 overlap=False budget=5.68s
+SEG_0026 127.44-131.20 speaker=SPEAKER_00 overlap=False budget=3.76s
+SEG_0027 131.20-138.48 speaker=SPEAKER_00 overlap=False budget=7.28s
+SEG_0028 138.48-142.48 speaker=SPEAKER_00 overlap=False budget=4.00s
+SEG_0029 142.48-151.12 speaker=SPEAKER_00 overlap=False budget=8.64s
+SEG_0030 151.12-156.24 speaker=SPEAKER_00 overlap=False budget=5.12s
+SEG_0031 156.24-162.56 speaker=SPEAKER_00 overlap=False budget=6.32s
+SEG_0032 162.56-170.00 speaker=SPEAKER_00 overlap=False budget=7.44s
+SEG_0033 170.00-174.88 speaker=SPEAKER_00 overlap=False budget=4.88s
+SEG_0034 174.88-177.84 speaker=SPEAKER_00 overlap=False budget=2.96s
+SEG_0035 177.84-181.04 speaker=SPEAKER_00 overlap=False budget=3.20s
+SEG_0036 181.04-186.08 speaker=SPEAKER_00 overlap=False budget=5.04s
+SEG_0037 186.08-188.96 speaker=SPEAKER_00 overlap=False budget=2.88s
+SEG_0038 188.96-191.92 speaker=SPEAKER_00 overlap=False budget=2.96s
+SEG_0039 191.92-200.08 speaker=SPEAKER_01 overlap=False budget=8.16s
+SEG_0040 200.08-203.84 speaker=SPEAKER_01 overlap=False budget=3.76s
+SEG_0041 203.84-207.68 speaker=SPEAKER_01 overlap=False budget=3.84s
+SEG_0042 207.68-210.00 speaker=SPEAKER_01 overlap=False budget=2.32s
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/sfx.py timeline
+Selected 1 sound effects from local library
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/ambience.py
+Selected ambience candidate
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mix_audio.py
+Overlaps mixed cleanly: SEG_0000↔SEG_0001 0.03s; SEG_0002↔SEG_0003 0.35s; SEG_0006↔SEG_0007 0.92s; SEG_0013↔SEG_0014 0.06s; SEG_0014↔SEG_0015 1.59s
+TTS timeline check: incorrect overlaps=0; diarization-confirmed overlaps=0
+Mixed audio: /Volumes/develop/AI-Dubbing/work/42503442096-1-192/mix.wav
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mux.py
+Created /Volumes/develop/AI-Dubbing/output/test_dub.mp4
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/asr.py
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/asr.py
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/asr.py
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/merge_segments.py
+Created 24 speaker-labelled lines; saved /Volumes/develop/AI-Dubbing/work/42503442096-1-192/segments.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/dialogue.py
+Prepared 43 dialogue segments with non-overlap speech budgets
+SEG_0000 0.00-3.60 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0001 3.60-11.12 speaker=SPEAKER_00 overlap=False budget=7.52s
+SEG_0002 11.12-17.28 speaker=SPEAKER_00 overlap=False budget=6.16s
+SEG_0003 17.28-22.64 speaker=SPEAKER_00 overlap=False budget=5.36s
+SEG_0004 22.64-28.32 speaker=SPEAKER_00 overlap=False budget=5.68s
+SEG_0005 28.32-32.32 speaker=SPEAKER_00 overlap=False budget=4.00s
+SEG_0006 32.32-36.48 speaker=SPEAKER_00 overlap=False budget=4.16s
+SEG_0007 36.48-42.16 speaker=SPEAKER_00 overlap=False budget=5.68s
+SEG_0008 42.16-45.76 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0009 45.76-51.84 speaker=SPEAKER_00 overlap=False budget=6.08s
+SEG_0010 51.84-56.56 speaker=SPEAKER_00 overlap=False budget=4.72s
+SEG_0011 56.56-61.60 speaker=SPEAKER_00 overlap=False budget=5.04s
+SEG_0012 61.60-65.28 speaker=SPEAKER_00 overlap=False budget=3.68s
+SEG_0013 65.28-68.16 speaker=SPEAKER_00 overlap=False budget=2.88s
+SEG_0014 68.16-76.00 speaker=SPEAKER_00 overlap=False budget=7.84s
+SEG_0015 76.00-83.12 speaker=SPEAKER_00 overlap=False budget=7.12s
+SEG_0016 83.12-85.92 speaker=SPEAKER_00 overlap=False budget=2.80s
+SEG_0017 85.92-92.24 speaker=SPEAKER_00 overlap=False budget=6.32s
+SEG_0018 92.24-98.80 speaker=SPEAKER_00 overlap=False budget=6.56s
+SEG_0019 98.80-102.56 speaker=SPEAKER_00 overlap=False budget=3.76s
+SEG_0020 102.56-106.16 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0021 106.16-108.88 speaker=SPEAKER_00 overlap=False budget=2.72s
+SEG_0022 108.88-112.48 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0023 112.48-116.00 speaker=SPEAKER_00 overlap=False budget=3.52s
+SEG_0024 116.00-121.76 speaker=SPEAKER_00 overlap=False budget=5.76s
+SEG_0025 121.76-127.44 speaker=SPEAKER_00 overlap=False budget=5.68s
+SEG_0026 127.44-131.20 speaker=SPEAKER_00 overlap=False budget=3.76s
+SEG_0027 131.20-138.48 speaker=SPEAKER_00 overlap=False budget=7.28s
+SEG_0028 138.48-142.48 speaker=SPEAKER_00 overlap=False budget=4.00s
+SEG_0029 142.48-151.12 speaker=SPEAKER_00 overlap=False budget=8.64s
+SEG_0030 151.12-156.24 speaker=SPEAKER_00 overlap=False budget=5.12s
+SEG_0031 156.24-162.56 speaker=SPEAKER_00 overlap=False budget=6.32s
+SEG_0032 162.56-170.00 speaker=SPEAKER_00 overlap=False budget=7.44s
+SEG_0033 170.00-174.88 speaker=SPEAKER_00 overlap=False budget=4.88s
+SEG_0034 174.88-177.84 speaker=SPEAKER_00 overlap=False budget=2.96s
+SEG_0035 177.84-181.04 speaker=SPEAKER_00 overlap=False budget=3.20s
+SEG_0036 181.04-186.08 speaker=SPEAKER_00 overlap=False budget=5.04s
+SEG_0037 186.08-188.96 speaker=SPEAKER_00 overlap=False budget=2.88s
+SEG_0038 188.96-191.92 speaker=SPEAKER_00 overlap=False budget=2.96s
+SEG_0039 191.92-200.08 speaker=SPEAKER_01 overlap=False budget=8.16s
+SEG_0040 200.08-203.84 speaker=SPEAKER_01 overlap=False budget=3.76s
+SEG_0041 203.84-207.68 speaker=SPEAKER_01 overlap=False budget=3.84s
+SEG_0042 207.68-210.00 speaker=SPEAKER_01 overlap=False budget=2.32s
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mix_audio.py
+Overlaps mixed cleanly: SEG_0000↔SEG_0001 0.03s; SEG_0006↔SEG_0007 0.47s; SEG_0035↔SEG_0036 0.27s
+TTS timeline check: incorrect overlaps=0; diarization-confirmed overlaps=0
+Mixed audio: /Volumes/develop/AI-Dubbing/work/42503442096-1-192/mix.wav
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mux.py
+Created /Volumes/develop/AI-Dubbing/output/test_dub.mp4
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/merge_segments.py
+Created 24 speaker-labelled lines; saved /Volumes/develop/AI-Dubbing/work/42503442096-1-192/segments.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/dialogue.py
+Prepared 43 dialogue segments with non-overlap speech budgets
+SEG_0000 0.00-3.60 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0001 3.60-11.12 speaker=SPEAKER_00 overlap=False budget=7.52s
+SEG_0002 11.12-17.28 speaker=SPEAKER_00 overlap=False budget=6.16s
+SEG_0003 17.28-22.64 speaker=SPEAKER_00 overlap=False budget=5.36s
+SEG_0004 22.64-28.32 speaker=SPEAKER_00 overlap=False budget=5.68s
+SEG_0005 28.32-32.32 speaker=SPEAKER_00 overlap=False budget=4.00s
+SEG_0006 32.32-36.48 speaker=SPEAKER_00 overlap=False budget=4.16s
+SEG_0007 36.48-42.16 speaker=SPEAKER_00 overlap=False budget=5.68s
+SEG_0008 42.16-45.76 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0009 45.76-51.84 speaker=SPEAKER_00 overlap=False budget=6.08s
+SEG_0010 51.84-56.56 speaker=SPEAKER_00 overlap=False budget=4.72s
+SEG_0011 56.56-61.60 speaker=SPEAKER_00 overlap=False budget=5.04s
+SEG_0012 61.60-65.28 speaker=SPEAKER_00 overlap=False budget=3.68s
+SEG_0013 65.28-68.16 speaker=SPEAKER_00 overlap=False budget=2.88s
+SEG_0014 68.16-76.00 speaker=SPEAKER_00 overlap=False budget=7.84s
+SEG_0015 76.00-83.12 speaker=SPEAKER_00 overlap=False budget=7.12s
+SEG_0016 83.12-85.92 speaker=SPEAKER_00 overlap=False budget=2.80s
+SEG_0017 85.92-92.24 speaker=SPEAKER_00 overlap=False budget=6.32s
+SEG_0018 92.24-98.80 speaker=SPEAKER_00 overlap=False budget=6.56s
+SEG_0019 98.80-102.56 speaker=SPEAKER_00 overlap=False budget=3.76s
+SEG_0020 102.56-106.16 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0021 106.16-108.88 speaker=SPEAKER_00 overlap=False budget=2.72s
+SEG_0022 108.88-112.48 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0023 112.48-116.00 speaker=SPEAKER_00 overlap=False budget=3.52s
+SEG_0024 116.00-121.76 speaker=SPEAKER_00 overlap=False budget=5.76s
+SEG_0025 121.76-127.44 speaker=SPEAKER_00 overlap=False budget=5.68s
+SEG_0026 127.44-131.20 speaker=SPEAKER_00 overlap=False budget=3.76s
+SEG_0027 131.20-138.48 speaker=SPEAKER_00 overlap=False budget=7.28s
+SEG_0028 138.48-142.48 speaker=SPEAKER_00 overlap=False budget=4.00s
+SEG_0029 142.48-151.12 speaker=SPEAKER_00 overlap=False budget=8.64s
+SEG_0030 151.12-156.24 speaker=SPEAKER_00 overlap=False budget=5.12s
+SEG_0031 156.24-162.56 speaker=SPEAKER_00 overlap=False budget=6.32s
+SEG_0032 162.56-170.00 speaker=SPEAKER_00 overlap=False budget=7.44s
+SEG_0033 170.00-174.88 speaker=SPEAKER_00 overlap=False budget=4.88s
+SEG_0034 174.88-177.84 speaker=SPEAKER_00 overlap=False budget=2.96s
+SEG_0035 177.84-181.04 speaker=SPEAKER_00 overlap=False budget=3.20s
+SEG_0036 181.04-186.08 speaker=SPEAKER_00 overlap=False budget=5.04s
+SEG_0037 186.08-188.96 speaker=SPEAKER_00 overlap=False budget=2.88s
+SEG_0038 188.96-191.92 speaker=SPEAKER_00 overlap=False budget=2.96s
+SEG_0039 191.92-200.08 speaker=SPEAKER_01 overlap=False budget=8.16s
+SEG_0040 200.08-203.84 speaker=SPEAKER_01 overlap=False budget=3.76s
+SEG_0041 203.84-207.68 speaker=SPEAKER_01 overlap=False budget=3.84s
+SEG_0042 207.68-210.00 speaker=SPEAKER_01 overlap=False budget=2.32s
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mix_audio.py
+Overlaps mixed cleanly: SEG_0000↔SEG_0001 0.03s; SEG_0006↔SEG_0007 1.10s; SEG_0013↔SEG_0014 0.16s; SEG_0035↔SEG_0036 0.27s; SEG_0040↔SEG_0041 1.40s
+TTS timeline check: incorrect overlaps=0; diarization-confirmed overlaps=0
+Mixed audio: /Volumes/develop/AI-Dubbing/work/42503442096-1-192/mix.wav
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mux.py
+Created /Volumes/develop/AI-Dubbing/output/test_dub.mp4
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/merge_segments.py
+Created 1330 speaker-labelled lines; saved /Volumes/develop/AI-Dubbing/work/42503442096-1-192/segments.json
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/dialogue.py
+Prepared 43 dialogue segments with non-overlap speech budgets
+SEG_0000 0.00-3.60 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0001 3.60-11.12 speaker=SPEAKER_00 overlap=False budget=7.52s
+SEG_0002 11.12-17.28 speaker=SPEAKER_00 overlap=False budget=6.16s
+SEG_0003 17.28-22.64 speaker=SPEAKER_00 overlap=False budget=5.36s
+SEG_0004 22.64-28.32 speaker=SPEAKER_00 overlap=False budget=5.68s
+SEG_0005 28.32-32.32 speaker=SPEAKER_00 overlap=False budget=4.00s
+SEG_0006 32.32-36.48 speaker=SPEAKER_00 overlap=False budget=4.16s
+SEG_0007 36.48-42.16 speaker=SPEAKER_00 overlap=False budget=5.68s
+SEG_0008 42.16-45.76 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0009 45.76-51.84 speaker=SPEAKER_00 overlap=False budget=6.08s
+SEG_0010 51.84-56.56 speaker=SPEAKER_00 overlap=False budget=4.72s
+SEG_0011 56.56-61.60 speaker=SPEAKER_00 overlap=False budget=5.04s
+SEG_0012 61.60-65.28 speaker=SPEAKER_00 overlap=False budget=3.68s
+SEG_0013 65.28-68.16 speaker=SPEAKER_00 overlap=False budget=2.88s
+SEG_0014 68.16-76.00 speaker=SPEAKER_00 overlap=False budget=7.84s
+SEG_0015 76.00-83.12 speaker=SPEAKER_00 overlap=False budget=7.12s
+SEG_0016 83.12-85.92 speaker=SPEAKER_00 overlap=False budget=2.80s
+SEG_0017 85.92-92.24 speaker=SPEAKER_00 overlap=False budget=6.32s
+SEG_0018 92.24-98.80 speaker=SPEAKER_00 overlap=False budget=6.56s
+SEG_0019 98.80-102.56 speaker=SPEAKER_00 overlap=False budget=3.76s
+SEG_0020 102.56-106.16 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0021 106.16-108.88 speaker=SPEAKER_00 overlap=False budget=2.72s
+SEG_0022 108.88-112.48 speaker=SPEAKER_00 overlap=False budget=3.60s
+SEG_0023 112.48-116.00 speaker=SPEAKER_00 overlap=False budget=3.52s
+SEG_0024 116.00-121.76 speaker=SPEAKER_00 overlap=False budget=5.76s
+SEG_0025 121.76-127.44 speaker=SPEAKER_00 overlap=False budget=5.68s
+SEG_0026 127.44-131.20 speaker=SPEAKER_00 overlap=False budget=3.76s
+SEG_0027 131.20-138.48 speaker=SPEAKER_00 overlap=False budget=7.28s
+SEG_0028 138.48-142.48 speaker=SPEAKER_00 overlap=False budget=4.00s
+SEG_0029 142.48-151.12 speaker=SPEAKER_00 overlap=False budget=8.64s
+SEG_0030 151.12-156.24 speaker=SPEAKER_00 overlap=False budget=5.12s
+SEG_0031 156.24-162.56 speaker=SPEAKER_00 overlap=False budget=6.32s
+SEG_0032 162.56-170.00 speaker=SPEAKER_00 overlap=False budget=7.44s
+SEG_0033 170.00-174.88 speaker=SPEAKER_00 overlap=False budget=4.88s
+SEG_0034 174.88-177.84 speaker=SPEAKER_00 overlap=False budget=2.96s
+SEG_0035 177.84-181.04 speaker=SPEAKER_00 overlap=False budget=3.20s
+SEG_0036 181.04-186.08 speaker=SPEAKER_00 overlap=False budget=5.04s
+SEG_0037 186.08-188.96 speaker=SPEAKER_00 overlap=False budget=2.88s
+SEG_0038 188.96-191.92 speaker=SPEAKER_00 overlap=False budget=2.96s
+SEG_0039 191.92-200.08 speaker=SPEAKER_01 overlap=False budget=8.16s
+SEG_0040 200.08-203.84 speaker=SPEAKER_01 overlap=False budget=3.76s
+SEG_0041 203.84-207.68 speaker=SPEAKER_01 overlap=False budget=3.84s
+SEG_0042 207.68-210.00 speaker=SPEAKER_01 overlap=False budget=2.32s
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/sfx.py timeline
+Selected 0 sound effects from local library
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/ambience.py
+Selected ambience candidate
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mix_audio.py
+Overlaps mixed cleanly: SEG_0000↔SEG_0001 0.03s; SEG_0006↔SEG_0007 0.27s; SEG_0035↔SEG_0036 0.27s
+TTS timeline check: incorrect overlaps=0; diarization-confirmed overlaps=0
+Mixed audio: /Volumes/develop/AI-Dubbing/work/42503442096-1-192/mix.wav
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/mux.py
+Created /Volumes/develop/AI-Dubbing/output/test_dub.mp4
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/merge_segments.py
+Created 1330 speaker-labelled lines; saved /Volumes/develop/AI-Dubbing/work/42503442096-1-192/segments.json

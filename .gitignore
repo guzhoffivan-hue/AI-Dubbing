@@ -2,20 +2,24 @@
 __pycache__/
 *.pyc
 .DS_Store
-work/
-output/
-logs/
-input/
-models/
+# Generated run data. These are anchored to the repository root on purpose: an
+# unanchored "models/" also matched core/app/models/, so the core's models package
+# was never tracked and a clone without that directory cannot import the core.
+/work/
+/output/
+/logs/
+/input/
+/models/
+/tts/
+/voice_profiles/
 test_run_1200s/work/
 test_run_1200s/output/
 test_run_1200s/logs/
 *.bak*
-tts/
-voice_profiles/
 *.wav
 *.mp4
 .venv/
 .env
 .freebuff
 test_run_1200s/.venvs/
+test_run_1200s/.venvs

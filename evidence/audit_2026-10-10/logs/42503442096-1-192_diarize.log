@@ -1,0 +1,233 @@
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/diarize.py
+Traceback (most recent call last):
+  File "/Volumes/develop/AI-Dubbing/scripts/diarize.py", line 26, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/diarize.py", line 11, in main
+    pipeline=Pipeline.from_pretrained('pyannote/speaker-diarization-3.1',token=token)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Pipeline.from_pretrained() got an unexpected keyword argument 'token'
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/diarize.py
+Traceback (most recent call last):
+  File "/Volumes/develop/AI-Dubbing/scripts/diarize.py", line 30, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/diarize.py", line 15, in main
+    pipeline=Pipeline.from_pretrained('pyannote/speaker-diarization-3.1',use_auth_token=token)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/core/pipeline.py", line 138, in from_pretrained
+    pipeline = Klass(**params)
+               ^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/pipelines/speaker_diarization.py", line 130, in __init__
+    model: Model = get_model(segmentation, use_auth_token=use_auth_token)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/pipelines/utils/getter.py", line 75, in get_model
+    model = Model.from_pretrained(
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/core/model.py", line 671, in from_pretrained
+    loaded_checkpoint = pl_load(path_for_pl, map_location=map_location)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/lightning_fabric/utilities/cloud_io.py", line 73, in _load
+    return torch.load(
+           ^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/torch/serialization.py", line 1524, in load
+    raise pickle.UnpicklingError(_get_wo_message(str(e))) from None
+_pickle.UnpicklingError: Weights only load failed. This file can still be loaded, to do so you have two options, [1mdo those steps only if you trust the source of the checkpoint[0m. 
+	(1) In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.
+	(2) Alternatively, to load with `weights_only=True` please check the recommended steps in the following error message.
+	WeightsUnpickler error: Unsupported global: GLOBAL torch.torch_version.TorchVersion was not an allowed global by default. Please use `torch.serialization.add_safe_globals([torch.torch_version.TorchVersion])` or the `torch.serialization.safe_globals([torch.torch_version.TorchVersion])` context manager to allowlist this global if you trust this class/function.
+
+Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/diarize.py
+Traceback (most recent call last):
+  File "/Volumes/develop/AI-Dubbing/scripts/diarize.py", line 34, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/diarize.py", line 19, in main
+    pipeline=Pipeline.from_pretrained('pyannote/speaker-diarization-3.1',use_auth_token=token)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/core/pipeline.py", line 138, in from_pretrained
+    pipeline = Klass(**params)
+               ^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/pipelines/speaker_diarization.py", line 130, in __init__
+    model: Model = get_model(segmentation, use_auth_token=use_auth_token)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/pipelines/utils/getter.py", line 75, in get_model
+    model = Model.from_pretrained(
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/core/model.py", line 671, in from_pretrained
+    loaded_checkpoint = pl_load(path_for_pl, map_location=map_location)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/lightning_fabric/utilities/cloud_io.py", line 73, in _load
+    return torch.load(
+           ^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/torch/serialization.py", line 1524, in load
+    raise pickle.UnpicklingError(_get_wo_message(str(e))) from None
+_pickle.UnpicklingError: Weights only load failed. This file can still be loaded, to do so you have two options, [1mdo those steps only if you trust the source of the checkpoint[0m. 
+	(1) In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.
+	(2) Alternatively, to load with `weights_only=True` please check the recommended steps in the following error message.
+	WeightsUnpickler error: Unsupported global: GLOBAL pyannote.audio.core.task.Specifications was not an allowed global by default. Please use `torch.serialization.add_safe_globals([pyannote.audio.core.task.Specifications])` or the `torch.serialization.safe_globals([pyannote.audio.core.task.Specifications])` context manager to allowlist this global if you trust this class/function.
+
+Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/diarize.py
+Traceback (most recent call last):
+  File "/Volumes/develop/AI-Dubbing/scripts/diarize.py", line 35, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/diarize.py", line 20, in main
+    pipeline=Pipeline.from_pretrained('pyannote/speaker-diarization-3.1',use_auth_token=token)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/core/pipeline.py", line 138, in from_pretrained
+    pipeline = Klass(**params)
+               ^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/pipelines/speaker_diarization.py", line 130, in __init__
+    model: Model = get_model(segmentation, use_auth_token=use_auth_token)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/pipelines/utils/getter.py", line 75, in get_model
+    model = Model.from_pretrained(
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/core/model.py", line 671, in from_pretrained
+    loaded_checkpoint = pl_load(path_for_pl, map_location=map_location)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/lightning_fabric/utilities/cloud_io.py", line 73, in _load
+    return torch.load(
+           ^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/torch/serialization.py", line 1524, in load
+    raise pickle.UnpicklingError(_get_wo_message(str(e))) from None
+_pickle.UnpicklingError: Weights only load failed. This file can still be loaded, to do so you have two options, [1mdo those steps only if you trust the source of the checkpoint[0m. 
+	(1) In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.
+	(2) Alternatively, to load with `weights_only=True` please check the recommended steps in the following error message.
+	WeightsUnpickler error: Unsupported global: GLOBAL pyannote.audio.core.task.Problem was not an allowed global by default. Please use `torch.serialization.add_safe_globals([pyannote.audio.core.task.Problem])` or the `torch.serialization.safe_globals([pyannote.audio.core.task.Problem])` context manager to allowlist this global if you trust this class/function.
+
+Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/diarize.py
+Traceback (most recent call last):
+  File "/Volumes/develop/AI-Dubbing/scripts/diarize.py", line 35, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/diarize.py", line 20, in main
+    pipeline=Pipeline.from_pretrained('pyannote/speaker-diarization-3.1',use_auth_token=token)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/core/pipeline.py", line 138, in from_pretrained
+    pipeline = Klass(**params)
+               ^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/pipelines/speaker_diarization.py", line 130, in __init__
+    model: Model = get_model(segmentation, use_auth_token=use_auth_token)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/pipelines/utils/getter.py", line 75, in get_model
+    model = Model.from_pretrained(
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/core/model.py", line 671, in from_pretrained
+    loaded_checkpoint = pl_load(path_for_pl, map_location=map_location)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/lightning_fabric/utilities/cloud_io.py", line 73, in _load
+    return torch.load(
+           ^^^^^^^^^^^
+  File "/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/torch/serialization.py", line 1524, in load
+    raise pickle.UnpicklingError(_get_wo_message(str(e))) from None
+_pickle.UnpicklingError: Weights only load failed. This file can still be loaded, to do so you have two options, [1mdo those steps only if you trust the source of the checkpoint[0m. 
+	(1) In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.
+	(2) Alternatively, to load with `weights_only=True` please check the recommended steps in the following error message.
+	WeightsUnpickler error: Unsupported global: GLOBAL pyannote.audio.core.task.Resolution was not an allowed global by default. Please use `torch.serialization.add_safe_globals([pyannote.audio.core.task.Resolution])` or the `torch.serialization.safe_globals([pyannote.audio.core.task.Resolution])` context manager to allowlist this global if you trust this class/function.
+
+Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/diarize.py
+/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/models/blocks/pooling.py:104: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/ReduceOps.cpp:1839.)
+  std = sequences.std(dim=-1, correction=1)
+Detected 1 speakers; 1 utterances
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/diarize.py
+/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/models/blocks/pooling.py:104: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/ReduceOps.cpp:1839.)
+  std = sequences.std(dim=-1, correction=1)
+Detected 1 speakers; 19 utterances
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/diarize.py
+/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/models/blocks/pooling.py:104: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/ReduceOps.cpp:1839.)
+  std = sequences.std(dim=-1, correction=1)
+Detected 1 speakers; 19 utterances
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/diarize.py
+/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/models/blocks/pooling.py:104: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/ReduceOps.cpp:1839.)
+  std = sequences.std(dim=-1, correction=1)
+Detected 1 speakers; 19 utterances
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/diarize.py
+/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/models/blocks/pooling.py:104: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/ReduceOps.cpp:1839.)
+  std = sequences.std(dim=-1, correction=1)
+Diarization model=pyannote/speaker-diarization-3.1; bounds=2..8; detected=2; turns=3; confirmed_overlap_intervals=0
+SPEAKER_00: voice_type=female confidence=medium
+SPEAKER_01: voice_type=unknown confidence=low
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/diarize.py
+/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/models/blocks/pooling.py:104: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/ReduceOps.cpp:1839.)
+  std = sequences.std(dim=-1, correction=1)
+MERGED speakers: {'SPEAKER_01': 'SPEAKER_00'}
+Traceback (most recent call last):
+  File "/Volumes/develop/AI-Dubbing/scripts/diarize.py", line 90, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Volumes/develop/AI-Dubbing/scripts/diarize.py", line 85, in main
+    write_json(a.output,result); write_json(WORK/'speakers.json',result)
+               ^^^^^^^^
+AttributeError: 'str' object has no attribute 'output'
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/diarize.py
+/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/models/blocks/pooling.py:104: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/ReduceOps.cpp:1839.)
+  std = sequences.std(dim=-1, correction=1)
+MERGED speakers: {'SPEAKER_01': 'SPEAKER_00'}
+WARNING: diarization returned only 1 speakers (minimum requested 2); count constraint could not be met.
+Diarization model=pyannote/speaker-diarization-3.1; bounds=2..8; detected=1; turns=3; confirmed_overlap_intervals=0
+SPEAKER_00: voice_type=female confidence=medium
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/diarize.py
+/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/models/blocks/pooling.py:104: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/ReduceOps.cpp:1839.)
+  std = sequences.std(dim=-1, correction=1)
+MERGED speakers: {'SPEAKER_01': 'SPEAKER_00'}
+WARNING: diarization returned only 1 speakers (minimum requested 2); count constraint could not be met.
+Diarization model=pyannote/speaker-diarization-3.1; bounds=2..8; detected=1; turns=2; confirmed_overlap_intervals=0
+SPEAKER_00: voice_type=female confidence=high
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/diarize.py
+/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/models/blocks/pooling.py:104: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/ReduceOps.cpp:1839.)
+  std = sequences.std(dim=-1, correction=1)
+Diarization model=pyannote/speaker-diarization-3.1; bounds=2..8; detected=2; turns=2; confirmed_overlap_intervals=0
+SPEAKER_00: voice_type=female confidence=medium
+SPEAKER_01: voice_type=unknown confidence=low
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/diarize.py
+/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/models/blocks/pooling.py:104: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/ReduceOps.cpp:1839.)
+  std = sequences.std(dim=-1, correction=1)
+WARNING: 4 diarization turns are shorter than 0.75 seconds.
+Diarization model=pyannote/speaker-diarization-3.1; bounds=2..8; detected=2; turns=20; confirmed_overlap_intervals=3
+SPEAKER_00: voice_type=female confidence=high
+SPEAKER_01: voice_type=unknown confidence=low
+
+
+$ /Volumes/develop/AI-Dubbing/.venvs/asr/bin/python /Volumes/develop/AI-Dubbing/scripts/diarize.py
+/Volumes/develop/AI-Dubbing/.venvs/asr/lib/python3.11/site-packages/pyannote/audio/models/blocks/pooling.py:104: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/ReduceOps.cpp:1839.)
+  std = sequences.std(dim=-1, correction=1)
+WARNING: 4 diarization turns are shorter than 0.75 seconds.
+Diarization model=pyannote/speaker-diarization-3.1; bounds=2..8; detected=2; turns=20; confirmed_overlap_intervals=3
+SPEAKER_00: voice_type=female confidence=high
+SPEAKER_01: voice_type=unknown confidence=low

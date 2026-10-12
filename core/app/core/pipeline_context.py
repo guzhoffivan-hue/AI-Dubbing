@@ -1,6 +1,8 @@
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from app.core.cancellation import CancelToken
+from app.core.progress import LineCallback
 from projects.project import Project
 
 
@@ -12,6 +14,12 @@ class PipelineContext:
     transcript: object | None = None
     translation: object | None = None
     characters: list = field(default_factory=list)
+    # Set by the pipeline while a stage runs: the runner polls this token so the
+    # stage can stop its own process on a user cancel or a timeout.
+    cancel: CancelToken | None = None
+    # Set by the pipeline while a stage runs: fed with every log line of the
+    # stage, so its progress reader can report how far the stage has got.
+    on_output_line: LineCallback | None = None
 
     @property
     def project_dir(self) -> Path:
