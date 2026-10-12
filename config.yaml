@@ -10,6 +10,7 @@ diarization_merge_cosine: 0.70
 gender_model: audeering/wav2vec2-large-robust-6-ft-age-gender
 tts_backend: qwen3_mlx
 enable_diarization: true
+enable_subtitles: true
 enable_sfx: true
 enable_ambience: true
 enable_music: false

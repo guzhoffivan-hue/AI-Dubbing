@@ -215,6 +215,7 @@ class DubStartRequest(BaseModel):
     duration: float | None = Field(None, description="Optional clip duration in seconds")
     start: float = Field(0.0, description="Start offset in seconds")
     resume: bool = Field(True, description="Resume completed stages")
+    subtitles: bool | None = Field(None, description="Enable Russian subtitles")
 
 
 class ConfigUpdateRequest(BaseModel):
@@ -529,6 +530,23 @@ def start_dub(req: DubStartRequest) -> dict[str, Any]:
         work_dir = ROOT / "work" / slug
     work_dir.mkdir(parents=True, exist_ok=True)
 
+    if req.subtitles is not None:
+        cfg_path = ROOT / "config.yaml"
+        if cfg_path.exists():
+            import re as _re
+            raw_cfg = cfg_path.read_text(encoding="utf-8")
+            val_str = "true" if req.subtitles else "false"
+            if _re.search(r"^enable_subtitles\s*:", raw_cfg, flags=_re.MULTILINE):
+                raw_cfg = _re.sub(
+                    r"^enable_subtitles\s*:.*$",
+                    f"enable_subtitles: {val_str}",
+                    raw_cfg,
+                    flags=_re.MULTILINE,
+                )
+            else:
+                raw_cfg = raw_cfg.rstrip() + f"\nenable_subtitles: {val_str}\n"
+            cfg_path.write_text(raw_cfg, encoding="utf-8")
+
     layout = EngineLayout(
         root=ROOT,
         work_dir=work_dir,
@@ -544,6 +562,22 @@ def start_dub(req: DubStartRequest) -> dict[str, Any]:
     project_dir.mkdir(exist_ok=True)
 
     state = PipelineState.load(project_dir) if (req.resume and (project_dir / "pipeline_state.json").exists()) else PipelineState()
+    if req.subtitles is not None and state.is_completed(PipelineStage.VIDEO_RENDER.value):
+        mux_opt_path = work_dir / "mux_options.json"
+        prev_subs = None
+        if mux_opt_path.exists():
+            try:
+                prev_subs = json.loads(mux_opt_path.read_text(encoding="utf-8")).get("enable_subtitles")
+            except Exception:
+                prev_subs = None
+        if prev_subs != bool(req.subtitles):
+            state.get(PipelineStage.VIDEO_RENDER.value).status = StageStatus.NOT_STARTED
+            state.save(project_dir)
+            if layout.final_file.exists():
+                try:
+                    layout.final_file.unlink()
+                except OSError:
+                    pass
     cancel = CancelToken()
 
     context = PipelineContext(
