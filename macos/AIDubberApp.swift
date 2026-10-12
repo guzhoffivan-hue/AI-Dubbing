@@ -238,11 +238,21 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKScriptMessageHandler
         window.titleVisibility = .hidden
         window.titlebarAppearsTransparent = true
         window.isMovableByWindowBackground = true
-        window.backgroundColor = NSColor(calibratedWhite: 0.96, alpha: 1.0)
+        window.isOpaque = false
+        window.backgroundColor = .clear
+        window.hasShadow = true
+        window.appearance = NSAppearance(named: .aqua)
         window.setContentSize(NSSize(width: 680, height: 459))
         window.minSize = NSSize(width: 680, height: 459)
         window.maxSize = NSSize(width: 680, height: 459)
         window.center()
+
+        let visualEffect = NSVisualEffectView(frame: rect)
+        visualEffect.material = .hudWindow
+        visualEffect.blendingMode = .behindWindow
+        visualEffect.state = .active
+        visualEffect.appearance = NSAppearance(named: .aqua)
+        visualEffect.autoresizingMask = [.width, .height]
 
         let contentController = WKUserContentController()
         contentController.add(self, name: "nativeApp")
@@ -254,7 +264,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKScriptMessageHandler
         webView.autoresizingMask = [.width, .height]
         webView.setValue(false, forKey: "drawsBackground")
 
-        window.contentView = webView
+        visualEffect.addSubview(webView)
+        window.contentView = visualEffect
         window.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)
 

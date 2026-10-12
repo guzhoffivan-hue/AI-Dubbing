@@ -17,7 +17,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 
-from merge_segments import PAUSE_SPLIT, MAX_SEGMENT_DURATION, group_words, absorb_zero_span_groups  # noqa: E402
+from merge_segments import PAUSE_SPLIT, MAX_SEGMENT_DURATION, assign_speakers, group_words, absorb_zero_span_groups  # noqa: E402
 
 
 def tok(text, start, end, speaker='SPEAKER_00', punct=''):
@@ -136,6 +136,31 @@ class InvariantTests(unittest.TestCase):
 
     def test_grouping_is_deterministic(self):
         self.assertEqual(group_words(self.words), group_words(self.words))
+
+
+class AssignSpeakerTests(unittest.TestCase):
+    def test_collar_word_snaps_to_nearest_turn_instead_of_speaker_00(self):
+        words = [
+            {'text': '你', 'start': 9.90, 'end': 9.98, 'punctuation_after': ''},
+            {'text': '好', 'start': 10.00, 'end': 10.40, 'punctuation_after': '。'},
+        ]
+        turns = [{'speaker_id': 'SPEAKER_01', 'start': 10.00, 'end': 12.00}]
+        assigned = assign_speakers(words, turns)
+        self.assertEqual([w['speaker'] for w in assigned], ['SPEAKER_01', 'SPEAKER_01'])
+
+    def test_intra_clause_micro_blip_is_smoothed(self):
+        words = [
+            {'text': '我', 'start': 1.0, 'end': 1.3, 'punctuation_after': ''},
+            {'text': '们', 'start': 1.3, 'end': 1.5, 'punctuation_after': ''},
+            {'text': '去', 'start': 1.5, 'end': 1.9, 'punctuation_after': '。'},
+        ]
+        turns = [
+            {'speaker_id': 'SPEAKER_00', 'start': 0.8, 'end': 1.31},
+            {'speaker_id': 'SPEAKER_01', 'start': 1.31, 'end': 1.49},
+            {'speaker_id': 'SPEAKER_00', 'start': 1.49, 'end': 2.5},
+        ]
+        assigned = assign_speakers(words, turns)
+        self.assertEqual([w['speaker'] for w in assigned], ['SPEAKER_00', 'SPEAKER_00', 'SPEAKER_00'])
 
 
 if __name__ == '__main__':

@@ -30,14 +30,102 @@ def attach_punctuation(text, words):
     return words
 
 def assign_speakers(words, diar_segments):
+    if not words:
+        return words
+    if not diar_segments:
+        for w in words:
+            w['speaker'] = 'SPEAKER_00'
+        return words
+
+    # Determine dominant speaker as ultimate fallback
+    spk_totals = {}
+    for seg in diar_segments:
+        s = seg.get('speaker_id') or seg.get('speaker') or 'SPEAKER_00'
+        spk_totals[s] = spk_totals.get(s, 0.0) + max(0.0, float(seg['end']) - float(seg['start']))
+    dominant_spk = max(spk_totals, key=spk_totals.get) if spk_totals else 'SPEAKER_00'
+
     for w in words:
-        mid = (w['start'] + w['end']) / 2.0
-        spk = 'SPEAKER_00'
+        w_start = float(w['start'])
+        w_end = float(w['end'])
+        mid = (w_start + w_end) / 2.0
+        best_spk = None
+        best_score = -1.0
+
+        # 1. Check overlapping or midpoint-containing diarization turns
         for seg in diar_segments:
-            if seg['start'] <= mid <= seg['end']:
-                spk = seg.get('speaker_id') or seg.get('speaker') or spk
-                break
-        w['speaker'] = spk
+            s_start = float(seg['start'])
+            s_end = float(seg['end'])
+            spk = seg.get('speaker_id') or seg.get('speaker') or dominant_spk
+            overlap = min(w_end, s_end) - max(w_start, s_start)
+            if overlap > 0:
+                # Weight by overlap + slight preference for longer stable turns over micro-blips
+                turn_len = max(0.05, s_end - s_start)
+                score = overlap + min(0.02, turn_len * 0.002)
+                if score > best_score:
+                    best_score = score
+                    best_spk = spk
+            elif s_start <= mid <= s_end:
+                turn_len = max(0.05, s_end - s_start)
+                if turn_len > best_score:
+                    best_score = turn_len
+                    best_spk = spk
+
+        # 2. If word falls in a VAD collar gap, snap to nearest turn within 2.0s instead of SPEAKER_00
+        if best_spk is None:
+            min_dist = 2.0
+            for seg in diar_segments:
+                s_start = float(seg['start'])
+                s_end = float(seg['end'])
+                dist = (s_start - mid) if mid < s_start else ((mid - s_end) if mid > s_end else 0.0)
+                if dist < min_dist:
+                    min_dist = dist
+                    best_spk = seg.get('speaker_id') or seg.get('speaker') or dominant_spk
+
+        w['speaker'] = best_spk or dominant_spk
+
+    # 3. Smooth 1-2 word micro-blip speaker flips inside continuous clauses (A -> B -> A)
+    n = len(words)
+    for span_len in (1, 2):
+        i = 1
+        while i + span_len < n:
+            prev_w = words[i - 1]
+            next_w = words[i + span_len]
+            island = words[i:i + span_len]
+            spk_prev = prev_w.get('speaker')
+            spk_next = next_w.get('speaker')
+            if spk_prev == spk_next and any(x.get('speaker') != spk_prev for x in island):
+                island_dur = float(island[-1]['end']) - float(island[0]['start'])
+                gap_before = max(0.0, float(island[0]['start']) - float(prev_w['end']))
+                gap_after = max(0.0, float(next_w['start']) - float(island[-1]['end']))
+                prev_punct = prev_w.get('punctuation_after', '')
+                island_punct = ''.join(x.get('punctuation_after', '') for x in island)
+                has_terminal = any(c in (prev_punct + island_punct) for c in SENTENCE_END)
+                if island_dur <= 0.48 and gap_before < 0.35 and gap_after < 0.35 and not has_terminal:
+                    for x in island:
+                        x['speaker'] = spk_prev
+            i += 1
+
+    # 4. Snap 1-character leading collar bleed right after a sentence break or pause
+    for i in range(1, n - 2):
+        prev_w = words[i - 1]
+        cur_w = words[i]
+        next1 = words[i + 1]
+        next2 = words[i + 2]
+        prev_terminal = any(c in prev_w.get('punctuation_after', '') for c in SENTENCE_END)
+        gap_before = max(0.0, float(cur_w['start']) - float(prev_w['end']))
+        gap_after = max(0.0, float(next1['start']) - float(cur_w['end']))
+        cur_dur = float(cur_w['end']) - float(cur_w['start'])
+        cur_terminal = any(c in cur_w.get('punctuation_after', '') for c in SENTENCE_END)
+        if (
+            (prev_terminal or gap_before >= 0.35)
+            and not cur_terminal
+            and cur_dur <= 0.25
+            and gap_after <= 0.15
+            and next1.get('speaker') == next2.get('speaker')
+            and cur_w.get('speaker') != next1.get('speaker')
+        ):
+            cur_w['speaker'] = next1.get('speaker')
+
     return words
 
 def _bounds(group):

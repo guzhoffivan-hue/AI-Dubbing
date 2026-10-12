@@ -33,18 +33,25 @@
     color: #111;
   }
 
-  /* Main Window Container (matches 680x459 Figma frame) */
+  /* Main Window Container (matches 680x459 Figma frame, semi-transparent over NSVisualEffectView) */
   .window {
     position: relative;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(180deg, rgba(252, 252, 254, 0.98) 0%, rgba(242, 242, 246, 0.98) 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.34) 0%,
+      rgba(244, 244, 248, 0.24) 55%,
+      rgba(236, 236, 242, 0.28) 100%
+    );
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding: 12px 24px 12px 24px;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.78),
+      inset 0 0 0 0.5px rgba(255, 255, 255, 0.42);
   }
 
   /* Titlebar area */
@@ -62,14 +69,14 @@
 
   .app-title {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 66px;
     font-size: 13px;
     font-weight: 700;
-    color: rgba(0, 0, 0, 0.85);
+    color: rgba(0, 0, 0, 0.88);
     letter-spacing: -0.15px;
     cursor: default;
     pointer-events: none;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.55);
   }
 
   .titlebar-actions {
@@ -81,17 +88,27 @@
   .icon-pill {
     font-size: 11px;
     font-weight: 500;
-    color: rgba(0, 0, 0, 0.5);
-    background: rgba(0, 0, 0, 0.05);
-    border: 0.5px solid rgba(0, 0, 0, 0.08);
-    padding: 3px 9px;
+    color: rgba(0, 0, 0, 0.68);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.52) 0%, rgba(210, 210, 216, 0.38) 100%);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 0.5px solid rgba(0, 0, 0, 0.14);
+    box-shadow:
+      inset 0 1px 0.5px rgba(255, 255, 255, 0.85),
+      inset 0 -0.5px 1px rgba(255, 255, 255, 0.45),
+      0 2px 6px rgba(0, 0, 0, 0.06);
+    padding: 3px 10px;
     border-radius: 99px;
     cursor: pointer;
-    transition: all 0.15s ease;
+    transition: all 0.18s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .icon-pill:hover {
-    background: rgba(0, 0, 0, 0.09);
-    color: rgba(0, 0, 0, 0.8);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.68) 0%, rgba(220, 220, 226, 0.5) 100%);
+    color: rgba(0, 0, 0, 0.9);
+    transform: translateY(-0.5px);
+  }
+  .icon-pill:active {
+    transform: scale(0.96);
   }
 
   /* Center Workspace */
@@ -103,59 +120,175 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    perspective: 1000px;
   }
 
-  /* Morphing Gray Well Card (Drop Zone -> "Ожидайте" -> "Готово!") */
+  /* =========================================================
+     Control Center Liquid Glass Bubble ("Бабл стекла")
+     Morphs: Drop Zone (237px) -> "Ожидайте" (112px) -> "Готово!" (152px)
+     ========================================================= */
   .well-card {
+    --mx: 50%;
+    --my: 18%;
+    --rx: 0deg;
+    --ry: 0deg;
     width: 528px;
     height: 237px;
     border-radius: 34px;
-    background: linear-gradient(180deg, #BEBEC0 0%, #C6C6C8 22%, #C7C7C9 78%, #CECED0 100%);
+    background:
+      radial-gradient(
+        390px circle at var(--mx) var(--my),
+        rgba(255, 255, 255, 0.42) 0%,
+        rgba(255, 255, 255, 0.12) 38%,
+        rgba(255, 255, 255, 0.0) 70%
+      ),
+      linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.32) 0%,
+        rgba(255, 255, 255, 0.06) 44%,
+        rgba(255, 255, 255, 0.02) 62%,
+        rgba(255, 255, 255, 0.22) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(170, 170, 176, 0.42) 0%,
+        rgba(184, 184, 190, 0.36) 26%,
+        rgba(188, 188, 194, 0.36) 74%,
+        rgba(202, 202, 208, 0.46) 100%
+      );
+    backdrop-filter: blur(30px) saturate(190%) contrast(1.02);
+    -webkit-backdrop-filter: blur(30px) saturate(190%) contrast(1.02);
+    border: 0.5px solid rgba(0, 0, 0, 0.2);
     box-shadow:
-      inset 0 6px 14px rgba(0, 0, 0, 0.22),
-      inset 0 -4px 10px rgba(255, 255, 255, 0.55),
-      inset 0 1px 2px rgba(0, 0, 0, 0.18),
-      0 1px 0 rgba(255, 255, 255, 0.85),
-      0 14px 28px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+      /* Crisp bright Control Center specular glass rim */
+      inset 0 1.5px 1px rgba(255, 255, 255, 0.92),
+      inset 0 -1.5px 1.5px rgba(255, 255, 255, 0.68),
+      inset 1.5px 0 1.5px rgba(255, 255, 255, 0.58),
+      inset -1.5px 0 1.5px rgba(255, 255, 255, 0.58),
+      /* 3D inner curved depth & bottom luminous cushion */
+      inset 0 10px 22px rgba(0, 0, 0, 0.15),
+      inset 0 -12px 24px rgba(255, 255, 255, 0.36),
+      inset 0 2px 5px rgba(0, 0, 0, 0.08),
+      /* Outer floating elevation shadow */
+      0 1px 0 rgba(255, 255, 255, 0.55),
+      0 18px 38px rgba(0, 0, 0, 0.12),
+      0 4px 12px rgba(0, 0, 0, 0.06);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
     cursor: pointer;
+    transform: rotateX(var(--rx)) rotateY(var(--ry)) translateZ(0);
     transition:
       height 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.2s ease,
+      transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
       background 0.3s ease,
-      box-shadow 0.3s ease;
+      box-shadow 0.28s ease;
     overflow: hidden;
   }
 
-  .well-card.drag-over {
-    background: linear-gradient(180deg, #B2C7DF 0%, #BDD2EA 50%, #C7DCF4 100%);
+  /* Iridescent / Specular rim highlight that shifts with cursor like macOS Control Center */
+  .well-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.4px;
+    background:
+      radial-gradient(
+        280px circle at var(--mx) var(--my),
+        rgba(255, 255, 255, 1) 0%,
+        rgba(215, 240, 255, 0.72) 28%,
+        rgba(255, 230, 245, 0.48) 52%,
+        rgba(255, 255, 255, 0.22) 100%
+      );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* Top curved glass meniscus reflection */
+  .well-card::after {
+    content: "";
+    position: absolute;
+    inset: 1px 1px auto 1px;
+    height: 46%;
+    border-radius: 33px 33px 90px 90px / 33px 33px 40px 40px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.28) 0%,
+      rgba(255, 255, 255, 0.06) 65%,
+      rgba(255, 255, 255, 0.0) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .well-card:hover {
     box-shadow:
-      inset 0 6px 16px rgba(0, 122, 255, 0.28),
-      inset 0 -4px 10px rgba(255, 255, 255, 0.7),
-      0 0 0 2px rgba(0, 122, 255, 0.45);
-    transform: scale(1.01);
+      inset 0 1.5px 1.2px rgba(255, 255, 255, 0.98),
+      inset 0 -1.5px 1.5px rgba(255, 255, 255, 0.78),
+      inset 1.5px 0 1.5px rgba(255, 255, 255, 0.68),
+      inset -1.5px 0 1.5px rgba(255, 255, 255, 0.68),
+      inset 0 9px 20px rgba(0, 0, 0, 0.13),
+      inset 0 -14px 26px rgba(255, 255, 255, 0.44),
+      0 1px 0 rgba(255, 255, 255, 0.65),
+      0 22px 42px rgba(0, 0, 0, 0.14),
+      0 5px 14px rgba(0, 0, 0, 0.07);
+  }
+
+  /* Tactile Control Center 3D squish & illumination when pressed */
+  .well-card:active,
+  .well-card.is-pressed {
+    transform: rotateX(var(--rx)) rotateY(var(--ry)) scale(0.982);
+    box-shadow:
+      inset 0 2px 1.5px rgba(255, 255, 255, 1),
+      inset 0 -2px 2px rgba(255, 255, 255, 0.82),
+      inset 0 12px 26px rgba(0, 0, 0, 0.2),
+      inset 0 -14px 28px rgba(255, 255, 255, 0.52),
+      0 10px 22px rgba(0, 0, 0, 0.1),
+      0 2px 6px rgba(0, 0, 0, 0.06);
+  }
+
+  .well-card.drag-over {
+    background:
+      radial-gradient(
+        400px circle at var(--mx) var(--my),
+        rgba(255, 255, 255, 0.55) 0%,
+        rgba(120, 190, 255, 0.25) 45%,
+        rgba(0, 122, 255, 0.08) 100%
+      ),
+      linear-gradient(180deg, rgba(160, 200, 245, 0.5) 0%, rgba(185, 218, 252, 0.46) 100%);
+    box-shadow:
+      inset 0 2px 1.5px rgba(255, 255, 255, 0.98),
+      inset 0 -2px 2px rgba(255, 255, 255, 0.8),
+      inset 0 8px 20px rgba(0, 122, 255, 0.22),
+      0 0 0 2px rgba(0, 122, 255, 0.45),
+      0 20px 40px rgba(0, 122, 255, 0.16);
+    transform: scale(1.012);
   }
 
   .well-card.state-running {
     height: 112px;
-    cursor: default;
+    cursor: pointer;
   }
 
   .well-card.state-done {
     height: 152px;
-    cursor: default;
+    cursor: pointer;
   }
 
   .well-title {
+    position: relative;
+    z-index: 3;
     font-size: 32px;
     font-weight: 500;
     line-height: 1.2;
-    color: #000000;
+    color: rgba(0, 0, 0, 0.92);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
     text-align: center;
     letter-spacing: -0.6px;
     transition: all 0.3s ease;
@@ -163,9 +296,12 @@
   }
 
   .well-subtitle {
+    position: relative;
+    z-index: 3;
     font-size: 13px;
     font-weight: 500;
-    color: rgba(0, 0, 0, 0.72);
+    color: rgba(0, 0, 0, 0.68);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
     margin-top: 6px;
     text-align: center;
     max-width: 460px;
@@ -176,10 +312,12 @@
 
   .well-caption-bottom {
     position: absolute;
+    z-index: 3;
     bottom: 16px;
     font-size: 13px;
     font-weight: 500;
     color: rgba(0, 0, 0, 0.82);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.32);
     letter-spacing: -0.1px;
     transition: opacity 0.25s ease;
   }
@@ -200,7 +338,7 @@
     transition: opacity 0.25s ease, transform 0.25s ease;
   }
 
-  /* Native-style Pop-Up Button ("Русский (полный дубляж)") */
+  /* Native-style Glass Pop-Up Button ("Русский (полный дубляж)") */
   .popup-button-wrap {
     position: relative;
     width: 208px;
@@ -213,23 +351,35 @@
     width: 100%;
     height: 100%;
     border-radius: 12px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(232, 232, 235, 0.9) 100%);
-    border: 0.5px solid rgba(0, 0, 0, 0.14);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.72) 0%,
+      rgba(226, 226, 232, 0.56) 100%
+    );
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 0.5px solid rgba(0, 0, 0, 0.16);
     box-shadow:
-      0 2px 5px rgba(0, 0, 0, 0.08),
-      inset 0 1px 0 rgba(255, 255, 255, 0.95);
+      inset 0 1px 0.5px rgba(255, 255, 255, 0.95),
+      inset 0 -1px 1px rgba(255, 255, 255, 0.5),
+      0 3px 8px rgba(0, 0, 0, 0.08);
     padding: 0 26px 0 18px;
     font-family: var(--font-sans);
     font-size: 12px;
     font-weight: 500;
-    color: rgba(0, 0, 0, 0.85);
+    color: rgba(0, 0, 0, 0.86);
     text-align: center;
     text-align-last: center;
     cursor: pointer;
     outline: none;
+    transition: all 0.15s ease;
   }
   .popup-select:hover {
-    background: linear-gradient(180deg, #FFFFFF 0%, #EAEAEF 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.86) 0%,
+      rgba(234, 234, 240, 0.68) 100%
+    );
   }
 
   .popup-chevrons {
@@ -243,32 +393,32 @@
     opacity: 0.78;
   }
 
-  /* Glossy Blue Pill Button ("Дублировать") */
+  /* Glossy Blue Liquid Glass Pill Button ("Дублировать") */
   .btn-dub {
     min-width: 151px;
     height: 26px;
     padding: 0 22px;
     border-radius: 999px;
-    border: none;
-    background: linear-gradient(180deg, #4CA8FF 0%, #0084FF 52%, #0066DB 100%);
+    border: 0.5px solid rgba(0, 82, 204, 0.35);
+    background: linear-gradient(180deg, #52ADFF 0%, #0A84FF 52%, #0066DB 100%);
     box-shadow:
-      inset 0 1.5px 1.5px rgba(255, 255, 255, 0.75),
-      inset 0 -1px 2px rgba(0, 0, 0, 0.22),
-      0 3px 8px rgba(0, 122, 255, 0.32);
+      inset 0 1.5px 1px rgba(255, 255, 255, 0.82),
+      inset 0 -1px 1.5px rgba(0, 0, 0, 0.22),
+      0 4px 12px rgba(0, 122, 255, 0.34);
     color: #FFFFFF;
     font-family: var(--font-sans);
     font-size: 13px;
     font-weight: 500;
     letter-spacing: -0.1px;
     cursor: pointer;
-    transition: transform 0.12s ease, filter 0.15s ease, opacity 0.2s ease;
+    transition: transform 0.14s cubic-bezier(0.22, 1, 0.36, 1), filter 0.15s ease, opacity 0.2s ease;
   }
   .btn-dub:hover {
-    filter: brightness(1.05);
+    filter: brightness(1.06);
   }
   .btn-dub:active {
-    transform: scale(0.97);
-    filter: brightness(0.95);
+    transform: scale(0.965);
+    filter: brightness(0.96);
   }
 
   /* Running Controls (Progress Bar + Soft Red "Отмена") */
@@ -285,8 +435,12 @@
     width: 454px;
     height: 5px;
     border-radius: 99px;
-    background: #E2E2E6;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12);
+    background: rgba(190, 190, 198, 0.52);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow:
+      inset 0 1px 2px rgba(0, 0, 0, 0.16),
+      0 1px 0 rgba(255, 255, 255, 0.65);
     overflow: hidden;
     position: relative;
   }
@@ -296,7 +450,8 @@
     width: 6px; /* Initial dot as in Figma */
     min-width: 6px;
     border-radius: 99px;
-    background: #007AFF;
+    background: linear-gradient(90deg, #007AFF 0%, #389BFF 100%);
+    box-shadow: 0 0 6px rgba(0, 122, 255, 0.45);
     transition: width 0.35s ease;
   }
 
@@ -304,8 +459,14 @@
     width: 156px;
     height: 28px;
     border-radius: 999px;
-    border: none;
-    background: var(--red-bg);
+    border: 0.5px solid rgba(255, 49, 38, 0.18);
+    background: linear-gradient(180deg, rgba(252, 214, 214, 0.78) 0%, rgba(246, 198, 198, 0.68) 100%);
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.85),
+      inset 0 -1px 1px rgba(255, 255, 255, 0.4),
+      0 3px 8px rgba(255, 49, 38, 0.08);
     color: var(--red-text);
     font-family: var(--font-sans);
     font-size: 13px;
@@ -314,10 +475,10 @@
     transition: filter 0.15s ease, transform 0.12s ease;
   }
   .btn-cancel-soft:hover {
-    filter: brightness(0.96);
+    filter: brightness(0.97);
   }
   .btn-cancel-soft:active {
-    transform: scale(0.97);
+    transform: scale(0.965);
   }
 
   /* Done Controls */
@@ -334,20 +495,28 @@
     height: 26px;
     padding: 0 18px;
     border-radius: 999px;
-    border: 0.5px solid rgba(0, 0, 0, 0.12);
-    background: #E2E2E5;
+    border: 0.5px solid rgba(0, 0, 0, 0.16);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.68) 0%, rgba(218, 218, 224, 0.54) 100%);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    box-shadow:
+      inset 0 1px 0.5px rgba(255, 255, 255, 0.9),
+      0 2px 6px rgba(0, 0, 0, 0.07);
     color: #1C1C1E;
     font-family: var(--font-sans);
     font-size: 13px;
     font-weight: 500;
     cursor: pointer;
-    transition: background 0.15s ease;
+    transition: all 0.15s ease;
   }
   .btn-secondary-pill:hover {
-    background: #D6D6DA;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(226, 226, 232, 0.66) 100%);
+  }
+  .btn-secondary-pill:active {
+    transform: scale(0.965);
   }
 
-  /* Bottom Footer: 6-Dot Page Control + Apple Silicon badge */
+  /* Bottom Footer: Compact 3-Dot Page Control + Apple Silicon badge */
   .footer {
     display: flex;
     flex-direction: column;
@@ -357,11 +526,18 @@
   }
 
   .page-control {
-    width: 108px;
+    width: 58px;
     height: 22px;
     border-radius: 11px;
-    background: #DDD6D8;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08);
+    background: linear-gradient(180deg, rgba(206, 200, 204, 0.52) 0%, rgba(218, 212, 216, 0.44) 100%);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 0.5px solid rgba(0, 0, 0, 0.12);
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.78),
+      inset 0 -1px 1px rgba(255, 255, 255, 0.4),
+      inset 0 2px 4px rgba(0, 0, 0, 0.08),
+      0 2px 6px rgba(0, 0, 0, 0.05);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -372,30 +548,33 @@
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: #9E9A9C;
-    transition: background 0.25s ease, transform 0.25s ease;
+    background: rgba(110, 106, 110, 0.55);
+    box-shadow: 0 0.5px 0 rgba(255, 255, 255, 0.5);
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
   }
   .page-dot.active {
     background: #000000;
-    transform: scale(1.08);
+    transform: scale(1.1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
   }
 
   .hw-badge {
     font-size: 13px;
     font-weight: 500;
-    color: rgba(28, 28, 30, 0.45);
+    color: rgba(28, 28, 30, 0.52);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
     letter-spacing: -0.1px;
   }
 
   /* =========================================================
-     Modal Overlay & 4 Figma Alert Cards
+     Modal Overlay & 4 Liquid Glass Alert Cards
      ========================================================= */
   .modal-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(240, 240, 245, 0.55);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(225, 225, 232, 0.28);
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
     display: none;
     align-items: center;
     justify-content: center;
@@ -414,12 +593,24 @@
   .alert-card {
     width: 306px;
     border-radius: 34px;
-    background: linear-gradient(180deg, #FBFBFD 0%, #F1F1F4 100%);
+    background:
+      linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.72) 0%,
+        rgba(244, 244, 248, 0.56) 55%,
+        rgba(235, 235, 242, 0.64) 100%
+      );
+    backdrop-filter: blur(34px) saturate(200%);
+    -webkit-backdrop-filter: blur(34px) saturate(200%);
+    border: 0.5px solid rgba(0, 0, 0, 0.16);
     box-shadow:
-      inset 0 3px 6px rgba(255, 255, 255, 0.98),
-      inset 0 -4px 8px rgba(0, 0, 0, 0.09),
-      0 22px 48px rgba(0, 0, 0, 0.18),
-      0 0 0 1px rgba(0, 0, 0, 0.06);
+      inset 0 1.5px 1px rgba(255, 255, 255, 0.96),
+      inset 0 -1.5px 1.5px rgba(255, 255, 255, 0.68),
+      inset 1.5px 0 1px rgba(255, 255, 255, 0.6),
+      inset -1.5px 0 1px rgba(255, 255, 255, 0.6),
+      inset 0 -6px 14px rgba(0, 0, 0, 0.06),
+      0 24px 52px rgba(0, 0, 0, 0.2),
+      0 4px 12px rgba(0, 0, 0, 0.08);
     padding: 26px 22px 22px 22px;
     display: none;
     flex-direction: column;
@@ -476,8 +667,8 @@
     width: 100%;
     height: 28px;
     border-radius: 9px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: rgba(255, 255, 255, 0.86);
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.06);
     padding: 0 10px;
     font-family: var(--font-sans);
@@ -499,7 +690,10 @@
     height: 36px;
     border-radius: 999px;
     border: none;
-    background: #007AFF;
+    background: linear-gradient(180deg, #389BFF 0%, #007AFF 100%);
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.65),
+      0 3px 8px rgba(0, 122, 255, 0.25);
     color: #FFFFFF;
     font-family: var(--font-sans);
     font-size: 13.5px;
@@ -522,8 +716,9 @@
     width: 100%;
     height: 36px;
     border-radius: 999px;
-    border: none;
-    background: #DEDEE2;
+    border: 0.5px solid rgba(0, 0, 0, 0.08);
+    background: rgba(216, 216, 222, 0.72);
+    box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.75);
     color: #1C1C1E;
     font-family: var(--font-sans);
     font-size: 13.5px;
@@ -536,15 +731,16 @@
     margin-bottom: 0;
   }
   .alert-btn-gray:hover {
-    background: #D4D4D9;
+    background: rgba(206, 206, 214, 0.82);
   }
 
   .alert-btn-red {
     width: 100%;
     height: 36px;
     border-radius: 999px;
-    border: none;
-    background: #F4D2D4;
+    border: 0.5px solid rgba(255, 49, 38, 0.14);
+    background: rgba(244, 210, 212, 0.82);
+    box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.75);
     color: #FF3126;
     font-family: var(--font-sans);
     font-size: 13.5px;
@@ -561,7 +757,7 @@
     width: 100%;
     height: 4px;
     border-radius: 99px;
-    background: #DFDFE3;
+    background: rgba(210, 210, 218, 0.75);
     overflow: hidden;
     margin: 4px 0 8px 0;
   }
@@ -595,7 +791,7 @@
 
   <!-- Main Workspace -->
   <div class="workspace">
-    <!-- Morphing Gray Well Card -->
+    <!-- Morphing Control Center Liquid Glass Bubble -->
     <div id="wellCard" class="well-card" onclick="onWellClick()">
       <div id="wellTitle" class="well-title">Перетащите<br>видео сюда</div>
       <div id="wellSubtitle" class="well-subtitle" style="display:none;"></div>
@@ -633,15 +829,12 @@
     </div>
   </div>
 
-  <!-- Footer: 6-Dot Page Control + Apple Silicon Badge -->
+  <!-- Footer: 3-Dot Page Control (1: Drag & Drop, 2: Ожидайте, 3: Готово) + Apple Silicon Badge -->
   <div class="footer">
     <div class="page-control" id="pageControl">
-      <div class="page-dot active"></div>
-      <div class="page-dot"></div>
-      <div class="page-dot"></div>
-      <div class="page-dot"></div>
-      <div class="page-dot"></div>
-      <div class="page-dot"></div>
+      <div class="page-dot active" title="1: Выбор видео" onclick="onDotClick(0)" style="cursor:pointer;"></div>
+      <div class="page-dot" title="2: Ожидайте" onclick="onDotClick(1)" style="cursor:pointer;"></div>
+      <div class="page-dot" title="3: Готово" onclick="onDotClick(2)" style="cursor:pointer;"></div>
     </div>
     <div class="hw-badge"> Apple Silicon • 16 GB • Local MLX</div>
   </div>
@@ -734,6 +927,17 @@
     });
   }
 
+  function onDotClick(index) {
+    if (pollTimer) return; // Do not override while an active dubbing job is polling
+    if (index === 0) {
+      resetToIdle();
+    } else if (index === 1) {
+      enterRunningState();
+    } else if (index === 2) {
+      enterDoneState(lastOutputVideo);
+    }
+  }
+
   function setSelectedVideo(path, name) {
     selectedVideoPath = path;
     selectedVideoName = name || path.split("/").pop();
@@ -771,8 +975,34 @@
     setSelectedVideo(file.name, file.name);
   }
 
-  // Drag & Drop visuals
+  // Interactive Control Center Liquid Glass shimmer & 3D volume
   const wellCard = document.getElementById("wellCard");
+  wellCard.addEventListener("mousemove", (e) => {
+    const rect = wellCard.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    const ry = ((x - 50) / 50) * 1.8;
+    const rx = ((50 - y) / 50) * 1.8;
+    wellCard.style.setProperty("--mx", `${x.toFixed(1)}%`);
+    wellCard.style.setProperty("--my", `${y.toFixed(1)}%`);
+    wellCard.style.setProperty("--rx", `${rx.toFixed(2)}deg`);
+    wellCard.style.setProperty("--ry", `${ry.toFixed(2)}deg`);
+  });
+  wellCard.addEventListener("mouseleave", () => {
+    wellCard.style.setProperty("--mx", "50%");
+    wellCard.style.setProperty("--my", "18%");
+    wellCard.style.setProperty("--rx", "0deg");
+    wellCard.style.setProperty("--ry", "0deg");
+    wellCard.classList.remove("is-pressed");
+  });
+  wellCard.addEventListener("mousedown", () => {
+    wellCard.classList.add("is-pressed");
+  });
+  window.addEventListener("mouseup", () => {
+    wellCard.classList.remove("is-pressed");
+  });
+
+  // Drag & Drop visuals
   window.addEventListener("dragover", (e) => {
     e.preventDefault();
     if (!wellCard.classList.contains("state-running")) {
@@ -794,7 +1024,7 @@
     }
   });
 
-  // Switch UI between 3 main states
+  // Switch UI between 3 main states (Dot 0: Drag & Drop, Dot 1: Ожидайте, Dot 2: Готово)
   function enterRunningState() {
     const card = document.getElementById("wellCard");
     card.classList.remove("state-done");
@@ -826,7 +1056,7 @@
     document.getElementById("controlsIdle").style.display = "none";
     document.getElementById("controlsRunning").style.display = "none";
     document.getElementById("controlsDone").style.display = "flex";
-    setPageDot(5);
+    setPageDot(2);
   }
 
   function resetToIdle() {
@@ -925,8 +1155,12 @@
     const fill = document.getElementById("dubProgressFill");
     fill.style.width = pct > 2 ? `${pct}%` : "6px";
 
-    if (typeof data.page_dot === "number") {
-      setPageDot(data.page_dot);
+    if (data.is_running) {
+      setPageDot(1);
+    } else if (data.all_completed) {
+      setPageDot(2);
+    } else if (typeof data.page_dot === "number") {
+      setPageDot(Math.min(2, Math.max(0, data.page_dot)));
     }
 
     const sub = document.getElementById("wellSubtitle");
@@ -1107,7 +1341,7 @@
   // Enable dragging the native macOS window from titlebar or background
   window.addEventListener("mousedown", (e) => {
     if (e.button !== 0) return;
-    const interactive = e.target.closest("button, select, input, a, #wellCard, .alert-card, .popup-button-wrap");
+    const interactive = e.target.closest("button, select, input, a, #wellCard, #pageControl, .alert-card, .popup-button-wrap");
     if (!interactive && window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.nativeApp) {
       window.webkit.messageHandlers.nativeApp.postMessage({ action: "startDrag" });
     }

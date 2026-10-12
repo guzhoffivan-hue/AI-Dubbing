@@ -7,21 +7,55 @@ import soundfile as sf
 from common import ROOT, WORK, config, read_json, write_json
 
 PROFILE_TEXT='Сегодня тихо светает. Я расскажу эту историю спокойно, ясно и выразительно.'
-PROFILE_VERSION=1
+PROFILE_VERSION=2
 DESIGN_MODEL='mlx-community/Qwen3-TTS-12Hz-1.7B-VoiceDesign-bf16'
 RATES=[]
 CLONE_MODEL='mlx-community/Qwen3-TTS-12Hz-0.6B-Base-bf16'
 
-def voice_instruction(voice_type, ordinal):
-    traits=['warm, clear, steady timbre','light, bright, articulate timbre','rounded, resonant, composed timbre','slightly textured, calm, expressive timbre']
-    trait=traits[ordinal % len(traits)]
-    if voice_type=='female':
-        identity='An adult female native Russian speaker with a naturally feminine mid-to-high register'
-    elif voice_type=='male':
-        identity='An adult male native Russian speaker with a naturally masculine mid register'
+MALE_PERSONAS = [
+    'An adult male native Russian speaker with a deep, confident, resonant baritone voice and warm chest timbre',
+    'A younger adult male native Russian speaker with a bright, energetic, clear tenor voice and lively delivery',
+    'A mature adult male native Russian speaker with a grounded, calm, slightly textured lower-mid bass-baritone voice',
+    'An adult male native Russian speaker with a crisp, articulate, mid-register studio narrator voice',
+]
+
+FEMALE_PERSONAS = [
+    'An adult female native Russian speaker with a warm, clear, expressive feminine mid-register voice',
+    'An adult female native Russian speaker with a soft, velvety, rich contralto lower-mid feminine voice',
+    'A younger adult female native Russian speaker with a bright, lively, crystalline high-register soprano voice',
+    'A mature adult female native Russian speaker with a composed, poised, resonant feminine voice',
+]
+
+def resolve_gender(info):
+    vt = (info or {}).get('voice_type', 'unknown')
+    if vt in ('male', 'female'):
+        return vt
+    q25 = (info or {}).get('f0_q25_hz') or 0.0
+    med = (info or {}).get('f0_median_hz') or 0.0
+    if q25 > 175.0 or med > 210.0:
+        return 'female'
+    return 'male'
+
+def voice_instruction(voice_type, gender_ordinal, info=None):
+    info = info or {}
+    age = info.get('age_years')
+    age_hint = ''
+    if isinstance(age, (int, float)) and age > 0:
+        if age < 26:
+            age_hint = ' (around 22-25 years old)'
+        elif age >= 50:
+            age_hint = ' (around 50-55 years old, mature vocal timbre)'
+        else:
+            age_hint = f' (around {int(round(age))} years old)'
+    if voice_type == 'female':
+        persona = FEMALE_PERSONAS[gender_ordinal % len(FEMALE_PERSONAS)]
     else:
-        identity='An adult native Russian speaker with a natural, neutral middle register; do not force a strongly masculine or feminine sound'
-    return f'{identity}, {trait}. Standard contemporary Russian pronunciation, clear Moscow standard accent, no Chinese accent. Natural narration with measured, expressive intonation.'
+        persona = MALE_PERSONAS[gender_ordinal % len(MALE_PERSONAS)]
+    return (
+        f'{persona}{age_hint}. Standard contemporary Russian pronunciation, '
+        'clear native Russian articulation, no foreign accent. '
+        'Natural conversational narration with expressive intonation.'
+    )
 
 def build_voice_profiles(speaker_ids, voice_types, segment_counts):
     """Design each voice once, persist it, then reuse its same audio as clone reference."""
@@ -32,39 +66,45 @@ def build_voice_profiles(speaker_ids, voice_types, segment_counts):
     speaker_to_voice=saved.get('speaker_to_voice',{}) if saved_ok else {}
     profiles=saved.get('profiles',{}) if saved_ok else {}
     missing=[]
+    gender_counts={'male':0,'female':0}
     for ordinal,speaker_id in enumerate(speaker_ids):
         voice_id=speaker_to_voice.get(speaker_id, f'VOICE_{ordinal:02d}')
         speaker_to_voice[speaker_id]=voice_id
         profile=profiles.get(voice_id,{})
         ref=Path(profile.get('reference_audio','')) if profile.get('reference_audio') else None
-        expected_type=voice_types.get(speaker_id,{}).get('voice_type','unknown')
-        expected_instruction=voice_instruction(expected_type,ordinal)
+        sp_info=voice_types.get(speaker_id,{})
+        expected_type=resolve_gender(sp_info)
+        g_ord=gender_counts[expected_type]
+        gender_counts[expected_type]+=1
+        expected_instruction=voice_instruction(expected_type,g_ord,sp_info)
         if not profile.get('reference_text')==PROFILE_TEXT or profile.get('voice_type')!=expected_type or profile.get('instruction')!=expected_instruction or not ref or not ref.exists() or ref.stat().st_size<=1024:
             missing.append((ordinal,speaker_id,voice_id,expected_type,expected_instruction))
     if missing:
         from mlx_audio.tts.utils import load_model
+        import mlx.core as mx
         import numpy as np
         design_model=load_model(DESIGN_MODEL)
         for ordinal,speaker_id,voice_id,voice_type,instruction in missing:
             ref=profile_dir/f'{voice_id.lower()}.wav'
+            mx.random.seed(2026 + ordinal * 137)
             results=list(design_model.generate_voice_design(text=PROFILE_TEXT,language='Russian',instruct=instruction))
             if not results: raise RuntimeError(f'VoiceDesign returned no reference audio for {speaker_id}')
             audio=np.asarray(results[0].audio).squeeze(); sr=int(results[0].sample_rate)
             sf.write(ref,audio,sr)
-            profiles[voice_id]={'speaker_id':speaker_id,'voice_type':voice_type,'voice_confidence':voice_types.get(speaker_id,{}).get('confidence','low'),'instruction':instruction,'reference_text':PROFILE_TEXT,'reference_audio':str(ref),'reference_sample_rate':sr,'source':'one-time native Russian VoiceDesign sample; source audio is not used as a TTS clone reference'}
+            profiles[voice_id]={'speaker_id':speaker_id,'voice_type':voice_type,'voice_confidence':voice_types.get(speaker_id,{}).get('confidence','high'),'instruction':instruction,'reference_text':PROFILE_TEXT,'reference_audio':str(ref),'reference_sample_rate':sr,'source':'one-time native Russian VoiceDesign sample; source audio is not used as a TTS clone reference'}
             write_json(manifest_path,{'profile_version':PROFILE_VERSION,'backend':'qwen3_mlx','model':DESIGN_MODEL,'clone_model':CLONE_MODEL,'speaker_to_voice':speaker_to_voice,'profiles':profiles})
         del design_model; gc.collect()
         try:
             import mlx.core as mx
             mx.clear_cache()
         except Exception: pass
-    voice_types_report={s:voice_types.get(s,{'voice_type':'unknown','confidence':'low'}) for s in speaker_ids}
-    report={'profile_version':PROFILE_VERSION,'backend':'qwen3_mlx','model':DESIGN_MODEL,'clone_model':CLONE_MODEL,'speaker_to_voice':speaker_to_voice,'profiles':profiles,'voice_types':voice_types_report,'segment_counts':dict(segment_counts),'fallbacks':{s:'neutral unknown voice design' for s in speaker_ids if voice_types_report[s].get('voice_type')=='unknown'}}
+    voice_types_report={s:{**voice_types.get(s,{}),'voice_type':resolve_gender(voice_types.get(s,{}))} for s in speaker_ids}
+    report={'profile_version':PROFILE_VERSION,'backend':'qwen3_mlx','model':DESIGN_MODEL,'clone_model':CLONE_MODEL,'speaker_to_voice':speaker_to_voice,'profiles':profiles,'voice_types':voice_types_report,'segment_counts':dict(segment_counts),'fallbacks':{}}
     write_json(manifest_path,report)
     print('Speaker voice assignment:')
     for speaker_id in speaker_ids:
         info=voice_types_report[speaker_id]
-        print(f'{speaker_id} | {info.get("voice_type","unknown")} | {speaker_to_voice[speaker_id]} | {segment_counts.get(speaker_id,0)} segments')
+        print(f'{speaker_id} | {info.get("voice_type","male")} | {speaker_to_voice[speaker_id]} | {segment_counts.get(speaker_id,0)} segments')
     return speaker_to_voice,profiles
 
 def main():

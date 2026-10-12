@@ -42,21 +42,22 @@ REQUIRED_HF_REPOS = [
     "mlx-community/Qwen3-8B-4bit",
     "mlx-community/Qwen3-TTS-12Hz-0.6B-Base-bf16",
     "mlx-community/Qwen3-TTS-12Hz-1.7B-VoiceDesign-bf16",
+    "audeering/wav2vec2-large-robust-6-ft-age-gender",
 ]
 
 STAGE_TO_DOT: dict[str, int] = {
     PipelineStage.EXTRACT_AUDIO.value: 1,
     PipelineStage.TRANSCRIPTION.value: 1,
     PipelineStage.ALIGNMENT.value: 1,
-    PipelineStage.DIARIZATION.value: 2,
-    PipelineStage.SEGMENT_MERGE.value: 2,
-    PipelineStage.TRANSLATION.value: 3,
-    PipelineStage.DIALOGUE.value: 3,
-    PipelineStage.TTS.value: 4,
-    PipelineStage.SFX.value: 4,
-    PipelineStage.AMBIENCE.value: 4,
-    PipelineStage.AUDIO_MIX.value: 5,
-    PipelineStage.VIDEO_RENDER.value: 5,
+    PipelineStage.DIARIZATION.value: 1,
+    PipelineStage.SEGMENT_MERGE.value: 1,
+    PipelineStage.TRANSLATION.value: 1,
+    PipelineStage.DIALOGUE.value: 1,
+    PipelineStage.TTS.value: 1,
+    PipelineStage.SFX.value: 1,
+    PipelineStage.AMBIENCE.value: 1,
+    PipelineStage.AUDIO_MIX.value: 1,
+    PipelineStage.VIDEO_RENDER.value: 1,
 }
 
 app = FastAPI(
@@ -135,7 +136,7 @@ class ActiveJob:
             all_completed = completed_count == total_count and total_count > 0
             active_key = current_stage or last_active_stage
             if all_completed:
-                page_dot = 5
+                page_dot = 2
                 overall_progress = 1.0
             elif active_key:
                 page_dot = STAGE_TO_DOT.get(active_key, 1)
