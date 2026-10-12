@@ -2,7 +2,6 @@ from enum import Enum
 
 
 class PipelineStage(str, Enum):
-    ANALYSIS = "analysis"
     EXTRACT_AUDIO = "extract_audio"
     TRANSCRIPTION = "transcription"
     ALIGNMENT = "alignment"
@@ -10,7 +9,6 @@ class PipelineStage(str, Enum):
     SEGMENT_MERGE = "segment_merge"
     TRANSLATION = "translation"
     DIALOGUE = "dialogue"
-    VOICE_ASSIGNMENT = "voice_assignment"
     TTS = "tts"
     SFX = "sfx"
     AMBIENCE = "ambience"

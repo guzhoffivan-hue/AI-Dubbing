@@ -79,7 +79,7 @@ def _run(project_dir, handler, context):
     pipeline = Pipeline(
         state=PipelineState.load(project_dir),
         project_dir=project_dir,
-        handlers={PipelineStage.ANALYSIS: handler},
+        handlers={PipelineStage.EXTRACT_AUDIO: handler},
     )
     pipeline.run(context)
     return pipeline
@@ -116,7 +116,7 @@ def test_completed_stage_is_rerun_when_input_changes(tmp_path):
     _run(tmp_path, handler, StubContext(tmp_path))
     assert len(calls) == 2
 
-    manifest = ArtifactStore.load(tmp_path).get("analysis")
+    manifest = ArtifactStore.load(tmp_path).get("extract_audio")
     assert manifest is not None
     assert manifest["inputs"]
 

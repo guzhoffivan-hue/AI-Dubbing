@@ -36,6 +36,11 @@ CLIP = ROOT / "input" / "42503442096-1-192.mp4"
 
 
 def main() -> int:
+    if "--help" in sys.argv or "-h" in sys.argv:
+        print("Usage: e2e_run.py [--resume] [duration_seconds]\n"
+              "  Runs all 12 engine stages via core adapters.\n"
+              "  Example: python3 core/e2e_run.py 150.0", flush=True)
+        return 0
     args = [a for a in sys.argv[1:] if a != "--resume"]
     resume = "--resume" in sys.argv
     duration = float(args[0]) if args else 150.0
@@ -65,13 +70,6 @@ def main() -> int:
 
     handlers = make_handlers(layout)
 
-    # ANALYSIS and VOICE_ASSIGNMENT have no engine stage; without a handler the
-    # pipeline never marks them completed and would block their dependents.
-    def pass_through(_context) -> StageOutcome:
-        return StageOutcome(value={"engine_stub": True})
-
-    handlers[PipelineStage.ANALYSIS] = StageHandler(run=pass_through)
-    handlers[PipelineStage.VOICE_ASSIGNMENT] = StageHandler(run=pass_through)
 
     from uuid import uuid4
     from projects.project import Project

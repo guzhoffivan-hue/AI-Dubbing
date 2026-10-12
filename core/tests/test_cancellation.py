@@ -106,19 +106,19 @@ def test_cancel_before_a_stage_stops_the_run(tmp_path):
     pipeline = Pipeline(
         context=context,
         cancel=token,
-        handlers={PipelineStage.ANALYSIS: ok_handler(ran, "analysis")},
+        handlers={PipelineStage.EXTRACT_AUDIO: ok_handler(ran, "extract_audio")},
     )
     token.request("user asked to stop")
     pipeline.run()
 
-    analysis = pipeline.state.get(PipelineStage.ANALYSIS.value)
+    analysis = pipeline.state.get(PipelineStage.EXTRACT_AUDIO.value)
 
     assert ran == []
     assert analysis.status == StageStatus.CANCELLED
-    assert "Cancelled before analysis" in analysis.message
+    assert "Cancelled before extract_audio" in analysis.message
 
     # The run stops instead of walking the remaining stages.
-    assert pipeline.state.get(PipelineStage.EXTRACT_AUDIO.value).message == ""
+    assert pipeline.state.get(PipelineStage.TRANSCRIPTION.value).message == ""
 
 
 def test_cancel_during_a_stage_marks_it_cancelled_and_stops(tmp_path):
@@ -127,7 +127,7 @@ def test_cancel_during_a_stage_marks_it_cancelled_and_stops(tmp_path):
     ran = []
 
     def stopper(_context):
-        ran.append("analysis")
+        ran.append("extract_audio")
         token.request("user asked to stop")
         return StageOutcome(value="half done")
 
@@ -135,19 +135,19 @@ def test_cancel_during_a_stage_marks_it_cancelled_and_stops(tmp_path):
         context=context,
         cancel=token,
         handlers={
-            PipelineStage.ANALYSIS: StageHandler(run=stopper),
-            PipelineStage.EXTRACT_AUDIO: ok_handler(ran, "extract_audio"),
+            PipelineStage.EXTRACT_AUDIO: StageHandler(run=stopper),
+            PipelineStage.TRANSCRIPTION: ok_handler(ran, "transcription"),
         },
     )
     pipeline.run()
 
-    analysis = pipeline.state.get(PipelineStage.ANALYSIS.value)
+    analysis = pipeline.state.get(PipelineStage.EXTRACT_AUDIO.value)
 
     # The stage returned, but it was stopped on purpose: it is not completed.
-    assert ran == ["analysis"]
+    assert ran == ["extract_audio"]
     assert analysis.status == StageStatus.CANCELLED
-    assert not pipeline.state.is_completed(PipelineStage.ANALYSIS.value)
-    assert pipeline.state.get(PipelineStage.EXTRACT_AUDIO.value).message == ""
+    assert not pipeline.state.is_completed(PipelineStage.EXTRACT_AUDIO.value)
+    assert pipeline.state.get(PipelineStage.TRANSCRIPTION.value).message == ""
 
 
 def test_a_user_cancel_is_never_retried(tmp_path):
@@ -161,13 +161,13 @@ def test_a_user_cancel_is_never_retried(tmp_path):
     pipeline = Pipeline(
         context=context,
         handlers={
-            PipelineStage.ANALYSIS: StageHandler(run=stopper, retries=5),
+            PipelineStage.EXTRACT_AUDIO: StageHandler(run=stopper, retries=5),
         },
     )
     pipeline.run()
 
     assert len(attempts) == 1
-    assert pipeline.state.get(PipelineStage.ANALYSIS.value).status == StageStatus.CANCELLED
+    assert pipeline.state.get(PipelineStage.EXTRACT_AUDIO.value).status == StageStatus.CANCELLED
 
 
 def test_timeout_fails_the_stage_and_the_run_continues(tmp_path):
@@ -181,14 +181,14 @@ def test_timeout_fails_the_stage_and_the_run_continues(tmp_path):
     pipeline = Pipeline(
         context=context,
         handlers={
-            PipelineStage.ANALYSIS: StageHandler(run=slow, timeout=0.05),
-            PipelineStage.EXTRACT_AUDIO: ok_handler(finished, "extract_audio"),
+            PipelineStage.EXTRACT_AUDIO: StageHandler(run=slow, timeout=0.05),
+            PipelineStage.TRANSCRIPTION: ok_handler(finished, "transcription"),
         },
     )
     pipeline.run()
 
-    analysis = pipeline.state.get(PipelineStage.ANALYSIS.value)
-    extract = pipeline.state.get(PipelineStage.EXTRACT_AUDIO.value)
+    analysis = pipeline.state.get(PipelineStage.EXTRACT_AUDIO.value)
+    extract = pipeline.state.get(PipelineStage.TRANSCRIPTION.value)
 
     assert analysis.status == StageStatus.FAILED
     assert "timeout" in analysis.message
@@ -212,13 +212,13 @@ def test_a_timed_out_stage_is_retried(tmp_path):
     pipeline = Pipeline(
         context=context,
         handlers={
-            PipelineStage.ANALYSIS: StageHandler(run=slow, timeout=0.05, retries=2),
+            PipelineStage.EXTRACT_AUDIO: StageHandler(run=slow, timeout=0.05, retries=2),
         },
     )
     pipeline.run()
 
     assert len(attempts) == 3
-    assert pipeline.state.get(PipelineStage.ANALYSIS.value).status == StageStatus.FAILED
+    assert pipeline.state.get(PipelineStage.EXTRACT_AUDIO.value).status == StageStatus.FAILED
 
 
 def test_retries_let_a_flaky_stage_finish(tmp_path):
@@ -236,12 +236,12 @@ def test_retries_let_a_flaky_stage_finish(tmp_path):
     pipeline = Pipeline(
         context=context,
         handlers={
-            PipelineStage.ANALYSIS: StageHandler(run=flaky, retries=2),
+            PipelineStage.EXTRACT_AUDIO: StageHandler(run=flaky, retries=2),
         },
     )
     pipeline.run()
 
-    analysis = pipeline.state.get(PipelineStage.ANALYSIS.value)
+    analysis = pipeline.state.get(PipelineStage.EXTRACT_AUDIO.value)
 
     assert len(attempts) == 3
     assert analysis.status == StageStatus.COMPLETED
@@ -258,12 +258,12 @@ def test_without_retries_a_failure_stays_a_failure(tmp_path):
 
     pipeline = Pipeline(
         context=context,
-        handlers={PipelineStage.ANALYSIS: StageHandler(run=broken)},
+        handlers={PipelineStage.EXTRACT_AUDIO: StageHandler(run=broken)},
     )
     pipeline.run()
 
     assert len(attempts) == 1
-    assert pipeline.state.get(PipelineStage.ANALYSIS.value).status == StageStatus.FAILED
+    assert pipeline.state.get(PipelineStage.EXTRACT_AUDIO.value).status == StageStatus.FAILED
 
 
 def test_the_deadline_is_per_attempt(tmp_path):
@@ -279,7 +279,7 @@ def test_the_deadline_is_per_attempt(tmp_path):
     pipeline = Pipeline(
         context=context,
         handlers={
-            PipelineStage.ANALYSIS: StageHandler(run=slow, timeout=1.0, retries=1),
+            PipelineStage.EXTRACT_AUDIO: StageHandler(run=slow, timeout=1.0, retries=1),
         },
     )
     pipeline.run()
@@ -287,7 +287,7 @@ def test_the_deadline_is_per_attempt(tmp_path):
     # A generous deadline must not fire on the second attempt just because the
     # first one used it.
     assert len(durations) == 1
-    assert pipeline.state.get(PipelineStage.ANALYSIS.value).status == StageStatus.COMPLETED
+    assert pipeline.state.get(PipelineStage.EXTRACT_AUDIO.value).status == StageStatus.COMPLETED
 
 
 def test_the_context_carries_the_stage_token(tmp_path):
@@ -300,7 +300,7 @@ def test_the_context_carries_the_stage_token(tmp_path):
 
     pipeline = Pipeline(
         context=context,
-        handlers={PipelineStage.ANALYSIS: StageHandler(run=watch)},
+        handlers={PipelineStage.EXTRACT_AUDIO: StageHandler(run=watch)},
     )
     pipeline.run()
 
@@ -313,13 +313,13 @@ def test_the_context_carries_the_stage_token(tmp_path):
 def test_cancelled_status_survives_a_reload(tmp_path):
     context = make_context(tmp_path)
     state = PipelineState()
-    state.get(PipelineStage.ANALYSIS.value).status = StageStatus.CANCELLED
+    state.get(PipelineStage.EXTRACT_AUDIO.value).status = StageStatus.CANCELLED
     state.save(context.project_dir)
 
     restored = PipelineState.load(context.project_dir)
 
-    assert restored.get(PipelineStage.ANALYSIS.value).status == StageStatus.CANCELLED
-    assert not restored.is_completed(PipelineStage.ANALYSIS.value)
+    assert restored.get(PipelineStage.EXTRACT_AUDIO.value).status == StageStatus.CANCELLED
+    assert not restored.is_completed(PipelineStage.EXTRACT_AUDIO.value)
 
 
 def test_request_cancel_stops_the_next_stage(tmp_path):
@@ -329,8 +329,8 @@ def test_request_cancel_stops_the_next_stage(tmp_path):
     pipeline = Pipeline(
         context=context,
         handlers={
-            PipelineStage.ANALYSIS: ok_handler(ran, "analysis"),
             PipelineStage.EXTRACT_AUDIO: ok_handler(ran, "extract_audio"),
+            PipelineStage.TRANSCRIPTION: ok_handler(ran, "transcription"),
         },
     )
 
@@ -344,7 +344,7 @@ def test_request_cancel_stops_the_next_stage(tmp_path):
     pipeline.run()
 
     assert ran == []
-    assert pipeline.state.get(PipelineStage.ANALYSIS.value).status == StageStatus.CANCELLED
+    assert pipeline.state.get(PipelineStage.EXTRACT_AUDIO.value).status == StageStatus.CANCELLED
 
 
 # -- the runner that owns the process ----------------------------------------------------

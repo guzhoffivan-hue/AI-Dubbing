@@ -125,6 +125,17 @@ def main():
             print(f'{speaker_id} | {info.get("voice_type","unknown")} | {speaker_to_voice[speaker_id]} | {segment_counts.get(speaker_id,0)} segments')
 
     outdir=WORK/'tts'; outdir.mkdir(parents=True,exist_ok=True); manifest=[]
+    audio_limit=float(read_json(WORK/'audio_meta.json').get('duration',0.0)) if (WORK/'audio_meta.json').exists() else 0.0
+    def clamp_to_audio_limit(wav_path, line_start):
+        if audio_limit<=0: return sf.info(wav_path).duration
+        info=sf.info(wav_path)
+        max_dur=max(0.05, audio_limit - float(line_start) - 0.01)
+        if info.duration > max_dur:
+            data, rate = sf.read(wav_path)
+            keep = max(1, int(max_dur * rate))
+            sf.write(wav_path, data[:keep], rate)
+            return sf.info(wav_path).duration
+        return info.duration
     resume_path=WORK/'tts_resume.json'; resume=json.loads(resume_path.read_text()) if resume_path.exists() else {}
     profile_hash={voice_id:hashlib.sha256(Path(profile['reference_audio']).read_bytes()).hexdigest() for voice_id,profile in profiles.items()}
     # Per-call overhead is ~1.8 s regardless of text length (measured), so consecutive lines of
@@ -149,7 +160,7 @@ def main():
         path=outdir/f'{i:04d}.wav'
         digest=hashlib.sha256((line['translated_text']+'\0'+voice_id+'\0'+profile_hash[voice_id]+'\0'+str(line.get('available_duration'))+'\0'+backend+'_fixed_profile_v2').encode()).hexdigest()
         if path.exists() and path.stat().st_size>1024 and resume.get(str(i),{}).get('text_sha256')==digest:
-            info=sf.info(path); manifest.append({'i':i,'segment_id':line['segment_id'],'speaker_id':speaker_id,'voice_id':voice_id,'start':line['start'],'end':line['end'],'available_end':line['available_end'],'available_duration':line['available_duration'],'tts_end':line['start']+info.duration,'tts_duration':info.duration,'overlap_confirmed':line.get('overlap_confirmed',False),'overlap_speaker_ids':line.get('overlap_speaker_ids',[]),'path':str(path),'sample_rate':info.samplerate,'tts_speed':line['tts_speed'],'translated_text':line['translated_text'],'source_text':line['source_text']})
+            dur=clamp_to_audio_limit(path,line['start']); info=sf.info(path); manifest.append({'i':i,'segment_id':line['segment_id'],'speaker_id':speaker_id,'voice_id':voice_id,'start':line['start'],'end':line['end'],'available_end':line['available_end'],'available_duration':line['available_duration'],'tts_end':line['start']+dur,'tts_duration':dur,'overlap_confirmed':line.get('overlap_confirmed',False),'overlap_speaker_ids':line.get('overlap_speaker_ids',[]),'path':str(path),'sample_rate':info.samplerate,'tts_speed':line['tts_speed'],'translated_text':line['translated_text'],'source_text':line['source_text']})
             print(f'Reused synthesized line {i+1}/{len(lines)}',flush=True); continue
         # Reset sampling to a stable speaker-specific seed for consistent style.
         if backend=='qwen3_mlx':
@@ -199,6 +210,7 @@ def main():
                 raise RuntimeError(f'Segment {line["segment_id"]} ({speaker_id} → {voice_id}) requires atempo > 1.7x to fit within {available:.2f}s. Cannot proceed.')
             subprocess.run(['ffmpeg','-y','-v','error','-i',str(path),'-filter:a',af,'-ar',str(sr),str(paced)],check=True)
             paced.replace(path); duration=sf.info(path).duration
+        duration=clamp_to_audio_limit(path,line['start'])
         resume[str(i)]={'text_sha256':digest,'sample_rate':int(sr),'speaker_id':speaker_id,'voice_id':voice_id,'tts_duration':duration}
         tmp=resume_path.with_suffix('.tmp'); tmp.write_text(json.dumps(resume,ensure_ascii=False,indent=2)); tmp.replace(resume_path)
         manifest.append({'i':i,'segment_id':line['segment_id'],'speaker_id':speaker_id,'voice_id':voice_id,'start':line['start'],'end':line['end'],'available_end':line['available_end'],'available_duration':line['available_duration'],'tts_end':line['start']+duration,'tts_duration':duration,'overlap_confirmed':line.get('overlap_confirmed',False),'overlap_speaker_ids':line.get('overlap_speaker_ids',[]),'path':str(path),'sample_rate':sr,'tts_speed':line['tts_speed'],'translated_text':line['translated_text'],'source_text':line['source_text']})

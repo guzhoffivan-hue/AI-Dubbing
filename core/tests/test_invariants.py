@@ -122,13 +122,13 @@ def test_precondition_stops_a_stage_before_it_runs(tmp_path):
     pipeline = Pipeline(
         state=PipelineState(),
         project_dir=tmp_path,
-        handlers={PipelineStage.ANALYSIS: handler},
+        handlers={PipelineStage.EXTRACT_AUDIO: handler},
     )
     pipeline.run(None)
 
     assert ran == []
 
-    state = PipelineState.load(tmp_path).get("analysis")
+    state = PipelineState.load(tmp_path).get("extract_audio")
     assert state.status.value == "failed"
     assert "stale artifact" in state.message
 
@@ -140,9 +140,9 @@ def test_stage_without_precondition_still_runs(tmp_path):
     pipeline = Pipeline(
         state=PipelineState(),
         project_dir=tmp_path,
-        handlers={PipelineStage.ANALYSIS: handler},
+        handlers={PipelineStage.EXTRACT_AUDIO: handler},
     )
     pipeline.run(None)
 
     assert ran == [1]
-    assert PipelineState.load(tmp_path).get("analysis").status.value == "completed"
+    assert PipelineState.load(tmp_path).get("extract_audio").status.value == "completed"

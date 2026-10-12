@@ -49,14 +49,14 @@ def test_registered_handler_runs_and_receives_context(tmp_path):
 
     pipeline = Pipeline(
         context=context,
-        handlers={PipelineStage.ANALYSIS: handler},
+        handlers={PipelineStage.EXTRACT_AUDIO: handler},
     )
 
     pipeline.run()
 
     assert received == [context]
     assert (
-        pipeline.state.get("analysis").status
+        pipeline.state.get("extract_audio").status
         == StageStatus.COMPLETED
     )
 
@@ -65,22 +65,22 @@ def test_successful_stage_is_completed_and_stores_result(tmp_path):
     context = make_context(tmp_path)
 
     handler = StageHandler(
-        run=lambda ctx: StageOutcome(value="analysis-done"),
+        run=lambda ctx: StageOutcome(value="extract_audio-done"),
     )
 
     pipeline = Pipeline(
         context=context,
-        handlers={PipelineStage.ANALYSIS: handler},
+        handlers={PipelineStage.EXTRACT_AUDIO: handler},
     )
 
     pipeline.run()
 
     assert (
-        pipeline.state.get("analysis").status
+        pipeline.state.get("extract_audio").status
         == StageStatus.COMPLETED
     )
-    assert pipeline.results["analysis"] == "analysis-done"
-    assert context.metadata["analysis"] == "analysis-done"
+    assert pipeline.results["extract_audio"] == "extract_audio-done"
+    assert context.metadata["extract_audio"] == "extract_audio-done"
 
 
 def test_handler_error_results_in_failed(tmp_path):
@@ -92,13 +92,13 @@ def test_handler_error_results_in_failed(tmp_path):
     pipeline = Pipeline(
         context=context,
         handlers={
-            PipelineStage.ANALYSIS: StageHandler(run=boom),
+            PipelineStage.EXTRACT_AUDIO: StageHandler(run=boom),
         },
     )
 
     pipeline.run()
 
-    state = pipeline.state.get("analysis")
+    state = pipeline.state.get("extract_audio")
 
     assert state.status == StageStatus.FAILED
     assert "ValueError" in state.message
@@ -117,7 +117,7 @@ def test_dependent_stage_is_not_run_when_dependency_unfinished(
         ),
     }
 
-    # ANALYSIS has no handler, so it stays NOT_STARTED.
+    # EXTRACT_AUDIO has no handler, so it stays NOT_STARTED.
     pipeline = Pipeline(
         context=context,
         handlers=handlers,
@@ -134,9 +134,9 @@ def test_dependent_stage_is_not_run_when_dependency_unfinished(
 
 def test_rerun_does_not_skip_stage_with_missing_artifact(tmp_path):
     state = PipelineState()
-    state.get("analysis").status = StageStatus.COMPLETED
+    state.get("extract_audio").status = StageStatus.COMPLETED
 
-    artifact = tmp_path / "analysis_out.txt"
+    artifact = tmp_path / "extract_audio_out.txt"
     calls = []
 
     def run(ctx):
@@ -152,21 +152,21 @@ def test_rerun_does_not_skip_stage_with_missing_artifact(tmp_path):
     pipeline = Pipeline(
         state=state,
         context=make_context(tmp_path),
-        handlers={PipelineStage.ANALYSIS: handler},
+        handlers={PipelineStage.EXTRACT_AUDIO: handler},
     )
 
     pipeline.run()
 
     assert len(calls) == 1
     assert artifact.exists()
-    assert state.get("analysis").status == StageStatus.COMPLETED
+    assert state.get("extract_audio").status == StageStatus.COMPLETED
 
 
 def test_completed_stage_with_valid_artifact_is_skipped(tmp_path):
     state = PipelineState()
-    state.get("analysis").status = StageStatus.COMPLETED
+    state.get("extract_audio").status = StageStatus.COMPLETED
 
-    artifact = tmp_path / "analysis_out.txt"
+    artifact = tmp_path / "extract_audio_out.txt"
     artifact.write_text("done")
 
     calls = []
@@ -179,13 +179,13 @@ def test_completed_stage_with_valid_artifact_is_skipped(tmp_path):
     pipeline = Pipeline(
         state=state,
         context=make_context(tmp_path),
-        handlers={PipelineStage.ANALYSIS: handler},
+        handlers={PipelineStage.EXTRACT_AUDIO: handler},
     )
 
     pipeline.run()
 
     assert calls == []
-    assert state.get("analysis").status == StageStatus.COMPLETED
+    assert state.get("extract_audio").status == StageStatus.COMPLETED
 
 
 def test_declared_artifact_missing_results_in_failed(tmp_path):
@@ -198,12 +198,12 @@ def test_declared_artifact_missing_results_in_failed(tmp_path):
 
     pipeline = Pipeline(
         context=context,
-        handlers={PipelineStage.ANALYSIS: handler},
+        handlers={PipelineStage.EXTRACT_AUDIO: handler},
     )
 
     pipeline.run()
 
-    state = pipeline.state.get("analysis")
+    state = pipeline.state.get("extract_audio")
 
     assert state.status == StageStatus.FAILED
     assert "artifact" in state.message.lower()
@@ -218,7 +218,7 @@ def test_error_is_preserved_after_save_and_load(tmp_path):
     pipeline = Pipeline(
         context=context,
         handlers={
-            PipelineStage.ANALYSIS: StageHandler(run=boom),
+            PipelineStage.EXTRACT_AUDIO: StageHandler(run=boom),
         },
     )
 
@@ -227,7 +227,7 @@ def test_error_is_preserved_after_save_and_load(tmp_path):
     pipeline.state.save(tmp_path)
 
     loaded = PipelineState.load(tmp_path)
-    state = loaded.get("analysis")
+    state = loaded.get("extract_audio")
 
     assert state.status == StageStatus.FAILED
     assert "kaput" in state.message

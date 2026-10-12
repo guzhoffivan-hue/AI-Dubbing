@@ -15,4 +15,8 @@ tts-cosyvoice = ["cosyvoice"]
 tts-mlx = ["mlx-audio>=0.5.8"]
 
 [tool.uv]
-dev-dependencies = []
+dev-dependencies = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["core"]
+testpaths = ["core/tests"]

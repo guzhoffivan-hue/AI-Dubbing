@@ -5,11 +5,7 @@ STAGE_DEPENDENCIES: dict[
     PipelineStage,
     list[PipelineStage],
 ] = {
-    PipelineStage.ANALYSIS: [],
-
-    PipelineStage.EXTRACT_AUDIO: [
-        PipelineStage.ANALYSIS,
-    ],
+    PipelineStage.EXTRACT_AUDIO: [],
 
     PipelineStage.TRANSCRIPTION: [
         PipelineStage.EXTRACT_AUDIO,
@@ -36,12 +32,8 @@ STAGE_DEPENDENCIES: dict[
         PipelineStage.TRANSLATION,
     ],
 
-    PipelineStage.VOICE_ASSIGNMENT: [
-        PipelineStage.DIALOGUE,
-    ],
-
     PipelineStage.TTS: [
-        PipelineStage.VOICE_ASSIGNMENT,
+        PipelineStage.DIALOGUE,
     ],
 
     PipelineStage.SFX: [

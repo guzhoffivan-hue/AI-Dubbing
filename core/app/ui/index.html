@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>AI Dubber</title>
+<style>
+  :root {
+    --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
+    --blue: #007AFF;
+    --blue-top: #4CA8FF;
+    --blue-bot: #0066DB;
+    --green: #28CD41;
+    --red-text: #FF3126;
+    --red-bg: #F9D2D2;
+  }
+
+  * {
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: transparent;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    color: #111;
+  }
+
+  /* Main Window Container (matches 680x459 Figma frame) */
+  .window {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(252, 252, 254, 0.98) 0%, rgba(242, 242, 246, 0.98) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px 12px 24px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  }
+
+  /* Titlebar area */
+  .titlebar {
+    position: relative;
+    width: 100%;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    -webkit-app-region: drag;
+    padding-left: 78px; /* Space for native macOS traffic lights */
+    padding-right: 4px;
+  }
+
+  .app-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.85);
+    letter-spacing: -0.15px;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .titlebar-actions {
+    display: flex;
+    gap: 6px;
+    -webkit-app-region: no-drag;
+  }
+
+  .icon-pill {
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.05);
+    border: 0.5px solid rgba(0, 0, 0, 0.08);
+    padding: 3px 9px;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .icon-pill:hover {
+    background: rgba(0, 0, 0, 0.09);
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  /* Center Workspace */
+  .workspace {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  /* Morphing Gray Well Card (Drop Zone -> "Ожидайте" -> "Готово!") */
+  .well-card {
+    width: 528px;
+    height: 237px;
+    border-radius: 34px;
+    background: linear-gradient(180deg, #BEBEC0 0%, #C6C6C8 22%, #C7C7C9 78%, #CECED0 100%);
+    box-shadow:
+      inset 0 6px 14px rgba(0, 0, 0, 0.22),
+      inset 0 -4px 10px rgba(255, 255, 255, 0.55),
+      inset 0 1px 2px rgba(0, 0, 0, 0.18),
+      0 1px 0 rgba(255, 255, 255, 0.85),
+      0 14px 28px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition:
+      height 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.2s ease,
+      background 0.3s ease,
+      box-shadow 0.3s ease;
+    overflow: hidden;
+  }
+
+  .well-card.drag-over {
+    background: linear-gradient(180deg, #B2C7DF 0%, #BDD2EA 50%, #C7DCF4 100%);
+    box-shadow:
+      inset 0 6px 16px rgba(0, 122, 255, 0.28),
+      inset 0 -4px 10px rgba(255, 255, 255, 0.7),
+      0 0 0 2px rgba(0, 122, 255, 0.45);
+    transform: scale(1.01);
+  }
+
+  .well-card.state-running {
+    height: 112px;
+    cursor: default;
+  }
+
+  .well-card.state-done {
+    height: 152px;
+    cursor: default;
+  }
+
+  .well-title {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #000000;
+    text-align: center;
+    letter-spacing: -0.6px;
+    transition: all 0.3s ease;
+    padding: 0 24px;
+  }
+
+  .well-subtitle {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.72);
+    margin-top: 6px;
+    text-align: center;
+    max-width: 460px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .well-caption-bottom {
+    position: absolute;
+    bottom: 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.82);
+    letter-spacing: -0.1px;
+    transition: opacity 0.25s ease;
+  }
+
+  .well-card.state-running .well-caption-bottom,
+  .well-card.state-done .well-caption-bottom {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Controls below the Well Card */
+  .controls-idle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 14px;
+    gap: 16px;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+
+  /* Native-style Pop-Up Button ("Русский (полный дубляж)") */
+  .popup-button-wrap {
+    position: relative;
+    width: 208px;
+    height: 24px;
+  }
+
+  .popup-select {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(232, 232, 235, 0.9) 100%);
+    border: 0.5px solid rgba(0, 0, 0, 0.14);
+    box-shadow:
+      0 2px 5px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    padding: 0 26px 0 18px;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.85);
+    text-align: center;
+    text-align-last: center;
+    cursor: pointer;
+    outline: none;
+  }
+  .popup-select:hover {
+    background: linear-gradient(180deg, #FFFFFF 0%, #EAEAEF 100%);
+  }
+
+  .popup-chevrons {
+    position: absolute;
+    right: 9px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    width: 9px;
+    height: 12px;
+    opacity: 0.78;
+  }
+
+  /* Glossy Blue Pill Button ("Дублировать") */
+  .btn-dub {
+    min-width: 151px;
+    height: 26px;
+    padding: 0 22px;
+    border-radius: 999px;
+    border: none;
+    background: linear-gradient(180deg, #4CA8FF 0%, #0084FF 52%, #0066DB 100%);
+    box-shadow:
+      inset 0 1.5px 1.5px rgba(255, 255, 255, 0.75),
+      inset 0 -1px 2px rgba(0, 0, 0, 0.22),
+      0 3px 8px rgba(0, 122, 255, 0.32);
+    color: #FFFFFF;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.1px;
+    cursor: pointer;
+    transition: transform 0.12s ease, filter 0.15s ease, opacity 0.2s ease;
+  }
+  .btn-dub:hover {
+    filter: brightness(1.05);
+  }
+  .btn-dub:active {
+    transform: scale(0.97);
+    filter: brightness(0.95);
+  }
+
+  /* Running Controls (Progress Bar + Soft Red "Отмена") */
+  .controls-running {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 28px;
+    gap: 32px;
+    width: 100%;
+  }
+
+  .progress-track {
+    width: 454px;
+    height: 5px;
+    border-radius: 99px;
+    background: #E2E2E6;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .progress-fill {
+    height: 100%;
+    width: 6px; /* Initial dot as in Figma */
+    min-width: 6px;
+    border-radius: 99px;
+    background: #007AFF;
+    transition: width 0.35s ease;
+  }
+
+  .btn-cancel-soft {
+    width: 156px;
+    height: 28px;
+    border-radius: 999px;
+    border: none;
+    background: var(--red-bg);
+    color: var(--red-text);
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: filter 0.15s ease, transform 0.12s ease;
+  }
+  .btn-cancel-soft:hover {
+    filter: brightness(0.96);
+  }
+  .btn-cancel-soft:active {
+    transform: scale(0.97);
+  }
+
+  /* Done Controls */
+  .controls-done {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 22px;
+    gap: 12px;
+  }
+
+  .btn-secondary-pill {
+    height: 26px;
+    padding: 0 18px;
+    border-radius: 999px;
+    border: 0.5px solid rgba(0, 0, 0, 0.12);
+    background: #E2E2E5;
+    color: #1C1C1E;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .btn-secondary-pill:hover {
+    background: #D6D6DA;
+  }
+
+  /* Bottom Footer: 6-Dot Page Control + Apple Silicon badge */
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    margin-top: 4px;
+  }
+
+  .page-control {
+    width: 108px;
+    height: 22px;
+    border-radius: 11px;
+    background: #DDD6D8;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .page-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #9E9A9C;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+  .page-dot.active {
+    background: #000000;
+    transform: scale(1.08);
+  }
+
+  .hw-badge {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(28, 28, 30, 0.45);
+    letter-spacing: -0.1px;
+  }
+
+  /* =========================================================
+     Modal Overlay & 4 Figma Alert Cards
+     ========================================================= */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(240, 240, 245, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    animation: fadeIn 0.2s ease;
+  }
+  .modal-backdrop.visible {
+    display: flex;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .alert-card {
+    width: 306px;
+    border-radius: 34px;
+    background: linear-gradient(180deg, #FBFBFD 0%, #F1F1F4 100%);
+    box-shadow:
+      inset 0 3px 6px rgba(255, 255, 255, 0.98),
+      inset 0 -4px 8px rgba(0, 0, 0, 0.09),
+      0 22px 48px rgba(0, 0, 0, 0.18),
+      0 0 0 1px rgba(0, 0, 0, 0.06);
+    padding: 26px 22px 22px 22px;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .alert-card.active {
+    display: flex;
+  }
+
+  .alert-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1C1C1E;
+    letter-spacing: -0.2px;
+    margin-bottom: 10px;
+    padding: 0 4px;
+  }
+
+  .alert-desc {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.38;
+    color: rgba(28, 28, 30, 0.82);
+    margin-bottom: 16px;
+    padding: 0 4px;
+  }
+
+  /* Green Link Pill inside Alert 1 */
+  .btn-hf-green {
+    height: 22px;
+    border-radius: 999px;
+    border: none;
+    background: linear-gradient(180deg, #3CE356 0%, #28C940 100%);
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.65),
+      0 2px 5px rgba(40, 201, 64, 0.25);
+    color: #FFFFFF;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+  .btn-hf-green:hover {
+    filter: brightness(1.04);
+  }
+
+  /* White Rounded Input Field inside Alert 1 */
+  .alert-input {
+    width: 100%;
+    height: 28px;
+    border-radius: 9px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #FFFFFF;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.06);
+    padding: 0 10px;
+    font-family: var(--font-sans);
+    font-size: 12.5px;
+    color: #111;
+    outline: none;
+    margin-bottom: 12px;
+    user-select: text;
+    -webkit-user-select: text;
+  }
+  .alert-input:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 2.5px rgba(0, 122, 255, 0.22);
+  }
+
+  /* Full-width Alert Action Buttons */
+  .alert-btn-blue {
+    width: 100%;
+    height: 36px;
+    border-radius: 999px;
+    border: none;
+    background: #007AFF;
+    color: #FFFFFF;
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 8px;
+    transition: filter 0.15s ease, transform 0.1s ease;
+  }
+  .alert-btn-blue:last-child {
+    margin-bottom: 0;
+  }
+  .alert-btn-blue:hover {
+    filter: brightness(1.06);
+  }
+  .alert-btn-blue:active {
+    transform: scale(0.985);
+  }
+
+  .alert-btn-gray {
+    width: 100%;
+    height: 36px;
+    border-radius: 999px;
+    border: none;
+    background: #DEDEE2;
+    color: #1C1C1E;
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 8px;
+    transition: background 0.15s ease, transform 0.1s ease;
+  }
+  .alert-btn-gray:last-child {
+    margin-bottom: 0;
+  }
+  .alert-btn-gray:hover {
+    background: #D4D4D9;
+  }
+
+  .alert-btn-red {
+    width: 100%;
+    height: 36px;
+    border-radius: 999px;
+    border: none;
+    background: #F4D2D4;
+    color: #FF3126;
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: filter 0.15s ease, transform 0.1s ease;
+  }
+  .alert-btn-red:hover {
+    filter: brightness(0.96);
+  }
+
+  /* Alert 3 Progress bar & caption */
+  .alert-progress-track {
+    width: 100%;
+    height: 4px;
+    border-radius: 99px;
+    background: #DFDFE3;
+    overflow: hidden;
+    margin: 4px 0 8px 0;
+  }
+  .alert-progress-fill {
+    height: 100%;
+    width: 6%;
+    min-width: 6px;
+    border-radius: 99px;
+    background: #007AFF;
+    transition: width 0.3s ease;
+  }
+  .alert-speed-caption {
+    font-size: 10.5px;
+    color: rgba(28, 28, 30, 0.72);
+    text-align: center;
+    margin-bottom: 14px;
+  }
+</style>
+</head>
+<body>
+
+<div class="window">
+  <!-- Titlebar -->
+  <div class="titlebar">
+    <div class="app-title">AI Dubber</div>
+    <div class="titlebar-actions">
+      <button class="icon-pill" onclick="openModal('token')" title="Настроить токен Hugging Face">HF Token</button>
+      <button class="icon-pill" onclick="openModal('models-prompt')" title="Проверить модели нейросетей">Модели</button>
+    </div>
+  </div>
+
+  <!-- Main Workspace -->
+  <div class="workspace">
+    <!-- Morphing Gray Well Card -->
+    <div id="wellCard" class="well-card" onclick="onWellClick()">
+      <div id="wellTitle" class="well-title">Перетащите<br>видео сюда</div>
+      <div id="wellSubtitle" class="well-subtitle" style="display:none;"></div>
+      <div id="wellCaption" class="well-caption-bottom">MP4, MOV, MKV до 4K</div>
+    </div>
+
+    <!-- Screen 1 Controls: Language Pop-Up + Glossy Blue Button -->
+    <div id="controlsIdle" class="controls-idle">
+      <div class="popup-button-wrap">
+        <select id="modeSelect" class="popup-select">
+          <option value="full">Русский (полный дубляж)</option>
+          <option value="test">Русский (Тест 150с)</option>
+        </select>
+        <svg class="popup-chevrons" viewBox="0 0 10 14" fill="none">
+          <path d="M1.5 5L5 1.5L8.5 5" stroke="#1C1C1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M1.5 9L5 12.5L8.5 9" stroke="#1C1C1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <button id="btnDub" class="btn-dub" onclick="startDubbing()">Дублировать</button>
+    </div>
+
+    <!-- Screen 2 Controls: Linear Progress + Soft Red Cancel -->
+    <div id="controlsRunning" class="controls-running">
+      <div class="progress-track">
+        <div id="dubProgressFill" class="progress-fill"></div>
+      </div>
+      <button class="btn-cancel-soft" onclick="cancelDubbing()">Отмена</button>
+    </div>
+
+    <!-- Screen 3 Controls: Done Actions -->
+    <div id="controlsDone" class="controls-done">
+      <button class="btn-dub" onclick="revealOutput()">Показать в Finder</button>
+      <button class="btn-secondary-pill" onclick="resetToIdle()">Новое видео</button>
+    </div>
+  </div>
+
+  <!-- Footer: 6-Dot Page Control + Apple Silicon Badge -->
+  <div class="footer">
+    <div class="page-control" id="pageControl">
+      <div class="page-dot active"></div>
+      <div class="page-dot"></div>
+      <div class="page-dot"></div>
+      <div class="page-dot"></div>
+      <div class="page-dot"></div>
+      <div class="page-dot"></div>
+    </div>
+    <div class="hw-badge"> Apple Silicon • 16 GB • Local MLX</div>
+  </div>
+</div>
+
+<!-- Hidden fallback file input -->
+<input type="file" id="filePicker" accept=".mp4,.mov,.mkv,.m4v,.avi" style="display:none" onchange="onFilePicked(event)">
+
+<!-- =========================================================
+     4 Figma Alert Modals
+     ========================================================= -->
+<div id="modalBackdrop" class="modal-backdrop">
+
+  <!-- Alert 1: Токен Hugging Face -->
+  <div id="modal-token" class="alert-card">
+    <div class="alert-title">Токен Hugging Face</div>
+    <div class="alert-desc">
+      Требуется один раз для загрузки модели распознавания спикеров (Pyannote). Токен бесплатный и сохранится на вашем Mac.
+    </div>
+    <button class="btn-hf-green" onclick="openExternal('https://huggingface.co/settings/tokens')">
+      Получить токен на huggingface.co ↗
+    </button>
+    <input id="hfTokenInput" type="password" class="alert-input" placeholder="hf_..." autocomplete="off">
+    <button class="alert-btn-blue" onclick="saveHfToken()">Сохранить</button>
+    <button class="alert-btn-gray" onclick="closeModal()">Отмена</button>
+  </div>
+
+  <!-- Alert 2: Загрузка нейросетей -->
+  <div id="modal-models-prompt" class="alert-card">
+    <div class="alert-title">Загрузка нейросетей</div>
+    <div class="alert-desc">
+      Для автономной работы без интернета требуется скачать модели распознавания речи, перевода и генерации голосов (~8.5 ГБ). Это делается один раз.
+    </div>
+    <button class="alert-btn-blue" onclick="startModelsDownload()">Скачать модели (~8.5 ГБ)</button>
+    <button class="alert-btn-gray" onclick="closeModal()">Напомнить позже</button>
+  </div>
+
+  <!-- Alert 3: Загрузка моделей... -->
+  <div id="modal-models-progress" class="alert-card">
+    <div class="alert-title">Загрузка моделей...</div>
+    <div class="alert-progress-track">
+      <div id="modelsProgressFill" class="alert-progress-fill"></div>
+    </div>
+    <div id="modelsSpeedCaption" class="alert-speed-caption">
+      Скорость: 25 МБ/с • Осталось примерно 3 мин
+    </div>
+    <button id="btnPauseModels" class="alert-btn-gray" onclick="togglePauseModels()">Пауза</button>
+    <button class="alert-btn-red" onclick="cancelModelsDownload()">Отмена</button>
+  </div>
+
+  <!-- Alert 4: Все модели готовы к работе -->
+  <div id="modal-models-done" class="alert-card">
+    <div class="alert-title">Все модели готовы к работе</div>
+    <div id="modelsDoneDesc" class="alert-desc">
+      8.5 ГБ на диске • Обработка полностью локальна на Apple Silicon
+    </div>
+    <button class="alert-btn-blue" onclick="closeModal()">Продолжить</button>
+  </div>
+
+</div>
+
+<script>
+  const API_BASE = window.AI_DUB_API || "http://127.0.0.1:8765";
+  let selectedVideoPath = null;
+  let selectedVideoName = null;
+  let lastOutputVideo = null;
+  let pollTimer = null;
+  let modelsPollTimer = null;
+  let modelsPaused = false;
+
+  const STAGE_NAMES_RU = {
+    extract_audio: "Извлечение аудио",
+    transcription: "Распознавание речи",
+    alignment: "Выравнивание таймкодов",
+    diarization: "Определение спикеров",
+    segment_merge: "Сборка реплик",
+    translation: "Нейроперевод диалогов",
+    dialogue: "Адаптация таймингов",
+    tts: "Синтез русской речи",
+    sfx: "Звуковые эффекты (SFX)",
+    ambience: "Подбор фонового шума",
+    audio_mix: "Сведение аудиодорожек",
+    video_render: "Сборка финального видео"
+  };
+
+  function setPageDot(index) {
+    const dots = document.querySelectorAll("#pageControl .page-dot");
+    dots.forEach((d, idx) => {
+      d.classList.toggle("active", idx === index);
+    });
+  }
+
+  function setSelectedVideo(path, name) {
+    selectedVideoPath = path;
+    selectedVideoName = name || path.split("/").pop();
+    const wellTitle = document.getElementById("wellTitle");
+    const wellSubtitle = document.getElementById("wellSubtitle");
+    wellTitle.innerHTML = "Видео выбрано";
+    wellSubtitle.style.display = "block";
+    wellSubtitle.textContent = selectedVideoName;
+    setPageDot(0);
+  }
+
+  // Called by native Swift wrapper when file is dropped or picked via NSOpenPanel
+  window.onNativeFileSelected = function(path) {
+    if (path) {
+      setSelectedVideo(path);
+    }
+  };
+
+  function onWellClick() {
+    const card = document.getElementById("wellCard");
+    if (card.classList.contains("state-running") || card.classList.contains("state-done")) {
+      return;
+    }
+    if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.nativeApp) {
+      window.webkit.messageHandlers.nativeApp.postMessage({ action: "pickFile" });
+    } else {
+      document.getElementById("filePicker").click();
+    }
+  }
+
+  async function onFilePicked(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    // Upload or resolve via input/
+    setSelectedVideo(file.name, file.name);
+  }
+
+  // Drag & Drop visuals
+  const wellCard = document.getElementById("wellCard");
+  window.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    if (!wellCard.classList.contains("state-running")) {
+      wellCard.classList.add("drag-over");
+    }
+  });
+  window.addEventListener("dragleave", (e) => {
+    e.preventDefault();
+    wellCard.classList.remove("drag-over");
+  });
+  window.addEventListener("drop", (e) => {
+    e.preventDefault();
+    wellCard.classList.remove("drag-over");
+    if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+      const f = e.dataTransfer.files[0];
+      if (!selectedVideoPath || !selectedVideoPath.startsWith("/")) {
+        setSelectedVideo(f.name, f.name);
+      }
+    }
+  });
+
+  // Switch UI between 3 main states
+  function enterRunningState() {
+    const card = document.getElementById("wellCard");
+    card.classList.remove("state-done");
+    card.classList.add("state-running");
+
+    document.getElementById("wellTitle").innerHTML = "Ожидайте";
+    const sub = document.getElementById("wellSubtitle");
+    sub.style.display = "block";
+    sub.textContent = "Подготовка конвейера…";
+
+    document.getElementById("controlsIdle").style.display = "none";
+    document.getElementById("controlsDone").style.display = "none";
+    document.getElementById("controlsRunning").style.display = "flex";
+    document.getElementById("dubProgressFill").style.width = "6px";
+    setPageDot(1);
+  }
+
+  function enterDoneState(outputPath) {
+    lastOutputVideo = outputPath;
+    const card = document.getElementById("wellCard");
+    card.classList.remove("state-running");
+    card.classList.add("state-done");
+
+    document.getElementById("wellTitle").innerHTML = "Готово!";
+    const sub = document.getElementById("wellSubtitle");
+    sub.style.display = "block";
+    sub.textContent = outputPath ? outputPath.split("/").pop() : "Дубляж успешно завершён";
+
+    document.getElementById("controlsIdle").style.display = "none";
+    document.getElementById("controlsRunning").style.display = "none";
+    document.getElementById("controlsDone").style.display = "flex";
+    setPageDot(5);
+  }
+
+  function resetToIdle() {
+    if (pollTimer) {
+      clearInterval(pollTimer);
+      pollTimer = null;
+    }
+    const card = document.getElementById("wellCard");
+    card.classList.remove("state-running", "state-done");
+
+    if (selectedVideoName) {
+      document.getElementById("wellTitle").innerHTML = "Видео выбрано";
+      const sub = document.getElementById("wellSubtitle");
+      sub.style.display = "block";
+      sub.textContent = selectedVideoName;
+    } else {
+      document.getElementById("wellTitle").innerHTML = "Перетащите<br>видео сюда";
+      document.getElementById("wellSubtitle").style.display = "none";
+    }
+
+    document.getElementById("controlsRunning").style.display = "none";
+    document.getElementById("controlsDone").style.display = "none";
+    document.getElementById("controlsIdle").style.display = "flex";
+    setPageDot(0);
+  }
+
+  async function startDubbing() {
+    try {
+      if (!selectedVideoPath) {
+        // Check if there is a default video in input/
+        const vRes = await fetch(`${API_BASE}/api/videos`);
+        const vData = await vRes.json();
+        if (vData.input && vData.input.length > 0) {
+          setSelectedVideo(vData.input[0].path, vData.input[0].name);
+        } else {
+          onWellClick();
+          return;
+        }
+      }
+
+      const mode = document.getElementById("modeSelect").value;
+      const duration = mode === "test" ? 150.0 : null;
+
+      enterRunningState();
+
+      const res = await fetch(`${API_BASE}/api/dub/start`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          video_path: selectedVideoPath,
+          duration: duration,
+          start: 0.0,
+          resume: true
+        })
+      });
+
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.detail || "Не удалось запустить дубляж");
+      }
+
+      startStatusPolling();
+    } catch (e) {
+      alert(e.message);
+      resetToIdle();
+    }
+  }
+
+  function startStatusPolling() {
+    if (pollTimer) clearInterval(pollTimer);
+    pollTimer = setInterval(async () => {
+      try {
+        const res = await fetch(`${API_BASE}/api/dub/status`);
+        const data = await res.json();
+        updateProgressUI(data);
+      } catch (e) {
+        // Ignore transient network hiccups
+      }
+    }, 600);
+  }
+
+  function updateProgressUI(data) {
+    const pct = Math.max(0, Math.min(100, Math.round((data.overall_progress || 0) * 100)));
+    const fill = document.getElementById("dubProgressFill");
+    fill.style.width = pct > 2 ? `${pct}%` : "6px";
+
+    if (typeof data.page_dot === "number") {
+      setPageDot(data.page_dot);
+    }
+
+    const sub = document.getElementById("wellSubtitle");
+    if (data.current_stage) {
+      const stageRu = STAGE_NAMES_RU[data.current_stage] || data.current_stage;
+      sub.textContent = `${stageRu} • ${pct}%`;
+    }
+
+    if (!data.is_running) {
+      if (pollTimer) {
+        clearInterval(pollTimer);
+        pollTimer = null;
+      }
+      if (data.all_completed) {
+        enterDoneState(data.output_video);
+      } else if (data.last_error) {
+        sub.textContent = `Ошибка: ${data.last_error}`;
+        setTimeout(() => resetToIdle(), 3500);
+      } else {
+        resetToIdle();
+      }
+    }
+  }
+
+  async function cancelDubbing() {
+    try {
+      await fetch(`${API_BASE}/api/dub/cancel`, { method: "POST" });
+    } catch (e) {}
+    resetToIdle();
+  }
+
+  async function revealOutput() {
+    if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.nativeApp && lastOutputVideo) {
+      window.webkit.messageHandlers.nativeApp.postMessage({ action: "revealFile", path: lastOutputVideo });
+      return;
+    }
+    await fetch(`${API_BASE}/api/system/reveal`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ path: lastOutputVideo || "" })
+    });
+  }
+
+  function openExternal(url) {
+    if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.nativeApp) {
+      window.webkit.messageHandlers.nativeApp.postMessage({ action: "openUrl", url: url });
+    } else {
+      window.open(url, "_blank");
+    }
+  }
+
+  /* =========================================================
+     Modals Logic (HF Token & Models Download)
+     ========================================================= */
+  function openModal(id) {
+    document.querySelectorAll(".alert-card").forEach(el => el.classList.remove("active"));
+    const target = document.getElementById(`modal-${id}`);
+    if (target) {
+      target.classList.add("active");
+      document.getElementById("modalBackdrop").classList.add("visible");
+    }
+  }
+
+  function closeModal() {
+    document.getElementById("modalBackdrop").classList.remove("visible");
+    document.querySelectorAll(".alert-card").forEach(el => el.classList.remove("active"));
+  }
+
+  async function saveHfToken() {
+    const token = document.getElementById("hfTokenInput").value.trim();
+    if (!token) return;
+    const res = await fetch(`${API_BASE}/api/setup/token`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ token })
+    });
+    if (res.ok) {
+      closeModal();
+      checkInitialSetup(false);
+    }
+  }
+
+  async function startModelsDownload() {
+    openModal("models-progress");
+    modelsPaused = false;
+    document.getElementById("btnPauseModels").textContent = "Пауза";
+    await fetch(`${API_BASE}/api/setup/models/download`, { method: "POST" });
+
+    if (modelsPollTimer) clearInterval(modelsPollTimer);
+    modelsPollTimer = setInterval(async () => {
+      const res = await fetch(`${API_BASE}/api/setup/models/status`);
+      const st = await res.json();
+      const pct = Math.max(2, Math.round((st.progress || 0) * 100));
+      document.getElementById("modelsProgressFill").style.width = `${pct}%`;
+      document.getElementById("modelsSpeedCaption").textContent =
+        st.caption || `Скорость: ${st.speed_mbps || 25} МБ/с • Осталось примерно ${st.eta_min || 3} мин`;
+
+      if (st.completed) {
+        clearInterval(modelsPollTimer);
+        modelsPollTimer = null;
+        document.getElementById("modelsDoneDesc").textContent =
+          `${st.total_gb || "8.5"} ГБ на диске • Обработка полностью локальна на Apple Silicon`;
+        openModal("models-done");
+      }
+    }, 500);
+  }
+
+  async function togglePauseModels() {
+    modelsPaused = !modelsPaused;
+    document.getElementById("btnPauseModels").textContent = modelsPaused ? "Продолжить" : "Пауза";
+    await fetch(`${API_BASE}/api/setup/models/pause`, { method: "POST" });
+  }
+
+  async function cancelModelsDownload() {
+    if (modelsPollTimer) {
+      clearInterval(modelsPollTimer);
+      modelsPollTimer = null;
+    }
+    await fetch(`${API_BASE}/api/setup/models/cancel`, { method: "POST" });
+    closeModal();
+  }
+
+  async function checkInitialSetup(autoShow = true) {
+    try {
+      const res = await fetch(`${API_BASE}/api/setup/status`);
+      const st = await res.json();
+      if (autoShow) {
+        if (!st.hf_token_set) {
+          openModal("token");
+        } else if (!st.models_ready) {
+          openModal("models-prompt");
+        }
+      } else if (st.models_ready) {
+        document.getElementById("modelsDoneDesc").textContent =
+          `${st.cached_gb} ГБ на диске • Обработка полностью локальна на Apple Silicon`;
+      }
+
+      // Check if a dubbing job is already active
+      const dubRes = await fetch(`${API_BASE}/api/dub/status`);
+      const dubSt = await dubRes.json();
+      if (dubSt.is_running) {
+        enterRunningState();
+        updateProgressUI(dubSt);
+        startStatusPolling();
+      }
+    } catch (e) {
+      // Retry when backend finishes booting
+      setTimeout(() => checkInitialSetup(autoShow), 800);
+    }
+  }
+
+  // Override models button to show ready card if already downloaded
+  document.querySelectorAll(".icon-pill")[1].onclick = async () => {
+    try {
+      const res = await fetch(`${API_BASE}/api/setup/status`);
+      const st = await res.json();
+      if (st.models_ready) {
+        document.getElementById("modelsDoneDesc").textContent =
+          `${st.cached_gb} ГБ на диске • Обработка полностью локальна на Apple Silicon`;
+        openModal("models-done");
+      } else {
+        openModal("models-prompt");
+      }
+    } catch (e) {
+      openModal("models-prompt");
+    }
+  };
+
+  // Enable dragging the native macOS window from titlebar or background
+  window.addEventListener("mousedown", (e) => {
+    if (e.button !== 0) return;
+    const interactive = e.target.closest("button, select, input, a, #wellCard, .alert-card, .popup-button-wrap");
+    if (!interactive && window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.nativeApp) {
+      window.webkit.messageHandlers.nativeApp.postMessage({ action: "startDrag" });
+    }
+  });
+
+  window.addEventListener("DOMContentLoaded", () => {
+    checkInitialSetup(true);
+  });
+</script>
+</body>
+</html>

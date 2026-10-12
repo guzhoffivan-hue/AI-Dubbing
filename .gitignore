@@ -23,3 +23,5 @@ test_run_1200s/logs/
 .freebuff
 test_run_1200s/.venvs/
 test_run_1200s/.venvs
+AI Dubber.app/
+*.dmg

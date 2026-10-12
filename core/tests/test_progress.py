@@ -94,7 +94,7 @@ def test_a_stage_reports_progress_while_it_runs(tmp_path):
     def run(run_context):
         run_context.on_output_line("ASR Chunk 1/2 completed (975 chars)")
         progress_inside_the_stage.append(
-            pipeline.state.get(PipelineStage.ANALYSIS.value).progress
+            pipeline.state.get(PipelineStage.EXTRACT_AUDIO.value).progress
         )
         run_context.on_output_line("ASR Chunk 2/2 completed (1008 chars)")
         return StageOutcome(value="ok")
@@ -105,13 +105,13 @@ def test_a_stage_reports_progress_while_it_runs(tmp_path):
         handlers={},
     )
     pipeline.register(
-        PipelineStage.ANALYSIS,
+        PipelineStage.EXTRACT_AUDIO,
         StageHandler(run=run, progress=LogProgress(ASR_PATTERNS)),
     )
     pipeline.run()
 
     fractions = [
-        report.progress for report in reports if report.stage == PipelineStage.ANALYSIS
+        report.progress for report in reports if report.stage == PipelineStage.EXTRACT_AUDIO
     ]
 
     assert 0.5 in fractions
@@ -119,7 +119,7 @@ def test_a_stage_reports_progress_while_it_runs(tmp_path):
     # state file for every line.
     assert progress_inside_the_stage == [0.5]
     # The finished stage still ends at 1.0 and is reported as completed.
-    assert pipeline.state.get(PipelineStage.ANALYSIS.value).status == StageStatus.COMPLETED
+    assert pipeline.state.get(PipelineStage.EXTRACT_AUDIO.value).status == StageStatus.COMPLETED
     assert fractions[-1] == 1.0
 
 
@@ -133,11 +133,11 @@ def test_a_stage_without_a_reader_gets_no_intermediate_reports(tmp_path):
         return StageOutcome(value="ok")
 
     pipeline = Pipeline(context=context, on_progress=reports.append, handlers={})
-    pipeline.register(PipelineStage.ANALYSIS, StageHandler(run=run))
+    pipeline.register(PipelineStage.EXTRACT_AUDIO, StageHandler(run=run))
     pipeline.run()
 
     assert [
-        report.progress for report in reports if report.stage == PipelineStage.ANALYSIS
+        report.progress for report in reports if report.stage == PipelineStage.EXTRACT_AUDIO
     ] == [0.0, 1.0]
 
 
@@ -155,12 +155,12 @@ def test_a_broken_reader_cannot_fail_a_working_stage(tmp_path):
 
     pipeline = Pipeline(context=context, on_progress=reports.append, handlers={})
     pipeline.register(
-        PipelineStage.ANALYSIS,
+        PipelineStage.EXTRACT_AUDIO,
         StageHandler(run=run, progress=broken_reader),
     )
     pipeline.run()
 
-    assert pipeline.state.get(PipelineStage.ANALYSIS.value).status == StageStatus.COMPLETED
+    assert pipeline.state.get(PipelineStage.EXTRACT_AUDIO.value).status == StageStatus.COMPLETED
 
 
 def test_the_line_callback_is_cleared_after_the_stage(tmp_path):
@@ -171,7 +171,7 @@ def test_the_line_callback_is_cleared_after_the_stage(tmp_path):
 
     pipeline = Pipeline(
         context=context,
-        handlers={PipelineStage.ANALYSIS: StageHandler(run=run)},
+        handlers={PipelineStage.EXTRACT_AUDIO: StageHandler(run=run)},
     )
     pipeline.run()
 
