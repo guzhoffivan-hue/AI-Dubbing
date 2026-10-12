@@ -61,16 +61,17 @@ def _span(group):
 def _speaker(group):
     return group[0].get('speaker', 'SPEAKER_00')
 
-def absorb_zero_span_groups(groups):
-    """Fold groups that carry text but no duration into a neighbouring same-speaker group.
+MIN_SEGMENT_SPAN = 0.15
 
-    Some aligner tokens have start == end (761 of 8607 tokens in the 1200 s test, mostly
-    function characters such as 的/了/一). A group consisting only of such tokens has a
-    zero-length span; emitting it as a dialogue line creates a segment no TTS stage can
-    fit. Folding it into an adjacent group of the SAME speaker preserves every token,
-    every timestamp and the speaker assignment: nothing is invented, shifted or deleted.
-    A token at a speaker boundary stays on its own, so confirmed speaker turns are never
-    crossed.
+def absorb_zero_span_groups(groups):
+    """Fold zero-span and sub-150ms aligner micro-fragments into neighbouring same-speaker groups.
+
+    Aligner tokens occasionally have start == end or micro-spans (< 150 ms, e.g. a single
+    character like '行？' or '偷了！' aligned to 80 ms). Emitting them as isolated dialogue
+    lines fragments sentences (e.g. '怎么不' split from '行？' leaving an unnatural silence
+    at second 6) and starves TTS of speakable duration. Folding them into an adjacent group
+    of the SAME speaker preserves all text and timestamps while restoring natural complete
+    utterances.
     """
     groups = [list(group) for group in groups]
     folded = 0
@@ -78,16 +79,24 @@ def absorb_zero_span_groups(groups):
     while changed and len(groups) > 1:
         changed = False
         for index, group in enumerate(groups):
-            if _span(group) > 0:
+            span_val = _span(group)
+            if span_val >= MIN_SEGMENT_SPAN:
                 continue
             speaker = _speaker(group)
-            targets = [i for i in (index + 1, index - 1)
+            if span_val <= 0.001:
+                candidates = (index + 1, index - 1)
+            else:
+                prev_group = groups[index - 1] if index > 0 else None
+                prev_punct = ''.join(x.get('punctuation_after', '') for x in prev_group) if prev_group else ''
+                if prev_group and not any(c in prev_punct for c in SENTENCE_END):
+                    candidates = (index - 1, index + 1)
+                else:
+                    candidates = (index + 1, index - 1)
+            targets = [i for i in candidates
                        if 0 <= i < len(groups) and _speaker(groups[i]) == speaker]
             for target in targets:
-                merged = (group + groups[target]) if target > index else (groups[target] + group)
+                merged = (groups[target] + group) if target < index else (group + groups[target])
                 if _span(merged) > MAX_SEGMENT_DURATION:
-                    # Refuse a fold that would itself break the duration bound: keeping a
-                    # degenerate line is more honest than stretching a line over a gap.
                     continue
                 groups[target] = merged
                 groups.pop(index)
@@ -97,6 +106,7 @@ def absorb_zero_span_groups(groups):
             if changed:
                 break
     return groups, folded
+
 
 def group_words(words, voice_types=None):
     if not words:
