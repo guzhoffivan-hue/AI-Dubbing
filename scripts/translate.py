@@ -3,10 +3,23 @@
 import argparse, json, re, difflib
 from common import ROOT, WORK, config, read_json, write_json, load_env, speech_rate
 
-def clean_answer(text):
-    text=re.sub(r'<think>.*?</think>','',text,flags=re.S).strip()
-    text=re.sub(r'^(?:<<<\d+>>>|\d+[.)])\s*','',text).strip()
-    return text.strip('"“” «»\n ')
+def clean_answer(text, source_text=''):
+    text = re.sub(r'<think>.*?</think>', '', text, flags=re.S).strip()
+    text = re.sub(r'^(?:<<<\d+>>>|\d+[.)])\s*', '', text).strip()
+    text = text.strip('"“” «»\n ')
+    # Strip dangling trailing commas/colons/dashes that choke TTS prosody
+    text = re.sub(r'[,;:\-—–]+$', '', text).strip()
+    if text:
+        src = (source_text or '').strip()
+        if src.endswith(('？', '?')) and not text.endswith('?'):
+            text = text.rstrip('.!…') + '?'
+        elif src.endswith(('！', '!')) and not text.endswith('!'):
+            text = text.rstrip('.?…') + '!'
+        elif src.endswith(('…', '...')) and not text.endswith('...'):
+            text = text.rstrip('.!?') + '...'
+        elif not text.endswith(('.', '!', '?', '…', '...')):
+            text = text + '.'
+    return text
 
 # Characters of Russian accepted per second of source slot. Set in main() from the
 # measured speech rate and the configured tempo target. The old hard-coded 13.5 forced
@@ -180,7 +193,7 @@ def main():
         patched=0
         for it,val in zip(items,values):
             if isinstance(val,str) and val.strip():
-                it['translated_text']=clean_answer(val); it['translation_attempts']=2; patched+=1
+                it['translated_text']=clean_answer(val, it.get('source_chinese') or it.get('source_text','')); it['translation_attempts']=2; patched+=1
         print(f'  batch shorten: rewrote {patched}/{len(items)} lines in one call',flush=True)
 
     pending={}; to_shorten=[]
@@ -196,14 +209,14 @@ def main():
         from_batch=bool(answer)
         attempts=1; first=answer
         if answer:
-            answer=clean_answer(answer); first=answer
+            answer=clean_answer(answer, line.get('source_text','')); first=answer
             print(f'  from batch: {len(answer)} chars', flush=True)
         else:
             messages=make_prompt(line,prev,following,max_chars,slot)
             try: prompt=tokenizer.apply_chat_template(messages,tokenize=False,add_generation_prompt=True,enable_thinking=False)
             except TypeError: prompt=tokenizer.apply_chat_template(messages,tokenize=False,add_generation_prompt=True)+'\n/no_think\n'
             try:
-                answer=clean_answer(generate(model,tokenizer,prompt=prompt,max_tokens=384,verbose=False,sampler=make_sampler(temp=0.0)))
+                answer=clean_answer(generate(model,tokenizer,prompt=prompt,max_tokens=384,verbose=False,sampler=make_sampler(temp=0.0)), line.get('source_text',''))
             except Exception as e:
                 print(f'ERROR generation failed for {line["segment_id"]}: {e}', flush=True)
                 answer=''
@@ -213,7 +226,7 @@ def main():
             try: short_prompt=tokenizer.apply_chat_template(short_messages,tokenize=False,add_generation_prompt=True,enable_thinking=False)
             except TypeError: short_prompt=tokenizer.apply_chat_template(short_messages,tokenize=False,add_generation_prompt=True)+'\n/no_think\n'
             try:
-                answer=clean_answer(generate(model,tokenizer,prompt=short_prompt,max_tokens=192,verbose=False,sampler=make_sampler(temp=0.0)))
+                answer=clean_answer(generate(model,tokenizer,prompt=short_prompt,max_tokens=192,verbose=False,sampler=make_sampler(temp=0.0)), line.get('source_text',''))
             except Exception as e:
                 print(f'ERROR retry generation failed for {line["segment_id"]}: {e}', flush=True)
                 answer=''

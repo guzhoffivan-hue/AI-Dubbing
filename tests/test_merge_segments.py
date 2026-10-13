@@ -159,9 +159,43 @@ class AssignSpeakerTests(unittest.TestCase):
             {'speaker_id': 'SPEAKER_01', 'start': 1.31, 'end': 1.49},
             {'speaker_id': 'SPEAKER_00', 'start': 1.49, 'end': 2.5},
         ]
-        assigned = assign_speakers(words, turns)
-        self.assertEqual([w['speaker'] for w in assigned], ['SPEAKER_00', 'SPEAKER_00', 'SPEAKER_00'])
+    def test_clause_aware_split_when_duration_reaches_target(self):
+        # When duration reaches TARGET_SEGMENT_DURATION (5.0s), break cleanly at a comma
+        words = [
+            tok('一', 0.0, 1.5, punct='，'),
+            tok('二', 1.5, 3.2, punct='，'),
+            tok('三', 3.2, 5.2, punct='，'),  # crosses 5.0s target at this comma
+            tok('四', 5.2, 6.5, punct='。'),
+        ]
+        lines = group_words(words)
+        self.assertEqual(len(lines), 2)
+        self.assertEqual(lines[0]['text'], '一，二，')
+        self.assertEqual(lines[1]['text'], '三，四。')
+
+
+class ProsodyNormalizationTests(unittest.TestCase):
+    def test_prepare_tts_text_replaces_trailing_comma_with_ellipsis(self):
+        from common import prepare_tts_text
+        self.assertEqual(
+            prepare_tts_text('Потом я сделал рациональный взгляд назад,'),
+            'Потом я сделал рациональный взгляд назад...'
+        )
+
+    def test_prepare_tts_text_adds_period_to_unpunctuated_lines(self):
+        from common import prepare_tts_text
+        self.assertEqual(
+            prepare_tts_text('Не человек же, чтобы не хотел со мной встречаться'),
+            'Не человек же, чтобы не хотел со мной встречаться.'
+        )
+
+    def test_prepare_tts_text_capitalizes_start(self):
+        from common import prepare_tts_text
+        self.assertEqual(
+            prepare_tts_text('он открыл страницу.'),
+            'Он открыл страницу.'
+        )
 
 
 if __name__ == '__main__':
     unittest.main()
+

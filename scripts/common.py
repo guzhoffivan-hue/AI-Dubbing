@@ -39,6 +39,26 @@ def speech_rate(default=14.0):
         except Exception: pass
     return default
 
+def prepare_tts_text(text: str) -> str:
+    """Normalize Russian dialogue text and punctuation for natural TTS prosody."""
+    import re
+    if not text:
+        return ''
+    t = text.strip(' \t\n\r"\'«»“”')
+    # Replace trailing commas, semicolons, colons, or dashes that choke TTS intonation
+    if re.search(r'[,;:\-—–]$', t):
+        t = re.sub(r'[,;:\-—–]+$', '', t).strip()
+        t = t + '...'
+    elif not re.search(r'[.!?…]$', t):
+        t = t + '.'
+    # Clean up double punctuation
+    t = re.sub(r'\.{4,}', '...', t)
+    t = re.sub(r'[,;]+\.', '.', t)
+    # Ensure capitalization at start of string for sentence-initial pitch contour
+    if t and t[0].islower():
+        t = t[0].upper() + t[1:]
+    return t
+
 def chunk_offsets(durations):
     """Start offset of each sequential audio chunk, from the real chunk durations.
 

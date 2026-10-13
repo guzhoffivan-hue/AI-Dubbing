@@ -8,11 +8,12 @@ from common import WORK, read_json, write_json
 # 1061 in the 1200 s test (mean line 0.93 s), which starves translation of context
 # and gives TTS slots smaller than any speakable Russian line.
 SENTENCE_END = set('。！？!?…')
-MAX_SEGMENT_DURATION = 6.5  # Upper bound, not a target: keeps a line safe for TTS.
-# A real pause, not a micro-gap. In the 1200 s test only 14 of 1060 inter-line gaps
-# reached 0.6 s, while 923 were below 0.25 s; the old 0.25 s threshold fragmented
-# continuous speech into clause-sized pieces.
-PAUSE_SPLIT = 0.6
+CLAUSE_PUNCT = set('，,、；;：:—–…')
+MAX_SEGMENT_DURATION = 7.5  # Upper bound: keeps a line safe for TTS without breaking sentences.
+TARGET_SEGMENT_DURATION = 5.0  # Soft target: breaks at a natural clause boundary once duration reaches 5.0s.
+# A real conversational pause (>= 1.25s). Shorter gaps (0.3-1.2s) are mid-sentence breaths,
+# comedic pauses or hesitations: breaking on them fragments sentences into incomplete clauses and ruins TTS prosody.
+PAUSE_SPLIT = 1.25
 
 def attach_punctuation(text, words):
     if not words:
@@ -211,13 +212,18 @@ def group_words(words, voice_types=None):
         gap = max(0.0, w['start'] - prev['end'])
         p_after = prev.get('punctuation_after', '')
         terminal = any(c in p_after for c in SENTENCE_END)
+        clause = any(c in p_after for c in CLAUSE_PUNCT)
         cur_dur = w['end'] - cur[0]['start']
 
-        # Break on: a confirmed speaker change, a real pause, a sentence end, or the
-        # upper duration bound. A zero-width token never suppresses a break - the fold
-        # below absorbs any group it ends up alone in, which keeps the duration bound
-        # honest instead of letting a durationless token stretch a line to 14 s.
-        should_break = (not same_spk) or gap >= PAUSE_SPLIT or terminal or cur_dur >= MAX_SEGMENT_DURATION
+        # Break on: a confirmed speaker change, a terminal sentence end, a real pause (>= 1.0s),
+        # a natural clause boundary after the soft target (>= 5.0s), or hard duration bound (>= 7.5s).
+        should_break = (
+            (not same_spk)
+            or terminal
+            or gap >= PAUSE_SPLIT
+            or (cur_dur >= TARGET_SEGMENT_DURATION and (clause or gap >= 0.25))
+            or cur_dur >= MAX_SEGMENT_DURATION
+        )
         if should_break:
             lines.append(cur)
             cur = [w]

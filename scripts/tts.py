@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Generate dialogue with one persistent Russian voice profile per speaker."""
-import gc, hashlib, json, subprocess
+import gc, hashlib, json, re, subprocess
 from collections import Counter
 from pathlib import Path
 import soundfile as sf
-from common import ROOT, WORK, config, read_json, write_json
+from common import ROOT, WORK, config, read_json, write_json, prepare_tts_text
 
 PROFILE_TEXT='Сегодня тихо светает. Я расскажу эту историю спокойно, ясно и выразительно.'
 PROFILE_VERSION=2
@@ -111,6 +111,8 @@ def main():
     cfg=config(); backend=cfg.get('tts_backend','qwen3')
     data=read_json(WORK/'dialogue.json'); speaker_data=read_json(WORK/'speakers.json')
     lines=data['lines']
+    for line in lines:
+        line['translated_text'] = prepare_tts_text(line.get('translated_text', ''))
     speaker_ids=sorted({line.get('speaker_id',line.get('speaker','UNKNOWN')) for line in lines})
     segment_counts=Counter(line.get('speaker_id',line.get('speaker','UNKNOWN')) for line in lines)
     voice_types=speaker_data.get('voice_types',{})
